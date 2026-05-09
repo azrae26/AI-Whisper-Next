@@ -12,17 +12,24 @@ $stagedDistDir = Join-Path $stagedDistRoot "AI Whisper"
 $configBak = Join-Path $workspace "config.json.pack.bak"
 
 function Stop-AiWhisper {
-    $procs = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
-    if ($procs) {
+    # Kill EXE version
+    if (Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue) {
         taskkill /F /T /IM "AI Whisper.exe" 2>$null
     }
+    # Kill Python dev version (run_ai_whisper.py)
+    $pyProcs = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
+        Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
+    foreach ($p in $pyProcs) {
+        taskkill /F /T /PID $p.ProcessId 2>&1 | Out-Null
+    }
     for ($i = 0; $i -lt 40; $i++) {
-        if (-not (Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue)) {
-            return
-        }
+        $exeAlive = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
+        $pyAlive  = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
+            Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
+        if (-not $exeAlive -and -not $pyAlive) { return }
         Start-Sleep -Milliseconds 250
     }
-    throw "AI Whisper.exe did not exit in time"
+    throw "AI Whisper did not exit in time"
 }
 
 function Remove-DirectoryWithRetry([string]$Path) {
