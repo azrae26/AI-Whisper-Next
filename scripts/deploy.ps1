@@ -14,13 +14,13 @@ $configBak = Join-Path $workspace "config.json.pack.bak"
 function Stop-AiWhisper {
     # Kill EXE version
     if (Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue) {
-        taskkill /F /T /IM "AI Whisper.exe" 2>$null
+        try { taskkill /F /T /IM "AI Whisper.exe" 2>$null } catch {}
     }
     # Kill Python dev version (run_ai_whisper.py)
     $pyProcs = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
         Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
     foreach ($p in $pyProcs) {
-        taskkill /F /T /PID $p.ProcessId 2>&1 | Out-Null
+        try { taskkill /F /T /PID $p.ProcessId 2>$null } catch {}
     }
     for ($i = 0; $i -lt 40; $i++) {
         $exeAlive = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue

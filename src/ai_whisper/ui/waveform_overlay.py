@@ -28,6 +28,7 @@ class WaveformOverlay(QWidget):
             | Qt.WindowType.WindowTransparentForInput
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
+        self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating, True)
         self.setFixedSize(WIN_W, WIN_H)
         self._levels: list[float] = []
         self._processing = False
@@ -37,6 +38,9 @@ class WaveformOverlay(QWidget):
         self._status_until = 0.0
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
+        # Prime the window surface so it renders correctly on first use
+        # without needing the app to have been in the foreground first
+        self.show()
         self.hide()
 
     def show_recording(self) -> None:

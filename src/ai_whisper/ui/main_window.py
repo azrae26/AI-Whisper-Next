@@ -35,7 +35,7 @@ STATUS_FONT_SIZE = 14
 def _style() -> str:
     return """
     QWidget { background: #121212; color: #F4F4F5; font-family: "Microsoft JhengHei UI"; }
-    QFrame#top { background: #18181B; }
+    QFrame#top { background: #121212; }
     QPushButton { border-radius: 8px; background: #27272A; border: 1px solid #3F3F46; padding: 6px 10px; color:#F4F4F5; outline: none; }
     QPushButton:focus { outline: none; }
     QPushButton:hover { background: #3F3F46; }
