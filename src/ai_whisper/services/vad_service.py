@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import threading
 from dataclasses import dataclass
 
 import numpy as np
@@ -17,6 +18,7 @@ SILERO_FRAME_SIZE = 512
 
 _silero_model = None
 _silero_available: bool | None = None
+_silero_lock = threading.Lock()
 
 
 @dataclass(frozen=True)
@@ -34,23 +36,32 @@ def _load_silero_vad() -> bool:
     global _silero_model, _silero_available
     if _silero_available is not None:
         return _silero_available
-    try:
-        import torch
-        safe_print("[recorder][VAD] 載入 Silero VAD 模型...")
-        model, _ = torch.hub.load(
-            "snakers4/silero-vad",
-            "silero_vad",
-            force_reload=False,
-            trust_repo=True,
-        )
-        model.eval()
-        _silero_model = model
-        _silero_available = True
-        safe_print("[recorder][VAD] Silero VAD 模型載入完成")
-    except Exception as e:
-        safe_print(f"[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: {e}")
-        _silero_available = False
+    with _silero_lock:
+        if _silero_available is not None:
+            return _silero_available
+        try:
+            import torch
+            safe_print("[recorder][VAD] 載入 Silero VAD 模型...")
+            model, _ = torch.hub.load(
+                "snakers4/silero-vad",
+                "silero_vad",
+                force_reload=False,
+                trust_repo=True,
+            )
+            model.eval()
+            _silero_model = model
+            _silero_available = True
+            safe_print("[recorder][VAD] Silero VAD 模型載入完成")
+        except Exception as e:
+            safe_print(f"[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: {e}")
+            _silero_available = False
     return _silero_available
+
+
+def preload_silero_vad() -> None:
+    """在背景 thread 預載 Silero VAD，讓第一次錄音不需要等待。"""
+    t = threading.Thread(target=_load_silero_vad, daemon=True, name="VAD-preload")
+    t.start()
 
 
 def _build_analysis(

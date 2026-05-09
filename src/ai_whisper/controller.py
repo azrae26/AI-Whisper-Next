@@ -14,7 +14,13 @@ from .services.hotkey_service import HotkeyService
 from .services.paste_service import PasteService
 from .services.settings_store import SettingsStore, is_startup_enabled, set_startup
 from .services.transcription_service import TranscriptionService
+from .services.vad_service import preload_silero_vad
 from .ui.main_window import MainWindow
+
+STATUS_CLEAR_DELAY_MS = 3500
+ERROR_STATUS_CLEAR_DELAY_MS = 5500
+OVERLAY_STATUS_CLEAR_DELAY_MS = 2000
+ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS = 4000
 
 
 class AppController(QObject):
@@ -56,6 +62,7 @@ class AppController(QObject):
 
         self._connect()
         self._apply_initial_state()
+        preload_silero_vad()
 
     def _connect(self) -> None:
         self.window.toggle_clicked.connect(self.toggle_recording)
@@ -166,7 +173,12 @@ class AppController(QObject):
         self.executor.submit(self._process_final_audio, frames, self._prev_seg_event)
 
     def _process_final_audio(self, frames, prev_event: threading.Event) -> None:
-        segment = self.audio.process_frames(frames, "stop")
+        try:
+            segment = self.audio.process_frames(frames, "stop")
+        except Exception as e:
+            safe_print(f"[main][{now_str()}] ❌ 音訊處理失敗: {e}")
+            self.no_audio.emit()
+            return
         if not segment.wav_bytes:
             self.no_audio.emit()
             return
@@ -279,7 +291,8 @@ class AppController(QObject):
         self.window.set_idle_state()
         self.window.add_history(text)
         self.window.set_status("辨識完成 ✓", "#10B981")
-        QTimer.singleShot(2000, lambda: self.window.set_status("等待中", "#A1A1AA"))
+        self.window.show_overlay_status("辨識完成 ✓", "#10B981", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_transcribe_error(self, err_msg: str) -> None:
         self.state = "idle"
@@ -290,13 +303,15 @@ class AppController(QObject):
         else:
             short = err_msg[:60] + "…" if len(err_msg) > 60 else err_msg
             self.window.set_status(f"❌ {short}", "#EF4444")
-        QTimer.singleShot(4000, lambda: self.window.set_status("等待中", "#A1A1AA"))
+        self.window.show_overlay_status("辨識失敗", "#EF4444", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
+        QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_no_audio(self) -> None:
         self.state = "idle"
         self.window.set_idle_state()
         self.window.set_status("⚠ 未錄到音訊", "#F59E0B")
-        QTimer.singleShot(2000, lambda: self.window.set_status("等待中", "#A1A1AA"))
+        self.window.show_overlay_status("未錄到音訊", "#F59E0B", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _tick_anim(self) -> None:
         if self.state != "recording":
@@ -319,7 +334,7 @@ class AppController(QObject):
         text = self.window.history_text(idx)
         if text:
             safe_print(f"[main][{now_str()}] 📋 貼上記憶 {idx + 1}: \"{text[:20]}\"")
-            self.paste.paste_text(text, delay_ms=30)
+            self.paste.paste_text(text, delay_ms=0)
         else:
             safe_print(f"[main][{now_str()}] ⚠️ 記憶 {idx + 1} 不存在")
 

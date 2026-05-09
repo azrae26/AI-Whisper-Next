@@ -32,12 +32,17 @@ class WaveformOverlay(QWidget):
         self._levels: list[float] = []
         self._processing = False
         self._proc_start = 0.0
+        self._status_text = ""
+        self._status_color = QColor(16, 185, 129, 240)
+        self._status_until = 0.0
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
         self.hide()
 
     def show_recording(self) -> None:
         self._processing = False
+        self._status_text = ""
+        self._levels = []
         self._timer.stop()
         self._position_at_cursor_screen()
         self.show()
@@ -46,7 +51,19 @@ class WaveformOverlay(QWidget):
 
     def show_processing(self) -> None:
         self._processing = True
+        self._status_text = ""
         self._proc_start = time.time()
+        self._position_at_cursor_screen()
+        self.show()
+        self.raise_()
+        self._timer.start(33)
+
+    def show_status(self, text: str, color: str, duration_ms: int) -> None:
+        self._processing = False
+        self._status_text = text
+        self._status_color = QColor(color)
+        self._status_color.setAlpha(240)
+        self._status_until = time.time() + duration_ms / 1000
         self._position_at_cursor_screen()
         self.show()
         self.raise_()
@@ -54,6 +71,7 @@ class WaveformOverlay(QWidget):
 
     def hide_overlay(self) -> None:
         self._processing = False
+        self._status_text = ""
         self._timer.stop()
         self.hide()
 
@@ -73,7 +91,10 @@ class WaveformOverlay(QWidget):
         self.move(x, y)
 
     def _tick_processing(self) -> None:
-        if not self._processing:
+        if self._status_text and time.time() >= self._status_until:
+            self.hide_overlay()
+            return
+        if not self._processing and not self._status_text:
             return
         self.update()
 
@@ -100,10 +121,18 @@ class WaveformOverlay(QWidget):
             g = int(211 + (232 - 211) * t)
             b = int(238 + (249 - 238) * t)
             painter.setPen(QColor(r, g, b, 240))
-            font = QFont("Microsoft JhengHei UI", 18)
+            font = QFont("Microsoft JhengHei UI", 13)
             font.setBold(True)
             painter.setFont(font)
             painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "識別中…")
+            return
+
+        if self._status_text:
+            painter.setPen(self._status_color)
+            font = QFont("Microsoft JhengHei UI", 13)
+            font.setBold(True)
+            painter.setFont(font)
+            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, self._status_text)
             return
 
         data = self._levels

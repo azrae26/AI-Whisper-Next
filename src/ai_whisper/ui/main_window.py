@@ -28,6 +28,9 @@ from ..paths import asset_dir
 from ..text_processing import corrections_to_text, parse_text_corrections
 from .waveform_overlay import WaveformOverlay
 
+HISTORY_MIC_OFFSET_Y = 12
+STATUS_FONT_SIZE = 14
+
 
 def _style() -> str:
     return """
@@ -75,6 +78,10 @@ def _create_window_button(text: str, close: bool = False) -> QPushButton:
     btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
     btn.setCursor(Qt.CursorShape.PointingHandCursor)
     return btn
+
+
+def _status_style(color: str) -> str:
+    return f"color:{color};font-size:{STATUS_FONT_SIZE}px;font-weight:700;"
 
 
 class ToggleSwitch(QCheckBox):
@@ -601,7 +608,7 @@ class MainWindow(QMainWindow):
         self.mic_btn.setEnabled(True)
         self.mic_btn.setStyleSheet("background:#520000;color:#FECACA;border:2px solid #EF4444;border-radius:28px;font-size:18px;font-weight:700;")
         self.status_label.setText("● 錄音中：")
-        self.status_label.setStyleSheet("color:#EF4444;font-weight:700;")
+        self.status_label.setStyleSheet(_status_style("#EF4444"))
         self.tray.setIcon(self._tray_recording_icon)
         self._apply_window_icon(self._window_recording_icon)
         self.waveform_overlay.show_recording()
@@ -612,7 +619,7 @@ class MainWindow(QMainWindow):
         self.mic_btn.setEnabled(False)
         self.mic_btn.setStyleSheet("background:#1E1E24;color:#A1A1AA;border:2px solid #4B5563;border-radius:28px;font-size:18px;font-weight:700;")
         self.status_label.setText("辨識中…")
-        self.status_label.setStyleSheet("color:#A78BFA;font-weight:700;")
+        self.status_label.setStyleSheet(_status_style("#A78BFA"))
         self.timer_label.setText("")
         self.waveform_overlay.show_processing()
 
@@ -629,19 +636,22 @@ class MainWindow(QMainWindow):
 
     def set_status(self, text: str, color: str = "#A1A1AA") -> None:
         self.status_label.setText("" if text == "等待中" else text)
-        self.status_label.setStyleSheet(f"color:{color};font-weight:700;")
+        self.status_label.setStyleSheet(_status_style(color))
         self.timer_label.setText("")
 
     def set_timer(self, text: str, color: str) -> None:
         self.status_label.setText("● 錄音中：")
-        self.status_label.setStyleSheet(f"color:{color};font-weight:700;")
+        self.status_label.setStyleSheet(_status_style(color))
         self.timer_label.setText(text)
-        self.timer_label.setStyleSheet(f"color:{color};font-weight:700;")
+        self.timer_label.setStyleSheet(_status_style(color))
         if self._state == "recording":
             self.mic_btn.setStyleSheet(f"background:#520000;color:#FECACA;border:2px solid {color};border-radius:28px;font-size:18px;font-weight:700;")
 
     def set_waveform(self, levels: list[float]) -> None:
         self.waveform_overlay.set_levels(levels)
+
+    def show_overlay_status(self, text: str, color: str, duration_ms: int) -> None:
+        self.waveform_overlay.show_status(text, color, duration_ms)
 
     def add_history(self, text: str) -> None:
         if not text:
@@ -708,7 +718,7 @@ class MainWindow(QMainWindow):
         mic_w, mic_h = min(360, max(220, cw - 40)), 120
         rely = 0.07 if not self._mic_centered else 0.35
         x = int((cw - mic_w) / 2)
-        y = int(ch * rely)
+        y = int(ch * rely) - (HISTORY_MIC_OFFSET_Y if not self._mic_centered else 0)
         self.mic_container.setGeometry(x, y, mic_w, mic_h)
         if self.history_area.isVisible():
             self.history_area.setGeometry(int(cw * 0.05), int(ch * 0.33), int(cw * 0.93), int(ch * 0.67))
@@ -718,7 +728,7 @@ class MainWindow(QMainWindow):
         cw = max(0, self.content.width())
         ch = max(0, self.content.height())
         mic_w, mic_h = min(360, max(220, cw - 40)), 120
-        target = QRect(int((cw - mic_w) / 2), int(ch * 0.07), mic_w, mic_h)
+        target = QRect(int((cw - mic_w) / 2), int(ch * 0.07) - HISTORY_MIC_OFFSET_Y, mic_w, mic_h)
         self._mic_animation = QPropertyAnimation(self.mic_container, b"geometry", self)
         self._mic_animation.setDuration(176)
         self._mic_animation.setStartValue(self.mic_container.geometry())

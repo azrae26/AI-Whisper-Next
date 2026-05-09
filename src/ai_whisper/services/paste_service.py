@@ -11,6 +11,14 @@ import uiautomation as auto
 
 CF_UNICODETEXT = 13
 GMEM_MOVEABLE = 0x0002
+KEYEVENTF_KEYDOWN = 0
+KEYEVENTF_KEYUP = 0x0002
+PASTE_MODIFIER_VKS = (
+    0xA0, 0xA1,  # left Shift, right Shift
+    0xA2, 0xA3,  # left Ctrl, right Ctrl
+    0xA4, 0xA5,  # left Alt, right Alt
+    0x5B, 0x5C,  # left Windows, right Windows
+)
 CLIPBOARD_GDI_FORMATS = {2, 3, 9, 14}
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
@@ -146,6 +154,22 @@ class PasteService:
             user32.CloseClipboard()
 
     @staticmethod
+    def _release_paste_modifiers() -> list[int]:
+        user32 = ctypes.windll.user32
+        released: list[int] = []
+        for vk in PASTE_MODIFIER_VKS:
+            if user32.GetAsyncKeyState(vk) & 0x8000:
+                user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
+                released.append(vk)
+        return released
+
+    @staticmethod
+    def _restore_paste_modifiers(vks: list[int]) -> None:
+        user32 = ctypes.windll.user32
+        for vk in vks:
+            user32.keybd_event(vk, 0, KEYEVENTF_KEYDOWN, 0)
+
+    @staticmethod
     def _is_cursor_at_end() -> tuple[bool, bool]:
         try:
             focused = auto.GetFocusedControl()
@@ -248,7 +272,11 @@ class PasteService:
         except Exception:
             hwnd, win_title = 0, "(unknown)"
         _safe_print(f"[paster][{_now()}] ⌨️ Ctrl+V 送出，cb_ok={cb_ok}，視窗=\"{win_title}\"，hwnd={hwnd:#010x}，text={repr(final_text[:40])}")
-        keyboard.send("ctrl+v")
+        released_modifiers = self._release_paste_modifiers()
+        try:
+            keyboard.send("ctrl+v")
+        finally:
+            self._restore_paste_modifiers(released_modifiers)
         if t_received:
             _safe_print(f"[paster][{_now()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
         time.sleep(0.40)
@@ -267,4 +295,3 @@ class PasteService:
                 self._execute_paste(*job)
         finally:
             comtypes.CoUninitialize()
-
