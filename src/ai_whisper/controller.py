@@ -44,6 +44,7 @@ class AppController(QObject):
         self._rec_start_time = 0.0
         self._prev_seg_event = threading.Event()
         self._prev_seg_event.set()
+        self._segs_dispatched = 0
         self._warmup_timer = QTimer(self)
         self._warmup_timer.setSingleShot(True)
         self._warmup_timer.timeout.connect(self._do_warmup_shutdown)
@@ -151,6 +152,7 @@ class AppController(QObject):
         safe_print(f"[main][{now_str()}] ⏱️ recorder.start() 耗時 {(time.perf_counter() - t0) * 1000:.1f}ms，ok={ok}")
         self._prev_seg_event = threading.Event()
         self._prev_seg_event.set()
+        self._segs_dispatched = 0
         if not ok:
             self.window.set_status("❌ 無法存取麥克風", "#EF4444")
             return
@@ -180,7 +182,10 @@ class AppController(QObject):
             self.no_audio.emit()
             return
         if not segment.wav_bytes:
-            self.no_audio.emit()
+            if self._segs_dispatched > 0:
+                self.final_done.emit("")
+            else:
+                self.no_audio.emit()
             return
         safe_print(f"[main][{now_str()}] ✅ 錄音完成，送出辨識")
         self.paste.prefetch_cursor_position(len(segment.wav_bytes))
@@ -214,6 +219,7 @@ class AppController(QObject):
             prev_event = self._prev_seg_event
             my_event = threading.Event()
             self._prev_seg_event = my_event
+            self._segs_dispatched += 1
             self.executor.submit(self._process_segment_audio, frames, prev_event, my_event, reason, accumulated, silence)
 
     def _process_segment_audio(
@@ -289,28 +295,32 @@ class AppController(QObject):
     def _on_transcribe_done(self, text: str) -> None:
         self.state = "idle"
         self.window.set_idle_state()
-        self.window.add_history(text)
-        self.window.set_status("辨識完成 ✓", "#10B981")
-        self.window.show_overlay_status("辨識完成 ✓", "#10B981", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        if text:
+            self.window.add_history(text)
+            self.window.set_status("辨識完成 ✓", "#6EE7B7")
+            self.window.show_overlay_status("辨識完成 ✓", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        else:
+            self.window.set_status("⚠ 未辨識到內容", "#FCD34D")
+            self.window.show_overlay_status("未辨識到內容", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_transcribe_error(self, err_msg: str) -> None:
         self.state = "idle"
         self.window.set_idle_state()
         if "API Key" in err_msg:
-            self.window.set_status("❌ 請先設定 API Key", "#EF4444")
+            self.window.set_status("❌ 請先設定 API Key", "#F87171")
             self.window.show_settings()
         else:
             short = err_msg[:60] + "…" if len(err_msg) > 60 else err_msg
-            self.window.set_status(f"❌ {short}", "#EF4444")
-        self.window.show_overlay_status("辨識失敗", "#EF4444", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
+            self.window.set_status(f"❌ {short}", "#F87171")
+        self.window.show_overlay_status("辨識失敗", "#F87171", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_no_audio(self) -> None:
         self.state = "idle"
         self.window.set_idle_state()
-        self.window.set_status("⚠ 未錄到音訊", "#F59E0B")
-        self.window.show_overlay_status("未錄到音訊", "#F59E0B", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        self.window.set_status("⚠ 未錄到音訊", "#FCD34D")
+        self.window.show_overlay_status("未錄到音訊", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _tick_anim(self) -> None:
