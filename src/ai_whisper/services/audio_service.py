@@ -117,7 +117,13 @@ class AudioService:
             self._segment_samples = 0
         return frames if frames else None
 
-    def process_frames(self, frames: list[np.ndarray] | None, source: str) -> AudioSegment:
+    def process_frames(
+        self,
+        frames: list[np.ndarray] | None,
+        source: str,
+        vad_confidence: float = 0.6,
+        vad_min_speech_sec: float = 0.35,
+    ) -> AudioSegment:
         if not frames:
             return AudioSegment(None, reason="empty")
         audio_data = np.concatenate(frames, axis=0)
@@ -125,7 +131,7 @@ class AudioService:
         if duration < MIN_DURATION_SEC:
             safe_print(f"[recorder][{source}] 錄音太短 ({duration:.2f}s)，略過" if source == "stop" else f"[recorder][{source}] 段落太短 ({duration:.2f}s)，略過")
             return AudioSegment(None, reason="too_short", duration=duration)
-        speech = analyze_speech(audio_data)
+        speech = analyze_speech(audio_data, confidence_threshold=vad_confidence, min_speech_sec=vad_min_speech_sec)
         if not speech.has_speech:
             msg = "不送出辨識" if source == "stop" else "略過"
             safe_print(f"[recorder][{source}] ❌ VAD 未達有效語音門檻，{msg}（{speech.reason}）")

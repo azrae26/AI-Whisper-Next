@@ -36,6 +36,8 @@ class AppConfig:
     segment_max_accum: float = 18.0
     segment_short_silence: float = 1.0
     warmup_idle_minutes: float = 10.0
+    vad_confidence: float = 0.6
+    vad_min_speech_sec: float = 0.35
 
 
 @dataclass

@@ -174,7 +174,7 @@ class AppController(QObject):
 
     def _process_final_audio(self, frames, prev_event: threading.Event) -> None:
         try:
-            segment = self.audio.process_frames(frames, "stop")
+            segment = self.audio.process_frames(frames, "stop", self.cfg.vad_confidence, self.cfg.vad_min_speech_sec)
         except Exception as e:
             safe_print(f"[main][{now_str()}] ❌ 音訊處理失敗: {e}")
             self.no_audio.emit()
@@ -226,7 +226,7 @@ class AppController(QObject):
         silence: float,
     ) -> None:
         try:
-            segment = self.audio.process_frames(frames, "flush")
+            segment = self.audio.process_frames(frames, "flush", self.cfg.vad_confidence, self.cfg.vad_min_speech_sec)
             self.audio.reset_silence()
             if not segment.wav_bytes:
                 my_event.set()

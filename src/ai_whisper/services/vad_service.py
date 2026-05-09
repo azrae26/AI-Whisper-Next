@@ -70,6 +70,7 @@ def _build_analysis(
     speech_frames: int,
     total_frames: int,
     frame_seconds: float,
+    min_speech_sec: float = MIN_SPEECH_SEC,
 ) -> SpeechAnalysis:
     if total_frames <= 0:
         return SpeechAnalysis(False, engine=engine, reason="沒有足夠音訊幀")
@@ -79,13 +80,17 @@ def _build_analysis(
     if speech_ratio < VAD_SPEECH_RATIO:
         reason = f"語音比例不足 {speech_ratio:.1%} < {VAD_SPEECH_RATIO:.0%}"
         return SpeechAnalysis(False, engine, speech_frames, total_frames, speech_ratio, speech_seconds, reason)
-    if speech_seconds < MIN_SPEECH_SEC:
-        reason = f"有效語音太短 {speech_seconds:.2f}s < {MIN_SPEECH_SEC:.2f}s"
+    if speech_seconds < min_speech_sec:
+        reason = f"有效語音太短 {speech_seconds:.2f}s < {min_speech_sec:.2f}s"
         return SpeechAnalysis(False, engine, speech_frames, total_frames, speech_ratio, speech_seconds, reason)
     return SpeechAnalysis(True, engine, speech_frames, total_frames, speech_ratio, speech_seconds, "ok")
 
 
-def analyze_speech(audio: np.ndarray) -> SpeechAnalysis:
+def analyze_speech(
+    audio: np.ndarray,
+    confidence_threshold: float = SILERO_CONFIDENCE_THRESHOLD,
+    min_speech_sec: float = MIN_SPEECH_SEC,
+) -> SpeechAnalysis:
     samples = audio.flatten()
     n_samples = len(samples)
     if n_samples < SILERO_FRAME_SIZE:
@@ -101,19 +106,20 @@ def analyze_speech(audio: np.ndarray) -> SpeechAnalysis:
             for i in range(n_frames):
                 frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
                 tensor = torch.from_numpy(frame).unsqueeze(0)
-                confidence = _silero_model(tensor, SAMPLE_RATE).item()
-                if confidence >= SILERO_CONFIDENCE_THRESHOLD:
+                conf = _silero_model(tensor, SAMPLE_RATE).item()
+                if conf >= confidence_threshold:
                     speech_frames += 1
         result = _build_analysis(
             engine="Silero",
             speech_frames=speech_frames,
             total_frames=n_frames,
             frame_seconds=SILERO_FRAME_SIZE / SAMPLE_RATE,
+            min_speech_sec=min_speech_sec,
         )
         safe_print(
             f"[recorder][VAD] Silero 語音幀 {speech_frames}/{n_frames} ({result.speech_ratio:.1%})，"
-            f"有效語音 {result.speech_seconds:.2f}s，信心閾值 {SILERO_CONFIDENCE_THRESHOLD}，"
-            f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {MIN_SPEECH_SEC:.2f}s"
+            f"有效語音 {result.speech_seconds:.2f}s，信心閾值 {confidence_threshold}，"
+            f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {min_speech_sec:.2f}s"
         )
         return result
 
@@ -130,11 +136,12 @@ def analyze_speech(audio: np.ndarray) -> SpeechAnalysis:
         speech_frames=speech_frames,
         total_frames=n_frames,
         frame_seconds=VAD_FRAME_SEC,
+        min_speech_sec=min_speech_sec,
     )
     safe_print(
         f"[recorder][VAD] RMS 語音幀 {speech_frames}/{n_frames} ({result.speech_ratio:.1%})，"
         f"有效語音 {result.speech_seconds:.2f}s，閾值 {VAD_FRAME_THRESHOLD}，"
-        f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {MIN_SPEECH_SEC:.2f}s"
+        f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {min_speech_sec:.2f}s"
     )
     return result
 
