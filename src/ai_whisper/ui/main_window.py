@@ -35,7 +35,8 @@ STATUS_FONT_SIZE = 14
 def _style() -> str:
     return """
     QWidget { background: #121212; color: #F4F4F5; font-family: "Microsoft JhengHei UI"; }
-    QFrame#top { background: #121212; }
+    QMainWindow, QStackedWidget { background: transparent; }
+    QFrame#top { background: transparent; }
     QPushButton { border-radius: 8px; background: #27272A; border: 1px solid #3F3F46; padding: 6px 10px; color:#F4F4F5; outline: none; }
     QPushButton:focus { outline: none; }
     QPushButton:hover { background: #3F3F46; }
@@ -408,10 +409,13 @@ class MainWindow(QMainWindow):
     copy_history_requested = Signal(int)
     tray_quit_requested = Signal()
 
+    _CORNER_RADIUS = 10
+
     def __init__(self, cfg: AppConfig):
         super().__init__()
         self.setWindowTitle("AI Whisper")
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint, True)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setMinimumSize(380, 520)
         self.resize(420, 580)
         self.setStyleSheet(_style())
@@ -430,10 +434,14 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.setCentralWidget(self.stack)
         self.main_page = QWidget()
+        self.main_page.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground)
+        self.main_page.setAutoFillBackground(False)
         self.main_layout = QVBoxLayout(self.main_page)
         self.main_layout.setContentsMargins(0, 0, 0, 0)
         self._build_main()
         self.settings_page = SettingsPage(cfg)
+        self.settings_page.setAttribute(Qt.WidgetAttribute.WA_NoSystemBackground)
+        self.settings_page.setAutoFillBackground(False)
         self.settings_page.back_btn.clicked.connect(self.show_main)
         self.settings_page.changed.connect(self.settings_changed)
         self.settings_page.capture_requested.connect(lambda field, _btn: self.capture_requested.emit(field))
@@ -710,6 +718,13 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event) -> None:
         self.hide()
         event.ignore()
+
+    def paintEvent(self, event) -> None:
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(Qt.PenStyle.NoPen)
+        painter.setBrush(QColor("#121212"))
+        painter.drawRoundedRect(QRectF(self.rect()), self._CORNER_RADIUS, self._CORNER_RADIUS)
 
     def resizeEvent(self, event) -> None:
         super().resizeEvent(event)
