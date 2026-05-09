@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-whisper-next"
+version = "0.1.0"
+description = "AI Whisper desktop speech-to-text tool rebuilt with PySide6"
+requires-python = ">=3.11"
+dependencies = [
+  "PySide6",
+  "sounddevice",
+  "numpy",
+  "openai",
+  "opencc-python-reimplemented",
+  "comtypes",
+  "uiautomation",
+  "keyboard",
+  "cn2an",
+  "Pillow",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pyinstaller",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
