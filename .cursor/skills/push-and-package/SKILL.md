@@ -21,9 +21,9 @@ git -C "f:\Cursor\AI Whisper Next" diff
 
 ### Step 2：並行啟動推 + 包（1 次工具調用）
 
-背景啟動打包：
+背景啟動打包（Bash tool 加 `run_in_background: true`）：
 ```powershell
-Start-Process powershell -WindowStyle Hidden -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"f:\Cursor\AI Whisper Next\scripts\pack.ps1`""
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "f:\Cursor\AI Whisper Next\scripts\pack.ps1"
 ```
 
 前景執行推：

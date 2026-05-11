@@ -25,6 +25,7 @@ ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS = 4000
 
 class AppController(QObject):
     segment_done = Signal(str)
+    segments_complete = Signal()
     final_done = Signal(str)
     transcribe_error = Signal(str)
     no_audio = Signal()
@@ -45,6 +46,7 @@ class AppController(QObject):
         self._prev_seg_event = threading.Event()
         self._prev_seg_event.set()
         self._segs_dispatched = 0
+        self._segs_with_text = 0
         self._warmup_timer = QTimer(self)
         self._warmup_timer.setSingleShot(True)
         self._warmup_timer.timeout.connect(self._do_warmup_shutdown)
@@ -75,6 +77,7 @@ class AppController(QObject):
         self.hotkeys.capture_finished.connect(self.finish_hotkey_capture)
         self.hotkeys.capture_cancelled.connect(self.cancel_hotkey_capture)
         self.segment_done.connect(self._on_segment_done)
+        self.segments_complete.connect(self._on_segments_complete)
         self.final_done.connect(self._on_transcribe_done)
         self.transcribe_error.connect(self._on_transcribe_error)
         self.no_audio.connect(self._on_no_audio)
@@ -153,6 +156,7 @@ class AppController(QObject):
         self._prev_seg_event = threading.Event()
         self._prev_seg_event.set()
         self._segs_dispatched = 0
+        self._segs_with_text = 0
         if not ok:
             self.window.set_status("❌ 無法存取麥克風", "#EF4444")
             return
@@ -183,7 +187,11 @@ class AppController(QObject):
             return
         if not segment.wav_bytes:
             if self._segs_dispatched > 0:
-                self.final_done.emit("")
+                prev_event.wait(timeout=30)
+                if self._segs_with_text > 0:
+                    self.segments_complete.emit()
+                else:
+                    self.final_done.emit("")
             else:
                 self.no_audio.emit()
             return
@@ -269,6 +277,7 @@ class AppController(QObject):
                 if clean:
                     prev_event.wait(timeout=30)
                     self.paste.paste_text(clean, delay_ms=30, t_received=received_at, end_prefix=self.paste_prefix)
+                    self._segs_with_text += 1
                 if my_event:
                     my_event.set()
                 self.segment_done.emit(clean)
@@ -291,6 +300,13 @@ class AppController(QObject):
     def _on_segment_done(self, text: str) -> None:
         if text:
             self.window.add_history(text)
+
+    def _on_segments_complete(self) -> None:
+        self.state = "idle"
+        self.window.set_idle_state()
+        self.window.set_status("辨識完成 ✓", "#6EE7B7")
+        self.window.show_overlay_status("辨識完成 ✓", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
+        QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_transcribe_done(self, text: str) -> None:
         self.state = "idle"
