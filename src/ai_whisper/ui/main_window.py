@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import ctypes
+
 from PySide6.QtCore import QEvent, QEasingCurve, QPropertyAnimation, QRect, QRectF, QSize, QTimer, Signal, Qt
 from PySide6.QtGui import QColor, QIcon, QPainter, QPainterPath, QPen, QPixmap
 from PySide6.QtWidgets import (
@@ -30,6 +32,19 @@ from .waveform_overlay import WaveformOverlay
 
 HISTORY_MIC_OFFSET_Y = 12
 STATUS_FONT_SIZE = 14
+
+
+def _fix_win11_frame(widget) -> None:
+    """Remove gray DWM border on Windows 11 for frameless transparent windows."""
+    try:
+        class _M(ctypes.Structure):
+            _fields_ = [("l", ctypes.c_int), ("r", ctypes.c_int),
+                        ("t", ctypes.c_int), ("b", ctypes.c_int)]
+        ctypes.windll.dwmapi.DwmExtendFrameIntoClientArea(
+            int(widget.winId()), ctypes.byref(_M(-1, -1, -1, -1))
+        )
+    except Exception:
+        pass
 
 
 def _style() -> str:
@@ -732,6 +747,7 @@ class MainWindow(QMainWindow):
 
     def showEvent(self, event) -> None:
         super().showEvent(event)
+        _fix_win11_frame(self)
         QTimer.singleShot(0, self._layout_main_content)
 
     def _layout_main_content(self) -> None:

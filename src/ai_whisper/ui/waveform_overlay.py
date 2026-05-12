@@ -1,11 +1,25 @@
 from __future__ import annotations
 
+import ctypes
 import math
 import time
 
 from PySide6.QtCore import QRectF, Qt, QTimer
 from PySide6.QtGui import QColor, QCursor, QFont, QLinearGradient, QPainter, QPainterPath
 from PySide6.QtWidgets import QApplication, QWidget
+
+def _fix_win11_frame(widget) -> None:
+    """Remove gray DWM border on Windows 11 for frameless transparent windows."""
+    try:
+        class _M(ctypes.Structure):
+            _fields_ = [("l", ctypes.c_int), ("r", ctypes.c_int),
+                        ("t", ctypes.c_int), ("b", ctypes.c_int)]
+        ctypes.windll.dwmapi.DwmExtendFrameIntoClientArea(
+            int(widget.winId()), ctypes.byref(_M(-1, -1, -1, -1))
+        )
+    except Exception:
+        pass
+
 
 BAR_COUNT = 35
 BAR_WIDTH = 4
@@ -43,6 +57,10 @@ class WaveformOverlay(QWidget):
         # without needing the app to have been in the foreground first
         self.show()
         self.hide()
+
+    def showEvent(self, event) -> None:
+        super().showEvent(event)
+        _fix_win11_frame(self)
 
     def show_recording(self) -> None:
         self._processing = False

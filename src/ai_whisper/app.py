@@ -12,6 +12,19 @@ from PySide6.QtWidgets import QApplication, QProxyStyle, QStyle, QWidget
 from .paths import asset_dir, ensure_runtime_dirs, log_dir
 
 
+def _fix_win11_frame(widget: QWidget) -> None:
+    """Remove gray DWM border on Windows 11 for frameless transparent windows."""
+    try:
+        class _M(ctypes.Structure):
+            _fields_ = [("l", ctypes.c_int), ("r", ctypes.c_int),
+                        ("t", ctypes.c_int), ("b", ctypes.c_int)]
+        ctypes.windll.dwmapi.DwmExtendFrameIntoClientArea(
+            int(widget.winId()), ctypes.byref(_M(-1, -1, -1, -1))
+        )
+    except Exception:
+        pass
+
+
 class SplashScreen(QWidget):
     SIZE = 280
 
@@ -32,6 +45,10 @@ class SplashScreen(QWidget):
     def _tick(self):
         self._dot_frame = (self._dot_frame + 1) % 3
         self.update()
+
+    def showEvent(self, event) -> None:
+        super().showEvent(event)
+        _fix_win11_frame(self)
 
     def finish(self, _target):
         self._timer.stop()
