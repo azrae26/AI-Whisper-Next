@@ -1,0 +1,11 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "exclude": [
+    ".venv-pack_office",
+    "dist",
+    "dist_build",
+    "build"
+  ]
+}

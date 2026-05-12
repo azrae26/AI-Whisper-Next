@@ -93,15 +93,10 @@ function Ensure-PackVenv {
     Remove-DirectoryWithRetry $VenvRoot
 
     $pyLauncher = Get-Command py.exe -ErrorAction SilentlyContinue
-    if ($pyLauncher) {
-        & py.exe -m venv $VenvRoot
-    } else {
-        $pythonOnPath = Get-Command python.exe -ErrorAction SilentlyContinue
-        if (-not $pythonOnPath) {
-            throw "Need 'py' or 'python' on PATH to create pack venv at: $VenvRoot"
-        }
-        & python.exe -m venv $VenvRoot
+    if (-not $pyLauncher) {
+        throw "需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：`py -3.12 --version`"
     }
+    & py.exe -3.12 -m venv $VenvRoot
 
     if (-not (Test-Path -LiteralPath $PythonExe)) {
         throw "venv creation did not produce Scripts\python.exe"

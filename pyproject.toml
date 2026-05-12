@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ai-whisper-next"
 version = "0.1.0"
 description = "AI Whisper desktop speech-to-text tool rebuilt with PySide6"
-requires-python = ">=3.11"
+requires-python = ">=3.12,<3.13"
 dependencies = [
   "PySide6",
   "sounddevice",
