@@ -81,7 +81,7 @@ function Test-PackVenvPython([string]$PythonExe) {
     }
 }
 
-function Ensure-PackVenv {
+function Initialize-PackVenv {
     param(
         [Parameter(Mandatory)][string]$Workspace,
         [Parameter(Mandatory)][string]$PythonExe,
@@ -94,7 +94,7 @@ function Ensure-PackVenv {
 
     $pyLauncher = Get-Command py.exe -ErrorAction SilentlyContinue
     if (-not $pyLauncher) {
-        throw "需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：`py -3.12 --version`"
+        throw "需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：``py -3.12 --version``"
     }
     & py.exe -3.12 -m venv $VenvRoot
 
@@ -117,7 +117,7 @@ switch ($Role) {
     }
 
     "build" {
-        Ensure-PackVenv -Workspace $workspace -PythonExe $python -VenvRoot $packVenvRoot
+        Initialize-PackVenv -Workspace $workspace -PythonExe $python -VenvRoot $packVenvRoot
         if (Test-Path "$distDir\config.json") { Copy-Item "$distDir\config.json" $configBak -Force }
         Remove-DirectoryWithRetry $stagedDistRoot
         Set-Location $workspace

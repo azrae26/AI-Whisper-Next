@@ -11,7 +11,6 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$workspace = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $script = Join-Path $PSScriptRoot "deploy.ps1"
 
 & powershell -ExecutionPolicy Bypass -File $script -Role build

@@ -275,6 +275,7 @@ class AppController(QObject):
             if is_segment:
                 safe_print(f"[main][{now_str()}] ✅ 分段辨識完成: \"{clean}\"")
                 if clean:
+                    assert prev_event is not None
                     prev_event.wait(timeout=30)
                     self.paste.paste_text(clean, delay_ms=30, t_received=received_at, end_prefix=self.paste_prefix)
                     self._segs_with_text += 1
