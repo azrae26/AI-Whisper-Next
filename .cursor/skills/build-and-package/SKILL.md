@@ -5,7 +5,7 @@ description: 打包 AI Whisper Next 並壓縮成 zip 準備分發。當使用者
 
 # AI Whisper Next 打包流程
 
-使用專屬 venv（`.venv-pack`）打包，避免系統環境裡的大型套件拖慢速度。
+使用專案根目錄下的**打包專用 venv**（目錄名由 `scripts/deploy.ps1` 的 `$packVenvDirName` 決定），避免大型套件進入日常開發用的 `.venv/`。
 打包邏輯完整實作在 `scripts/deploy.ps1`，本文件說明使用方式與注意事項。
 
 ## 執行方式
@@ -42,5 +42,6 @@ powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1" -WaitZip
 - 打包腳本路徑自動解析（`$PSScriptRoot`），不需手動改路徑
 - 打包前自動備份 `dist/AI Whisper/config.json`，完成後還原，不會遺失使用者設定
 - 壓縮優先使用系統 tar.exe，否則 fallback 至 Compress-Archive（staging 至 TEMP）
-- `.venv-pack` 已列入 `.gitignore`，不會被推送；第一次執行時若不存在會自動建立
+- 打包用 venv 的資料夾名以 `deploy.ps1` 的 `$packVenvDirName` 為準，該類目錄已列入 `.gitignore`；第一次執行時若不存在會自動建立
+- 多台電腦共用同一專案目錄時，同步過來的 venv 可能指向別台 Python 路徑而無法執行：`deploy.ps1` 會偵測並自動刪除重建（優先 `py`，否則 `python`）
 - build 完成後舊程式自動終止，新 exe 自動啟動

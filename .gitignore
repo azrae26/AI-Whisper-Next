@@ -6,6 +6,7 @@ __pycache__/
 .mypy_cache/
 .venv/
 .venv-pack/
+.venv-pack_office/
 build/
 dist/
 *.spec

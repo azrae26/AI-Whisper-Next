@@ -1,3 +1,6 @@
+# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
+# 職責：確保打包用 venv `.venv-pack_office` 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config。
+
 param(
     [string]$Role = "main"
 )
@@ -5,7 +8,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $workspace = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$python = Join-Path $workspace ".venv-pack\Scripts\python.exe"
+$packVenvDirName = ".venv-pack_office"
+$packVenvRoot = Join-Path $workspace $packVenvDirName
+$python = Join-Path $packVenvRoot "Scripts\python.exe"
 $distDir = Join-Path $workspace "dist\AI Whisper"
 $stagedDistRoot = Join-Path $workspace "dist_build"
 $stagedDistDir = Join-Path $stagedDistRoot "AI Whisper"
@@ -53,6 +58,63 @@ function Copy-DirectoryWithRobocopy([string]$Source, [string]$Destination) {
     }
 }
 
+function Test-PackVenvPython([string]$PythonExe) {
+    if (-not (Test-Path -LiteralPath $PythonExe)) { return $false }
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName = $PythonExe
+    $psi.Arguments = '-c "import sys"'
+    $psi.RedirectStandardError = $true
+    $psi.RedirectStandardOutput = $true
+    $psi.UseShellExecute = $false
+    $psi.CreateNoWindow = $true
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $psi
+    try {
+        if (-not $p.Start()) { return $false }
+        if (-not $p.WaitForExit(20000)) {
+            try { $p.Kill() } catch {}
+            return $false
+        }
+        return ($p.ExitCode -eq 0)
+    } catch {
+        return $false
+    }
+}
+
+function Ensure-PackVenv {
+    param(
+        [Parameter(Mandatory)][string]$Workspace,
+        [Parameter(Mandatory)][string]$PythonExe,
+        [Parameter(Mandatory)][string]$VenvRoot
+    )
+    if ((Test-Path -LiteralPath $PythonExe) -and (Test-PackVenvPython $PythonExe)) { return }
+
+    Write-Host "Pack venv is missing or incompatible with this PC; recreating: $VenvRoot"
+    Remove-DirectoryWithRetry $VenvRoot
+
+    $pyLauncher = Get-Command py.exe -ErrorAction SilentlyContinue
+    if ($pyLauncher) {
+        & py.exe -m venv $VenvRoot
+    } else {
+        $pythonOnPath = Get-Command python.exe -ErrorAction SilentlyContinue
+        if (-not $pythonOnPath) {
+            throw "Need 'py' or 'python' on PATH to create pack venv at: $VenvRoot"
+        }
+        & python.exe -m venv $VenvRoot
+    }
+
+    if (-not (Test-Path -LiteralPath $PythonExe)) {
+        throw "venv creation did not produce Scripts\python.exe"
+    }
+    if (-not (Test-PackVenvPython $PythonExe)) {
+        throw "Pack venv python still fails after recreate; check this machine's Python install. Path: $VenvRoot"
+    }
+
+    $editable = '{0}[dev]' -f $Workspace
+    & $PythonExe -m pip install --upgrade pip
+    & $PythonExe -m pip install -e $editable
+}
+
 switch ($Role) {
     "main" {
         & powershell -ExecutionPolicy Bypass -File "$PSCommandPath" -Role build
@@ -60,11 +122,7 @@ switch ($Role) {
     }
 
     "build" {
-        if (-not (Test-Path $python)) {
-            py -m venv (Join-Path $workspace ".venv-pack")
-            & $python -m pip install --upgrade pip
-            & $python -m pip install -e "$workspace[dev]"
-        }
+        Ensure-PackVenv -Workspace $workspace -PythonExe $python -VenvRoot $packVenvRoot
         if (Test-Path "$distDir\config.json") { Copy-Item "$distDir\config.json" $configBak -Force }
         Remove-DirectoryWithRetry $stagedDistRoot
         Set-Location $workspace
