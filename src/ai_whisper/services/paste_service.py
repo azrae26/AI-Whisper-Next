@@ -20,6 +20,15 @@ PASTE_MODIFIER_VKS = (
     0x5B, 0x5C,  # left Windows, right Windows
 )
 CLIPBOARD_GDI_FORMATS = {2, 3, 9, 14}
+CLIPBOARD_SET_RETRIES = 4
+CLIPBOARD_BACKUP_RETRIES = 8
+CLIPBOARD_RETRY_DELAY_SEC = 0.06
+CLIPBOARD_SETTLE_DELAY_SEC = 0.08
+CLIPBOARD_RESTORE_DELAY_SEC = 0.30
+CLIPBOARD_RESTORE_RETRIES = 4
+CLIPBOARD_RESTORE_VERIFY_DELAY_SEC = 0.12
+CLIPBOARD_WATCHDOG_DURATION_SEC = 2.20
+CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
     "．，；：？！"
@@ -47,9 +56,53 @@ class PasteService:
         self._paste_queue: queue.SimpleQueue = queue.SimpleQueue()
         self._prefetch_lock = threading.Lock()
         self._prefetch_result: tuple | None = None
+        self._manual_paste_guard_lock = threading.Lock()
+        self._manual_paste_guard_handler = None
+        self._manual_paste_guard_blocks = 0
         self._init_clipboard_api()
         self._worker = threading.Thread(target=self._paste_worker, daemon=True, name="PasteWorker")
         self._worker.start()
+
+    def _arm_manual_paste_guard(self, pasted_text: str) -> bool:
+        def _blocked_paste() -> None:
+            with self._manual_paste_guard_lock:
+                self._manual_paste_guard_blocks += 1
+                blocks = self._manual_paste_guard_blocks
+            _safe_print(
+                f"[paster][{_now()}] 🚫 CLIP guard: blocked manual Ctrl+V "
+                f"until restore completes (count={blocks}, temp={repr(pasted_text[:20])})"
+            )
+
+        try:
+            with self._manual_paste_guard_lock:
+                self._manual_paste_guard_blocks = 0
+                if self._manual_paste_guard_handler is not None:
+                    keyboard.remove_hotkey(self._manual_paste_guard_handler)
+                    self._manual_paste_guard_handler = None
+                self._manual_paste_guard_handler = keyboard.add_hotkey(
+                    "ctrl+v",
+                    _blocked_paste,
+                    suppress=True,
+                    trigger_on_release=False,
+                )
+            _safe_print(f"[paster][{_now()}] 🚫 CLIP guard armed: manual Ctrl+V suppressed")
+            return True
+        except Exception as e:
+            _safe_print(f"[paster][{_now()}] ⚠️ CLIP guard arm failed: {e}")
+            return False
+
+    def _disarm_manual_paste_guard(self) -> None:
+        try:
+            with self._manual_paste_guard_lock:
+                handler = self._manual_paste_guard_handler
+                blocks = self._manual_paste_guard_blocks
+                self._manual_paste_guard_handler = None
+                self._manual_paste_guard_blocks = 0
+            if handler is not None:
+                keyboard.remove_hotkey(handler)
+                _safe_print(f"[paster][{_now()}] 🚫 CLIP guard disarmed: blocked={blocks}")
+        except Exception as e:
+            _safe_print(f"[paster][{_now()}] ⚠️ CLIP guard disarm failed: {e}")
 
     @staticmethod
     def _init_clipboard_api() -> None:
@@ -64,6 +117,7 @@ class PasteService:
         kernel32.GlobalSize.argtypes = [ctypes.c_void_p]
         kernel32.GlobalSize.restype = ctypes.c_size_t
         user32.SetClipboardData.argtypes = [ctypes.c_uint, ctypes.c_void_p]
+        user32.SetClipboardData.restype = ctypes.c_void_p
         user32.GetClipboardData.argtypes = [ctypes.c_uint]
         user32.GetClipboardData.restype = ctypes.c_void_p
         user32.EnumClipboardFormats.argtypes = [ctypes.c_uint]
@@ -77,10 +131,51 @@ class PasteService:
             return False
         return True
 
+    @staticmethod
+    def _clipboard_items_summary(items: list[tuple[int, bytes]] | None, limit: int = 8) -> str:
+        if not items:
+            return "none"
+        parts = [f"{fmt}:{len(data)}B" for fmt, data in items[:limit]]
+        if len(items) > limit:
+            parts.append(f"+{len(items) - limit} more")
+        return ", ".join(parts)
+
+    @staticmethod
+    def _clipboard_text_from_items(items: list[tuple[int, bytes]] | None) -> str | None:
+        if not items:
+            return None
+        for fmt, data in items:
+            if fmt != CF_UNICODETEXT:
+                continue
+            try:
+                return data.decode("utf-16-le", errors="replace").rstrip("\0")
+            except Exception:
+                return None
+        return None
+
+    @classmethod
+    def _clipboard_text_preview_from_items(cls, items: list[tuple[int, bytes]] | None, limit: int = 20) -> str:
+        text = cls._clipboard_text_from_items(items)
+        if text is None:
+            return "none" if not items else "missing"
+        return repr(text[:limit]) if text else "empty"
+
     def _save_clipboard_all(self) -> list[tuple[int, bytes]] | None:
         user32 = ctypes.windll.user32
         kernel32 = ctypes.windll.kernel32
-        if not user32.OpenClipboard(0):
+        opened = False
+        for attempt in range(1, CLIPBOARD_BACKUP_RETRIES + 1):
+            if user32.OpenClipboard(0):
+                opened = True
+                if attempt > 1:
+                    _safe_print(f"[paster][{_now()}] 📋 CLIP backup: OpenClipboard ok attempt={attempt}")
+                break
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP backup: OpenClipboard failed "
+                f"attempt={attempt}/{CLIPBOARD_BACKUP_RETRIES}"
+            )
+            time.sleep(CLIPBOARD_RETRY_DELAY_SEC)
+        if not opened:
             return None
         try:
             items: list[tuple[int, bytes]] = []
@@ -98,32 +193,108 @@ class PasteService:
                             finally:
                                 kernel32.GlobalUnlock(h)
                 fmt = user32.EnumClipboardFormats(fmt)
-            return items if items else None
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP backup: "
+                f"count={len(items)}, formats={self._clipboard_items_summary(items)}, "
+                f"text={self._clipboard_text_preview_from_items(items)}"
+            )
+            return items
         except Exception as e:
             _safe_print(f"[paster][{_now()}] ⚠️ 備份剪貼簿失敗: {e}")
             return None
         finally:
             user32.CloseClipboard()
 
+    def _restore_clipboard_verified(self, items: list[tuple[int, bytes]]) -> bool:
+        expected_text = self._clipboard_text_from_items(items)
+        for attempt in range(1, CLIPBOARD_RESTORE_RETRIES + 1):
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP restore attempt "
+                f"{attempt}/{CLIPBOARD_RESTORE_RETRIES}: text={self._clipboard_text_preview_from_items(items)}"
+            )
+            api_ok = self._restore_clipboard_all(items)
+            time.sleep(CLIPBOARD_RESTORE_VERIFY_DELAY_SEC)
+            current = self._read_clipboard_text()
+            text_ok = current == expected_text
+            if api_ok and text_ok:
+                _safe_print(
+                    f"[paster][{_now()}] 📋 CLIP restore verify ok: "
+                    f"attempt={attempt}, text={repr((current or '')[:20])}"
+                )
+                return True
+            _safe_print(
+                f"[paster][{_now()}] ⚠️ CLIP restore verify failed: "
+                f"attempt={attempt}, api_ok={api_ok}, got={repr((current or '')[:20])}, "
+                f"want={repr((expected_text or '')[:20])}"
+            )
+            time.sleep(CLIPBOARD_RESTORE_VERIFY_DELAY_SEC)
+        return False
+
+    def _watch_clipboard_restore(self, items: list[tuple[int, bytes]], pasted_text: str) -> bool:
+        expected_text = self._clipboard_text_from_items(items)
+        deadline = time.perf_counter() + CLIPBOARD_WATCHDOG_DURATION_SEC
+        checks = 0
+        repairs = 0
+        while time.perf_counter() < deadline:
+            time.sleep(CLIPBOARD_WATCHDOG_INTERVAL_SEC)
+            checks += 1
+            current = self._read_clipboard_text()
+            if current == expected_text:
+                continue
+            if current == pasted_text:
+                repairs += 1
+                _safe_print(
+                    f"[paster][{_now()}] ⚠️ CLIP watchdog re-restore: "
+                    f"check={checks}, got_pasted={repr(current[:20])}"
+                )
+                self._restore_clipboard_verified(items)
+                continue
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP watchdog stop: external clipboard change, "
+                f"check={checks}, got={repr((current or '')[:20])}, "
+                f"expected={repr((expected_text or '')[:20])}"
+            )
+            return True
+        final = self._read_clipboard_text()
+        ok = final == expected_text
+        _safe_print(
+            f"[paster][{_now()}] 📋 CLIP watchdog done: "
+            f"checks={checks}, repairs={repairs}, ok={ok}, final={repr((final or '')[:20])}"
+        )
+        return ok
+
     def _restore_clipboard_all(self, items: list[tuple[int, bytes]]) -> bool:
         user32 = ctypes.windll.user32
         kernel32 = ctypes.windll.kernel32
         if not user32.OpenClipboard(0):
+            _safe_print(f"[paster][{_now()}] 📋 CLIP restore: OpenClipboard failed")
             return False
         try:
             user32.EmptyClipboard()
+            restored = 0
             for fmt, data in items:
                 h = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(data))
                 if not h:
+                    _safe_print(f"[paster][{_now()}] 📋 CLIP restore: GlobalAlloc failed fmt={fmt}")
                     continue
                 ptr = kernel32.GlobalLock(h)
                 if not ptr:
                     kernel32.GlobalFree(h)
+                    _safe_print(f"[paster][{_now()}] 📋 CLIP restore: GlobalLock failed fmt={fmt}")
                     continue
                 ctypes.memmove(ptr, data, len(data))
                 kernel32.GlobalUnlock(h)
-                user32.SetClipboardData(fmt, h)
-            return True
+                if user32.SetClipboardData(fmt, h):
+                    restored += 1
+                else:
+                    kernel32.GlobalFree(h)
+                    _safe_print(f"[paster][{_now()}] 📋 CLIP restore: SetClipboardData failed fmt={fmt}")
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP restore: "
+                f"restored={restored}/{len(items)}, formats={self._clipboard_items_summary(items)}, "
+                f"text={self._clipboard_text_preview_from_items(items)}"
+            )
+            return restored == len(items)
         except Exception as e:
             _safe_print(f"[paster][{_now()}] ⚠️ 還原剪貼簿失敗: {e}")
             return False
@@ -136,22 +307,78 @@ class PasteService:
         user32 = ctypes.windll.user32
         data = (text + "\0").encode("utf-16-le")
         if not user32.OpenClipboard(0):
+            _safe_print(f"[paster][{_now()}] 📋 CLIP set: OpenClipboard failed")
             return False
         try:
             user32.EmptyClipboard()
             h = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(data))
             if not h:
+                _safe_print(f"[paster][{_now()}] 📋 CLIP set: GlobalAlloc failed bytes={len(data)}")
                 return False
             ptr = kernel32.GlobalLock(h)
             if not ptr:
                 kernel32.GlobalFree(h)
+                _safe_print(f"[paster][{_now()}] 📋 CLIP set: GlobalLock failed bytes={len(data)}")
                 return False
             ctypes.memmove(ptr, data, len(data))
             kernel32.GlobalUnlock(h)
-            user32.SetClipboardData(CF_UNICODETEXT, h)
+            if not user32.SetClipboardData(CF_UNICODETEXT, h):
+                kernel32.GlobalFree(h)
+                _safe_print(f"[paster][{_now()}] 📋 CLIP set: SetClipboardData failed bytes={len(data)}")
+                return False
             return True
         finally:
             user32.CloseClipboard()
+
+    @staticmethod
+    def _read_clipboard_text() -> str | None:
+        user32 = ctypes.windll.user32
+        kernel32 = ctypes.windll.kernel32
+        if not user32.OpenClipboard(0):
+            _safe_print(f"[paster][{_now()}] 📋 CLIP read: OpenClipboard failed")
+            return None
+        try:
+            h = user32.GetClipboardData(CF_UNICODETEXT)
+            if not h:
+                _safe_print(f"[paster][{_now()}] 📋 CLIP read: CF_UNICODETEXT missing")
+                return None
+            ptr = kernel32.GlobalLock(h)
+            if not ptr:
+                _safe_print(f"[paster][{_now()}] 📋 CLIP read: GlobalLock failed")
+                return None
+            try:
+                return ctypes.wstring_at(ptr)
+            finally:
+                kernel32.GlobalUnlock(h)
+        except Exception as e:
+            _safe_print(f"[paster][{_now()}] ⚠️ 讀取剪貼簿驗證失敗: {e}")
+            return None
+        finally:
+            user32.CloseClipboard()
+
+    def _set_clipboard_verified(self, text: str) -> bool:
+        for attempt in range(1, CLIPBOARD_SET_RETRIES + 1):
+            _safe_print(
+                f"[paster][{_now()}] 📋 CLIP set attempt {attempt}/{CLIPBOARD_SET_RETRIES}: "
+                f"chars={len(text)}, bytes={(len(text) + 1) * 2}, preview={repr(text[:40])}"
+            )
+            if self._set_clipboard_ctypes(text):
+                time.sleep(CLIPBOARD_RETRY_DELAY_SEC)
+                current = self._read_clipboard_text()
+                if current == text:
+                    _safe_print(
+                        f"[paster][{_now()}] 📋 CLIP verify ok: "
+                        f"attempt={attempt}, chars={len(current)}, text={repr(current[:20])}"
+                    )
+                    return True
+                _safe_print(
+                    f"[paster][{_now()}] ⚠️ 剪貼簿驗證不符 "
+                    f"(attempt={attempt}, got={repr((current or '')[:40])}, want={repr(text[:40])})"
+                )
+            else:
+                _safe_print(f"[paster][{_now()}] ⚠️ 剪貼簿寫入失敗 (attempt={attempt})")
+            time.sleep(CLIPBOARD_RETRY_DELAY_SEC)
+        return False
 
     @staticmethod
     def _release_paste_modifiers() -> list[int]:
@@ -259,10 +486,25 @@ class PasteService:
             _safe_print(f"[paster][{_now()}] 🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix}, prefix={repr(end_prefix)}, uia={elapsed_ms:.0f}ms, final={repr(text[:40])}")
 
         final_text = (end_prefix + text) if add_prefix else text
+        _safe_print(
+            f"[paster][{_now()}] 📋 CLIP flow start: "
+            f"target_chars={len(final_text)}, restore_delay={CLIPBOARD_RESTORE_DELAY_SEC:.2f}s"
+        )
         old_clipboard = self._save_clipboard_all()
-        cb_ok = self._set_clipboard_ctypes(final_text)
+        if old_clipboard is None:
+            _safe_print(
+                f"[paster][{_now()}] ❌ [PASTE-FAIL] 無法備份剪貼簿，取消 Ctrl+V，"
+                f"text={repr(final_text[:40])}"
+            )
+            return
+        cb_ok = self._set_clipboard_verified(final_text)
         if not cb_ok:
-            _safe_print(f"[paster][{_now()}] ❌ [PASTE-FAIL] 剪貼簿寫入失敗，text={repr(final_text[:40])}")
+            _safe_print(f"[paster][{_now()}] ❌ [PASTE-FAIL] 剪貼簿未成功切換，取消 Ctrl+V，text={repr(final_text[:40])}")
+            if old_clipboard is not None:
+                restored = self._restore_clipboard_verified(old_clipboard)
+                _safe_print(f"[paster][{_now()}] 📋 CLIP restore after failed set: ok={restored}")
+            return
+        time.sleep(CLIPBOARD_SETTLE_DELAY_SEC)
         try:
             user32 = ctypes.windll.user32
             hwnd = user32.GetForegroundWindow()
@@ -277,12 +519,27 @@ class PasteService:
             keyboard.send("ctrl+v")
         finally:
             self._restore_paste_modifiers(released_modifiers)
+        guard_armed = self._arm_manual_paste_guard(final_text)
         if t_received:
             _safe_print(f"[paster][{_now()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
-        time.sleep(0.40)
-        if old_clipboard is not None:
-            self._restore_clipboard_all(old_clipboard)
-            _safe_print(f"[paster][{_now()}] 📋 剪貼簿已還原（{len(old_clipboard)} 種格式）")
+        try:
+            _safe_print(f"[paster][{_now()}] 📋 CLIP restore wait: {CLIPBOARD_RESTORE_DELAY_SEC:.2f}s")
+            time.sleep(CLIPBOARD_RESTORE_DELAY_SEC)
+            if old_clipboard is not None:
+                restored = self._restore_clipboard_verified(old_clipboard)
+                if restored and guard_armed:
+                    self._disarm_manual_paste_guard()
+                    guard_armed = False
+                watched = self._watch_clipboard_restore(old_clipboard, final_text) if restored else False
+                _safe_print(
+                    f"[paster][{_now()}] 📋 剪貼簿已還原驗證"
+                    f"（{len(old_clipboard)} 種格式，restore_ok={restored}, watch_ok={watched}）"
+                )
+            else:
+                _safe_print(f"[paster][{_now()}] 📋 CLIP restore skipped: no backup")
+        finally:
+            if guard_armed:
+                self._disarm_manual_paste_guard()
 
     def _paste_worker(self) -> None:
         import comtypes

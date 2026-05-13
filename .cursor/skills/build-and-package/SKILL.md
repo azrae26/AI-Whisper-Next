@@ -1,6 +1,6 @@
 ---
 name: build-and-package
-description: 打包 AI Whisper Next 並壓縮成 zip 準備分發。當使用者說「包」、「打包」、「build」、「壓縮」、「產生 zip」、「分享給同事」時使用。
+description: 只打包 AI Whisper Next 並產生 zip，不做 git add/commit/pull/push。Use ONLY when the user asks for「包」「打包」「build」「壓縮」「產生 zip」「分享給同事」and the request does NOT include「推」「推送」「push」「commit」「git」「推包」「推+包」. If the request includes both push/git intent and package/build intent, use push-and-package instead.
 ---
 
 # AI Whisper Next 打包流程

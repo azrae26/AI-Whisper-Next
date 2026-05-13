@@ -1,11 +1,28 @@
 ---
 name: push-and-package
-description: 並行執行「推」與「包」，節省時間。TRIGGER: 使用者說「推 包」、「推包」、「推+包」時使用。
+description: 同時執行 git 推送與打包 AI Whisper Next。Use when the user says「推包」「推+包」「推 包」「推並打包」「推送並打包」「push and package」or any request that contains both push/git/commit intent and package/build/zip intent. This skill takes precedence over build-and-package when both apply.
 ---
 
 # 推 + 包 並行流程
 
 git push **前景**執行，PyInstaller 打包 **背景**同步進行，縮短總等待時間。
+
+## 觸發優先權
+
+若使用者訊息同時包含：
+
+- 推送意圖：`推`、`推送`、`push`、`commit`、`git`
+- 打包意圖：`包`、`打包`、`build`、`zip`、`壓縮`
+
+一律使用本 skill，不使用 `build-and-package`。
+
+例：
+
+- `推包` -> 本 skill
+- `推+包` -> 本 skill
+- `推送並打包` -> 本 skill
+- `包` -> `build-and-package`
+- `只包` -> `build-and-package`
 
 **專案根目錄**：一律用當前 Cursor workspace 的 Git 根（本 repo：`AI Whisper Next`）。**禁止**在技能內寫死磁碟代號或絕對路徑（不同機器可能是 `D:\`、`F:\` 等）。
 

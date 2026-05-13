@@ -19,7 +19,7 @@ if (-not $NoKill) {
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
 Write-Host "[$ts] Restart AI Whisper Next"
 $env:PYTHONUNBUFFERED = "1"
-Start-Process cmd -ArgumentList "/c", "`"$workspace\.venv\Scripts\python.exe`" -u run_ai_whisper.py" -WorkingDirectory $workspace -WindowStyle Hidden
+Start-Process cmd -ArgumentList "/c", "py -3.12 -u run_ai_whisper.py" -WorkingDirectory $workspace -WindowStyle Hidden
 
 Start-Sleep -Seconds 4
 # 找 run_ai_whisper.py 自己建立的最新 log 檔
