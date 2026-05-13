@@ -44,7 +44,7 @@ git diff
 
 1. **背景**啟動打包：工作目錄設為專案根，執行（與 **build-and-package** skill 同一進入點；可選 `-NoProfile`）  
    `powershell -ExecutionPolicy Bypass -File "scripts\pack.ps1"`  
-   - 打包環境固定使用專案根目錄的 `.venv-pack`，不得改用 `.venv-pack_office`；若 venv 不存在或不可用，`deploy.ps1` 會用 `py -3.12` 重建。  
+   - 打包環境由 `deploy.ps1` 依 `$env:COMPUTERNAME` 判斷：家裡 `P8-32` 用 `.venv-pack`，公司機用 `.venv-pack_office`；若 venv 不存在或不可用，`deploy.ps1` 會用 `py -3.12` 重建。  
    - 若用 `Start-Process` 背景啟動並要 redirect log，`-RedirectStandardOutput` 與 `-RedirectStandardError` 必須使用不同檔案；PowerShell 不允許兩者指向同一路徑。  
    - 預設**不帶參數**時行為與「包」相同：`pack.ps1` 先完成 PyInstaller **build**，再將 **zip** 以另一個 hidden PowerShell **背景**執行（不必等 zip 即可繼續推或回覆）。  
    - 若需與「包」skill 完全一致的其他模式，同一支腳本支援 `-BuildOnly`、`-WaitZip`（定義見 **build-and-package**）。  
@@ -73,7 +73,7 @@ git diff
 
 ## 「包」的其餘行為（不重複鈔寫）
 
-打包用 `.venv-pack`、`config.json` 備份還原、`tar.exe`／`Compress-Archive`、build 完啟動新 exe 等，皆由 `scripts\deploy.ps1`／`pack.ps1` 實作；**以 build-and-package skill 的「注意事項」「完成後告知」為準**。
+打包用 venv mapping、`config.json` 備份還原、`tar.exe`／`Compress-Archive`、build 完啟動新 exe 等，皆由 `scripts\deploy.ps1`／`pack.ps1` 實作；**以 build-and-package skill 的「注意事項」「完成後告知」為準**。
 
 ## 注意事項
 

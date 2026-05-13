@@ -1,5 +1,5 @@
 ﻿# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
-# 職責：確保打包用 venv `.venv-pack` 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config。
+# 職責：依電腦選擇打包用 venv，確保 venv 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config。
 
 param(
     [string]$Role = "main"
@@ -7,8 +7,16 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+function Get-PackVenvDirName {
+    $computerName = $env:COMPUTERNAME
+    if ($computerName -eq "P8-32") {
+        return ".venv-pack"
+    }
+    return ".venv-pack_office"
+}
+
 $workspace = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$packVenvDirName = ".venv-pack"
+$packVenvDirName = Get-PackVenvDirName
 $packVenvRoot = Join-Path $workspace $packVenvDirName
 $python = Join-Path $packVenvRoot "Scripts\python.exe"
 $distDir = Join-Path $workspace "dist\AI Whisper"
