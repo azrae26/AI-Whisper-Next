@@ -1,4 +1,4 @@
-# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
+﻿# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
 # 職責：確保打包用 venv `.venv-pack_office` 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config。
 
 param(
@@ -94,7 +94,7 @@ function Initialize-PackVenv {
 
     $pyLauncher = Get-Command py.exe -ErrorAction SilentlyContinue
     if (-not $pyLauncher) {
-        throw "需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：``py -3.12 --version``"
+        throw '需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：py -3.12 --version'
     }
     & py.exe -3.12 -m venv $VenvRoot
 

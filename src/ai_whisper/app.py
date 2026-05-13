@@ -15,11 +15,11 @@ from .paths import asset_dir, ensure_runtime_dirs, log_dir
 def _fix_win11_frame(widget: QWidget) -> None:
     """Remove gray DWM border on Windows 11 for frameless transparent windows."""
     try:
-        class _M(ctypes.Structure):
-            _fields_ = [("l", ctypes.c_int), ("r", ctypes.c_int),
-                        ("t", ctypes.c_int), ("b", ctypes.c_int)]
-        ctypes.windll.dwmapi.DwmExtendFrameIntoClientArea(
-            int(widget.winId()), ctypes.byref(_M(-1, -1, -1, -1))
+        ctypes.windll.dwmapi.DwmSetWindowAttribute(
+            int(widget.winId()),
+            ctypes.c_int(34),  # DWMWA_BORDER_COLOR
+            ctypes.byref(ctypes.c_uint(0xFFFFFFFE)),  # DWMWA_COLOR_NONE
+            ctypes.c_int(ctypes.sizeof(ctypes.c_uint)),
         )
     except Exception:
         pass
