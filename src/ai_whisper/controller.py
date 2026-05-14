@@ -30,6 +30,9 @@ class AppController(QObject):
     transcribe_error = Signal(str)
     no_audio = Signal()
     processing_started = Signal()
+    segment_processing_started = Signal()
+    segment_processing_finished = Signal()
+    segment_status = Signal(str, str, int)
 
     def __init__(self, window: MainWindow, settings: SettingsStore):
         super().__init__()
@@ -47,6 +50,8 @@ class AppController(QObject):
         self._prev_seg_event.set()
         self._segs_dispatched = 0
         self._segs_with_text = 0
+        self._segment_processing_count = 0
+        self._segment_waveform_status = ""
         self._warmup_timer = QTimer(self)
         self._warmup_timer.setSingleShot(True)
         self._warmup_timer.timeout.connect(self._do_warmup_shutdown)
@@ -86,6 +91,9 @@ class AppController(QObject):
         self.transcribe_error.connect(self._on_transcribe_error)
         self.no_audio.connect(self._on_no_audio)
         self.processing_started.connect(self.window.set_processing_state)
+        self.segment_processing_started.connect(self._on_segment_processing_started)
+        self.segment_processing_finished.connect(self._on_segment_processing_finished)
+        self.segment_status.connect(self._set_segment_waveform_status)
 
     def _apply_initial_state(self) -> None:
         self.cfg.startup = is_startup_enabled()
@@ -161,6 +169,8 @@ class AppController(QObject):
         self._prev_seg_event.set()
         self._segs_dispatched = 0
         self._segs_with_text = 0
+        self._segment_processing_count = 0
+        self._segment_waveform_status = ""
         if not ok:
             self.window.set_status("❌ 無法存取麥克風", "#EF4444")
             return
@@ -250,6 +260,7 @@ class AppController(QObject):
                 my_event.set()
                 return
             safe_print(f"[main][{now_str()}] ✂️ 自動分段送出（{reason}，累積 {accumulated:.1f}s，靜音 {silence:.1f}s）")
+            self.segment_processing_started.emit()
             self.paste.prefetch_cursor_position(len(segment.wav_bytes))
             self._run_transcribe(segment.wav_bytes, prev_event, is_segment=True, my_event=my_event)
         except Exception as e:
@@ -267,6 +278,9 @@ class AppController(QObject):
         if not cfg.apiKey:
             if my_event:
                 my_event.set()
+            if is_segment:
+                self.segment_status.emit("辨識失敗", "#F87171", 1800)
+                self.segment_processing_finished.emit()
             self.transcribe_error.emit("請先設定 API Key")
             return
         try:
@@ -298,13 +312,38 @@ class AppController(QObject):
                 if my_event:
                     my_event.set()
                 safe_print(f"[main][{now_str()}] ❌ 分段辨識失敗: {e}")
+                self.segment_status.emit("辨識失敗", "#F87171", 1800)
             else:
                 safe_print(f"[main][{now_str()}] ❌ 辨識失敗: {e}")
                 self.transcribe_error.emit(str(e))
+        finally:
+            if is_segment:
+                self.segment_processing_finished.emit()
 
     def _on_segment_done(self, text: str) -> None:
         if text:
             self.window.add_history(text)
+        if self._segment_processing_count <= 1:
+            if text:
+                self._set_segment_waveform_status("辨識完成 ✓", "#6EE7B7", 1200)
+            else:
+                self._set_segment_waveform_status("未辨識到內容", "#FCD34D", 1200)
+
+    def _on_segment_processing_started(self) -> None:
+        if self.state != "recording":
+            return
+        self._segment_processing_count += 1
+        self._set_segment_waveform_status("識別中…", "#F5D0FE")
+
+    def _on_segment_processing_finished(self) -> None:
+        if self._segment_processing_count > 0:
+            self._segment_processing_count -= 1
+        if self.state == "recording" and self._segment_processing_count == 0 and self._segment_waveform_status == "識別中…":
+            self._set_segment_waveform_status("")
+
+    def _set_segment_waveform_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
+        self._segment_waveform_status = text
+        self.window.set_waveform_status(text, color, duration_ms)
 
     def _on_segments_complete(self) -> None:
         self.state = "idle"

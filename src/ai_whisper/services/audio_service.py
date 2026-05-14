@@ -74,7 +74,7 @@ class AudioService:
                 if not self._chunk_samples:
                     self._chunk_samples = chunk_len
                 rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
-                level = min(1.0, rms / 5000)
+                level = rms / 5000
                 self._segment_samples += chunk_len
                 if level < SILENCE_LEVEL:
                     self._silence_chunks += 1

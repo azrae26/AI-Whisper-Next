@@ -684,6 +684,9 @@ class MainWindow(QMainWindow):
     def set_waveform(self, levels: list[float]) -> None:
         self.waveform_overlay.set_levels(levels)
 
+    def set_waveform_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
+        self.waveform_overlay.set_recording_status(text, color, duration_ms)
+
     def show_overlay_status(self, text: str, color: str, duration_ms: int) -> None:
         self.waveform_overlay.show_status(text, color, duration_ms)
 
