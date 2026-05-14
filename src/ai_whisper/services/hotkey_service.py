@@ -21,6 +21,34 @@ MOD_NORMALIZE = {
     "left windows": "windows", "right windows": "windows",
 }
 NAME_HOOK_KEYS = {"insert", "pause"}
+KEYEVENTF_KEYUP = 0x0002
+KEY_STATE_VKS = (
+    0x10, 0x11, 0x12,  # generic Shift, Ctrl, Alt
+    0xA0, 0xA1,  # left Shift, right Shift
+    0xA2, 0xA3,  # left Ctrl, right Ctrl
+    0xA4, 0xA5,  # left Alt, right Alt
+    0x5B, 0x5C,  # left Windows, right Windows
+)
+VK_NAMES = {
+    0x10: "Shift",
+    0x11: "Ctrl",
+    0x12: "Alt",
+    0xA0: "LShift",
+    0xA1: "RShift",
+    0xA2: "LCtrl",
+    0xA3: "RCtrl",
+    0xA4: "LAlt",
+    0xA5: "RAlt",
+    0x5B: "LWin",
+    0x5C: "RWin",
+}
+MOD_RELEASE_VKS = {
+    "ctrl": (0x11, 0xA2, 0xA3),
+    "control": (0x11, 0xA2, 0xA3),
+    "shift": (0x10, 0xA0, 0xA1),
+    "alt": (0x12, 0xA4, 0xA5),
+    "windows": (0x5B, 0x5C),
+}
 
 
 def parse_hotkey(hk_str: str) -> tuple[list[str], str | None]:
@@ -28,6 +56,53 @@ def parse_hotkey(hk_str: str) -> tuple[list[str], str | None]:
     mods = [p for p in parts if p in MODIFIERS]
     main_key = next((p for p in reversed(parts) if p not in MODIFIERS), None)
     return mods, main_key
+
+
+def _vk_list(vks: list[int]) -> str:
+    if not vks:
+        return "none"
+    return ",".join(VK_NAMES.get(vk, f"0x{vk:02X}") for vk in vks)
+
+
+def modifier_state_summary() -> str:
+    user32 = ctypes.windll.user32
+    async_down: list[int] = []
+    logical_down: list[int] = []
+    for vk in KEY_STATE_VKS:
+        try:
+            if user32.GetAsyncKeyState(vk) & 0x8000:
+                async_down.append(vk)
+            if user32.GetKeyState(vk) & 0x8000:
+                logical_down.append(vk)
+        except Exception:
+            continue
+    return f"async_down={_vk_list(async_down)}; logical_down={_vk_list(logical_down)}"
+
+
+def schedule_hotkey_modifier_cleanup(mods: list[str], source: str) -> None:
+    vks: list[int] = []
+    for mod in mods:
+        for vk in MOD_RELEASE_VKS.get(MOD_NORMALIZE.get(mod, mod), ()):
+            if vk not in vks:
+                vks.append(vk)
+    if not vks:
+        return
+
+    def _cleanup() -> None:
+        user32 = ctypes.windll.user32
+        down = [vk for vk in vks if user32.GetAsyncKeyState(vk) & 0x8000]
+        if not down:
+            return
+        before = modifier_state_summary()
+        for vk in down:
+            user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
+        time.sleep(0.02)
+        safe_print(
+            f"[main][{now_str()}] ⌨️ 熱鍵修飾鍵清理({source}): "
+            f"released={_vk_list(down)}，before={before}，after={modifier_state_summary()}"
+        )
+
+    threading.Timer(0.12, _cleanup).start()
 
 
 class HotkeyService(QObject):
@@ -69,8 +144,12 @@ class HotkeyService(QObject):
             else:
                 def _hk_fired(p="。"):
                     t = time.perf_counter()
-                    safe_print(f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)")
+                    safe_print(
+                        f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)，"
+                        f"keys={modifier_state_summary()}"
+                    )
                     self.toggle_requested.emit(p)
+                    schedule_hotkey_modifier_cleanup(hk_mods, "main")
                     safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey, _hk_fired)
 
@@ -79,8 +158,12 @@ class HotkeyService(QObject):
             else:
                 def _hk_comma_fired(p="，"):
                     t = time.perf_counter()
-                    safe_print(f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)")
+                    safe_print(
+                        f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)，"
+                        f"keys={modifier_state_summary()}"
+                    )
                     self.toggle_requested.emit(p)
+                    schedule_hotkey_modifier_cleanup(hc_mods, "comma")
                     safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey_comma, _hk_comma_fired)
 
@@ -94,8 +177,12 @@ class HotkeyService(QObject):
                     for mods, expected_name, punct in triggers:
                         if name == expected_name and all(keyboard.is_pressed(m) for m in mods):
                             t = time.perf_counter()
-                            safe_print(f"[main][{now_str()}] ⌨️ 熱鍵觸發（name hook），排入 after(0)")
+                            safe_print(
+                                f"[main][{now_str()}] ⌨️ 熱鍵觸發（name hook），排入 after(0)，"
+                                f"keys={modifier_state_summary()}"
+                            )
                             self.toggle_requested.emit(punct)
+                            schedule_hotkey_modifier_cleanup(mods, "name")
                             safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                             break
                 self._comma_hook_remove = keyboard.hook(_on_name_hook)
@@ -205,6 +292,10 @@ class HotkeyService(QObject):
                 if msg.message == 0x0312:
                     idx = msg.wParam - self.HK_BASE_ID
                     if 0 <= idx < 5:
+                        safe_print(
+                            f"[main][{now_str()}] ⌨️ 記憶快捷鍵 {idx + 1} 觸發，"
+                            f"keys={modifier_state_summary()}"
+                        )
                         self.history_requested.emit(int(idx))
             for i in range(5):
                 user32.UnregisterHotKey(None, self.HK_BASE_ID + i)
@@ -224,4 +315,3 @@ class HotkeyService(QObject):
                 pass
         if self._hk_thread and self._hk_thread.is_alive() and self._hk_thread_id:
             ctypes.windll.user32.PostThreadMessageW(self._hk_thread_id, 0x0012, 0, 0)
-

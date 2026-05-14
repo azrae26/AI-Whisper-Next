@@ -18,11 +18,36 @@ powershell -ExecutionPolicy Bypass -File ".cursor/skills/restart/restart-with-lo
 
 working_directory 指向 workspace 根目錄（不要寫死磁碟代號，家裡 F:\、公司 D:\）。
 
+## 對話輸出規則
+
+這個 skill 的中間驗證只做不說。
+
+若需要在工具執行前回覆，只能說：
+
+`我來重啟。`
+
+不要描述 skill 讀取、腳本狀態、輸出摘要、log 狀態、備援確認路徑、或正在查程序。
+
+成功時最終回覆固定格式：
+
+`已重啟。PID: <pid>，最新 log: <path>`
+
+禁止輸出任何關於以下主題的旁白或近似改寫：
+
+- 使用了哪個 skill
+- 正在讀取 skill 檔案
+- 腳本執行狀態
+- 腳本輸出是否完整
+- 內部補查程序或 log 的方式
+- 啟動驗證的推理過程
+
+只有真的無法確認啟動時，才簡短說明查到的異常。
+
 ## 確認啟動成功
 
-確認輸出中有出現啟動訊息（如 `[main]` 開頭的 log 行）。
+重啟腳本結束後，內部確認最新 `ai_whisper_*.log` 或正在跑的 `run_ai_whisper.py` 程序。
 
-**若 log 為空：不代表啟動失敗**，只是程序還沒輸出，不要額外再執行 `py run_ai_whisper.py`。
+不要額外再執行 `py run_ai_whisper.py`。
 
 ## 觸發時機
 
