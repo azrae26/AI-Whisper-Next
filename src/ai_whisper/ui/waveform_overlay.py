@@ -5,7 +5,7 @@ import math
 import time
 
 from PySide6.QtCore import QRectF, Qt, QTimer
-from PySide6.QtGui import QColor, QCursor, QFont, QGuiApplication, QLinearGradient, QPainter, QPainterPath
+from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath
 from PySide6.QtWidgets import QApplication, QGraphicsDropShadowEffect, QLabel, QWidget
 
 def _fix_win11_frame(widget) -> None:
@@ -32,7 +32,7 @@ WIN_W = BAR_COUNT * (BAR_WIDTH + BAR_GAP) - BAR_GAP + PAD_X * 2 + BG_EXTRA * 2
 WIN_H = CANVAS_H + PAD_Y * 2
 MARGIN_BOTTOM = 80
 OVERLAY_RAISE_Y = 50
-STATUS_OFFSET_X = 10
+STATUS_OFFSET_X = 5
 STATUS_TIMER_ARM_DELAY_MS = 120
 
 
@@ -59,6 +59,10 @@ class WaveformOverlay(QWidget):
         self._status_color = QColor(16, 185, 129)
         self._status_until = 0.0
         self._screen_name = ""
+        self._text_dim_left = -1.0
+        self._text_dim_right = -1.0
+        self._dim_font = QFont("Microsoft JhengHei UI", 13)
+        self._dim_font.setBold(True)
         self._recording_shadow_labels: list[QLabel] = []
         for blur, alpha in ((20, 204), (12, 153), (6, 128)):
             label = self._make_recording_status_label(f"rgba(0, 0, 0, {alpha})")
@@ -242,7 +246,7 @@ class WaveformOverlay(QWidget):
             font = QFont("Microsoft JhengHei UI", 13)
             font.setBold(True)
             painter.setFont(font)
-            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "識別中…")
+            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "識別中")
             return
 
         if self._status_text:
@@ -262,6 +266,12 @@ class WaveformOverlay(QWidget):
         mid = WIN_H / 2
         max_half = CANVAS_H / 2 - 4
         fade_bars = 4
+
+        # 文字遮蔽區域：文字正下方的 bar 降至 40% 亮度，邊緣平滑過渡
+        text_dim_left = self._text_dim_left
+        text_dim_right = self._text_dim_right
+        _transition_px = (BAR_WIDTH + BAR_GAP) * 5
+
         painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
         for i, lv in enumerate(data):
             dist = min(i, BAR_COUNT - 1 - i)
@@ -270,10 +280,29 @@ class WaveformOverlay(QWidget):
             x0 = PAD_X + BG_EXTRA + i * (BAR_WIDTH + BAR_GAP)
             display_lv = min(0.92, lv / scale)
             h = max(2, int(display_lv * max_half))
-            if lv > 0.6:
-                color = QColor(103, 232, 249, int(240 * edge_t))
+
+            # 文字遮蔽 dim 係數（1.0 = 原色，0.4 = 文字正下方）
+            if text_dim_left < 0:
+                dim = 1.0
             else:
-                color = QColor(34, 211, 238, int(230 * edge_t))
+                bar_cx = x0 + BAR_WIDTH / 2
+                if bar_cx <= text_dim_left - _transition_px or bar_cx >= text_dim_right + _transition_px:
+                    dim = 1.0
+                elif bar_cx < text_dim_left:
+                    t = (bar_cx - (text_dim_left - _transition_px)) / _transition_px
+                    t = t * t * (3 - 2 * t)  # smoothstep
+                    dim = 1.0 - 0.6 * t
+                elif bar_cx > text_dim_right:
+                    t = (text_dim_right + _transition_px - bar_cx) / _transition_px
+                    t = t * t * (3 - 2 * t)
+                    dim = 1.0 - 0.6 * t
+                else:
+                    dim = 0.15
+
+            if lv > 0.6:
+                color = QColor(103, 232, 249, int(240 * edge_t * dim))
+            else:
+                color = QColor(34, 211, 238, int(230 * edge_t * dim))
             painter.setBrush(color)
             painter.drawRect(x0, int(mid - h), BAR_WIDTH, int(h * 2))
 
@@ -281,6 +310,15 @@ class WaveformOverlay(QWidget):
         for label in self._recording_shadow_labels:
             label.setText(text)
         self._recording_status_label.setText(text)
+        if text:
+            text_w = QFontMetrics(self._dim_font).horizontalAdvance(text)
+            text_cx = STATUS_OFFSET_X + WIN_W / 2
+            pad = -20
+            self._text_dim_left = text_cx - text_w / 2 - pad
+            self._text_dim_right = text_cx + text_w / 2 + pad
+        else:
+            self._text_dim_left = -1.0
+            self._text_dim_right = -1.0
         if text:
             text_color = QColor(color).name()
             self._recording_status_label.setStyleSheet(
