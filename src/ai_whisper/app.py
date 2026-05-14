@@ -2,14 +2,19 @@ from __future__ import annotations
 
 import ctypes
 import re
+import socket
 import sys
 import threading
 
-from PySide6.QtCore import Qt, QRectF, QTimer
+from PySide6.QtCore import QObject, Qt, QRectF, QTimer, Signal
 from PySide6.QtGui import QColor, QFont, QIcon, QLinearGradient, QPainter, QPen, QPixmap, QRadialGradient
 from PySide6.QtWidgets import QApplication, QProxyStyle, QStyle, QWidget
 
 from .paths import asset_dir, ensure_runtime_dirs, log_dir
+
+APP_USER_MODEL_ID = "AIWhisper.Next"
+SINGLE_INSTANCE_HOST = "127.0.0.1"
+SINGLE_INSTANCE_PORT = 47642
 
 
 def _fix_win11_frame(widget: QWidget) -> None:
@@ -23,6 +28,84 @@ def _fix_win11_frame(widget: QWidget) -> None:
         )
     except Exception:
         pass
+
+
+def _set_windows_app_user_model_id() -> None:
+    if sys.platform != "win32":
+        return
+    try:
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APP_USER_MODEL_ID)
+    except Exception:
+        pass
+
+
+def _allow_existing_instance_to_foreground() -> None:
+    if sys.platform != "win32":
+        return
+    try:
+        ctypes.windll.user32.AllowSetForegroundWindow(-1)
+    except Exception:
+        pass
+
+
+class SingleInstanceBridge(QObject):
+    activate_requested = Signal()
+
+    def __init__(self):
+        super().__init__()
+        self._sock: socket.socket | None = None
+        self._running = False
+
+    def acquire(self) -> bool:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            if hasattr(socket, "SO_EXCLUSIVEADDRUSE"):
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+            sock.bind((SINGLE_INSTANCE_HOST, SINGLE_INSTANCE_PORT))
+            sock.listen(4)
+            sock.settimeout(0.5)
+        except OSError:
+            sock.close()
+            return False
+
+        self._sock = sock
+        self._running = True
+        threading.Thread(target=self._serve, name="AIWhisperSingleInstance", daemon=True).start()
+        return True
+
+    def close(self) -> None:
+        self._running = False
+        if self._sock is not None:
+            try:
+                self._sock.close()
+            except OSError:
+                pass
+            self._sock = None
+
+    def _serve(self) -> None:
+        while self._running and self._sock is not None:
+            try:
+                conn, _addr = self._sock.accept()
+            except socket.timeout:
+                continue
+            except OSError:
+                break
+            with conn:
+                try:
+                    conn.recv(64)
+                except OSError:
+                    pass
+            self.activate_requested.emit()
+
+    @staticmethod
+    def notify_existing() -> bool:
+        _allow_existing_instance_to_foreground()
+        try:
+            with socket.create_connection((SINGLE_INSTANCE_HOST, SINGLE_INSTANCE_PORT), timeout=0.25) as conn:
+                conn.sendall(b"activate\n")
+            return True
+        except OSError:
+            return False
 
 
 class SplashScreen(QWidget):
@@ -155,6 +238,7 @@ def _apply_geometry(window, geometry: str) -> None:
 
 def main() -> int:
     ensure_runtime_dirs()
+    _set_windows_app_user_model_id()
 
     try:
         ctypes.windll.shcore.SetProcessDpiAwareness(1)
@@ -163,10 +247,17 @@ def main() -> int:
 
     app = QApplication(sys.argv)
     app.setApplicationName("AI Whisper")
+    app.setApplicationDisplayName("AI Whisper")
     app.setStyle(CompactPasswordStyle(app.style()))
     icon_path = asset_dir() / "icon.ico"
     if icon_path.exists():
         app.setWindowIcon(QIcon(str(icon_path)))
+
+    single_instance = SingleInstanceBridge()
+    if not single_instance.acquire():
+        if SingleInstanceBridge.notify_existing():
+            return 0
+        print("[main] 無法建立單一實例監聽，將繼續啟動")
 
     # Show splash immediately, then load heavy modules in background thread
     # so the event loop stays alive and dots can animate
@@ -202,9 +293,12 @@ def main() -> int:
             _apply_geometry(window, _load_result['cfg'].geometry)
             controller = _load_result['AppController'](window, _load_result['settings'])
             app.aboutToQuit.connect(controller.cleanup)
+            app.aboutToQuit.connect(single_instance.close)
+            single_instance.activate_requested.connect(window.show_from_tray)
             _refs['window'] = window
             _refs['controller'] = controller
             _refs['waveform_overlay'] = window.waveform_overlay
+            _refs['single_instance'] = single_instance
             splash.finish(window)
             window.show()
         else:

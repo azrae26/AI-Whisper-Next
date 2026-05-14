@@ -630,6 +630,7 @@ class MainWindow(QMainWindow):
         self.stack.setCurrentWidget(self.main_page)
 
     def show_from_tray(self) -> None:
+        self.setWindowState(self.windowState() & ~Qt.WindowState.WindowMinimized | Qt.WindowState.WindowActive)
         self.show()
         self.raise_()
         self.activateWindow()
