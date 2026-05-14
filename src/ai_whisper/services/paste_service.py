@@ -13,6 +13,9 @@ CF_UNICODETEXT = 13
 GMEM_MOVEABLE = 0x0002
 KEYEVENTF_KEYDOWN = 0
 KEYEVENTF_KEYUP = 0x0002
+VK_CONTROL = 0x11
+VK_V = 0x56
+CTRL_VKS = (0x11, 0xA2, 0xA3)  # generic Ctrl, left Ctrl, right Ctrl
 PASTE_MODIFIER_VKS = (
     0xA0, 0xA1,  # left Shift, right Shift
     0xA2, 0xA3,  # left Ctrl, right Ctrl
@@ -397,6 +400,22 @@ class PasteService:
             user32.keybd_event(vk, 0, KEYEVENTF_KEYDOWN, 0)
 
     @staticmethod
+    def _force_release_ctrl_keys() -> None:
+        user32 = ctypes.windll.user32
+        for vk in CTRL_VKS:
+            user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
+
+    @classmethod
+    def _send_ctrl_v(cls) -> None:
+        user32 = ctypes.windll.user32
+        user32.keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYDOWN, 0)
+        try:
+            user32.keybd_event(VK_V, 0, KEYEVENTF_KEYDOWN, 0)
+            user32.keybd_event(VK_V, 0, KEYEVENTF_KEYUP, 0)
+        finally:
+            cls._force_release_ctrl_keys()
+
+    @staticmethod
     def _is_cursor_at_end() -> tuple[bool, bool]:
         try:
             focused = auto.GetFocusedControl()
@@ -515,10 +534,12 @@ class PasteService:
             hwnd, win_title = 0, "(unknown)"
         _safe_print(f"[paster][{_now()}] ⌨️ Ctrl+V 送出，cb_ok={cb_ok}，視窗=\"{win_title}\"，hwnd={hwnd:#010x}，text={repr(final_text[:40])}")
         released_modifiers = self._release_paste_modifiers()
+        modifiers_to_restore = [vk for vk in released_modifiers if vk not in CTRL_VKS]
         try:
-            keyboard.send("ctrl+v")
+            self._send_ctrl_v()
         finally:
-            self._restore_paste_modifiers(released_modifiers)
+            self._force_release_ctrl_keys()
+            self._restore_paste_modifiers(modifiers_to_restore)
         guard_armed = self._arm_manual_paste_guard(final_text)
         if t_received:
             _safe_print(f"[paster][{_now()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
