@@ -423,6 +423,7 @@ class MainWindow(QMainWindow):
     capture_requested = Signal(str)
     copy_history_requested = Signal(int)
     tray_quit_requested = Signal()
+    geometry_changed = Signal()
 
     _CORNER_RADIUS = 10
 
@@ -707,10 +708,19 @@ class MainWindow(QMainWindow):
             card = QFrame()
             card.setStyleSheet("background:#27272A;border-radius:12px;")
             row = QHBoxLayout(card)
-            row.setContentsMargins(14, 8, 10, 8)
+            row.setContentsMargins(10, 8, 10, 8)
+            row.setSpacing(8)
+            badge = QLabel(str(i + 1))
+            badge.setFixedSize(20, 20)
+            badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            badge.setStyleSheet(
+                "background:#3F3F46;border-radius:10px;color:#F4F4F5;"
+                "font-family:\"Segoe UI Semibold\";font-size:12px;font-weight:700;"
+            )
+            row.addWidget(badge)
             label = QLabel(text)
             label.setWordWrap(True)
-            label.setStyleSheet(f"color:{'#F4F4F5' if i == 0 else '#A1A1AA'};font-size:14px;")
+            label.setStyleSheet("color:#F4F4F5;font-size:14px;")
             row.addWidget(label, 1)
             btn = QPushButton("複製")
             btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
@@ -745,6 +755,11 @@ class MainWindow(QMainWindow):
     def resizeEvent(self, event) -> None:
         super().resizeEvent(event)
         QTimer.singleShot(0, self._layout_main_content)
+        self.geometry_changed.emit()
+
+    def moveEvent(self, event) -> None:
+        super().moveEvent(event)
+        self.geometry_changed.emit()
 
     def showEvent(self, event) -> None:
         super().showEvent(event)

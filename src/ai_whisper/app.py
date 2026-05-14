@@ -39,6 +39,21 @@ def _set_windows_app_user_model_id() -> None:
         pass
 
 
+def _set_windows_dpi_awareness() -> None:
+    if sys.platform != "win32":
+        return
+    try:
+        per_monitor_v2 = ctypes.c_void_p(-4)
+        if ctypes.windll.user32.SetProcessDpiAwarenessContext(per_monitor_v2):
+            return
+    except Exception:
+        pass
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)
+    except Exception:
+        pass
+
+
 def _allow_existing_instance_to_foreground() -> None:
     if sys.platform != "win32":
         return
@@ -239,11 +254,7 @@ def _apply_geometry(window, geometry: str) -> None:
 def main() -> int:
     ensure_runtime_dirs()
     _set_windows_app_user_model_id()
-
-    try:
-        ctypes.windll.shcore.SetProcessDpiAwareness(1)
-    except Exception:
-        pass
+    _set_windows_dpi_awareness()
 
     app = QApplication(sys.argv)
     app.setApplicationName("AI Whisper")

@@ -59,6 +59,9 @@ class AppController(QObject):
         self._save_timer = QTimer(self)
         self._save_timer.setSingleShot(True)
         self._save_timer.timeout.connect(self._flush_settings)
+        self._geometry_save_timer = QTimer(self)
+        self._geometry_save_timer.setSingleShot(True)
+        self._geometry_save_timer.timeout.connect(self.save_geometry_now)
         self._pending_config: AppConfig | None = None
         self._capture_field: str | None = None
         self._cleaned_up = False
@@ -70,6 +73,7 @@ class AppController(QObject):
     def _connect(self) -> None:
         self.window.toggle_clicked.connect(self.toggle_recording)
         self.window.settings_changed.connect(self.queue_settings_save)
+        self.window.geometry_changed.connect(self.queue_geometry_save)
         self.window.capture_requested.connect(self.start_hotkey_capture)
         self.window.tray_quit_requested.connect(self.quit_app)
         self.hotkeys.toggle_requested.connect(self.toggle_recording)
@@ -368,6 +372,11 @@ class AppController(QObject):
     def _geometry_string(self) -> str:
         geo = self.window.geometry()
         return f"{geo.width()}x{geo.height()}+{geo.x()}+{geo.y()}"
+
+    def queue_geometry_save(self) -> None:
+        if self._cleaned_up:
+            return
+        self._geometry_save_timer.start(500)
 
     def save_geometry_now(self) -> None:
         if self._pending_config is not None:
