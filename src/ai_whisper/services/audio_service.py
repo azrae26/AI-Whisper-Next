@@ -33,6 +33,7 @@ class AudioService:
         self._lock = threading.Lock()
         self._waveform: list[float] = []
         self._wf_lock = threading.Lock()
+        self._waveform_dirty = False
         self._segment_samples = 0
         self._silence_chunks = 0
         self._chunk_samples = 0
@@ -84,6 +85,7 @@ class AudioService:
                 self._waveform.append(level)
                 if len(self._waveform) > 200:
                     self._waveform = self._waveform[-200:]
+                self._waveform_dirty = True
 
         try:
             t0 = time.perf_counter()
@@ -165,9 +167,14 @@ class AudioService:
             self._stream = None
         safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] 💤 預熱 stream 已關閉')
 
+    def has_new_waveform(self) -> bool:
+        with self._wf_lock:
+            return self._waveform_dirty
+
     def get_waveform(self) -> list[float]:
         with self._wf_lock:
-            return self._waveform.copy()
+            self._waveform_dirty = False
+            return self._waveform[-35:]
 
     def get_accumulated_seconds(self) -> float:
         with self._lock:

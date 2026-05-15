@@ -177,8 +177,8 @@ class AppController(QObject):
         self.state = "recording"
         self._rec_start_time = time.time()
         self.window.set_recording_state()
-        self._anim_timer.start(33)
-        self._waveform_timer.start(33)
+        self._anim_timer.start(50)
+        self._waveform_timer.start(50)
         self._segment_timer.start(200)
         safe_print(f"[main][{now_str()}] 🎙️ 開始錄音")
 
@@ -321,13 +321,16 @@ class AppController(QObject):
                 self.segment_processing_finished.emit()
 
     def _on_segment_done(self, text: str) -> None:
-        if text:
-            self.window.add_history(text)
+        # Update overlay status immediately (this frame)
         if self._segment_processing_count <= 1:
             if text:
                 self._set_segment_waveform_status("辨識完成 ✓", "#6EE7B7", 1200)
             else:
                 self._set_segment_waveform_status("未辨識到內容", "#FCD34D", 1200)
+        # Defer heavy UI work (history widget creation, first-time animation)
+        # to the next event loop tick so overlay repaints first
+        if text:
+            QTimer.singleShot(0, lambda: self.window.add_history(text))
 
     def _on_segment_processing_started(self) -> None:
         if self.state != "recording":
@@ -356,9 +359,9 @@ class AppController(QObject):
         self.state = "idle"
         self.window.set_idle_state()
         if text:
-            self.window.add_history(text)
             self.window.set_status("辨識完成 ✓", "#6EE7B7")
             self.window.show_overlay_status("辨識完成 ✓", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
+            QTimer.singleShot(0, lambda: self.window.add_history(text))
         else:
             self.window.set_status("⚠ 未辨識到內容", "#FCD34D")
             self.window.show_overlay_status("未辨識到內容", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
@@ -398,7 +401,8 @@ class AppController(QObject):
     def _tick_waveform(self) -> None:
         if self.state != "recording":
             return
-        self.window.set_waveform(self.audio.get_waveform())
+        if self.audio.has_new_waveform():
+            self.window.set_waveform(self.audio.get_waveform())
 
     def paste_history(self, idx: int) -> None:
         text = self.window.history_text(idx)

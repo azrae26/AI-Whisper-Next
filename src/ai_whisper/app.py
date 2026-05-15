@@ -312,6 +312,7 @@ def main() -> int:
             _refs['single_instance'] = single_instance
             splash.finish(window)
             window.show()
+            QTimer.singleShot(500, window.prewarm)
         else:
             QTimer.singleShot(50, _check_loaded)
 

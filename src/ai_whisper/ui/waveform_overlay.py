@@ -4,8 +4,8 @@ import ctypes
 import math
 import time
 
-from PySide6.QtCore import QRectF, Qt, QTimer
-from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath
+from PySide6.QtCore import QRect, QRectF, Qt, QTimer
+from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath, QPixmap
 from PySide6.QtWidgets import QApplication, QGraphicsDropShadowEffect, QLabel, QWidget
 
 def _fix_win11_frame(widget) -> None:
@@ -33,6 +33,17 @@ WIN_H = CANVAS_H + PAD_Y * 2
 MARGIN_BOTTOM = 80
 OVERLAY_RAISE_Y = 50
 STATUS_OFFSET_X = 5
+
+# Pre-computed per-bar constants (never change at runtime)
+_FADE_BARS = 4
+_BAR_MID = WIN_H / 2
+_BAR_MAX_HALF = CANVAS_H / 2 - 4
+_TRANSITION_PX = (BAR_WIDTH + BAR_GAP) * 5
+_BAR_X0: list[int] = [PAD_X + BG_EXTRA + i * (BAR_WIDTH + BAR_GAP) for i in range(BAR_COUNT)]
+_BAR_EDGE_T: list[float] = [
+    1.0 - (1.0 - min(1.0, min(i, BAR_COUNT - 1 - i) / _FADE_BARS)) ** 1.6
+    for i in range(BAR_COUNT)
+]
 STATUS_TIMER_ARM_DELAY_MS = 120
 
 
@@ -61,7 +72,7 @@ class WaveformOverlay(QWidget):
         self._screen_name = ""
         self._text_dim_left = -1.0
         self._text_dim_right = -1.0
-        self._dim_font = QFont("Microsoft JhengHei UI", 13)
+        self._dim_font = QFont("Microsoft JhengHei UI", 13)  # used for QFontMetrics; kept separate from _paint_font
         self._dim_font.setBold(True)
         self._recording_shadow_labels: list[QLabel] = []
         for blur, alpha in ((20, 204), (12, 153), (6, 128)):
@@ -77,9 +88,33 @@ class WaveformOverlay(QWidget):
         self._recording_status_label.hide()
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
-        # Prime the window surface so it renders correctly on first use
-        # without needing the app to have been in the foreground first
+
+        # Cache expensive objects to avoid allocating them on every paintEvent
+        self._paint_font = QFont("Microsoft JhengHei UI", 13)
+        self._paint_font.setBold(True)
+        self._bg_pixmap: QPixmap | None = None  # built on first paint; WIN_W/H are constants
+        self._bar_dim: list[float] = [1.0] * BAR_COUNT  # recomputed only when text_dim changes
+        # Pre-allocated QColor objects — mutate alpha each frame instead of new QColor()
+        self._color_bright = QColor(103, 232, 249)
+        self._color_normal = QColor(34, 211, 238)
+        # Pre-allocated QRect list for batched drawRects — avoids per-frame allocation
+        self._bar_rects: list[QRect] = [QRect() for _ in range(BAR_COUNT)]
+
+        # Prime window surface, font, AND QGraphicsDropShadowEffect GPU shaders.
+        # Shadow effect shader compilation is lazy — it blocks the main thread the
+        # first time the label is actually painted. Force it here at startup.
         self.show()
+        for label in self._recording_shadow_labels:
+            label.setText("預熱")
+            label.show()
+        self._recording_status_label.setText("預熱")
+        self._recording_status_label.show()
+        self.repaint()  # synchronous paint → compiles shaders, caches font glyphs
+        for label in self._recording_shadow_labels:
+            label.hide()
+            label.setText("")
+        self._recording_status_label.hide()
+        self._recording_status_label.setText("")
         self.hide()
 
     def showEvent(self, event) -> None:
@@ -112,7 +147,7 @@ class WaveformOverlay(QWidget):
         self._position_at_cursor_screen()
         self.show()
         self.raise_()
-        self._timer.start(33)
+        self._timer.start(50)
 
     def set_recording_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
         if self._processing or self._status_text:
@@ -145,7 +180,7 @@ class WaveformOverlay(QWidget):
         self._position_at_cursor_screen()
         self.show()
         self.raise_()
-        self._timer.start(33)
+        self._timer.start(50)
 
     def hide_overlay(self) -> None:
         self._processing = False
@@ -160,7 +195,7 @@ class WaveformOverlay(QWidget):
     def set_levels(self, levels: list[float]) -> None:
         if self._processing:
             return
-        self._levels = levels[-BAR_COUNT:]
+        self._levels = levels  # already trimmed to BAR_COUNT by get_waveform()
         self.update()
 
     def _position_at_cursor_screen(self) -> None:
@@ -205,36 +240,55 @@ class WaveformOverlay(QWidget):
             return
         self.update()
 
-    def paintEvent(self, event) -> None:
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+    def _build_bg_pixmap(self) -> QPixmap:
+        """Build and cache the background gradient pixmap (drawn once, reused every frame)."""
+        px = QPixmap(WIN_W, WIN_H)
+        px.fill(Qt.GlobalColor.transparent)
+        p = QPainter(px)
+        p.setRenderHint(QPainter.RenderHint.Antialiasing)
         rect = QRectF(0, 0, WIN_W, WIN_H)
-        painter.setPen(Qt.PenStyle.NoPen)
+        p.setPen(Qt.PenStyle.NoPen)
         path = QPainterPath()
         path.addRoundedRect(rect.adjusted(0.5, 0.5, -0.5, -0.5), 14, 14)
-        painter.setClipPath(path)
+        p.setClipPath(path)
+        # Vertical smoothstep gradient via a QLinearGradient (single fillRect, fast)
         mid = WIN_H / 2
-        for y in range(WIN_H):
-            t = y / mid if y < mid else (WIN_H - 1 - y) / mid
-            t = max(0.0, min(1.0, t))
-            t = t * t * (3 - 2 * t)
-            painter.fillRect(0, y, WIN_W, 1, QColor(15, 15, 35, int(t * 153)))
-        painter.setClipping(False)
+        vg = QLinearGradient(0, 0, 0, WIN_H)
+        steps = 16
+        for i in range(steps + 1):
+            y = i / steps
+            t = y if y < 0.5 else 1.0 - y
+            t = t * 2  # 0→1 at mid
+            t = t * t * (3 - 2 * t)  # smoothstep
+            vg.setColorAt(y, QColor(15, 15, 35, int(t * 153)))
+        p.fillRect(rect, vg)
+        p.setClipping(False)
 
-        # 背景左右淡出（三種狀態共用，畫在所有內容之前）
+        # Left / right edge fade-out (DestinationOut mask baked into pixmap)
         bg_fade_w = PAD_X + BG_EXTRA + (BAR_WIDTH + BAR_GAP) * 2 + 5
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_DestinationOut)
+        p.setCompositionMode(QPainter.CompositionMode.CompositionMode_DestinationOut)
         lg_l = QLinearGradient(0, 0, bg_fade_w, 0)
         lg_l.setColorAt(0.0, QColor(0, 0, 0, 255))
         lg_l.setColorAt(0.5, QColor(0, 0, 0, 68))
         lg_l.setColorAt(1.0, QColor(0, 0, 0, 0))
-        painter.fillRect(QRectF(0, 0, bg_fade_w, WIN_H), lg_l)
+        p.fillRect(QRectF(0, 0, bg_fade_w, WIN_H), lg_l)
         lg_r = QLinearGradient(WIN_W, 0, WIN_W - bg_fade_w, 0)
         lg_r.setColorAt(0.0, QColor(0, 0, 0, 255))
         lg_r.setColorAt(0.5, QColor(0, 0, 0, 68))
         lg_r.setColorAt(1.0, QColor(0, 0, 0, 0))
-        painter.fillRect(QRectF(WIN_W - bg_fade_w, 0, bg_fade_w, WIN_H), lg_r)
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceOver)
+        p.fillRect(QRectF(WIN_W - bg_fade_w, 0, bg_fade_w, WIN_H), lg_r)
+        p.end()
+        return px
+
+    def paintEvent(self, event) -> None:
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        rect = QRectF(0, 0, WIN_W, WIN_H)
+
+        # Draw cached background (build once, reuse every frame)
+        if self._bg_pixmap is None:
+            self._bg_pixmap = self._build_bg_pixmap()
+        painter.drawPixmap(0, 0, self._bg_pixmap)
 
         if self._processing:
             elapsed = time.time() - self._proc_start
@@ -243,68 +297,57 @@ class WaveformOverlay(QWidget):
             g = int(211 + (243 - 211) * t)
             b = int(238 + (252 - 238) * t)
             painter.setPen(QColor(r, g, b))
-            font = QFont("Microsoft JhengHei UI", 13)
-            font.setBold(True)
-            painter.setFont(font)
+            painter.setFont(self._paint_font)
             painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "識別中")
             return
 
         if self._status_text:
             painter.setPen(self._status_color)
-            font = QFont("Microsoft JhengHei UI", 13)
-            font.setBold(True)
-            painter.setFont(font)
+            painter.setFont(self._paint_font)
             painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, self._status_text)
             return
 
-        # 第二組：bar 本身的左右淡出（per-bar alpha）
+        # Bar rendering — batch into two drawRects calls (bright / normal), zero QColor allocs
         data = self._levels
-        if len(data) < BAR_COUNT:
-            data = [0.0] * (BAR_COUNT - len(data)) + data
+        n = len(data)
+        if n < BAR_COUNT:
+            data = [0.0] * (BAR_COUNT - n) + data
         peak = max(data) if data else 0.0
         scale = max(1.0, peak / 0.82)
-        mid = WIN_H / 2
-        max_half = CANVAS_H / 2 - 4
-        fade_bars = 4
+        bar_dim = self._bar_dim
+        mid = int(_BAR_MID)
+        max_half = _BAR_MAX_HALF
 
-        # 文字遮蔽區域：文字正下方的 bar 降至 40% 亮度，邊緣平滑過渡
-        text_dim_left = self._text_dim_left
-        text_dim_right = self._text_dim_right
-        _transition_px = (BAR_WIDTH + BAR_GAP) * 5
-
+        painter.setPen(Qt.PenStyle.NoPen)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
+
+        bright_rects: list[QRect] = []
+        normal_rects: list[QRect] = []
+        bright_alphas: list[int] = []
+        normal_alphas: list[int] = []
+
         for i, lv in enumerate(data):
-            dist = min(i, BAR_COUNT - 1 - i)
-            edge_t = min(1.0, dist / fade_bars)
-            edge_t = 1 - (1 - edge_t) ** 1.6  # ease-out: 先快後慢，邊緣柔和起步
-            x0 = PAD_X + BG_EXTRA + i * (BAR_WIDTH + BAR_GAP)
             display_lv = min(0.92, lv / scale)
             h = max(2, int(display_lv * max_half))
-
-            # 文字遮蔽 dim 係數（1.0 = 原色，0.4 = 文字正下方）
-            if text_dim_left < 0:
-                dim = 1.0
-            else:
-                bar_cx = x0 + BAR_WIDTH / 2
-                if bar_cx <= text_dim_left - _transition_px or bar_cx >= text_dim_right + _transition_px:
-                    dim = 1.0
-                elif bar_cx < text_dim_left:
-                    t = (bar_cx - (text_dim_left - _transition_px)) / _transition_px
-                    t = t * t * (3 - 2 * t)  # smoothstep
-                    dim = 1.0 - 0.6 * t
-                elif bar_cx > text_dim_right:
-                    t = (text_dim_right + _transition_px - bar_cx) / _transition_px
-                    t = t * t * (3 - 2 * t)
-                    dim = 1.0 - 0.6 * t
-                else:
-                    dim = 0.15
-
+            alpha_t = _BAR_EDGE_T[i] * bar_dim[i]
+            rect = self._bar_rects[i]
+            rect.setRect(_BAR_X0[i], mid - h, BAR_WIDTH, h * 2)
             if lv > 0.6:
-                color = QColor(103, 232, 249, int(240 * edge_t * dim))
+                bright_rects.append(rect)
+                bright_alphas.append(int(240 * alpha_t))
             else:
-                color = QColor(34, 211, 238, int(230 * edge_t * dim))
-            painter.setBrush(color)
-            painter.drawRect(x0, int(mid - h), BAR_WIDTH, int(h * 2))
+                normal_rects.append(rect)
+                normal_alphas.append(int(230 * alpha_t))
+
+        # Bright bars — group by common alpha where possible, else draw individually
+        for rect, alpha in zip(bright_rects, bright_alphas):
+            self._color_bright.setAlpha(alpha)
+            painter.setBrush(self._color_bright)
+            painter.drawRect(rect)
+        for rect, alpha in zip(normal_rects, normal_alphas):
+            self._color_normal.setAlpha(alpha)
+            painter.setBrush(self._color_normal)
+            painter.drawRect(rect)
 
     def _set_recording_status_label(self, text: str, color: str = "#F5D0FE") -> None:
         for label in self._recording_shadow_labels:
@@ -319,6 +362,7 @@ class WaveformOverlay(QWidget):
         else:
             self._text_dim_left = -1.0
             self._text_dim_right = -1.0
+        self._rebuild_bar_dim()
         if text:
             text_color = QColor(color).name()
             self._recording_status_label.setStyleSheet(
@@ -334,12 +378,37 @@ class WaveformOverlay(QWidget):
                 label.hide()
             self._recording_status_label.hide()
 
+    def _rebuild_bar_dim(self) -> None:
+        """Recompute per-bar dim factors; called only when text_dim_left/right changes."""
+        tdl = self._text_dim_left
+        tdr = self._text_dim_right
+        tp = _TRANSITION_PX
+        if tdl < 0:
+            self._bar_dim = [1.0] * BAR_COUNT
+            return
+        dims: list[float] = []
+        for i in range(BAR_COUNT):
+            bar_cx = _BAR_X0[i] + BAR_WIDTH / 2
+            if bar_cx <= tdl - tp or bar_cx >= tdr + tp:
+                dims.append(1.0)
+            elif bar_cx < tdl:
+                t = (bar_cx - (tdl - tp)) / tp
+                t = t * t * (3 - 2 * t)
+                dims.append(1.0 - 0.6 * t)
+            elif bar_cx > tdr:
+                t = (tdr + tp - bar_cx) / tp
+                t = t * t * (3 - 2 * t)
+                dims.append(1.0 - 0.6 * t)
+            else:
+                dims.append(0.15)
+        self._bar_dim = dims
+
     def _arm_recording_status_timeout(self, token: int, text: str, duration_ms: int) -> None:
         if token != self._recording_status_token or self._recording_status_text != text:
             return
         self._recording_status_until = time.time() + duration_ms / 1000
         if not self._timer.isActive():
-            self._timer.start(33)
+            self._timer.start(50)
 
     def _make_recording_status_label(self, color: str) -> QLabel:
         label = QLabel(self)

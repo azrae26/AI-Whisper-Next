@@ -666,7 +666,9 @@ class MainWindow(QMainWindow):
         self.timer_label.setText("")
         self.tray.setIcon(self._tray_idle_icon)
         self._apply_window_icon(self._window_idle_icon)
-        self.waveform_overlay.hide_overlay()
+        # Do NOT hide_overlay here — callers always follow with show_overlay_status(),
+        # so the overlay transitions directly from "識別中" to the status text
+        # without a DWM hide→show flicker.
 
     def set_status(self, text: str, color: str = "#A1A1AA") -> None:
         self.status_label.setText("" if text == "等待中" else text)
@@ -689,6 +691,9 @@ class MainWindow(QMainWindow):
 
     def show_overlay_status(self, text: str, color: str, duration_ms: int) -> None:
         self.waveform_overlay.show_status(text, color, duration_ms)
+
+    def prewarm(self) -> None:
+        pass  # disabled — was causing 3s main-thread block via dangling QPropertyAnimation
 
     def add_history(self, text: str) -> None:
         if not text:
