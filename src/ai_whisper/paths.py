@@ -33,7 +33,7 @@ def log_dir() -> Path:
 def tap_log_dir() -> Path:
     if getattr(sys, "_MEIPASS", None):
         # exe is at <project>/dist/AI Whisper/ → parents[1] = project root
-        return Path(sys.executable).resolve().parents[1] / "tap_test_logs"
+        return Path(sys.executable).resolve().parents[2] / "tap_test_logs"
     return PROJECT_DIR / "tap_test_logs"
 
 
