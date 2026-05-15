@@ -453,7 +453,7 @@ class MainWindow(QMainWindow):
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint, True)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setMinimumSize(380, 520)
-        self.resize(420, 580)
+        self.resize(460, 620)
         self.setStyleSheet(_style())
         self._drag_widgets: list[QWidget] = []
         self._drag_offset = None

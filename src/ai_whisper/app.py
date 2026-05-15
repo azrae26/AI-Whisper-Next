@@ -245,8 +245,6 @@ def _apply_geometry(window, geometry: str) -> None:
     match = re.match(r"(\d+)x(\d+)(?:\+(-?\d+)\+(-?\d+))?", geometry or "")
     if not match:
         return
-    w, h = int(match.group(1)), int(match.group(2))
-    window.resize(w, h)
     if match.group(3) is not None:
         window.move(int(match.group(3)), int(match.group(4)))
 

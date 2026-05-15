@@ -30,7 +30,7 @@ class AppConfig:
     ])
     model: str = "gpt-4o-transcribe"
     startup: bool = True
-    geometry: str = "420x580"
+    geometry: str = "460x620"
     text_corrections: list[TextCorrection] = field(default_factory=list)
     segment_silence: float = 2.0
     segment_max_accum: float = 18.0

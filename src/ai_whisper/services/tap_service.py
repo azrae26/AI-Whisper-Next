@@ -6,13 +6,13 @@ from typing import Callable
 import numpy as np
 import sounddevice as sd
 
-from ..logging_setup import safe_print
+from ..logging_setup import now_str, safe_print
 from .vad_service import SAMPLE_RATE
 
 TAP_COUNT = 3
 TAP_MAX_DURATION_SEC = 0.10   # 持續超過此時間 → 說話或持續噪音，不算敲擊，且重置計數
-TAP_MIN_INTERVAL_SEC = 0.2    # 太快（< 200ms）：不是手敲，忽略
-TAP_MAX_INTERVAL_SEC = 1.0    # 太慢（> 1000ms）：不算連續，重置序列
+TAP_MIN_INTERVAL_SEC = 0.18   # 太快（< 180ms）：不是手敲，忽略
+TAP_MAX_INTERVAL_SEC = 0.4    # 太慢（> 400ms）：不算連續，重置序列
 TAP_RHYTHM_MIN_RATIO = 0.65   # min(ia, ib) / max(ia, ib) must be >= this
 
 
@@ -31,6 +31,10 @@ class TapService:
         self._above_peak = 0.0
         self._tap_times: list[float] = []
         self._consecutive_long: int = 0  # counts back-to-back long events; speech → ≥2, hard tap → 1
+        # Dim tracking: log lighter taps (below main threshold) for analysis only
+        self._dim_above = False
+        self._dim_start = 0.0
+        self._dim_peak = 0.0
 
     # ------------------------------------------------------------------
     # Public control API (called from Qt main thread)
@@ -83,6 +87,7 @@ class TapService:
             pass
         self._stream = None
         self._above = False
+        self._dim_above = False
         self._consecutive_long = 0
         self._tap_times.clear()
         safe_print("[tap] 💤 敲麥監聽已停止")
@@ -92,6 +97,21 @@ class TapService:
         rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
         now = time.perf_counter()
         threshold = self._threshold
+        dim_threshold = threshold * 0.3
+
+        # --- Dim tracking: log lighter taps that don't reach main threshold ---
+        was_dim = self._dim_above
+        self._dim_above = rms > dim_threshold and rms <= threshold
+        if self._dim_above and not was_dim:
+            self._dim_start = now
+            self._dim_peak = rms
+        elif self._dim_above and was_dim:
+            if rms > self._dim_peak:
+                self._dim_peak = rms
+        elif not self._dim_above and was_dim:
+            dur = now - self._dim_start
+            if dur < TAP_MAX_DURATION_SEC:
+                safe_print(f"[tap][dim][{now_str()}] 持續={dur*1000:.0f}ms 峰值={self._dim_peak:.0f} ✗弱")
 
         was_above = self._above
         self._above = rms > threshold
@@ -115,7 +135,8 @@ class TapService:
         # 下降緣：確認持續時間，過長 → 說話或持續噪音，丟棄
         duration = now - self._above_start
         peak = self._above_peak
-        safe_print(f"[tap][sample] 持續={duration*1000:.0f}ms 峰值={peak:.0f} {'✓' if duration < TAP_MAX_DURATION_SEC else '✗長'}")
+        ts = now_str()
+        safe_print(f"[tap][sample][{ts}] 持續={duration*1000:.0f}ms 峰值={peak:.0f} {'✓' if duration < TAP_MAX_DURATION_SEC else '✗長'}")
         if duration >= TAP_MAX_DURATION_SEC:
             self._consecutive_long += 1
             if self._consecutive_long >= 2:
@@ -133,12 +154,14 @@ class TapService:
         if self._tap_times:
             gap = tap_time - self._tap_times[-1]
             if gap < TAP_MIN_INTERVAL_SEC:
+                safe_print(f"[tap][{ts}] ⏱️ 防抖略過（距上次 {gap*1000:.0f}ms < {TAP_MIN_INTERVAL_SEC*1000:.0f}ms）")
                 return
             if gap > TAP_MAX_INTERVAL_SEC:
+                safe_print(f"[tap][{ts}] ⏱️ 間隔過長重置（{gap*1000:.0f}ms）")
                 self._tap_times.clear()
 
         self._tap_times.append(tap_time)
-        safe_print(f"[tap] 🎯 敲擊 #{len(self._tap_times)}")
+        safe_print(f"[tap][{ts}] 🎯 敲擊 #{len(self._tap_times)}")
 
         if len(self._tap_times) >= TAP_COUNT:
             t1, t2, t3 = self._tap_times[-3], self._tap_times[-2], self._tap_times[-1]
@@ -147,12 +170,12 @@ class TapService:
             if ratio >= TAP_RHYTHM_MIN_RATIO:
                 self._tap_times.clear()
                 safe_print(
-                    f"[tap] 🔔 三連敲觸發（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
+                    f"[tap][{ts}] 🔔 三連敲觸發（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
                     f"一致性 {ratio:.2f}）"
                 )
                 self._on_triple_tap()
             else:
                 safe_print(
-                    f"[tap] ⚠️ 節奏不一致（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
+                    f"[tap][{ts}] ⚠️ 節奏不一致（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
                     f"一致性 {ratio:.2f}），忽略"
                 )
