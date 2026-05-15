@@ -63,8 +63,10 @@ def _allow_existing_instance_to_foreground() -> None:
         pass
 
 
+
 class SingleInstanceBridge(QObject):
     activate_requested = Signal()
+    quit_requested = Signal()
 
     def __init__(self):
         super().__init__()
@@ -107,10 +109,13 @@ class SingleInstanceBridge(QObject):
                 break
             with conn:
                 try:
-                    conn.recv(64)
+                    data = conn.recv(64)
                 except OSError:
-                    pass
-            self.activate_requested.emit()
+                    data = b""
+            if data.strip() == b"QUIT":
+                self.quit_requested.emit()
+            else:
+                self.activate_requested.emit()
 
     @staticmethod
     def notify_existing() -> bool:
@@ -305,6 +310,7 @@ def main() -> int:
             app.aboutToQuit.connect(controller.cleanup)
             app.aboutToQuit.connect(single_instance.close)
             single_instance.activate_requested.connect(window.show_from_tray)
+            single_instance.quit_requested.connect(controller.quit_app)
             _refs['window'] = window
             _refs['controller'] = controller
             _refs['waveform_overlay'] = window.waveform_overlay

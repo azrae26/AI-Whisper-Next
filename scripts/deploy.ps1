@@ -25,24 +25,40 @@ $stagedDistDir = Join-Path $stagedDistRoot "AI Whisper"
 $configBak = Join-Path $workspace "config.json.pack.bak"
 
 function Stop-AiWhisper {
-    # Kill EXE version
-    if (Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue) {
-        try { taskkill /F /T /IM "AI Whisper.exe" 2>$null } catch {}
+    # 先抓住現有程序（送 QUIT 前取得，才能 WaitForExit）
+    $procExe = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
+    $procPy  = Get-Process -Name "python"     -ErrorAction SilentlyContinue
+
+    # 送 QUIT socket → quit_app() → tray.hide() → QApplication.quit()
+    $tcp = New-Object System.Net.Sockets.TcpClient
+    try { $tcp.Connect("127.0.0.1", 47642) } catch { }
+    $graceful = $false
+    if ($tcp.Connected) {
+        try {
+            $s = $tcp.GetStream()
+            $b = [System.Text.Encoding]::ASCII.GetBytes("QUIT")
+            $s.Write($b, 0, $b.Length); $s.Close()
+        } catch { }
+        $tcp.Close()
+        $target = if ($procExe) { $procExe } else { $procPy }
+        if ($target) { $graceful = $target.WaitForExit(3000) }
     }
-    # Kill Python dev version (run_ai_whisper.py)
-    $pyProcs = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
-        Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
-    foreach ($p in $pyProcs) {
-        try { taskkill /F /T /PID $p.ProcessId 2>$null } catch {}
-    }
-    for ($i = 0; $i -lt 40; $i++) {
-        $exeAlive = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
-        $pyAlive  = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
+
+    if (-not $graceful) {
+        # 優雅退出失敗 → 強制砍
+        if ($procExe) { try { taskkill /F /T /IM "AI Whisper.exe" 2>$null } catch {} }
+        $pyProcs = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
             Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
-        if (-not $exeAlive -and -not $pyAlive) { return }
-        Start-Sleep -Milliseconds 250
+        foreach ($p in $pyProcs) { try { taskkill /F /T /PID $p.ProcessId 2>$null } catch {} }
+        for ($i = 0; $i -lt 40; $i++) {
+            $exeAlive = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
+            $pyAlive  = Get-CimInstance Win32_Process -Filter "Name='python.exe' OR Name='pythonw.exe'" |
+                Where-Object { $_.CommandLine -like '*run_ai_whisper*' }
+            if (-not $exeAlive -and -not $pyAlive) { return }
+            Start-Sleep -Milliseconds 250
+        }
+        throw "AI Whisper did not exit in time"
     }
-    throw "AI Whisper did not exit in time"
 }
 
 function Remove-DirectoryWithRetry([string]$Path) {
