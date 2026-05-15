@@ -17,10 +17,15 @@ MIN_INT  = _param("TAP_MIN_INTERVAL_SEC", float)
 MAX_INT  = _param("TAP_MAX_INTERVAL_SEC", float)
 RHYTHM   = _param("TAP_RHYTHM_MIN_RATIO", float)
 COUNT    = _param("TAP_COUNT",            int)
-MAX_DUR  = _param("TAP_MAX_DURATION_SEC", float)
+dur_tiers = re.findall(r"\((\d+(?:\.\d+)?|float\(\"inf\"\)),\s*([\d.]+)\)", src)
+dur_str = "  ".join(
+    f"{'∞' if 'inf' in lo else str(int(float(lo)//1000))+'k'}:{float(dur)*1000:.0f}ms"
+    for lo, dur in dur_tiers
+)
 
 print(f"Parameters  MIN={MIN_INT*1000:.0f}ms  MAX={MAX_INT*1000:.0f}ms  "
-      f"RHYTHM>={RHYTHM}  COUNT={COUNT}  MAX_DUR={MAX_DUR*1000:.0f}ms")
+      f"RHYTHM>={RHYTHM}  COUNT={COUNT}")
+print(f"DUR thresholds  {dur_str}")
 print()
 
 # --- Parse test logs ---

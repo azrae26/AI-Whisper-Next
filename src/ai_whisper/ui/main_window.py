@@ -66,9 +66,13 @@ def _style() -> str:
     QPushButton#windowControl:hover { background:#3F3F46; color:#FFFFFF; }
     QPushButton#windowClose:hover { background:#7F1D1D; color:#FEE2E2; }
     QLineEdit, QTextEdit, QComboBox { background: #27272A; border: 1px solid #3F3F46; border-radius: 8px; padding: 8px; }
+    QLineEdit:hover, QTextEdit:hover, QComboBox:hover { background: #2F3036; border-color: #52525B; }
+    QLineEdit:focus, QTextEdit:focus, QComboBox:focus { border-color: #5B5F6A; background: #2B2C31; }
     QComboBox { padding-right: 36px; }
     QComboBox::drop-down { width: 34px; border: 0; background: transparent; }
+    QComboBox::drop-down:hover { background: #3F3F46; border-radius: 6px; }
     QComboBox::down-arrow { width: 12px; height: 12px; margin-right: 8px; }
+    QAbstractItemView { background: #27272A; border: 1px solid #3F3F46; selection-background-color: #3F3F46; selection-color: #F4F4F5; outline: 0; }
     QPushButton#eyeToggle { background:#242428; border:1px solid #3F3F46; border-radius:8px; padding:0; }
     QPushButton#eyeToggle:hover { background:#2F3036; border-color:#52525B; }
     QScrollArea { border: 0; background: transparent; }
@@ -100,6 +104,14 @@ def _status_style(color: str) -> str:
     return f"color:{color};font-size:{STATUS_FONT_SIZE}px;font-weight:700;"
 
 
+def _mic_button_style(bg: str, text: str, border: str, hover_bg: str, hover_border: str) -> str:
+    return (
+        f"QPushButton#mic{{background:{bg};color:{text};border:2px solid {border};"
+        "border-radius:28px;font-size:18px;font-weight:700;}"
+        f"QPushButton#mic:hover{{background:{hover_bg};border-color:{hover_border};}}"
+    )
+
+
 class ToggleSwitch(QCheckBox):
     def __init__(self):
         super().__init__("")
@@ -109,20 +121,33 @@ class ToggleSwitch(QCheckBox):
     def sizeHint(self) -> QSize:
         return QSize(46, 24)
 
+    def enterEvent(self, event) -> None:
+        self.update()
+        super().enterEvent(event)
+
+    def leaveEvent(self, event) -> None:
+        self.update()
+        super().leaveEvent(event)
+
     def paintEvent(self, event) -> None:
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         track = self.rect().adjusted(1, 2, -1, -2)
         painter.setPen(Qt.PenStyle.NoPen)
-        painter.setBrush(QColor("#2563EB") if self.isChecked() else QColor("#27272A"))
+        hovered = self.underMouse()
+        if self.isChecked():
+            track_color = "#2F6FEB" if hovered else "#2563EB"
+        else:
+            track_color = "#2F3036" if hovered else "#27272A"
+        painter.setBrush(QColor(track_color))
         painter.drawRoundedRect(track, 10, 10)
         if not self.isChecked():
-            painter.setPen(QColor("#3F3F46"))
+            painter.setPen(QColor("#52525B" if hovered else "#3F3F46"))
             painter.setBrush(Qt.BrushStyle.NoBrush)
             painter.drawRoundedRect(track, 10, 10)
             painter.setPen(Qt.PenStyle.NoPen)
         knob_x = track.right() - 18 if self.isChecked() else track.left() + 2
-        painter.setBrush(QColor("#FFFFFF") if self.isChecked() else QColor("#A1A1AA"))
+        painter.setBrush(QColor("#FFFFFF") if self.isChecked() else QColor("#D4D4D8" if hovered else "#A1A1AA"))
         painter.drawEllipse(knob_x, track.top() + 2, 16, 16)
 
 
@@ -198,7 +223,7 @@ class SettingsPage(QWidget):
         top_l.addWidget(self.back_btn)
         title = QLabel("設定")
         self.title_label = title
-        title.setStyleSheet("font-size:18px;font-weight:700;")
+        title.setStyleSheet("font-size:19px;font-weight:700;")
         top_l.addWidget(title, 1)
         self.window_controls = QWidget()
         self.window_controls.setStyleSheet("background:transparent;")
@@ -222,9 +247,8 @@ class SettingsPage(QWidget):
         scroll.setWidget(content)
         outer.addWidget(scroll, 1)
 
-        self.startup = ToggleSwitch()
         self._section("開機時自動啟動")
-        self.form.addWidget(self.startup)
+        self.startup = self._toggle_row("啟用")
 
         self._section("自動分段設定")
         self._hint("靜音超過「送出門檻」秒後自動辨識；累積超過「最長累積」時，只要靜音達「短靜音門檻」即觸發")
@@ -261,7 +285,7 @@ class SettingsPage(QWidget):
             row = QHBoxLayout()
             label = QLabel(f"記憶 {i + 1}")
             label.setFixedWidth(56)
-            label.setStyleSheet("color:#A1A1AA;")
+            label.setStyleSheet("font-size:13px;color:#A1A1AA;")
             row.addWidget(label)
             btn = self._capture_btn(f"history_{i}", add=False)
             row.addWidget(btn, 1)
@@ -275,6 +299,7 @@ class SettingsPage(QWidget):
         self.api_key.setEchoMode(QLineEdit.EchoMode.Password)
         self.api_key.setPlaceholderText("sk-...")
         self.api_key.setFixedHeight(42)
+        self.api_key.setStyleSheet("font-size:13px;")
         key_row.addWidget(self.api_key, 1)
         self.show_key = EyeButton()
         key_row.addWidget(self.show_key)
@@ -283,6 +308,7 @@ class SettingsPage(QWidget):
         self._section("辨識模型")
         self.model = NoWheelComboBox()
         self.model.addItems(SUPPORTED_MODELS)
+        self.model.setStyleSheet("font-size:13px;")
         self.form.addWidget(self.model)
 
         self._section("文字校正")
@@ -290,6 +316,7 @@ class SettingsPage(QWidget):
         self.text_corrections = QTextEdit()
         self.text_corrections.setMinimumHeight(90)
         self.text_corrections.setMaximumHeight(300)
+        self.text_corrections.setStyleSheet("font-size:13px;")
         self.form.addWidget(self.text_corrections)
         self.form.addStretch(1)
 
@@ -297,8 +324,9 @@ class SettingsPage(QWidget):
         self.set_config(self._cfg)
 
     def _section(self, text: str) -> None:
+        self.form.addSpacing(12)
         label = QLabel(text)
-        label.setStyleSheet("font-size:14px;font-weight:700;color:#D4D4D8;margin-top:12px;")
+        label.setStyleSheet("font-size:15px;font-weight:700;color:#D4D4D8;")
         self.form.addWidget(label)
 
     def _hint(self, text: str) -> None:
@@ -310,7 +338,7 @@ class SettingsPage(QWidget):
     def _toggle_row(self, label_text: str) -> ToggleSwitch:
         row = QHBoxLayout()
         label = QLabel(label_text)
-        label.setStyleSheet("color:#A1A1AA;")
+        label.setStyleSheet("font-size:13px;color:#A1A1AA;")
         row.addWidget(label, 1)
         toggle = ToggleSwitch()
         row.addWidget(toggle)
@@ -320,11 +348,12 @@ class SettingsPage(QWidget):
     def _number_row(self, label_text: str) -> QLineEdit:
         row = QHBoxLayout()
         label = QLabel(label_text)
-        label.setStyleSheet("color:#A1A1AA;")
+        label.setStyleSheet("font-size:13px;color:#A1A1AA;")
         row.addWidget(label, 1)
         entry = QLineEdit()
         entry.setAlignment(Qt.AlignmentFlag.AlignCenter)
         entry.setFixedWidth(90)
+        entry.setStyleSheet("font-size:13px;")
         row.addWidget(entry)
         self.form.addLayout(row)
         return entry
@@ -333,6 +362,7 @@ class SettingsPage(QWidget):
         btn = QPushButton("")
         btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         btn.setMinimumHeight(36)
+        btn.setStyleSheet("font-size:13px;")
         btn.clicked.connect(lambda: self.capture_requested.emit(field, btn))
         self._capture_buttons[field] = btn
         if add:
@@ -425,7 +455,10 @@ class SettingsPage(QWidget):
     def set_capture_prompt(self, field: str) -> None:
         btn = self._capture_buttons[field]
         btn.setText("請按下組合鍵…")
-        btn.setStyleSheet("background:#1E3A5F;color:#93C5FD;border-color:#2563EB;")
+        btn.setStyleSheet(
+            "QPushButton{background:#1E3A5F;color:#93C5FD;border-color:#2563EB;}"
+            "QPushButton:hover{background:#24456F;border-color:#3B82F6;}"
+        )
 
     def reset_capture_button(self, field: str) -> None:
         value = self._cfg.hotkey
@@ -660,7 +693,7 @@ class MainWindow(QMainWindow):
         self._state = "recording"
         self.mic_btn.setText("停止錄音")
         self.mic_btn.setEnabled(True)
-        self.mic_btn.setStyleSheet("background:#520000;color:#FECACA;border:2px solid #EF4444;border-radius:28px;font-size:18px;font-weight:700;")
+        self.mic_btn.setStyleSheet(_mic_button_style("#520000", "#FECACA", "#EF4444", "#6A0505", "#F87171"))
         self.status_label.setText("● 錄音中：")
         self.status_label.setStyleSheet(_status_style("#EF4444"))
         self.tray.setIcon(self._tray_recording_icon)
@@ -681,7 +714,7 @@ class MainWindow(QMainWindow):
         self._state = "idle"
         self.mic_btn.setText("開始錄音")
         self.mic_btn.setEnabled(True)
-        self.mic_btn.setStyleSheet("background:#27272A;color:#F4F4F5;border:2px solid #3F3F46;border-radius:28px;font-size:18px;font-weight:700;")
+        self.mic_btn.setStyleSheet(_mic_button_style("#27272A", "#F4F4F5", "#3F3F46", "#303036", "#52525B"))
         self.status_label.setText("")
         self.timer_label.setText("")
         self.tray.setIcon(self._tray_idle_icon)
@@ -701,7 +734,7 @@ class MainWindow(QMainWindow):
         self.timer_label.setText(text)
         self.timer_label.setStyleSheet(_status_style(color))
         if self._state == "recording":
-            self.mic_btn.setStyleSheet(f"background:#520000;color:#FECACA;border:2px solid {color};border-radius:28px;font-size:18px;font-weight:700;")
+            self.mic_btn.setStyleSheet(_mic_button_style("#520000", "#FECACA", color, "#6A0505", "#F87171"))
 
     def set_waveform(self, levels: list[float]) -> None:
         self.waveform_overlay.set_levels(levels)
@@ -753,7 +786,10 @@ class MainWindow(QMainWindow):
             btn = QPushButton("複製")
             btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
             btn.setFixedSize(52, 28)
-            btn.setStyleSheet("background:#3F3F46;border:0;border-radius:6px;font-size:13px;color:#F4F4F5;")
+            btn.setStyleSheet(
+                "QPushButton{background:#3F3F46;border:0;border-radius:6px;font-size:13px;color:#F4F4F5;}"
+                "QPushButton:hover{background:#52525B;}"
+            )
             btn.clicked.connect(lambda _=False, idx=i, b=btn: self._copy_clicked(idx, b))
             row.addWidget(btn)
             self.history_layout.addWidget(card)

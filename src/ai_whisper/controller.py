@@ -103,6 +103,7 @@ class AppController(QObject):
         self.cfg.startup = is_startup_enabled()
         self.window.settings_page.set_config(self.cfg)
         self.window.set_hotkey_display(self.cfg.hotkey, self.cfg.hotkey_comma)
+        self.window.set_idle_state()
         self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
         self.tap.set_threshold(self.cfg.tap_sensitivity)
         if self.cfg.tap_trigger_enabled:

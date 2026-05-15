@@ -7,13 +7,12 @@ description: 每次修改 tap_service.py 的音頻判斷條件後，對 tap_test
 
 ## 觸發時機
 
-每次修改 `tap_service.py` 中的任何偵測參數後自動執行：
+每次修改 `tap_service.py` 中任何影響敲擊判斷結果的常數或邏輯後自動執行，包含但不限於：
 
-- `TAP_MIN_INTERVAL_SEC`
-- `TAP_MAX_INTERVAL_SEC`
-- `TAP_MAX_DURATION_SEC`
-- `TAP_RHYTHM_MIN_RATIO`
-- `TAP_COUNT`
+- 間隔門檻：`TAP_MIN_INTERVAL_SEC`、`TAP_MAX_INTERVAL_SEC`
+- 持續時間門檻：`TAP_MAX_DURATION_SEC`、`TAP_MAX_DURATION_HARD_SEC`、`TAP_HARD_PEAK_THRESHOLD`
+- 節奏／計數：`TAP_RHYTHM_MIN_RATIO`、`TAP_COUNT`
+- 判斷流程邏輯（如動態閾值、條件分支）
 
 ## 執行指令
 
