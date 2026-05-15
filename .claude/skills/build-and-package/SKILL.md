@@ -40,6 +40,11 @@ powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1" -WaitZip
 - 傳給同事，解壓後直接執行 `AI Whisper.exe`
 - 首次執行需在設定頁輸入 API Key
 
+## 與 push-and-package（推包）的關係
+
+- 使用者同一則需求為「推包」時，依 **push-and-package** skill：**同一輪禁止**在已背景啟動 `pack.ps1`（不帶參數）後，再為「確認 zip／timestamp 仍是舊的」而執行 `-WaitZip` 或第二次無參數 `pack.ps1`；應輪詢 `dist` 或請使用者稍後查看。
+- 「只包」時仍可依本 skill 單獨執行 `pack.ps1`／`-WaitZip`；勿與同一 `dist` 上已在跑的另一個 PyInstaller／`pack` 行程硬撐並行。
+
 ## 注意事項
 
 - 打包腳本路徑自動解析（`$PSScriptRoot`），不需手動改路徑
