@@ -38,6 +38,8 @@ class AppConfig:
     warmup_idle_minutes: float = 10.0
     vad_confidence: float = 0.6
     vad_min_speech_sec: float = 0.35
+    tap_trigger_enabled: bool = False
+    tap_sensitivity: float = 1500.0
 
 
 @dataclass

@@ -16,12 +16,21 @@ if (-not $NoKill) {
     Start-Sleep -Seconds 2
 }
 
+# 自動偵測本機使用哪個 venv（兩台電腦共用 repo，各自有不同的 venv 資料夾）
+$venvOffice = Join-Path $workspace ".venv-pack_office\Lib\site-packages"
+$venvHome   = Join-Path $workspace ".venv-pack\Lib\site-packages"
+if (Test-Path $venvOffice) {
+    $env:PYTHONPATH = $venvOffice
+} elseif (Test-Path $venvHome) {
+    $env:PYTHONPATH = $venvHome
+}
+
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
 Write-Host "[$ts] Restart AI Whisper Next"
 $env:PYTHONUNBUFFERED = "1"
 Start-Process cmd -ArgumentList "/c", "py -3.12 -u run_ai_whisper.py" -WorkingDirectory $workspace -WindowStyle Hidden
 
-Start-Sleep -Seconds 4
+Start-Sleep -Seconds 6
 # 找 run_ai_whisper.py 自己建立的最新 log 檔
 $logFull = Get-ChildItem -Path $workspace -Filter "ai_whisper_*.log" | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 if ($logFull) {

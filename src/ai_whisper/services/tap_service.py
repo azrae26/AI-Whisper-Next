@@ -1,0 +1,158 @@
+from __future__ import annotations
+
+import time
+from typing import Callable
+
+import numpy as np
+import sounddevice as sd
+
+from ..logging_setup import safe_print
+from .vad_service import SAMPLE_RATE
+
+TAP_COUNT = 3
+TAP_MAX_DURATION_SEC = 0.10   # 持續超過此時間 → 說話或持續噪音，不算敲擊，且重置計數
+TAP_MIN_INTERVAL_SEC = 0.2    # 太快（< 200ms）：不是手敲，忽略
+TAP_MAX_INTERVAL_SEC = 1.0    # 太慢（> 1000ms）：不算連續，重置序列
+TAP_RHYTHM_MIN_RATIO = 0.65   # min(ia, ib) / max(ia, ib) must be >= this
+
+
+class TapService:
+    """Always-on audio monitor that fires a callback when the mic is tapped 3 times
+    in a consistent rhythm.  Runs a dedicated InputStream independent of AudioService."""
+
+    def __init__(self, on_triple_tap: Callable[[], None]):
+        self._on_triple_tap = on_triple_tap
+        self._stream: sd.InputStream | None = None
+        self._enabled = False
+        self._threshold = 3000.0
+        # Detection state — only touched from the single audio-thread callback
+        self._above = False
+        self._above_start = 0.0
+        self._above_peak = 0.0
+        self._tap_times: list[float] = []
+        self._consecutive_long: int = 0  # counts back-to-back long events; speech → ≥2, hard tap → 1
+
+    # ------------------------------------------------------------------
+    # Public control API (called from Qt main thread)
+    # ------------------------------------------------------------------
+
+    def set_enabled(self, enabled: bool) -> None:
+        if self._enabled == enabled:
+            return
+        self._enabled = enabled
+        if enabled:
+            self._start_stream()
+        else:
+            self._stop_stream()
+
+    def set_threshold(self, threshold: float) -> None:
+        self._threshold = max(100.0, float(threshold))
+
+    def shutdown(self) -> None:
+        self._enabled = False
+        self._stop_stream()
+
+    # ------------------------------------------------------------------
+    # Internal
+    # ------------------------------------------------------------------
+
+    def _start_stream(self) -> None:
+        if self._stream is not None:
+            return
+        try:
+            self._stream = sd.InputStream(
+                samplerate=SAMPLE_RATE,
+                channels=1,
+                dtype="int16",
+                blocksize=512,   # ~32 ms chunks for responsive detection
+                callback=self._callback,
+            )
+            self._stream.start()
+            safe_print("[tap] 🎙️ 敲麥監聽已啟動")
+        except Exception as e:
+            safe_print(f"[tap] ❌ 無法開啟監聽 stream: {e}")
+            self._stream = None
+
+    def _stop_stream(self) -> None:
+        if self._stream is None:
+            return
+        try:
+            self._stream.stop()
+            self._stream.close()
+        except Exception:
+            pass
+        self._stream = None
+        self._above = False
+        self._consecutive_long = 0
+        self._tap_times.clear()
+        safe_print("[tap] 💤 敲麥監聽已停止")
+
+
+    def _callback(self, indata: np.ndarray, frames: int, time_info, status) -> None:
+        rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
+        now = time.perf_counter()
+        threshold = self._threshold
+
+        was_above = self._above
+        self._above = rms > threshold
+
+        if self._above and not was_above:
+            # 上升緣：記錄候選開始時間與峰值
+            self._above_start = now
+            self._above_peak = rms
+            return
+
+        if self._above and was_above:
+            if rms > self._above_peak:
+                self._above_peak = rms
+
+        if not self._above and not was_above:
+            return
+
+        if self._above and was_above:
+            return
+
+        # 下降緣：確認持續時間，過長 → 說話或持續噪音，丟棄
+        duration = now - self._above_start
+        peak = self._above_peak
+        safe_print(f"[tap][sample] 持續={duration*1000:.0f}ms 峰值={peak:.0f} {'✓' if duration < TAP_MAX_DURATION_SEC else '✗長'}")
+        if duration >= TAP_MAX_DURATION_SEC:
+            self._consecutive_long += 1
+            if self._consecutive_long >= 2:
+                # 連續兩個長聲音 → 語音或持續噪音 → 重置序列
+                self._tap_times.clear()
+            # 單一長聲音可能是硬敲麥克風造成的共鳴，不立即重置
+            return
+
+        # 短事件：清除連續長聲音計數
+        self._consecutive_long = 0
+
+        # 用上升緣時間作為敲擊時間點
+        tap_time = self._above_start
+
+        if self._tap_times:
+            gap = tap_time - self._tap_times[-1]
+            if gap < TAP_MIN_INTERVAL_SEC:
+                return
+            if gap > TAP_MAX_INTERVAL_SEC:
+                self._tap_times.clear()
+
+        self._tap_times.append(tap_time)
+        safe_print(f"[tap] 🎯 敲擊 #{len(self._tap_times)}")
+
+        if len(self._tap_times) >= TAP_COUNT:
+            t1, t2, t3 = self._tap_times[-3], self._tap_times[-2], self._tap_times[-1]
+            ia, ib = t2 - t1, t3 - t2
+            ratio = min(ia, ib) / max(ia, ib) if max(ia, ib) > 0 else 1.0
+            if ratio >= TAP_RHYTHM_MIN_RATIO:
+                self._tap_times.clear()
+                safe_print(
+                    f"[tap] 🔔 三連敲觸發（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
+                    f"一致性 {ratio:.2f}）"
+                )
+                self._on_triple_tap()
+            else:
+                safe_print(
+                    f"[tap] ⚠️ 節奏不一致（間隔 {ia*1000:.0f}ms / {ib*1000:.0f}ms，"
+                    f"一致性 {ratio:.2f}），忽略"
+                )

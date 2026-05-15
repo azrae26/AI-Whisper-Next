@@ -13,6 +13,7 @@ from .services.audio_service import AudioService
 from .services.hotkey_service import HotkeyService
 from .services.paste_service import PasteService
 from .services.settings_store import SettingsStore, is_startup_enabled, set_startup
+from .services.tap_service import TapService
 from .services.transcription_service import TranscriptionService
 from .services.vad_service import preload_silero_vad
 from .ui.main_window import MainWindow
@@ -33,6 +34,7 @@ class AppController(QObject):
     segment_processing_started = Signal()
     segment_processing_finished = Signal()
     segment_status = Signal(str, str, int)
+    tap_triggered = Signal()
 
     def __init__(self, window: MainWindow, settings: SettingsStore):
         super().__init__()
@@ -42,6 +44,7 @@ class AppController(QObject):
         self.audio = AudioService()
         self.paste = PasteService()
         self.hotkeys = HotkeyService()
+        self.tap = TapService(on_triple_tap=self.tap_triggered.emit)
         self.executor = ThreadPoolExecutor(max_workers=6, thread_name_prefix="AIWhisper")
         self.state = "idle"
         self.paste_prefix = "。"
@@ -94,12 +97,16 @@ class AppController(QObject):
         self.segment_processing_started.connect(self._on_segment_processing_started)
         self.segment_processing_finished.connect(self._on_segment_processing_finished)
         self.segment_status.connect(self._set_segment_waveform_status)
+        self.tap_triggered.connect(self.toggle_recording)
 
     def _apply_initial_state(self) -> None:
         self.cfg.startup = is_startup_enabled()
         self.window.settings_page.set_config(self.cfg)
         self.window.set_hotkey_display(self.cfg.hotkey, self.cfg.hotkey_comma)
         self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
+        self.tap.set_threshold(self.cfg.tap_sensitivity)
+        if self.cfg.tap_trigger_enabled:
+            self.tap.set_enabled(True)
         if not self.cfg.apiKey:
             QTimer.singleShot(300, self.window.show_settings)
 
@@ -124,6 +131,10 @@ class AppController(QObject):
         ):
             self.hotkeys.register(new.hotkey, new.hotkey_comma, new.history_hotkeys)
         self.window.set_hotkey_display(new.hotkey, new.hotkey_comma)
+        if old.tap_sensitivity != new.tap_sensitivity:
+            self.tap.set_threshold(new.tap_sensitivity)
+        if old.tap_trigger_enabled != new.tap_trigger_enabled:
+            self.tap.set_enabled(new.tap_trigger_enabled)
 
     def start_hotkey_capture(self, field: str) -> None:
         self._capture_field = field
@@ -440,6 +451,7 @@ class AppController(QObject):
         self._cleaned_up = True
         self.save_geometry_now()
         self.hotkeys.shutdown()
+        self.tap.shutdown()
         self.audio.shutdown()
         self.executor.shutdown(wait=False, cancel_futures=True)
         self.window.tray.hide()

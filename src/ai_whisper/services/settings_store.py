@@ -109,6 +109,10 @@ class SettingsStore:
             segment_max_accum=_float_value(data.get("segment_max_accum"), defaults.segment_max_accum),
             segment_short_silence=_float_value(data.get("segment_short_silence"), defaults.segment_short_silence),
             warmup_idle_minutes=_float_value(data.get("warmup_idle_minutes"), defaults.warmup_idle_minutes),
+            vad_confidence=_float_value(data.get("vad_confidence"), defaults.vad_confidence),
+            vad_min_speech_sec=_float_value(data.get("vad_min_speech_sec"), defaults.vad_min_speech_sec),
+            tap_trigger_enabled=bool(data.get("tap_trigger_enabled", defaults.tap_trigger_enabled)),
+            tap_sensitivity=_float_value(data.get("tap_sensitivity"), defaults.tap_sensitivity),
         )
 
 

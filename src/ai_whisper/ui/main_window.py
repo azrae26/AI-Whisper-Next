@@ -241,6 +241,11 @@ class SettingsPage(QWidget):
         self.vad_confidence = self._number_row("信心閾值（0–1）")
         self.vad_min_speech_sec = self._number_row("最短語音（秒）")
 
+        self._section("敲麥觸發錄音")
+        self._hint("對著麥克風敲三下（節奏需均勻）自動開始或停止錄音；靈敏度數值越低越容易觸發（建議 500–3000）")
+        self.tap_trigger = self._toggle_row("啟用")
+        self.tap_sensitivity = self._number_row("靈敏度閾值")
+
         self._section("識別快捷鍵（自動加句號）")
         self._hint("辨識貼上時，游標在文字最後會加句號；點擊按鈕可自訂（Esc 取消）")
         self.hotkey_btn = self._capture_btn("hotkey")
@@ -302,6 +307,16 @@ class SettingsPage(QWidget):
         label.setStyleSheet("font-size:12px;color:#71717A;")
         self.form.addWidget(label)
 
+    def _toggle_row(self, label_text: str) -> ToggleSwitch:
+        row = QHBoxLayout()
+        label = QLabel(label_text)
+        label.setStyleSheet("color:#A1A1AA;")
+        row.addWidget(label, 1)
+        toggle = ToggleSwitch()
+        row.addWidget(toggle)
+        self.form.addLayout(row)
+        return toggle
+
     def _number_row(self, label_text: str) -> QLineEdit:
         row = QHBoxLayout()
         label = QLabel(label_text)
@@ -326,7 +341,8 @@ class SettingsPage(QWidget):
 
     def _wire(self) -> None:
         self.startup.stateChanged.connect(lambda *_: self._emit_changed())
-        for entry in [self.segment_silence, self.segment_max_accum, self.segment_short_silence, self.warmup_idle_minutes, self.vad_confidence, self.vad_min_speech_sec, self.api_key]:
+        self.tap_trigger.stateChanged.connect(lambda *_: self._emit_changed())
+        for entry in [self.segment_silence, self.segment_max_accum, self.segment_short_silence, self.warmup_idle_minutes, self.vad_confidence, self.vad_min_speech_sec, self.tap_sensitivity, self.api_key]:
             entry.editingFinished.connect(self._emit_changed)
         self.model.currentTextChanged.connect(lambda *_: self._emit_changed())
         self.text_corrections.textChanged.connect(self._on_text_changed)
@@ -368,6 +384,8 @@ class SettingsPage(QWidget):
             warmup_idle_minutes=self._safe_float(self.warmup_idle_minutes, cfg.warmup_idle_minutes),
             vad_confidence=self._safe_float(self.vad_confidence, cfg.vad_confidence),
             vad_min_speech_sec=self._safe_float(self.vad_min_speech_sec, cfg.vad_min_speech_sec),
+            tap_trigger_enabled=self.tap_trigger.isChecked(),
+            tap_sensitivity=self._safe_float(self.tap_sensitivity, cfg.tap_sensitivity),
         )
 
     def _emit_changed(self) -> None:
@@ -386,6 +404,8 @@ class SettingsPage(QWidget):
             self.warmup_idle_minutes.setText(str(cfg.warmup_idle_minutes))
             self.vad_confidence.setText(str(cfg.vad_confidence))
             self.vad_min_speech_sec.setText(str(cfg.vad_min_speech_sec))
+            self.tap_trigger.setChecked(cfg.tap_trigger_enabled)
+            self.tap_sensitivity.setText(str(cfg.tap_sensitivity))
             self.hotkey_btn.setText(cfg.hotkey.upper())
             self.hotkey_comma_btn.setText(cfg.hotkey_comma.upper())
             for i, btn in enumerate(self.history_btns):
