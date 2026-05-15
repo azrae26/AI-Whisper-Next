@@ -776,9 +776,9 @@ class MainWindow(QMainWindow):
     def paintEvent(self, event) -> None:
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
-        painter.setPen(Qt.PenStyle.NoPen)
+        painter.setPen(QPen(QColor("#2A2A2E"), 1))
         painter.setBrush(QColor("#121212"))
-        painter.drawRoundedRect(QRectF(self.rect()), self._CORNER_RADIUS, self._CORNER_RADIUS)
+        painter.drawRoundedRect(QRectF(self.rect()).adjusted(0.5, 0.5, -0.5, -0.5), self._CORNER_RADIUS, self._CORNER_RADIUS)
 
     def resizeEvent(self, event) -> None:
         super().resizeEvent(event)
