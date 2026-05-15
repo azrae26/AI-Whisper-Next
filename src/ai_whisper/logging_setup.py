@@ -61,7 +61,7 @@ def safe_print(msg: str) -> None:
         pass
 
 
-def install_log_tee(log_dir: Path) -> Path | None:
+def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
     try:
         try:
             sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
@@ -75,10 +75,11 @@ def install_log_tee(log_dir: Path) -> Path | None:
         log_path = log_dir / f"ai_whisper_{ts}.log"
         log_file = open(log_path, "w", encoding="utf-8", buffering=1)
 
-        tap_dir = log_dir / "tap_test_logs"
-        tap_dir.mkdir(parents=True, exist_ok=True)
-        tap_path = tap_dir / f"{ts}.log"
-        tap_file = open(tap_path, "w", encoding="utf-8", buffering=1)
+        tap_file = None
+        if tap_dir is not None:
+            tap_dir.mkdir(parents=True, exist_ok=True)
+            tap_path = tap_dir / f"{ts}.log"
+            tap_file = open(tap_path, "w", encoding="utf-8", buffering=1)
 
         sys.stdout = _Tee(sys.stdout, log_file, tap_file)
         sys.stderr = _Tee(sys.stderr, log_file)

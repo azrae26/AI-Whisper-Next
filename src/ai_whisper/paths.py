@@ -30,6 +30,13 @@ def log_dir() -> Path:
     return base_dir()
 
 
+def tap_log_dir() -> Path:
+    if getattr(sys, "_MEIPASS", None):
+        # exe is at <project>/dist/AI Whisper/ → parents[1] = project root
+        return Path(sys.executable).resolve().parents[1] / "tap_test_logs"
+    return PROJECT_DIR / "tap_test_logs"
+
+
 def legacy_config_candidates() -> list[Path]:
     return [
         OLD_PROJECT_DIR / "dist" / APP_NAME / "config.json",

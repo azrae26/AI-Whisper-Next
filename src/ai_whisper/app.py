@@ -282,7 +282,8 @@ def main() -> int:
         from .services.settings_store import SettingsStore
         from .controller import AppController
         from .ui.main_window import MainWindow
-        install_log_tee(log_dir())
+        from .paths import tap_log_dir
+        install_log_tee(log_dir(), tap_log_dir())
         settings = SettingsStore()
         cfg = settings.get()
         _load_result['settings'] = settings
