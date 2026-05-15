@@ -97,7 +97,7 @@ class TapService:
         rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
         now = time.perf_counter()
         threshold = self._threshold
-        dim_threshold = threshold * 0.3
+        dim_threshold = threshold * 0.5
 
         # --- Dim tracking: log lighter taps that don't reach main threshold ---
         was_dim = self._dim_above
