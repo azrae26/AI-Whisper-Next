@@ -95,9 +95,9 @@ class TapService:
                 callback=self._callback,
             )
             self._stream.start()
-            safe_print(f"{_tap_log_prefix()}🎙️ 敲麥監聽已啟動")
+            safe_print(f"{_tap_log_prefix(ts=now_str())}🎙️ 敲麥監聽已啟動")
         except Exception as e:
-            safe_print(f"{_tap_log_prefix()}❌ 無法開啟監聽 stream: {e}")
+            safe_print(f"{_tap_log_prefix(ts=now_str())}❌ 無法開啟監聽 stream: {e}")
             self._stream = None
 
     def _stop_stream(self) -> None:
@@ -113,7 +113,7 @@ class TapService:
         self._dim_above = False
         self._consecutive_long = 0
         self._tap_times.clear()
-        safe_print(f"{_tap_log_prefix()}💤 敲麥監聽已停止")
+        safe_print(f"{_tap_log_prefix(ts=now_str())}💤 敲麥監聽已停止")
 
 
     def _callback(self, indata: np.ndarray, frames: int, time_info, status) -> None:
