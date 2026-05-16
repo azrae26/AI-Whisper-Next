@@ -36,6 +36,7 @@ src/ai_whisper/
 │   ├── transcription_service.py # OpenAI API 呼叫 + retry
 │   ├── paste_service.py         # 剪貼簿操作、Ctrl+V、UIA 游標偵測
 │   ├── hotkey_service.py        # 全域熱鍵註冊
+│   ├── input_service.py         # Win32 按鍵狀態、模擬輸入、Ctrl 防護
 │   └── settings_store.py       # JSON 設定讀寫
 └── ui/
     ├── main_window.py           # 主視窗、系統匣、設定頁

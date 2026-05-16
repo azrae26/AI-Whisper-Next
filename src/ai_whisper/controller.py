@@ -11,6 +11,7 @@ from .logging_setup import now_str, safe_print
 from .models import AppConfig
 from .services.audio_service import AudioService
 from .services.hotkey_service import HotkeyService
+from .services.input_service import InputService
 from .services.paste_service import PasteService
 from .services.settings_store import SettingsStore, is_startup_enabled, set_startup
 from .services.tap_service import TapService
@@ -42,8 +43,9 @@ class AppController(QObject):
         self.settings_store = settings
         self.cfg = settings.get()
         self.audio = AudioService()
-        self.paste = PasteService()
-        self.hotkeys = HotkeyService()
+        self.input = InputService()
+        self.paste = PasteService(self.input)
+        self.hotkeys = HotkeyService(self.input)
         self.tap = TapService(on_triple_tap=self.tap_triggered.emit)
         self.executor = ThreadPoolExecutor(max_workers=6, thread_name_prefix="AIWhisper")
         self.state = "idle"

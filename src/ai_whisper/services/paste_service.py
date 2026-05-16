@@ -9,41 +9,10 @@ import time
 import keyboard
 import uiautomation as auto
 
+from .input_service import InputService
+
 CF_UNICODETEXT = 13
 GMEM_MOVEABLE = 0x0002
-KEYEVENTF_KEYDOWN = 0
-KEYEVENTF_KEYUP = 0x0002
-VK_CONTROL = 0x11
-VK_LCONTROL = 0xA2
-VK_RCONTROL = 0xA3
-VK_V = 0x56
-CTRL_VKS = (VK_CONTROL, VK_LCONTROL, VK_RCONTROL)  # generic Ctrl, left Ctrl, right Ctrl
-KEY_STATE_VKS = (
-    0x10, 0x11, 0x12,  # generic Shift, Ctrl, Alt
-    0xA0, 0xA1,  # left Shift, right Shift
-    0xA2, 0xA3,  # left Ctrl, right Ctrl
-    0xA4, 0xA5,  # left Alt, right Alt
-    0x5B, 0x5C,  # left Windows, right Windows
-)
-VK_NAMES = {
-    0x10: "Shift",
-    0x11: "Ctrl",
-    0x12: "Alt",
-    0xA0: "LShift",
-    0xA1: "RShift",
-    0xA2: "LCtrl",
-    0xA3: "RCtrl",
-    0xA4: "LAlt",
-    0xA5: "RAlt",
-    0x5B: "LWin",
-    0x5C: "RWin",
-}
-PASTE_MODIFIER_VKS = (
-    0xA0, 0xA1,  # left Shift, right Shift
-    0xA2, 0xA3,  # left Ctrl, right Ctrl
-    0xA4, 0xA5,  # left Alt, right Alt
-    0x5B, 0x5C,  # left Windows, right Windows
-)
 CLIPBOARD_GDI_FORMATS = {2, 3, 9, 14}
 CLIPBOARD_SET_RETRIES = 4
 CLIPBOARD_BACKUP_RETRIES = 8
@@ -77,7 +46,8 @@ def _safe_print(msg: str) -> None:
 
 
 class PasteService:
-    def __init__(self):
+    def __init__(self, input_service: InputService):
+        self.input = input_service
         self._paste_queue: queue.SimpleQueue = queue.SimpleQueue()
         self._prefetch_lock = threading.Lock()
         self._prefetch_result: tuple | None = None
@@ -412,89 +382,6 @@ class PasteService:
         return False
 
     @staticmethod
-    def _vk_list(vks: list[int]) -> str:
-        if not vks:
-            return "none"
-        return ",".join(VK_NAMES.get(vk, f"0x{vk:02X}") for vk in vks)
-
-    @staticmethod
-    def _modifier_state_summary() -> str:
-        user32 = ctypes.windll.user32
-        async_down: list[int] = []
-        logical_down: list[int] = []
-        for vk in KEY_STATE_VKS:
-            try:
-                if user32.GetAsyncKeyState(vk) & 0x8000:
-                    async_down.append(vk)
-                if user32.GetKeyState(vk) & 0x8000:
-                    logical_down.append(vk)
-            except Exception:
-                continue
-        return (
-            f"async_down={PasteService._vk_list(async_down)}; "
-            f"logical_down={PasteService._vk_list(logical_down)}"
-        )
-
-    @staticmethod
-    def _release_paste_modifiers() -> list[int]:
-        user32 = ctypes.windll.user32
-        released: list[int] = []
-        for vk in PASTE_MODIFIER_VKS:
-            if user32.GetAsyncKeyState(vk) & 0x8000:
-                user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
-                released.append(vk)
-        return released
-
-    @staticmethod
-    def _restore_paste_modifiers(vks: list[int]) -> None:
-        user32 = ctypes.windll.user32
-        for vk in vks:
-            user32.keybd_event(vk, 0, KEYEVENTF_KEYDOWN, 0)
-
-    @staticmethod
-    def _force_release_ctrl_keys() -> None:
-        user32 = ctypes.windll.user32
-        for vk in CTRL_VKS:
-            user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
-
-    @classmethod
-    def _release_stuck_ctrl_if_needed(cls, source: str) -> None:
-        user32 = ctypes.windll.user32
-        down: list[int] = []
-        for vk in CTRL_VKS:
-            try:
-                if (user32.GetAsyncKeyState(vk) & 0x8000) or (user32.GetKeyState(vk) & 0x8000):
-                    down.append(vk)
-            except Exception:
-                continue
-        if not down:
-            return
-        before = cls._modifier_state_summary()
-        cls._force_release_ctrl_keys()
-        time.sleep(0.02)
-        _safe_print(
-            f"[paster][{_now()}] ⌨️ Ctrl 延遲清理({source}): "
-            f"released={cls._vk_list(down)}，before={before}，after={cls._modifier_state_summary()}"
-        )
-
-    @classmethod
-    def _schedule_ctrl_cleanup(cls, source: str) -> None:
-        for delay in (0.08, 0.35):
-            timer = threading.Timer(delay, cls._release_stuck_ctrl_if_needed, args=(source,))
-            timer.daemon = True
-            timer.start()
-
-    @classmethod
-    def _send_ctrl_v(cls) -> None:
-        user32 = ctypes.windll.user32
-        user32.keybd_event(VK_LCONTROL, 0, KEYEVENTF_KEYDOWN, 0)
-        try:
-            user32.keybd_event(VK_V, 0, KEYEVENTF_KEYDOWN, 0)
-            user32.keybd_event(VK_V, 0, KEYEVENTF_KEYUP, 0)
-        finally:
-            cls._force_release_ctrl_keys()
-
-    @staticmethod
     def _is_cursor_at_end() -> tuple[bool, bool]:
         try:
             focused = auto.GetFocusedControl()
@@ -614,26 +501,26 @@ class PasteService:
         _safe_print(
             f"[paster][{_now()}] ⌨️ Ctrl+V 準備送出，cb_ok={cb_ok}，"
             f"視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
-            f"keys_before={self._modifier_state_summary()}，text={repr(final_text[:40])}"
+            f"keys_before={self.input.modifier_state_summary()}，text={repr(final_text[:40])}"
         )
-        released_modifiers = self._release_paste_modifiers()
-        modifiers_to_restore = [vk for vk in released_modifiers if vk not in CTRL_VKS]
+        released_modifiers = self.input.release_modifiers_for_paste()
+        modifiers_to_restore = [vk for vk in released_modifiers if not self.input.is_ctrl_vk(vk)]
         _safe_print(
             f"[paster][{_now()}] ⌨️ 貼上前釋放修飾鍵: "
-            f"released={self._vk_list(released_modifiers)}，"
-            f"restore_later={self._vk_list(modifiers_to_restore)}，"
-            f"keys_after_release={self._modifier_state_summary()}"
+            f"released={self.input.vk_list(released_modifiers)}，"
+            f"restore_later={self.input.vk_list(modifiers_to_restore)}，"
+            f"keys_after_release={self.input.modifier_state_summary()}"
         )
         try:
-            self._send_ctrl_v()
+            self.input.send_ctrl_v()
         finally:
-            self._force_release_ctrl_keys()
-            self._restore_paste_modifiers(modifiers_to_restore)
+            self.input.force_release_ctrl()
+            self.input.restore_modifiers(modifiers_to_restore)
         _safe_print(
             f"[paster][{_now()}] ⌨️ Ctrl+V 已送出，"
-            f"keys_after_send={self._modifier_state_summary()}"
+            f"keys_after_send={self.input.modifier_state_summary()}"
         )
-        self._schedule_ctrl_cleanup("post-paste")
+        self.input.schedule_ctrl_cleanup("post-paste")
         guard_armed = self._arm_manual_paste_guard(final_text)
         if t_received:
             _safe_print(f"[paster][{_now()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
