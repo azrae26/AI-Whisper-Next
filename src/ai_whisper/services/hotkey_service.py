@@ -22,6 +22,9 @@ MOD_NORMALIZE = {
 }
 NAME_HOOK_KEYS = {"insert", "pause"}
 KEYEVENTF_KEYUP = 0x0002
+CTRL_DIAG_NAMES = {"ctrl", "control", "left ctrl", "right ctrl"}
+CTRL_RELEASE_VKS = (0x11, 0xA2, 0xA3)
+CTRL_STUCK_CHECK_DELAY_SEC = 0.08
 KEY_STATE_VKS = (
     0x10, 0x11, 0x12,  # generic Shift, Ctrl, Alt
     0xA0, 0xA1,  # left Shift, right Shift
@@ -79,6 +82,26 @@ def modifier_state_summary() -> str:
     return f"async_down={_vk_list(async_down)}; logical_down={_vk_list(logical_down)}"
 
 
+def _ctrl_state_down() -> bool:
+    user32 = ctypes.windll.user32
+    for vk in CTRL_RELEASE_VKS:
+        try:
+            if (user32.GetAsyncKeyState(vk) & 0x8000) or (user32.GetKeyState(vk) & 0x8000):
+                return True
+        except Exception:
+            continue
+    return False
+
+
+def _force_release_ctrl_keys() -> None:
+    user32 = ctypes.windll.user32
+    for vk in CTRL_RELEASE_VKS:
+        try:
+            user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
+        except Exception:
+            continue
+
+
 def schedule_hotkey_modifier_cleanup(mods: list[str], source: str) -> None:
     vks: list[int] = []
     for mod in mods:
@@ -121,6 +144,9 @@ class HotkeyService(QObject):
         self._capture_keys: set[str] = set()
         self._hk_thread = None
         self._hk_thread_id = 0
+        self._ctrl_guard_hook_remove = None
+        self._ctrl_guard_lock = threading.Lock()
+        self._ctrl_guard_down: set[str] = set()
 
     def register(self, hotkey: str, hotkey_comma: str, history_hotkeys: list[str]) -> None:
         try:
@@ -191,13 +217,79 @@ class HotkeyService(QObject):
         except Exception as e:
             safe_print(f"[main][{now_str()}] ❌ 快捷鍵註冊失敗: {e}")
 
+        self._ensure_ctrl_state_guard()
         self.register_history_hotkeys(history_hotkeys)
+
+    def _ensure_ctrl_state_guard(self) -> None:
+        with self._ctrl_guard_lock:
+            if self._ctrl_guard_hook_remove:
+                return
+            self._ctrl_guard_down.clear()
+        try:
+            remove_hook = keyboard.hook(self._on_ctrl_guard_event, suppress=False)
+        except Exception as e:
+            safe_print(f"[main][{now_str()}] ⚠️ Ctrl狀態防護啟動失敗: {e}")
+            return
+        with self._ctrl_guard_lock:
+            self._ctrl_guard_hook_remove = remove_hook
+        safe_print(f"[main][{now_str()}] ✅ Ctrl狀態防護已啟動")
+
+    def _on_ctrl_guard_event(self, event) -> None:
+        name = (getattr(event, "name", "") or "").lower()
+        scan_code = getattr(event, "scan_code", None)
+        event_type = getattr(event, "event_type", "")
+        if not self._is_ctrl_event(name, scan_code):
+            return
+        key_id = self._ctrl_event_id(name, scan_code)
+        with self._ctrl_guard_lock:
+            if event_type == keyboard.KEY_DOWN:
+                self._ctrl_guard_down.add(key_id)
+            elif event_type == keyboard.KEY_UP:
+                self._ctrl_guard_down.discard(key_id)
+            down_snapshot = sorted(self._ctrl_guard_down)
+        if event_type != keyboard.KEY_UP:
+            return
+        timer = threading.Timer(
+            CTRL_STUCK_CHECK_DELAY_SEC,
+            self._cleanup_stuck_ctrl_if_needed,
+            args=(name or "ctrl", scan_code, down_snapshot),
+        )
+        timer.daemon = True
+        timer.start()
+
+    @staticmethod
+    def _is_ctrl_event(name: str, scan_code) -> bool:
+        return name in CTRL_DIAG_NAMES or scan_code in (29, 3613)
+
+    @staticmethod
+    def _ctrl_event_id(name: str, scan_code) -> str:
+        if name in ("left ctrl", "right ctrl", "ctrl", "control"):
+            return name
+        return f"scan:{scan_code}"
+
+    def _cleanup_stuck_ctrl_if_needed(self, name: str, scan_code, down_snapshot: list[str]) -> None:
+        with self._ctrl_guard_lock:
+            if self._ctrl_guard_down:
+                return
+        if not _ctrl_state_down():
+            return
+        before = modifier_state_summary()
+        _force_release_ctrl_keys()
+        time.sleep(0.02)
+        safe_print(
+            f"[main][{now_str()}] 🧹 Ctrl狀態防護清理: "
+            f"after_up={name}/scan={scan_code}，tracked_down={down_snapshot or 'none'}，"
+            f"before={before}，after={modifier_state_summary()}"
+        )
 
     def start_capture(self) -> None:
         try:
             keyboard.unhook_all()
         except Exception:
             pass
+        with self._ctrl_guard_lock:
+            self._ctrl_guard_hook_remove = None
+            self._ctrl_guard_down.clear()
         self._capture_keys = set()
         self._capturing = True
         keyboard.hook(self._on_capture_event)
