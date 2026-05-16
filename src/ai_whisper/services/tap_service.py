@@ -15,8 +15,8 @@ TAP_COUNT = 3
 _TAP_DUR_THRESHOLDS = [
     (8000,  0.110),
     (10000, 0.173),
-    (12000, 0.199),
-    (float("inf"), 0.208),
+    (12000, 0.214),
+    (float("inf"), 0.214),
 ]
 
 def _tap_max_duration(peak: float) -> float:
