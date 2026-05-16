@@ -176,9 +176,13 @@ class AppController(QObject):
     def _start_recording(self) -> None:
         if self._warmup_timer.isActive():
             self._warmup_timer.stop()
+        if self.cfg.tap_trigger_enabled:
+            self.tap.set_enabled(False)
         t0 = time.perf_counter()
         ok = self.audio.start()
         safe_print(f"[main][{now_str()}] ⏱️ recorder.start() 耗時 {(time.perf_counter() - t0) * 1000:.1f}ms，ok={ok}")
+        if self.cfg.tap_trigger_enabled:
+            self.tap.set_enabled(True)
         self._prev_seg_event = threading.Event()
         self._prev_seg_event.set()
         self._segs_dispatched = 0
