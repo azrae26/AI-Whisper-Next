@@ -66,8 +66,8 @@ idle → recording → processing → idle
 
 ## Log 位置
 
-- 一般從原始碼執行 / `restart` Skill 重啟：`ai_whisper_yyyyMMdd_HHmmss.log`，放在專案根目錄。
-- 打包後 exe 執行：`dist/AI Whisper/ai_whisper_yyyyMMdd_HHmmss.log`，放在 exe 同層目錄。
+- 一般從原始碼執行 / `restart` Skill 重啟：主程式 log 為 `logs/ai_whisper_yyyyMMdd_HHmmss.log`（`paths.log_dir()`，專案根目錄下的 `logs/`）。
+- 打包後 exe 執行：`logs/ai_whisper_yyyyMMdd_HHmmss.log`，路徑在 exe 同層底下的 `logs/`（例如 `dist/AI Whisper/logs/`）。
 - 敲麥 / tap 診斷分流：`tap_test_logs/yyyyMMdd_HHmmss.log`，只收主 log 裡含 `[tap]` 的行；打包後 exe 也會寫回專案根目錄的 `tap_test_logs/`。
 - 打包流程 stdout/stderr：`dist/pack_yyyyMMdd_HHmmss.out.log` 與 `dist/pack_yyyyMMdd_HHmmss.err.log`。
 
