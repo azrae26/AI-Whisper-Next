@@ -362,7 +362,7 @@ class AppController(QObject):
         if self.state != "recording":
             return
         self._segment_processing_count += 1
-        self._set_segment_waveform_status("識別中", "#9af4ff")
+        self._set_segment_waveform_status("識別中", "#e2b8ff")
 
     def _on_segment_processing_finished(self) -> None:
         if self._segment_processing_count > 0:

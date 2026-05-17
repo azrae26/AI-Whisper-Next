@@ -34,11 +34,11 @@ MARGIN_BOTTOM = 80
 OVERLAY_RAISE_Y = 50
 STATUS_OFFSET_X = 5
 STATUS_PURPLE_MID = "#e2b8ff"
-WAVEFORM_COLOR_DARK = "#d79bff"
-WAVEFORM_COLOR_MID = "#e2b8ff"
-WAVEFORM_COLOR_LIGHT = "#f2deff"
-STATUS_PROCESSING_LIGHT = "#9af4ff"
-STATUS_PROCESSING_DARK = "#00d3f3"
+WAVEFORM_COLOR_DARK = "#22D3EE"
+WAVEFORM_COLOR_MID = "#52E1F6"
+WAVEFORM_COLOR_LIGHT = "#99f3ff"
+STATUS_PROCESSING_LIGHT = "#edd2ff"
+STATUS_PROCESSING_DARK = "#ca7bff"
 
 
 def _mix_three_stop_color(dark: QColor, mid: QColor, light: QColor, t: float, alpha: int) -> QColor:
@@ -184,7 +184,12 @@ class WaveformOverlay(QWidget):
         self._recording_status_color = QColor(color)
         self._recording_status_until = 0.0
         self._update_recording_status_metrics(text, color)
-        self._set_status_label(text, self._recording_status_color, on_waveform=self._waveform_visible)
+        if text == "識別中":
+            self._proc_start = time.time()
+            self._set_status_label(text, self._processing_color(), on_waveform=self._waveform_visible)
+            self._timer.start(50)
+        else:
+            self._set_status_label(text, self._recording_status_color, on_waveform=self._waveform_visible)
         if had_status != bool(text):
             self._position_at_cursor_screen()
         if text and duration_ms > 0:
@@ -297,6 +302,8 @@ class WaveformOverlay(QWidget):
         now = time.time()
         if self._processing:
             self._set_status_label("識別中", self._processing_color(), on_waveform=False)
+        elif self._recording_status_text == "識別中":
+            self._set_status_label("識別中", self._processing_color(), on_waveform=self._waveform_visible)
         if self._status_text and now >= self._status_until:
             self.hide_overlay()
             return
