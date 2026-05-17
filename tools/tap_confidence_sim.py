@@ -21,7 +21,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 #  評分參數（此處調整，其餘程式碼不用動）
 # ══════════════════════════════════════════════════════════════
 
-CONF_TRIGGER = 62          # 觸發所需最低信心分數（0-100）
+CONF_TRIGGER = 58          # 觸發所需最低信心分數（0-100）
 
 # ① 峰值強度 (0-30) ── 3 敲平均峰值
 CONF_PEAK_TABLE = [        # [(最低峰值, 得分), ...] 由高到低

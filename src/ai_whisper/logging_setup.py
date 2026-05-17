@@ -1,8 +1,16 @@
 from __future__ import annotations
 
 import datetime as _dt
+import re
 import sys
 from pathlib import Path
+
+
+_ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
+
+def _strip_ansi(s: str) -> str:
+    return _ANSI_ESCAPE_RE.sub("", s)
 
 
 class _Tee:
@@ -18,13 +26,14 @@ class _Tee:
                 self._orig.write(s)
         except Exception:
             pass
+        clean = _strip_ansi(s)
         try:
-            self._log.write(s)
+            self._log.write(clean)
         except Exception:
             pass
         if self._tap:
             try:
-                self._buf += s
+                self._buf += clean
                 while "\n" in self._buf:
                     line, self._buf = self._buf.split("\n", 1)
                     if "[tap]" in line:
@@ -87,4 +96,3 @@ def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
         return log_path
     except Exception:
         return None
-

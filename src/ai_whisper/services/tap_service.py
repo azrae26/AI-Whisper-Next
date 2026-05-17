@@ -33,7 +33,7 @@ TAP_LOG_TAG_WIDTH = len("[tap][sample]")
 #  信心評分參數
 # ══════════════════════════════════════════════════════════════
 
-CONF_TRIGGER = 62           # 觸發所需最低信心分數
+CONF_TRIGGER = 58           # 觸發所需最低信心分數
 
 # ① 峰值強度 (0-30)
 CONF_PEAK_TABLE = [
@@ -51,6 +51,10 @@ CONF_RHYTHM_TABLE = [(0.90, 15), (0.80, 10), (0.65, 5), (0.00, 0)]
 CONF_FLOOR_TABLE = [(150, 0), (300, -10), (float("inf"), -20)]
 # ⑥ ZCR 扣分 (0 ~ -20)  ── 零交叉率（語音 > 敲擊）
 CONF_ZCR_TABLE   = [(0.118, 0), (0.135, -8), (float("inf"), -20)]
+# ⑦ 上升時間扣分 (0 ~ -25)  ── 3敲平均 attack time（ms），物理敲擊 < 6ms，語音 > 7ms
+CONF_ATT_TABLE   = [(6, 0), (12, -15), (float("inf"), -25)]
+# ⑧ SNR 扣分 (0 ~ -20)  ── avg_peak / 2s基線，語音中敲擊 SNR 低
+CONF_SNR_TABLE   = [(5, -20), (8, -10), (float("inf"), 0)]
 
 # ══════════════════════════════════════════════════════════════
 
@@ -162,6 +166,7 @@ class TapService:
         self._recent_dims.clear()
         self._baseline.clear()
         self._zcr_buffer.clear()
+        self._audio_buffer.clear()
         self._reset_tap_sequence()
         safe_print(f"{_tap_log_prefix(ts=now_str())}💤 敲麥監聽已停止")
 
@@ -300,39 +305,52 @@ class TapService:
         if self._event_samples:
             evt = np.concatenate(self._event_samples).astype(np.float32)
             self._event_samples = []
-            evt_rms = float(np.sqrt(np.mean(evt ** 2)))
+            evt_rms  = float(np.sqrt(np.mean(evt ** 2)))
             evt_mean = float(np.mean(evt))
-            evt_std = float(np.std(evt))
+            evt_std  = float(np.std(evt))
             kurt  = float(np.mean(((evt - evt_mean) / evt_std) ** 4)) - 3.0 if evt_std > 0 else 0.0
             crest = float(np.max(np.abs(evt))) / (evt_rms + 1e-9)
-            fft_mag = np.abs(np.fft.rfft(evt))
-            freqs   = np.fft.rfftfreq(len(evt), 1.0 / SAMPLE_RATE)
-            centroid = float(np.sum(freqs * fft_mag) / (np.sum(fft_mag) + 1e-9))
+            fft_m = np.abs(np.fft.rfft(evt))
+            freqs = np.fft.rfftfreq(len(evt), 1.0 / SAMPLE_RATE)
+            centroid = float(np.sum(freqs * fft_m) / (np.sum(fft_m) + 1e-9))
+            # Attack time: 10%→90% rise (samples within event)
+            env_abs = np.abs(evt)
+            pk_idx  = int(np.argmax(env_abs))
+            pk_val  = env_abs[pk_idx]
+            lo_idx  = next((i for i in range(pk_idx) if env_abs[i] >= 0.1 * pk_val), 0)
+            hi_idx  = next((i for i in range(lo_idx, pk_idx + 1) if env_abs[i] >= 0.9 * pk_val), pk_idx)
+            att_ms  = (hi_idx - lo_idx) / SAMPLE_RATE * 1000.0
         else:
-            kurt, crest, centroid = 0.0, 0.0, 0.0
+            kurt, crest, centroid, att_ms = 0.0, 0.0, 0.0, 0.0
 
         # --- 事件級指標：固定窗口（onset-20ms ~ end+20ms，含前後靜音）---
         WIN_PRE, WIN_POST = 0.020, 0.020
         fw_blocks = [s for t, s in self._audio_buffer
                      if self._above_start - WIN_PRE <= t <= now + WIN_POST]
         if fw_blocks:
-            fw = np.concatenate(fw_blocks).astype(np.float32)
+            fw      = np.concatenate(fw_blocks).astype(np.float32)
             fw_rms  = float(np.sqrt(np.mean(fw ** 2)))
             fw_mean = float(np.mean(fw))
             fw_std  = float(np.std(fw))
-            fkurt  = float(np.mean(((fw - fw_mean) / fw_std) ** 4)) - 3.0 if fw_std > 0 else 0.0
-            fcrest = float(np.max(np.abs(fw))) / (fw_rms + 1e-9)
-            fw_fft = np.abs(np.fft.rfft(fw))
-            fw_frq = np.fft.rfftfreq(len(fw), 1.0 / SAMPLE_RATE)
+            fkurt   = float(np.mean(((fw - fw_mean) / fw_std) ** 4)) - 3.0 if fw_std > 0 else 0.0
+            fcrest  = float(np.max(np.abs(fw))) / (fw_rms + 1e-9)
+            fw_fft  = np.abs(np.fft.rfft(fw))
+            fw_frq  = np.fft.rfftfreq(len(fw), 1.0 / SAMPLE_RATE)
             fcentroid = float(np.sum(fw_frq * fw_fft) / (np.sum(fw_fft) + 1e-9))
+            # Spectral flatness（接近1=寬頻/敲擊，接近0=諧波/語音）
+            flat  = float(np.exp(np.mean(np.log(fw_fft + 1e-9))) / (np.mean(fw_fft) + 1e-9))
+            # HF ratio：>4kHz 能量佔比
+            hi_mask = fw_frq > 4000
+            hf_ratio = float(np.sum(fw_fft[hi_mask] ** 2) / (np.sum(fw_fft ** 2) + 1e-9))
         else:
-            fkurt, fcrest, fcentroid = 0.0, 0.0, 0.0
+            fkurt, fcrest, fcentroid, flat, hf_ratio = 0.0, 0.0, 0.0, 0.0, 0.0
 
         sample_line = (
             f"{_tap_log_prefix('sample', ts)}持續={duration*1000:.0f}ms 峰值={peak:.0f} "
             f"{'✓' if duration < max_dur else '✗長'}"
-            f" K={kurt:.1f} CF={crest:.1f} SC={centroid:.0f}Hz"
+            f" K={kurt:.1f} CF={crest:.1f} SC={centroid:.0f}Hz Att={att_ms:.1f}ms"
             f" | fK={fkurt:.1f} fCF={fcrest:.1f} fSC={fcentroid:.0f}Hz"
+            f" fFlat={flat:.3f} fHF={hf_ratio:.3f}"
         )
         if duration >= max_dur:
             safe_print(sample_line)
@@ -358,7 +376,7 @@ class TapService:
 
         self._tap_times.append(tap_time)
         self._tap_peaks.append(peak)
-        self._tap_kcfsc.append((kurt, crest, centroid, fkurt, fcrest, fcentroid))
+        self._tap_kcfsc.append((kurt, crest, centroid, fkurt, fcrest, fcentroid, flat, hf_ratio, att_ms))
         self._floor_tracking = True
         self._floor_max = 0.0
         safe_print(f"{sample_line} 🎯 敲擊 #{len(self._tap_times)}")
@@ -371,31 +389,45 @@ class TapService:
             old_pass = d['rhythm'] >= 0.65   # 舊節奏門檻（僅供 log 比對）
             new_pass = total >= CONF_TRIGGER
 
-            # 計算 baseline/ZCR 供 log 輸出
+            # ZCR / baseline / floors 供 log 輸出
+            avg_zcr = (sum(self._zcr_buffer) / len(self._zcr_buffer)
+                       if self._zcr_buffer else 0.0)
             baseline = (sum(r for _, r in self._baseline) / len(self._baseline)
-                        if self._baseline else 0.0)
-            avg_zcr  = (sum(self._zcr_buffer) / len(self._zcr_buffer)
-                        if self._zcr_buffer else 0.0)
+                        if self._baseline else 1.0)
             f12 = round(self._inter_floors[-2]) if len(self._inter_floors) >= 2 else -1
             f23 = round(self._inter_floors[-1]) if len(self._inter_floors) >= 1 else -1
 
-            # 三敲一致性（最後3下的 K / CF / fK / fCF 標準差）
+            # 三敲一致性（最後3下各指標的平均與標準差）
+            import statistics as _st
             tap3 = self._tap_kcfsc[-3:] if len(self._tap_kcfsc) >= 3 else self._tap_kcfsc
-            if tap3:
-                import statistics as _st
-                ks  = [x[0] for x in tap3]; cfs  = [x[1] for x in tap3]
-                fks = [x[3] for x in tap3]; fcfs = [x[4] for x in tap3]
-                std_k   = _st.pstdev(ks)   if len(ks)  > 1 else 0.0
-                std_cf  = _st.pstdev(cfs)  if len(cfs) > 1 else 0.0
-                std_fk  = _st.pstdev(fks)  if len(fks) > 1 else 0.0
-                std_fcf = _st.pstdev(fcfs) if len(fcfs) > 1 else 0.0
-                avg_fk  = sum(fks) / len(fks)
-                avg_fcf = sum(fcfs) / len(fcfs)
-            else:
-                std_k = std_cf = std_fk = std_fcf = avg_fk = avg_fcf = 0.0
+            def _avg(idx): return sum(x[idx] for x in tap3) / len(tap3) if tap3 else 0.0
+            def _std(idx): return _st.pstdev([x[idx] for x in tap3]) if len(tap3) > 1 else 0.0
+            std_k, std_cf = _std(0), _std(1)
+            avg_fk,  std_fk  = _avg(3), _std(3)
+            avg_fcf, std_fcf = _avg(4), _std(4)
+            avg_fsc, std_fsc = _avg(5), _std(5)
+            avg_flat, std_flat = _avg(6), _std(6)
+            avg_hf,  std_hf  = _avg(7), _std(7)
+            avg_att, std_att = _avg(8), _std(8)
+            peaks_3 = self._tap_peaks[-3:] if len(self._tap_peaks) >= 3 else self._tap_peaks
+            avg_pk  = sum(peaks_3) / len(peaks_3) if peaks_3 else 0.0
+            cv_peak = (_st.pstdev(peaks_3) / (avg_pk + 1e-9)) if len(peaks_3) > 1 else 0.0
+            snr     = avg_pk / (baseline + 1e-9)
 
-            consist_str = (f" stdK={std_k:.1f} stdCF={std_cf:.1f}"
-                           f" | fK={avg_fk:.1f}±{std_fk:.1f} fCF={avg_fcf:.1f}±{std_fcf:.1f}")
+            # ⑦ 上升時間扣分
+            att_pts = _score_lt(avg_att, CONF_ATT_TABLE)
+            # ⑧ SNR 扣分
+            snr_pts = _score_lt(snr, CONF_SNR_TABLE)
+            total  += att_pts + snr_pts
+            new_pass = total >= CONF_TRIGGER
+
+            consist_str = (
+                f" stdK={std_k:.1f} stdCF={std_cf:.1f} CV_pk={cv_peak:.2f} SNR={snr:.1f}"
+                f" | fK={avg_fk:.1f}±{std_fk:.1f} fCF={avg_fcf:.1f}±{std_fcf:.1f}"
+                f" fSC={avg_fsc:.0f}±{std_fsc:.0f} fFlat={avg_flat:.3f}±{std_flat:.3f}"
+                f" fHF={avg_hf:.3f}±{std_hf:.3f} Att={avg_att:.1f}±{std_att:.1f}ms"
+                f" [⑦Att={att_pts}({avg_att:.1f}ms) ⑧SNR={snr_pts}({snr:.1f})]"
+            )
 
             if new_pass:
                 self._reset_tap_sequence()
@@ -405,7 +437,8 @@ class TapService:
                     f" 底噪={f12}/{f23} 基線={baseline:.0f} ZCR={avg_zcr:.3f}"
                     f"{consist_str}"
                     f" [信心={total} 峰={d['peak']} 靜={d['silence']} 噪={d['dim']}"
-                    f" 律={d['rhythm_pts']} 底={d['floor']}({d['floor_val']}) ZCR={d['zcr']}({d['zcr_val']})]"
+                    f" 律={d['rhythm_pts']} 底={d['floor']}({d['floor_val']}) ZCR={d['zcr']}({d['zcr_val']})"
+                    f" Att={att_pts} SNR={snr_pts}]"
                 )
                 self._on_triple_tap()
             else:
@@ -416,5 +449,6 @@ class TapService:
                     f" 底噪={f12}/{f23} 基線={baseline:.0f} ZCR={avg_zcr:.3f}"
                     f"{consist_str}"
                     f" [峰={d['peak']} 靜={d['silence']} 噪={d['dim']}"
-                    f" 律={d['rhythm_pts']} 底={d['floor']}({d['floor_val']}) ZCR={d['zcr']}({d['zcr_val']})]"
+                    f" 律={d['rhythm_pts']} 底={d['floor']}({d['floor_val']}) ZCR={d['zcr']}({d['zcr_val']})"
+                    f" Att={att_pts} SNR={snr_pts}]"
                 )

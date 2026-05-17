@@ -33,6 +33,32 @@ WIN_H = CANVAS_H + PAD_Y * 2
 MARGIN_BOTTOM = 80
 OVERLAY_RAISE_Y = 50
 STATUS_OFFSET_X = 5
+STATUS_PURPLE_MID = "#e2b8ff"
+WAVEFORM_COLOR_DARK = "#d79bff"
+WAVEFORM_COLOR_MID = "#e2b8ff"
+WAVEFORM_COLOR_LIGHT = "#f2deff"
+STATUS_PROCESSING_LIGHT = "#9af4ff"
+STATUS_PROCESSING_DARK = "#00d3f3"
+
+
+def _mix_three_stop_color(dark: QColor, mid: QColor, light: QColor, t: float, alpha: int) -> QColor:
+    t = max(0.0, min(1.0, t))
+    if t < 0.5:
+        left = dark
+        right = mid
+        local_t = t * 2
+    else:
+        left = mid
+        right = light
+        local_t = (t - 0.5) * 2
+    r = int(left.red() + (right.red() - left.red()) * local_t)
+    g = int(left.green() + (right.green() - left.green()) * local_t)
+    b = int(left.blue() + (right.blue() - left.blue()) * local_t)
+    return QColor(r, g, b, alpha)
+
+
+def _waveform_color_position(display_level: float) -> float:
+    return max(0.0, min(1.0, display_level)) ** 1.22
 
 # Pre-computed per-bar constants (never change at runtime)
 _FADE_BARS = 4
@@ -65,7 +91,7 @@ class WaveformOverlay(QWidget):
         self._proc_start = 0.0
         self._status_text = ""
         self._recording_status_text = ""
-        self._recording_status_color = QColor("#F5D0FE")
+        self._recording_status_color = QColor(STATUS_PURPLE_MID)
         self._recording_status_until = 0.0
         self._recording_status_token = 0
         self._hide_after_recording_status = False
@@ -86,7 +112,7 @@ class WaveformOverlay(QWidget):
             label.setGraphicsEffect(shadow)
             label.hide()
             self._status_shadow_labels.append(label)
-        self._status_label = self._make_status_label("#F5D0FE")
+        self._status_label = self._make_status_label(STATUS_PURPLE_MID)
         self._status_label.hide()
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
@@ -96,15 +122,15 @@ class WaveformOverlay(QWidget):
         self._paint_font.setBold(True)
         self._bg_pixmap: QPixmap | None = None  # built on first paint; WIN_W/H are constants
         self._bar_dim: list[float] = [1.0] * BAR_COUNT  # recomputed only when text_dim changes
-        # Pre-allocated QColor objects — mutate alpha each frame instead of new QColor()
-        self._color_bright = QColor(103, 232, 249)
-        self._color_normal = QColor(34, 211, 238)
+        self._waveform_color_light = QColor(WAVEFORM_COLOR_LIGHT)
+        self._waveform_color_mid = QColor(WAVEFORM_COLOR_MID)
+        self._waveform_color_dark = QColor(WAVEFORM_COLOR_DARK)
         # Pre-allocated QRect list for batched drawRects — avoids per-frame allocation
         self._bar_rects: list[QRect] = [QRect() for _ in range(BAR_COUNT)]
 
         # Prime window surface, font, and shadow effect before the first real overlay show.
         self.show()
-        self._set_status_label("預熱", QColor("#F5D0FE"), on_waveform=True)
+        self._set_status_label("預熱", QColor(STATUS_PURPLE_MID), on_waveform=True)
         self.repaint()  # synchronous paint -> caches font glyphs
         self._set_status_label("")
         self.hide()
@@ -147,7 +173,7 @@ class WaveformOverlay(QWidget):
         self.raise_()
         self._timer.start(50)
 
-    def set_recording_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
+    def set_recording_status(self, text: str = "", color: str = STATUS_PURPLE_MID, duration_ms: int = 0) -> None:
         if self._processing or self._status_text:
             return
         self._hide_after_recording_status = not self._waveform_visible
@@ -356,35 +382,23 @@ class WaveformOverlay(QWidget):
             painter.setPen(Qt.PenStyle.NoPen)
             painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
 
-            bright_rects: list[QRect] = []
-            normal_rects: list[QRect] = []
-            bright_alphas: list[int] = []
-            normal_alphas: list[int] = []
-
             for i, lv in enumerate(data):
                 display_lv = min(0.92, lv / scale)
                 h = max(2, int(display_lv * max_half))
                 alpha_t = _BAR_EDGE_T[i] * bar_dim[i]
                 bar_rect = self._bar_rects[i]
                 bar_rect.setRect(_BAR_X0[i], mid - h, BAR_WIDTH, h * 2)
-                if lv > 0.6:
-                    bright_rects.append(bar_rect)
-                    bright_alphas.append(int(240 * alpha_t))
-                else:
-                    normal_rects.append(bar_rect)
-                    normal_alphas.append(int(230 * alpha_t))
-
-            # Bright bars — group by common alpha where possible, else draw individually
-            for bar_rect, alpha in zip(bright_rects, bright_alphas):
-                self._color_bright.setAlpha(alpha)
-                painter.setBrush(self._color_bright)
-                painter.drawRect(bar_rect)
-            for bar_rect, alpha in zip(normal_rects, normal_alphas):
-                self._color_normal.setAlpha(alpha)
-                painter.setBrush(self._color_normal)
+                color = _mix_three_stop_color(
+                    self._waveform_color_dark,
+                    self._waveform_color_mid,
+                    self._waveform_color_light,
+                    _waveform_color_position(display_lv / 0.92),
+                    int(230 * alpha_t),
+                )
+                painter.setBrush(color)
                 painter.drawRect(bar_rect)
 
-    def _update_recording_status_metrics(self, text: str, color: str = "#F5D0FE") -> None:
+    def _update_recording_status_metrics(self, text: str, color: str = STATUS_PURPLE_MID) -> None:
         if text:
             text_w = QFontMetrics(self._dim_font).horizontalAdvance(text)
             text_cx = WIN_W / 2
@@ -399,9 +413,12 @@ class WaveformOverlay(QWidget):
     def _processing_color(self) -> QColor:
         elapsed = time.time() - self._proc_start
         t = (math.sin(elapsed * 2 * math.pi) + 1) / 2
-        r = int(216 + (245 - 216) * t)
-        g = int(180 + (208 - 180) * t)
-        return QColor(r, g, 254)
+        dark = QColor(STATUS_PROCESSING_DARK)
+        light = QColor(STATUS_PROCESSING_LIGHT)
+        r = int(dark.red() + (light.red() - dark.red()) * t)
+        g = int(dark.green() + (light.green() - dark.green()) * t)
+        b = int(dark.blue() + (light.blue() - dark.blue()) * t)
+        return QColor(r, g, b)
 
     def _set_status_label(self, text: str = "", color: QColor | None = None, *, on_waveform: bool = False) -> None:
         if not text:
@@ -412,7 +429,7 @@ class WaveformOverlay(QWidget):
             self._status_label.setText("")
             return
 
-        text_color = (color or QColor("#F5D0FE")).name()
+        text_color = (color or QColor(STATUS_PURPLE_MID)).name()
         for label in self._status_shadow_labels:
             label.setText(text)
             if on_waveform:
