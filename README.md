@@ -46,8 +46,10 @@ python -m ai_whisper
 
 如果目前資料夾沒有 `config.json`，程式可以讀取舊版 AI Whisper 專案裡相容的設定。
 
+主程式除錯日誌會寫在 `logs/` 目錄（檔名 `ai_whisper_yyyyMMdd_HHmmss.log`）；套件版路徑與 tap 分流說明見 **`AGENTS.md`**／**`CLAUDE.md`** 的「Log 位置」。
+
 ## 安全注意
 
 - 不要提交真實 API Key。
-- 不要提交本機 log、打包輸出、虛擬環境或產生的 metadata。
-- 目前 `.gitignore` 已排除 `config.json`、log、`build/`、`dist/`、虛擬環境和 package metadata。
+- 不要提交打包輸出、虛擬環境或產生的 metadata；`tap_test_logs/` 等診斷分流建議維持不提交。主程式 **`logs/`** 可依需求納版本庫，若日誌曾含機密或完整對話請先清理。
+- 目前 `.gitignore` 已排除 `config.json`、多數 `*.log`（**`logs/` 內主程式輸出除外**）、`build/`、`dist/`、虛擬環境和 package metadata。

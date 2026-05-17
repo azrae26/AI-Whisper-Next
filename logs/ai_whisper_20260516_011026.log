@@ -1,0 +1,63 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_011026.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:10:26.558] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:10:26.559] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][01:10:44.909] 持續=153ms 峰值=8935 ✓ 🎯 敲擊 #1
+[tap][sample][01:10:45.070] 持續=72ms 峰值=2479 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:10:45.160] 持續=27ms 峰值=332 ✗弱
+[tap][sample][01:10:45.295] 持續=26ms 峰值=2544 ✓ 🎯 敲擊 #3
+[tap]        [01:10:45.295] 🔔 三連敲觸發（間隔 243ms / 270ms，一致性 0.90）
+[recorder][01:10:45] ⏱️ InputStream() 3.0ms
+[recorder][01:10:45] ⏱️ stream.start() 0.4ms
+[recorder][01:10:45] 🎙️ 錄音就緒，總初始化 3.4ms
+[main][01:10:45.299] ⏱️ recorder.start() 耗時 3.7ms，ok=True
+[main][01:10:45.306] 🎙️ 開始錄音
+[recorder][01:10:45] 🎤 第一包音訊到達，麥克風實際開啟延遲 23.2ms
+[tap][dim]   [01:10:45.421] 持續=27ms 峰值=429 ✗弱
+[tap][sample][01:10:47.564] 持續=1152ms 峰值=5620 ✗長
+[tap][sample][01:10:48.391] 持續=153ms 峰值=8948 ✓ 🎯 敲擊 #1
+[tap][sample][01:10:48.598] 持續=108ms 峰值=9910 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:10:48.625] 持續=27ms 峰值=494 ✗弱
+[tap][sample][01:10:48.814] 持續=126ms 峰值=10126 ✓ 🎯 敲擊 #3
+[tap]        [01:10:48.814] 🔔 三連敲觸發（間隔 252ms / 198ms，一致性 0.78）
+[main][01:10:48.816] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 50/117 (42.7%)，有效語音 1.50s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][01:10:48.817] ✅ 錄音完成，送出辨識
+[paster][01:10:49] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster][01:10:49] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.15s, est_api=0.60s)
+[transcriber][01:10:50.049] ⏱️ API 耗時: 1.06s
+[main][01:10:50.049] ✅ 辨識完成: "怎麼還是沒用"
+[paster][01:10:50] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='怎麼還是沒用'
+[paster][01:10:50] 📋 CLIP flow start: target_chars=7, restore_delay=0.30s
+[paster][01:10:50] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:10:50] 📋 CLIP set attempt 1/4: chars=7, bytes=16, preview='。怎麼還是沒用'
+[paster][01:10:50] 📋 CLIP verify ok: attempt=1, chars=7, text='。怎麼還是沒用'
+[paster][01:10:50] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。怎麼還是沒用'
+[paster][01:10:50] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:10:50] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:10:50] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:10:50] ⏱️ 收到→貼上完成: 0.20s
+[paster][01:10:50] 📋 CLIP restore wait: 0.30s
+[paster][01:10:50] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:10:50] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:10:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:50] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:10:50] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:10:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:10:52] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:10:52] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）

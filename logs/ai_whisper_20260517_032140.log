@@ -1,0 +1,108 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_032140.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:21:40.234] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:21:40.234] ✅ Ctrl狀態防護已啟動
+[main][03:21:40.235] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [03:21:40.250] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][03:21:51.625] 持續=135ms 峰值=14953 ✓ 🎯 敲擊 #1
+[tap][sample][03:21:51.850] 持續=162ms 峰值=10625 ✓ 🎯 敲擊 #2
+[tap][sample][03:21:52.076] 持續=171ms 峰值=13330 ✓ 🎯 敲擊 #3
+[tap]        [03:21:52.076] 🔔 三連敲觸發（間隔 198ms / 216ms，一致性 0.92）
+[tap]        [03:21:52.158] 💤 敲麥監聽已停止
+[recorder][03:21:52] ⏱️ InputStream() 13.1ms
+[recorder][03:21:52] ⏱️ stream.start() 0.4ms
+[recorder][03:21:52] 🎙️ 錄音就緒，總初始化 13.4ms
+[main][03:21:52.171] ⏱️ recorder.start() 耗時 13.6ms，ok=True
+[tap]        [03:21:52.713] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:21:52.722] 🎙️ 開始錄音
+[recorder][03:21:52] 🎤 第一包音訊到達，麥克風實際開啟延遲 758.9ms
+[tap][sample][03:21:53.965] 持續=162ms 峰值=11660 ✓ 🎯 敲擊 #1
+[tap][sample][03:21:54.154] 持續=126ms 峰值=10468 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:21:54.280] 持續=27ms 峰值=348 ✗弱
+[tap][sample][03:21:54.415] 持續=135ms 峰值=15091 ✓ 🎯 敲擊 #3
+[tap]        [03:21:54.415] 🔔 三連敲觸發（間隔 225ms / 252ms，一致性 0.89）
+[main][03:21:54.416] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/47 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:21:56.908] 持續=162ms 峰值=13999 ✓ 🎯 敲擊 #1
+[tap][sample][03:21:57.035] 持續=27ms 峰值=11143 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:21:57.071] 持續=36ms 峰值=487 ✗弱
+[tap][sample][03:21:57.133] 持續=63ms 峰值=7248 ✓ ⏱️ 防抖略過（距上次 63ms < 180ms）
+[tap][sample][03:21:57.358] 持續=162ms 峰值=13181 ✓ 🎯 敲擊 #3
+[tap]        [03:21:57.358] 🔔 三連敲觸發（間隔 261ms / 189ms，一致性 0.72）
+[tap]        [03:21:57.395] 💤 敲麥監聽已停止
+[recorder][03:21:57] 🚀 預熱命中，直接開始錄音
+[main][03:21:57.395] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [03:21:57.399] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:21:57.404] 🎙️ 開始錄音
+[tap][dim]   [03:21:58.295] 持續=55ms 峰值=379 ✗弱
+[tap][sample][03:21:58.780] 持續=423ms 峰值=6132 ✗長
+[tap][dim]   [03:21:58.807] 持續=27ms 峰值=452 ✗弱
+[recorder][VAD] Silero 語音幀 15/76 (19.7%)，有效語音 0.48s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][03:21:59.871] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.1s）
+[paster][03:21:59] 📏 [UIA] 文字為空 → 不加句號
+[paster][03:21:59] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][03:22:02.375] ⚠️ API 超過 2.5s 未回應，重試中…
+[tap][sample][03:22:02.875] 持續=162ms 峰值=12735 ✓ 🎯 敲擊 #1
+[tap][sample][03:22:03.064] 持續=124ms 峰值=10279 ✓ 🎯 敲擊 #2
+[tap][sample][03:22:03.254] 持續=98ms 峰值=13400 ✓ 🎯 敲擊 #3
+[tap]        [03:22:03.254] 🔔 三連敲觸發（間隔 227ms / 215ms，一致性 0.95）
+[main][03:22:03.259] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:22:07.835] 持續=153ms 峰值=13028 ✓ 🎯 敲擊 #1
+[tap][sample][03:22:08.023] 持續=126ms 峰值=12264 ✓ 🎯 敲擊 #2
+[tap][sample][03:22:08.248] 持續=135ms 峰值=12337 ✓ 🎯 敲擊 #3
+[tap]        [03:22:08.248] 🔔 三連敲觸發（間隔 216ms / 216ms，一致性 1.00）
+[tap]        [03:22:08.285] 💤 敲麥監聽已停止
+[recorder][03:22:08] 🚀 預熱命中，直接開始錄音
+[main][03:22:08.285] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [03:22:08.289] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:22:08.295] 🎙️ 開始錄音
+[transcriber][03:22:08.681] ⏱️ API 耗時: 7.78s
+[main][03:22:08.681] ✅ 分段辨識完成: "喂"
+[transcriber][03:22:08.701] ⏱️ API 耗時: 6.08s
+[paster][03:22:08] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='喂'
+[paster][03:22:08] 📋 CLIP flow start: target_chars=1, restore_delay=0.30s
+[paster][03:22:08] 📋 CLIP backup: count=7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:22:08] 📋 CLIP set attempt 1/4: chars=1, bytes=4, preview='喂'
+[paster][03:22:08] 📋 CLIP verify ok: attempt=1, chars=1, text='喂'
+[paster][03:22:08] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x0795111e，keys_before=async_down=none; logical_down=none，text='喂'
+[paster][03:22:08] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][03:22:08] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][03:22:08] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][03:22:08] ⏱️ 收到→貼上完成: 0.18s
+[paster][03:22:08] 📋 CLIP restore wait: 0.30s
+[paster][03:22:09] 📋 CLIP restore attempt 1/4: text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:22:09] 📋 CLIP restore: restored=7/7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:22:09] 📋 CLIP restore verify ok: attempt=1, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:22:09] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:22:10.408] 持續=135ms 峰值=11828 ✓ 🎯 敲擊 #1
+[tap][sample][03:22:10.624] 持續=126ms 峰值=13464 ✓ 🎯 敲擊 #2
+[tap][sample][03:22:10.813] 持續=90ms 峰值=10006 ✓ 🎯 敲擊 #3
+[tap]        [03:22:10.813] 🔔 三連敲觸發（間隔 225ms / 225ms，一致性 1.00）
+[main][03:22:10.815] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/47 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[paster][03:22:11] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:22:11] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][03:22:13.451] 持續=45ms 峰值=1381 ✓ 🎯 敲擊 #1
+[tap][sample][03:22:13.720] 持續=54ms 峰值=5721 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:22:13.801] 持續=81ms 峰值=540 ✗弱
+[tap]        [03:22:14.210] ⚠️ stream 意外終止（存活 5.9s），1s 後重試
+[main][03:22:14.210] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:22:14] 💤 預熱 stream 已關閉
+[tap]        [03:22:15.256] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:25:15.923] 💤 敲麥監聽已停止
+[recorder][03:25:15] 💤 預熱 stream 已關閉
+[0m

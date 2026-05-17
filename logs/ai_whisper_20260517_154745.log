@@ -1,0 +1,420 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_154745.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][15:47:45.618] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:47:45.619] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:47:45.619] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [15:47:45.634] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][15:47:56.212] 持續=27ms 峰值=1611 ✓ 🎯 敲擊 #1
+[tap][sample][15:47:56.437] 持續=36ms 峰值=6752 ✓ 🎯 敲擊 #2
+[tap][sample][15:47:56.698] 持續=63ms 峰值=6539 ✓ 🎯 敲擊 #3
+[tap]        [15:47:56.698] 🔔 三連敲觸發（間隔 216ms / 234ms，一致性 0.92）
+[tap]        [15:47:56.771] 💤 敲麥監聽已停止
+[recorder][15:47:56] ⏱️ InputStream() 16.7ms
+[recorder][15:47:56] ⏱️ stream.start() 0.4ms
+[recorder][15:47:56] 🎙️ 錄音就緒，總初始化 17.1ms
+[main][15:47:56.788] ⏱️ recorder.start() 耗時 17.3ms，ok=True
+[tap]        [15:47:57.339] 🎙️ 敲麥監聽已啟動
+[main][15:47:57.347] 🎙️ 開始錄音
+[recorder][15:47:57] 🎤 第一包音訊到達，麥克風實際開啟延遲 764.6ms
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:48:00.757] 持續=413ms 峰值=5351 ✗長
+[tap][dim]   [15:48:00.793] 持續=36ms 峰值=563 ✗弱
+[tap][sample][15:48:01.333] 持續=540ms 峰值=4887 ✗長
+[tap][dim]   [15:48:01.360] 持續=27ms 峰值=597 ✗弱
+[tap][sample][15:48:01.783] 持續=423ms 峰值=4972 ✗長
+[tap][dim]   [15:48:01.810] 持續=27ms 峰值=393 ✗弱
+[recorder][VAD] Silero 語音幀 40/95 (42.1%)，有效語音 1.28s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.1s 音訊段落
+[main][15:48:02.858] ✂️ 自動分段送出（靜音達1s，累積 3.1s，靜音 1.1s）
+[paster][15:48:03] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:03] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.11s, est_api=0.56s)
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][15:48:04.308] ⏱️ API 耗時: 1.25s
+[main][15:48:04.309] ✅ 分段辨識完成: "測試一下喔"
+[paster][15:48:05] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試一下喔'
+[paster][15:48:05] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:05] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:05] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='測試一下喔'
+[paster][15:48:05] 📋 CLIP verify ok: attempt=1, chars=5, text='測試一下喔'
+[paster][15:48:05] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='測試一下喔'
+[paster][15:48:05] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:05] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:48:05] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:05] ⏱️ 收到→貼上完成: 1.10s
+[paster][15:48:05] 📋 CLIP restore wait: 0.30s
+[paster][15:48:05] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:05] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:05] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:05] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:05] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:06] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:06] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:06.373] 持續=126ms 峰值=1623 ✗長
+[tap][dim]   [15:48:06.400] 持續=27ms 峰值=476 ✗弱
+[paster][15:48:06] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][dim]   [15:48:06.472] 持續=36ms 峰值=597 ✗弱
+[tap][sample][15:48:06.562] 持續=90ms 峰值=3278 ✓ 🎯 敲擊 #1
+[paster][15:48:06] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][dim]   [15:48:06.697] 持續=36ms 峰值=326 ✗弱
+[tap][dim]   [15:48:06.760] 持續=35ms 峰值=446 ✗弱
+[tap][sample][15:48:06.796] 持續=36ms 峰值=931 ✓ 🎯 敲擊 #2
+[paster][15:48:06] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:06.949] 持續=27ms 峰值=2051 ✓ ⏱️ 防抖略過（距上次 162ms < 180ms）
+[paster][15:48:07] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:07.083] 持續=108ms 峰值=1962 ✓ 🎯 敲擊 #3
+[tap]        [15:48:07.083] 🔔 三連敲觸發（間隔 288ms / 216ms，一致性 0.75）
+[main][15:48:07.084] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 2/50 (4.0%)，有效語音 0.06s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 4.0% < 16%）
+[tap][dim]   [15:48:07.147] 持續=63ms 峰值=339 ✗弱
+[paster][15:48:07] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:07] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:07.462] 持續=261ms 峰值=2940 ✗長
+[tap][dim]   [15:48:07.489] 持續=27ms 峰值=550 ✗弱
+[tap][sample][15:48:07.516] 持續=27ms 峰值=1158 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:07.561] 持續=45ms 峰值=562 ✗弱
+[paster][15:48:07] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:07.687] 持續=126ms 峰值=1067 ✗長
+[tap][dim]   [15:48:07.723] 持續=36ms 峰值=517 ✗弱
+[tap][sample][15:48:07.750] 持續=27ms 峰值=2748 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:48:07.786] 持續=36ms 峰值=562 ✗弱
+[paster][15:48:07] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][dim]   [15:48:07.876] 持續=36ms 峰值=390 ✗弱
+[tap][sample][15:48:07.912] 持續=36ms 峰值=602 ✓ ⏱️ 防抖略過（距上次 153ms < 180ms）
+[paster][15:48:08] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:08] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:08] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:08] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[tap]         ⏱️ 間隔過長重置（1503ms）
+[tap][sample][15:48:09.279] 持續=54ms 峰值=1835 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:09.315] 持續=36ms 峰值=316 ✗弱
+[tap][sample][15:48:09.378] 持續=63ms 峰值=3124 ✓ ⏱️ 防抖略過（距上次 90ms < 180ms）
+[tap][sample][15:48:09.486] 持續=45ms 峰值=3058 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:48:09.513] 持續=27ms 峰值=582 ✗弱
+[tap][sample][15:48:09.604] 持續=27ms 峰值=1698 ✓ ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap][sample][15:48:09.729] 持續=54ms 峰值=10860 ✓ 🎯 敲擊 #3
+[tap]        [15:48:09.729] 🔔 三連敲觸發（間隔 216ms / 234ms，一致性 0.92）
+[tap]        [15:48:09.783] 💤 敲麥監聽已停止
+[recorder][15:48:09] 🚀 預熱命中，直接開始錄音
+[main][15:48:09.783] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [15:48:09.787] 🎙️ 敲麥監聽已啟動
+[main][15:48:09.793] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:48:11.223] 持續=63ms 峰值=1024 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:11.295] 持續=72ms 峰值=592 ✗弱
+[tap][sample][15:48:11.538] 持續=243ms 峰值=3513 ✗長
+[tap]         ⏱️ 間隔過長重置（585ms）
+[tap][sample][15:48:11.800] 持續=54ms 峰值=1345 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:11.899] 持續=36ms 峰值=416 ✗弱
+[tap][sample][15:48:11.989] 持續=90ms 峰值=1827 ✓ ⏱️ 防抖略過（距上次 153ms < 180ms）
+[tap][dim]   [15:48:12.015] 持續=27ms 峰值=323 ✗弱
+[tap][dim]   [15:48:12.097] 持續=36ms 峰值=337 ✗弱
+[tap][sample][15:48:12.249] 持續=153ms 峰值=2085 ✗長
+[tap][dim]   [15:48:12.285] 持續=36ms 峰值=336 ✗弱
+[tap]         ⏱️ 間隔過長重置（630ms）
+[tap][sample][15:48:12.412] 持續=36ms 峰值=814 ✓ 🎯 敲擊 #1
+[tap][sample][15:48:12.637] 持續=63ms 峰值=831 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:48:12.664] 持續=27ms 峰值=375 ✗弱
+[tap][sample][15:48:12.700] 持續=36ms 峰值=2118 ✓ ⏱️ 防抖略過（距上次 90ms < 180ms）
+[tap][sample][15:48:13.186] 持續=207ms 峰值=2758 ✗長
+[tap][dim]   [15:48:13.303] 持續=27ms 峰值=328 ✗弱
+[tap][dim]   [15:48:13.401] 持續=21ms 峰值=369 ✗弱
+[tap]         ⏱️ 間隔過長重置（828ms）
+[tap][sample][15:48:13.501] 持續=99ms 峰值=757 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:13.537] 持續=36ms 峰值=490 ✗弱
+[tap][sample][15:48:13.564] 持續=27ms 峰值=1736 ✓ ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap][sample][15:48:13.690] 持續=27ms 峰值=615 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:48:13.726] 持續=36ms 峰值=560 ✗弱
+[tap][dim]   [15:48:13.941] 持續=36ms 峰值=504 ✗弱
+[tap][sample][15:48:14.203] 持續=261ms 峰值=2706 ✗長
+[tap][dim]   [15:48:14.301] 持續=99ms 峰值=414 ✗弱
+[tap][sample][15:48:14.626] 持續=136ms 峰值=1398 ✗長
+[tap][sample][15:48:14.869] 持續=63ms 峰值=703 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:14.896] 持續=27ms 峰值=389 ✗弱
+[tap][sample][15:48:15.103] 持續=126ms 峰值=1774 ✗長
+[tap][dim]   [15:48:15.292] 持續=36ms 峰值=345 ✗弱
+[tap]         ⏱️ 間隔過長重置（612ms）
+[tap][sample][15:48:15.454] 持續=36ms 峰值=1674 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 55/170 (32.4%)，有效語音 1.76s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.5s 音訊段落
+[main][15:48:16.588] ✂️ 自動分段送出（靜音達1s，累積 5.5s，靜音 1.0s）
+[paster][15:48:16] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:16] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.35s, est_api=0.80s)
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][15:48:17.872] ⏱️ API 耗時: 1.02s
+[main][15:48:17.873] ✅ 分段辨識完成: "車子"
+[paster][15:48:17] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='車子'
+[paster][15:48:17] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:48:17] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:17] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='車子'
+[paster][15:48:17] 📋 CLIP verify ok: attempt=1, chars=2, text='車子'
+[paster][15:48:18] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='車子'
+[paster][15:48:18] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:18] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:48:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:18] ⏱️ 收到→貼上完成: 0.19s
+[paster][15:48:18] 📋 CLIP restore wait: 0.30s
+[paster][15:48:18] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:18] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:18] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:18] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:18] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:18] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:18] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:48:19] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][dim]   [15:48:19.298] 持續=36ms 峰值=482 ✗弱
+[paster][15:48:19] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:19.424] 持續=126ms 峰值=3477 ✗長
+[tap][dim]   [15:48:19.450] 持續=27ms 峰值=319 ✗弱
+[paster][15:48:19] 📋 CLIP read: CF_UNICODETEXT missing
+[tap]         ⏱️ 間隔過長重置（4095ms）
+[tap][sample][15:48:19.576] 持續=63ms 峰值=1177 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:48:19.640] 持續=27ms 峰值=378 ✗弱
+[paster][15:48:19] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:19.837] 持續=198ms 峰值=3096 ✗長
+[paster][15:48:19] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:20.182] 持續=156ms 峰值=3201 ✗長[paster][15:48:20] 📋 CLIP read: CF_UNICODETEXT missing
+
+[tap][dim]   [15:48:20.224] 持續=41ms 峰值=564 ✗弱
+[tap][sample][15:48:20.414] 持續=190ms 峰值=3336 ✗長
+[paster][15:48:20] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][dim]   [15:48:20.476] 持續=62ms 峰值=484 ✗弱
+[tap][sample][15:48:20.567] 持續=90ms 峰值=2354 ✓ 🎯 敲擊 #1
+[paster][15:48:20] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:20.737] 持續=135ms 峰值=2862 ✗長
+[paster][15:48:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:20] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:20] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 37/89 (41.6%)，有效語音 1.18s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.9s 音訊段落
+[main][15:48:21.851] ✂️ 自動分段送出（靜音達1s，累積 2.9s，靜音 1.0s）
+[paster][15:48:21] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:21] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.09s, est_api=0.54s)
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][15:48:23.340] ⏱️ API 耗時: 1.11s
+[main][15:48:23.341] ✅ 分段辨識完成: "第一輪測試"
+[paster][15:48:23] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='第一輪測試'
+[paster][15:48:23] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:23] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:23] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='第一輪測試'
+[paster][15:48:23] 📋 CLIP verify ok: attempt=1, chars=5, text='第一輪測試'
+[paster][15:48:23] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='第一輪測試'
+[paster][15:48:23] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:23] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:48:23] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:23] ⏱️ 收到→貼上完成: 0.21s
+[paster][15:48:23] 📋 CLIP restore wait: 0.30s
+[paster][15:48:23] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:23] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:23] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:23] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:23] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:24] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:48:24] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:24] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:24] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:25] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:25] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:25] 📋 CLIP read: CF_UNICODETEXT missing
+[tap]         ⏱️ 間隔過長重置（4895ms）
+[tap][sample][15:48:25.534] 持續=162ms 峰值=9141 ✓ 🎯 敲擊 #1
+[paster][15:48:25] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:25.786] 持續=162ms 峰值=11580 ✓ 🎯 敲擊 #2
+[paster][15:48:25] 📋 CLIP read: CF_UNICODETEXT missing
+[tap][sample][15:48:25.984] 持續=135ms 峰值=12786 ✓ 🎯 敲擊 #3
+[tap]        [15:48:25.984] 🔔 三連敲觸發（間隔 252ms / 225ms，一致性 0.89）
+[main][15:48:25.985] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/56 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[paster][15:48:26] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:26] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:26] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:26] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:26] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[main][15:48:29.995] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:29.996] 📋 貼上記憶 1: "第一輪測試"
+[paster][15:48:29] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:29] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='第一輪測試'
+[paster][15:48:29] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:30] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:30] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='第一輪測試'
+[paster][15:48:30] 📋 CLIP verify ok: attempt=1, chars=5, text='第一輪測試'
+[paster][15:48:30] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='第一輪測試'
+[paster][15:48:30] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:30] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:30] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:30] 📋 CLIP restore wait: 0.30s
+[paster][15:48:30] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:30] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:30] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:30] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:30] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:30] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:30] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:31] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:31] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:31] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:31] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:31] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:32] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:32] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[main][15:48:34.993] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:34.993] 📋 貼上記憶 1: "第一輪測試"
+[paster][15:48:34] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:34] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='第一輪測試'
+[paster][15:48:34] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:34] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:34] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='第一輪測試'
+[paster][15:48:35] 📋 CLIP verify ok: attempt=1, chars=5, text='第一輪測試'
+[paster][15:48:35] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='第一輪測試'
+[paster][15:48:35] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:35] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:35] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:35] 📋 CLIP restore wait: 0.30s
+[paster][15:48:35] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:35] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:35] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:35] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:35] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:35] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:35] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:36] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:36] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:36] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:36] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:36] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:37] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:37] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[main][15:48:41.788] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:41.789] 📋 貼上記憶 1: "第一輪測試"
+[paster][15:48:41] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:41] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='第一輪測試'
+[paster][15:48:41] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:41] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:41] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='第一輪測試'
+[paster][15:48:41] 📋 CLIP verify ok: attempt=1, chars=5, text='第一輪測試'
+[paster][15:48:41] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='第一輪測試'
+[paster][15:48:41] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:41] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:41] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:41] 📋 CLIP restore wait: 0.30s
+[paster][15:48:42] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:42] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:42] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:42] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:42] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:42] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:42] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:42] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:43] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:43] 📋 CLIP read: CF_UNICODETEXT missing
+[main][15:48:43.402] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:43.402] 📋 貼上記憶 2: "車子"
+[paster][15:48:43] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:43] 📋 CLIP watchdog skip: pending paste queued, checks=6, repairs=0
+[paster][15:48:43] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[paster][15:48:43] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:43] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='車子'
+[paster][15:48:43] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:48:43] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:43] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='車子'
+[paster][15:48:43] 📋 CLIP verify ok: attempt=1, chars=2, text='車子'
+[paster][15:48:43] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='車子'
+[paster][15:48:43] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:43] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:43] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:43] 📋 CLIP restore wait: 0.30s
+[paster][15:48:44] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:44] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:44] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:44] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:44] 📋 CLIP read: CF_UNICODETEXT missing
+[main][15:48:44.755] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:44.755] 📋 貼上記憶 3: "測試一下喔"
+[paster][15:48:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:44] 📋 CLIP watchdog skip: pending paste queued, checks=3, repairs=0
+[paster][15:48:44] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[paster][15:48:44] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:44] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='測試一下喔'
+[paster][15:48:44] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:44] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:44] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='測試一下喔'
+[paster][15:48:44] 📋 CLIP verify ok: attempt=1, chars=5, text='測試一下喔'
+[paster][15:48:44] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='測試一下喔'
+[paster][15:48:44] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:44] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:44] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:44] 📋 CLIP restore wait: 0.30s
+[paster][15:48:45] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:45] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:45] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:45] 📋 CLIP read: CF_UNICODETEXT missing
+[main][15:48:46.068] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][15:48:46.068] 📋 貼上記憶 1: "第一輪測試"
+[paster][15:48:46] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:46] 📋 CLIP watchdog skip: pending paste queued, checks=4, repairs=0
+[paster][15:48:46] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[paster][15:48:46] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:48:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='第一輪測試'
+[paster][15:48:46] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][15:48:46] 📋 CLIP backup: count=5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:46] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='第一輪測試'
+[paster][15:48:46] 📋 CLIP verify ok: attempt=1, chars=5, text='第一輪測試'
+[paster][15:48:46] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='第一輪測試'
+[paster][15:48:46] ⌨️ 貼上前釋放修飾鍵: released=LShift,LCtrl,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:48:46] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:48:46] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:48:46] 📋 CLIP restore wait: 0.30s
+[paster][15:48:46] 📋 CLIP restore attempt 1/4: text=missing
+[paster][15:48:46] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:13211B, 49171:216B, 8:747208B, 17:747292B, text=missing
+[paster][15:48:46] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:46] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][15:48:46] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:48:46] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:47] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:47] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:47] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:47] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:47] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][15:48:48] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][15:48:48] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[tap]        [15:53:04.814] 💤 敲麥監聽已停止
+[recorder][15:53:04] 💤 預熱 stream 已關閉
+[0m

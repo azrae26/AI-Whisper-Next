@@ -1,0 +1,41 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_032736.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:27:37.211] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:27:37.211] ✅ Ctrl狀態防護已啟動
+[main][03:27:37.212] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [03:27:37.226] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][03:27:41.825] 持續=126ms 峰值=13098 ✓ 🎯 敲擊 #1
+[tap][sample][03:27:42.014] 持續=99ms 峰值=10889 ✓ 🎯 敲擊 #2
+[tap][sample][03:27:42.212] 持續=90ms 峰值=12135 ✓ 🎯 敲擊 #3
+[tap]        [03:27:42.212] 🔔 三連敲觸發（間隔 216ms / 207ms，一致性 0.96）
+[tap]        [03:27:42.284] 💤 敲麥監聽已停止
+[recorder][03:27:42] ⏱️ InputStream() 11.5ms
+[recorder][03:27:42] ⏱️ stream.start() 0.4ms
+[recorder][03:27:42] 🎙️ 錄音就緒，總初始化 11.9ms
+[main][03:27:42.296] ⏱️ recorder.start() 耗時 12.1ms，ok=True
+[tap]        [03:27:42.864] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:27:42.869] 🎙️ 開始錄音
+[recorder][03:27:43] 🎤 第一包音訊到達，麥克風實際開啟延遲 751.9ms
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:27:44.345] 持續=72ms 峰值=8547 ✓ 🎯 敲擊 #1
+[tap][sample][03:27:44.588] 持續=54ms 峰值=13928 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:27:44.624] 持續=36ms 峰值=450 ✗弱
+[tap][sample][03:27:44.785] 持續=63ms 峰值=9403 ✓ 🎯 敲擊 #3
+[tap]        [03:27:44.785] 🔔 三連敲觸發（間隔 261ms / 189ms，一致性 0.73）
+[main][03:27:44.786] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.70s)，略過
+[tap][sample][03:27:46.477] 持續=27ms 峰值=2183 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:27:46.585] 持續=108ms 峰值=528 ✗弱
+[tap][dim]   [03:27:46.748] 持續=45ms 峰值=476 ✗弱
+[tap][sample][03:27:46.802] 持續=54ms 峰值=4811 ✓ 🎯 敲擊 #2
+[tap]        [03:27:47.227] ⚠️ stream 意外終止（存活 4.4s），1s 後重試
+[main][03:27:47.227] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:27:47] 💤 預熱 stream 已關閉
+[tap]        [03:27:48.281] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:29:17.937] 💤 敲麥監聽已停止
+[recorder][03:29:17] 💤 預熱 stream 已關閉
+[0m

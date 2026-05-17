@@ -1,0 +1,39 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_041707.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][04:17:07.751] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][04:17:07.751] ✅ Ctrl狀態防護已啟動
+[main][04:17:07.752] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [04:17:07.803] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap]        [04:17:23.310] 💤 敲麥監聽已停止
+[recorder][04:17:23] ⏱️ InputStream() 52.3ms
+[recorder][04:17:23] ⏱️ stream.start() 0.5ms
+[recorder][04:17:23] 🎙️ 錄音就緒，總初始化 52.8ms
+[main][04:17:23.363] ⏱️ recorder.start() 耗時 53.0ms，ok=True
+[tap]        [04:17:23.376] 🎙️ 敲麥監聽已啟動
+[main][04:17:23.384] 🎙️ 開始錄音
+[recorder][04:17:23] 🎤 第一包音訊到達，麥克風實際開啟延遲 31.3ms
+[main][04:17:24.284] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/27 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[main][04:19:07.598] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][04:19:07.599] ⌨️ after(0) 執行延遲 1.7ms
+[tap]        [04:19:07.616] 💤 敲麥監聽已停止
+[recorder][04:19:07] 🚀 預熱命中，直接開始錄音
+[main][04:19:07.616] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [04:19:07.631] 🎙️ 敲麥監聽已啟動
+[main][04:19:07.641] 🎙️ 開始錄音
+[input][04:19:07.746] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,RCtrl，before=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl，after=async_down=none; logical_down=none
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][04:19:09.595] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][04:19:09.596] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風[main][04:19:09.596] ⌨️ after(0) 執行延遲 1.5ms
+
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[input][04:19:09.749] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,RCtrl，before=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl，after=async_down=none; logical_down=none
+[tap]        [04:20:48.886] 💤 敲麥監聽已停止
+[recorder][04:20:48] 💤 預熱 stream 已關閉
+[0m

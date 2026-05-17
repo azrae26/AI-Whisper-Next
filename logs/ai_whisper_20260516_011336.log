@@ -1,0 +1,245 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_011336.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:13:37.167] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:13:37.168] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][01:13:54.231] 持續=135ms 峰值=3302 ✗長
+[tap][sample][01:13:54.448] 持續=126ms 峰值=4152 ✗長
+[tap][sample][01:13:54.601] 持續=54ms 峰值=6242 ✓ 🎯 敲擊 #1
+[tap][sample][01:13:54.664] 持續=27ms 峰值=736 ✓ ⏱️ 防抖略過（距上次 90ms < 180ms）
+[tap]         ⏱️ 間隔過長重置（1693ms）
+[tap][sample][01:13:56.266] 持續=27ms 峰值=9817 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:13:56.303] 持續=36ms 峰值=537 ✗弱
+[tap][sample][01:13:56.365] 持續=62ms 峰值=1229 ✓ ⏱️ 防抖略過（距上次 63ms < 180ms）
+[tap][sample][01:13:56.554] 持續=89ms 峰值=13146 ✓ 🎯 敲擊 #2
+[tap][sample][01:13:56.788] 持續=99ms 峰值=13611 ✓ 🎯 敲擊 #3
+[tap]        [01:13:56.788] 🔔 三連敲觸發（間隔 225ms / 224ms，一致性 0.99）
+[recorder][01:13:56] ⏱️ InputStream() 6.2ms
+[recorder][01:13:56] ⏱️ stream.start() 0.4ms
+[recorder][01:13:56] 🎙️ 錄音就緒，總初始化 6.7ms
+[main][01:13:56.797] ⏱️ recorder.start() 耗時 7.2ms，ok=True
+[main][01:13:56.803] 🎙️ 開始錄音
+[recorder][01:13:56] 🎤 第一包音訊到達，麥克風實際開啟延遲 18.8ms
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][01:13:58.795] 持續=567ms 峰值=6590 ✗長
+[tap][sample][01:13:59.857] 持續=513ms 峰值=8024 ✗長
+[tap][sample][01:14:00.658] 持續=512ms 峰值=11939 ✗長
+[tap][dim]   [01:14:00.685] 持續=27ms 峰值=562 ✗弱
+[tap][sample][01:14:00.983] 持續=271ms 峰值=5406 ✗長
+[recorder][VAD] RMS 語音幀 63/142 (44.4%)，有效語音 1.89s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 4.3s 音訊段落
+[main][01:14:02.082] ✂️ 自動分段送出（靜音達1s，累積 4.3s，靜音 1.1s）
+[paster][01:14:02] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster][01:14:02] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.23s, est_api=0.68s)
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][01:14:03.669] ⏱️ API 耗時: 1.41s
+[main][01:14:03.669] ✅ 分段辨識完成: "你有沒有辦法捕捉到"
+[paster][01:14:04] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='你有沒有辦法捕捉到'
+[paster][01:14:04] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster][01:14:04] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:14:04] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='。你有沒有辦法捕捉到'
+[paster][01:14:04] 📋 CLIP verify ok: attempt=1, chars=10, text='。你有沒有辦法捕捉到'
+[paster][01:14:04] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。你有沒有辦法捕捉到'
+[paster][01:14:04] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:14:04] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:14:04] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:14:04] ⏱️ 收到→貼上完成: 0.83s
+[paster][01:14:04] 📋 CLIP restore wait: 0.30s
+[paster][01:14:04] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:14:04] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:14:04] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:04] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:14:04] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:14:05] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:05] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:05] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] RMS 語音幀 0/38 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][01:14:05] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:05] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:06] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:06] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:06] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][01:14:06] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:06] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:07] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:07] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:07] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:14:07] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][01:14:08.084] 持續=963ms 峰值=5579 ✗長
+[tap][dim]   [01:14:08.138] 持續=54ms 峰值=524 ✗弱
+[tap][sample][01:14:08.371] 持續=233ms 峰值=5964 ✗長
+[tap][sample][01:14:08.885] 持續=325ms 峰值=3037 ✗長
+[tap][sample][01:14:09.208] 持續=297ms 峰值=3923 ✗長
+[tap][sample][01:14:09.523] 持續=288ms 峰值=2865 ✗長
+[tap][dim]   [01:14:09.577] 持續=54ms 峰值=566 ✗弱
+[tap][sample][01:14:09.748] 持續=171ms 峰值=3316 ✗長
+[tap][sample][01:14:10.162] 持續=27ms 峰值=1060 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:14:10.198] 持續=36ms 峰值=529 ✗弱
+[tap][sample][01:14:10.378] 持續=180ms 峰值=2958 ✗長
+[tap][dim]   [01:14:10.413] 持續=36ms 峰值=600 ✗弱
+[tap][sample][01:14:10.702] 持續=289ms 峰值=3287 ✗長
+[tap][sample][01:14:11.729] 持續=153ms 峰值=6437 ✗長
+[tap][dim]   [01:14:11.792] 持續=27ms 峰值=474 ✗弱
+[tap][sample][01:14:11.953] 持續=162ms 峰值=2274 ✗長
+[tap][dim]   [01:14:11.981] 持續=27ms 峰值=474 ✗弱
+[tap][dim]   [01:14:12.088] 持續=81ms 峰值=590 ✗弱
+[tap][sample][01:14:12.268] 持續=180ms 峰值=7237 ✗長
+[tap][sample][01:14:12.593] 持續=289ms 峰值=2791 ✗長
+[tap][sample][01:14:12.808] 持續=180ms 峰值=3321 ✗長
+[tap][dim]   [01:14:12.853] 持續=45ms 峰值=529 ✗弱
+[tap][sample][01:14:13.015] 持續=162ms 峰值=2129 ✗長
+[tap][sample][01:14:13.898] 持續=154ms 峰值=2762 ✗長
+[tap][dim]   [01:14:13.933] 持續=35ms 峰值=492 ✗弱
+[tap][sample][01:14:14.320] 持續=387ms 峰值=3806 ✗長
+[tap][sample][01:14:14.698] 持續=350ms 峰值=4721 ✗長
+[tap][dim]   [01:14:14.770] 持續=34ms 峰值=457 ✗弱
+[tap][sample][01:14:14.888] 持續=117ms 峰值=1503 ✗長
+[tap][dim]   [01:14:14.932] 持續=45ms 峰值=377 ✗弱
+[tap][dim]   [01:14:14.996] 持續=27ms 峰值=460 ✗弱
+[tap][sample][01:14:15.185] 持續=189ms 峰值=4127 ✗長
+[recorder][VAD] RMS 語音幀 183/325 (56.3%)，有效語音 5.49s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 9.8s 音訊段落
+[main][01:14:16.304] ✂️ 自動分段送出（靜音達1s，累積 9.8s，靜音 1.1s）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][01:14:17.335] ⏱️ API 耗時: 0.89s
+[main][01:14:17.338] ✅ 分段辨識完成: "我們程式的系統砸的圖示，就只知道他就好，其他都不用知道"
+[paster][01:14:17] 📏 [UIA] text='。你有沒有辦法捕捉到', text_after='', at_end=True, last_punct=False
+[paster][01:14:17] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.78s, est_api=1.23s)
+[paster][01:14:17] 📏 [UIA] text='。你有沒有辦法捕捉到', text_after='', at_end=True, last_punct=False
+[paster][01:14:17] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='。', uia=508ms, final='我們程式的系統砸的圖示，就只知道他就好，其他都不用知道'
+[paster][01:14:17] 📋 CLIP flow start: target_chars=28, restore_delay=0.30s
+[paster][01:14:17] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:14:17] 📋 CLIP set attempt 1/4: chars=28, bytes=58, preview='。我們程式的系統砸的圖示，就只知道他就好，其他都不用知道'
+[paster][01:14:17] 📋 CLIP verify ok: attempt=1, chars=28, text='。我們程式的系統砸的圖示，就只知道他就好'
+[paster][01:14:17] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。我們程式的系統砸的圖示，就只知道他就好，其他都不用知道'
+[paster][01:14:17] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:14:17] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:14:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:14:18] ⏱️ 收到→貼上完成: 0.66s
+[paster][01:14:18] 📋 CLIP restore wait: 0.30s
+[paster][01:14:18] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:14:18] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][01:14:18] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:18] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:14:18] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:14:18] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:18] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:19] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:19] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][01:14:19] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:19] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:19] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:20] 📋 CLIP read: CF_UNICODETEXT missing
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][01:14:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:20] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:14:20] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:14:20] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [01:14:54.794] 持續=72ms 峰值=534 ✗弱
+[tap][dim]   [01:14:55.233] 持續=63ms 峰值=340 ✗弱
+[recorder][VAD] RMS 語音幀 1/74 (1.4%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.4% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [01:15:03.496] 持續=27ms 峰值=321 ✗弱
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）

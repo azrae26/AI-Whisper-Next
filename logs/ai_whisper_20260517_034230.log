@@ -1,0 +1,285 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_034230.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:42:30.291] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:42:30.291] ✅ Ctrl狀態防護已啟動
+[main][03:42:30.292] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[tap]        [03:42:32.151] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[tap][sample][03:42:33.633] 持續=162ms 峰值=14068 ✓ 🎯 敲擊 #1
+[recorder][VAD] 載入 Silero VAD 模型...
+[tap][sample][03:42:33.877] 持續=171ms 峰值=11007 ✓ 🎯 敲擊 #2
+[tap][sample][03:42:34.130] 持續=171ms 峰值=14144 ✓ 🎯 敲擊 #3
+[tap]        [03:42:34.130] 🔔 三連敲觸發（間隔 236ms / 252ms，一致性 0.94）
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[tap]        [03:42:34.254] 💤 敲麥監聽已停止
+[recorder][03:42:34] ⏱️ InputStream() 0.2ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][VAD] Silero VAD 模型載入完成
+[recorder][03:42:34] ⏱️ stream.start() 529.9ms
+[recorder][03:42:34] 🎙️ 錄音就緒，總初始化 530.1ms
+[main][03:42:34.785] ⏱️ recorder.start() 耗時 530.4ms，ok=True
+[main][03:42:34.792] 🎙️ 開始錄音
+[recorder][03:42:35] 🎤 第一包音訊到達，麥克風實際開啟延遲 837.7ms
+[tap][sample][03:42:36.362] 持續=414ms 峰值=8019 ✗長
+[tap][sample][03:42:36.631] 持續=171ms 峰值=10256 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 0/74 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[tap]         ⏱️ 間隔過長重置（4950ms）
+[tap][sample][03:42:41.491] 持續=81ms 峰值=5312 ✓ 🎯 敲擊 #1
+[tap][sample][03:42:41.572] 持續=80ms 峰值=733 ✓ ⏱️ 防抖略過（距上次 82ms < 160ms）
+[tap][sample][03:42:42.005] 持續=342ms 峰值=11596 ✗長
+[recorder][VAD] Silero 語音幀 0/58 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[tap]         ⏱️ 間隔過長重置（4257ms）
+[tap][sample][03:42:45.847] 持續=180ms 峰值=7258 ✓ 🎯 敲擊 #1
+[tap][sample][03:42:46.100] 持續=171ms 峰值=10645 ✓ 🎯 敲擊 #2
+[tap][sample][03:42:46.270] 持續=170ms 峰值=5840 ✓ 🎯 敲擊 #3
+[tap]        [03:42:46.270] 🔔 三連敲觸發（間隔 261ms / 172ms，一致性 0.66）
+[recorder][03:42:46] 💤 預熱 stream 已關閉
+[tap]        [03:42:46.924] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:42:55.747] 持續=0ms 峰值=812 ✓ 🎯 敲擊 #1
+[tap][sample][03:42:56.180] 持續=81ms 峰值=5995 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:42:56.181] 持續=1ms 峰值=348 ✗弱
+[tap][dim]   [03:42:56.462] 持續=0ms 峰值=439 ✗弱
+[tap]        [03:42:58.246] ⚠️ stream 意外終止（存活 11.3s），1s 後重試
+[main][03:42:58.246] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:42:58] 💤 預熱 stream 已關閉
+[tap]        [03:42:59.262] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[main][03:42:59.263] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream open failed）
+[recorder][03:42:59] 💤 預熱 stream 已關閉
+[tap]        [03:43:04.266] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[main][03:43:04.268] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream open failed）
+[recorder][03:43:04] 💤 預熱 stream 已關閉
+[tap]        [03:43:19.284] 🔌 重置 PortAudio 後端
+[tap]        [03:43:20.615] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[tap][sample][03:43:22.010] 持續=80ms 峰值=11588 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:22.100] 持續=0ms 峰值=894 ✓ 🎯 敲擊 #2
+[tap][sample][03:43:22.360] 持續=170ms 峰值=10105 ✓ ⏱️ 防抖略過（距上次 90ms < 160ms）
+[tap][sample][03:43:22.614] 持續=172ms 峰值=10569 ✓ 🎯 敲擊 #3
+[tap]        [03:43:22.614] ⚠️ 節奏不一致（間隔 171ms / 342ms，一致性 0.50），忽略
+[tap]         ⏱️ 間隔過長重置（3069ms）
+[tap][sample][03:43:25.681] 持續=171ms 峰值=11686 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:25.852] 持續=169ms 峰值=12037 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:43:25.853] 持續=0ms 峰值=506 ✗弱
+[tap][sample][03:43:26.024] 持續=90ms 峰值=15643 ✓ 🎯 敲擊 #3
+[tap]        [03:43:26.024] 🔔 三連敲觸發（間隔 172ms / 251ms，一致性 0.69）
+[tap]        [03:43:26.144] 💤 敲麥監聽已停止
+[recorder][03:43:26] ⏱️ InputStream() 0.7ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][03:43:26] ⏱️ stream.start() 533.3ms
+[recorder][03:43:26] 🎙️ 錄音就緒，總初始化 534.0ms
+[main][03:43:26.678] ⏱️ recorder.start() 耗時 534.8ms，ok=True
+[main][03:43:26.685] 🎙️ 開始錄音
+[recorder][03:43:26] 🎤 第一包音訊到達，麥克風實際開啟延遲 813.2ms
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:43:30.029] 持續=595ms 峰值=12521 ✗長
+[recorder][VAD] Silero 語音幀 0/69 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:43:32.162] 持續=171ms 峰值=8227 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:32.422] 持續=171ms 峰值=9344 ✓ 🎯 敲擊 #2
+[tap][sample][03:43:32.593] 持續=90ms 峰值=7288 ✓ 🎯 敲擊 #3
+[tap]        [03:43:32.593] 🔔 三連敲觸發（間隔 261ms / 252ms，一致性 0.96）
+[recorder][03:43:32] 💤 預熱 stream 已關閉
+[tap]        [03:43:33.254] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:43:34.564] 持續=162ms 峰值=13701 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:34.826] 持續=171ms 峰值=10366 ✓ 🎯 敲擊 #2
+[tap][sample][03:43:34.996] 持續=81ms 峰值=9289 ✓ 🎯 敲擊 #3
+[tap]        [03:43:34.996] 🔔 三連敲觸發（間隔 252ms / 261ms，一致性 0.96）
+[tap][dim]   [03:43:34.997] 持續=1ms 峰值=348 ✗弱
+[tap]        [03:43:35.031] 💤 敲麥監聽已停止
+[recorder][03:43:35] ⏱️ InputStream() 0.2ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][03:43:35] ⏱️ stream.start() 524.9ms
+[recorder][03:43:35] 🎙️ 錄音就緒，總初始化 525.1ms
+[main][03:43:35.558] ⏱️ recorder.start() 耗時 527.0ms，ok=True
+[main][03:43:35.565] 🎙️ 開始錄音
+[recorder][03:43:35] 🎤 第一包音訊到達，麥克風實際開啟延遲 837.6ms
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:43:37.229] 持續=171ms 峰值=7558 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:37.660] 持續=351ms 峰值=9159 ✗長
+[recorder][VAD] Silero 語音幀 0/50 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]         ⏱️ 間隔過長重置（2304ms）
+[tap][sample][03:43:39.451] 持續=90ms 峰值=9196 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:39.703] 持續=251ms 峰值=8761 ✗長
+[tap][dim]   [03:43:39.703] 持續=0ms 峰值=376 ✗弱
+[tap]         ⏱️ 間隔過長重置（423ms）
+[tap][sample][03:43:39.965] 持續=180ms 峰值=9379 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 0/45 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[tap][sample][03:43:42.259] 持續=342ms 峰值=8154 ✗長
+[tap]         ⏱️ 間隔過長重置（2565ms）
+[tap][sample][03:43:42.520] 持續=171ms 峰值=7705 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 0/55 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]         ⏱️ 間隔過長重置（1530ms）
+[tap][sample][03:43:44.060] 持續=181ms 峰值=8565 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:44.392] 持續=324ms 峰值=9247 ✗長
+[tap]         ⏱️ 間隔過長重置（603ms）
+[tap][sample][03:43:44.563] 持續=81ms 峰值=10133 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:43:44.567] 持續=4ms 峰值=372 ✗弱
+[tap][sample][03:43:44.644] 持續=77ms 峰值=3851 ✓ ⏱️ 防抖略過（距上次 85ms < 160ms）
+[recorder][VAD] Silero 語音幀 0/71 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[tap]         ⏱️ 間隔過長重置（2053ms）
+[tap][sample][03:43:46.697] 持續=162ms 峰值=8780 ✓ 🎯 敲擊 #1
+[tap][sample][03:43:46.957] 持續=171ms 峰值=9866 ✓ 🎯 敲擊 #2
+[tap][sample][03:43:47.210] 持續=171ms 峰值=15047 ✓ 🎯 敲擊 #3
+[tap]        [03:43:47.210] 🔔 三連敲觸發（間隔 251ms / 252ms，一致性 1.00）
+[recorder][03:43:47] 💤 預熱 stream 已關閉
+[tap]        [03:43:47.882] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:43:49.523] 持續=90ms 峰值=1349 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:43:49.774] 持續=0ms 峰值=515 ✗弱
+[tap][sample][03:43:49.947] 持續=173ms 峰值=5004 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:43:49.949] 持續=2ms 峰值=422 ✗弱
+[tap][dim]   [03:43:50.127] 持續=175ms 峰值=313 ✗弱
+[tap][sample][03:43:50.127] 持續=1ms 峰值=5343 ✓ 🎯 敲擊 #3
+[tap]        [03:43:50.127] 🔔 三連敲觸發（間隔 342ms / 352ms，一致性 0.97）
+[tap]        [03:43:50.631] 💤 敲麥監聽已停止
+[recorder][start] ❌ 錄音裝置錯誤: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 0 'Microsoft Sound Mapper - Input' (MME)
+[recorder][03:43:51] ⏱️ InputStream() 355.4ms，device=0 Microsoft Sound Mapper - Input / MME
+[recorder][03:43:51] ⏱️ stream.start() 0.6ms
+[recorder][03:43:51] 🎙️ 錄音就緒，總初始化 355.9ms
+[main][03:43:51.338] ⏱️ recorder.start() 耗時 707.4ms，ok=True
+[main][03:43:51.343] 🎙️ 開始錄音
+[recorder][03:43:51] 🎤 第一包音訊到達，麥克風實際開啟延遲 31.7ms
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/35 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/33 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:44:03.580] 持續=135ms 峰值=7342 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:03.761] 持續=80ms 峰值=8746 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:44:03.788] 持續=27ms 峰值=499 ✗弱
+[tap][sample][03:44:04.005] 持續=136ms 峰值=11419 ✓ 🎯 敲擊 #3
+[tap]        [03:44:04.005] 🔔 三連敲觸發（間隔 235ms / 188ms，一致性 0.80）
+[recorder][03:44:04] 💤 預熱 stream 已關閉
+[tap]        [03:44:04.102] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[recorder][VAD] Silero 語音幀 0/46 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:44:06.254] 持續=126ms 峰值=11293 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:06.389] 持續=63ms 峰值=11001 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:44:06.416] 持續=27ms 峰值=527 ✗弱
+[tap][sample][03:44:06.452] 持續=36ms 峰值=5709 ✓ ⏱️ 防抖略過（距上次 90ms < 160ms）
+[tap][dim]   [03:44:06.490] 持續=38ms 峰值=446 ✗弱
+[tap][sample][03:44:06.667] 持續=90ms 峰值=11624 ✓ 🎯 敲擊 #3
+[tap]        [03:44:06.667] 🔔 三連敲觸發（間隔 198ms / 252ms，一致性 0.79）
+[tap]        [03:44:06.759] 💤 敲麥監聽已停止
+[recorder][03:44:06] ⏱️ InputStream() 37.3ms，device=0 Microsoft Sound Mapper - Input / MME
+[recorder][03:44:06] ⏱️ stream.start() 3.5ms
+[recorder][03:44:06] 🎙️ 錄音就緒，總初始化 40.8ms
+[main][03:44:06.805] ⏱️ recorder.start() 耗時 42.6ms，ok=True
+[main][03:44:06.814] 🎙️ 開始錄音
+[recorder][03:44:07] 🎤 第一包音訊到達，麥克風實際開啟延遲 721.9ms
+[tap][sample][03:44:08.818] 持續=126ms 峰值=13985 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:09.034] 持續=99ms 峰值=13713 ✓ 🎯 敲擊 #2
+[tap][sample][03:44:09.242] 持續=108ms 峰值=13188 ✓ 🎯 敲擊 #3
+[tap]        [03:44:09.242] 🔔 三連敲觸發（間隔 243ms / 198ms，一致性 0.81）
+[recorder][03:44:09] 💤 預熱 stream 已關閉
+[tap]        [03:44:09.331] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[recorder][VAD] Silero 語音幀 0/48 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap]        [03:44:15.624] ⚠️ stream 異常：6.0s 沒有第一包 callback（存活 6.0s），1s 後重試
+[main][03:44:15.624] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（6.0s 沒有第一包 callback）
+[recorder][03:44:15] 💤 預熱 stream 已關閉
+[tap]        [03:44:16.645] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[tap][sample][03:44:17.368] 持續=27ms 峰值=727 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:17.558] 持續=126ms 峰值=8820 ✓ ⏱️ 防抖略過（距上次 90ms < 160ms）
+[tap][sample][03:44:17.774] 持續=117ms 峰值=10302 ✓ 🎯 敲擊 #2
+[tap]         ⏱️ 間隔過長重置（1917ms）
+[tap][sample][03:44:19.744] 持續=171ms 峰值=9396 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:19.924] 持續=90ms 峰值=10931 ✓ 🎯 敲擊 #2
+[tap][sample][03:44:20.150] 持續=134ms 峰值=10595 ✓ 🎯 敲擊 #3
+[tap]        [03:44:20.150] 🔔 三連敲觸發（間隔 261ms / 181ms，一致性 0.69）
+[tap]        [03:44:20.231] 💤 敲麥監聽已停止
+[recorder][03:44:20] ⏱️ InputStream() 12.5ms，device=0 Microsoft Sound Mapper - Input / MME
+[recorder][03:44:20] ⏱️ stream.start() 0.5ms
+[recorder][03:44:20] 🎙️ 錄音就緒，總初始化 13.0ms
+[main][03:44:20.244] ⏱️ recorder.start() 耗時 13.4ms，ok=True
+[main][03:44:20.248] 🎙️ 開始錄音
+[recorder][03:44:20] 🎤 第一包音訊到達，麥克風實際開啟延遲 743.1ms
+[recorder][VAD] Silero 語音幀 0/34 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:44:22.309] 持續=126ms 峰值=11094 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:22.544] 持續=126ms 峰值=13157 ✓ 🎯 敲擊 #2
+[tap][sample][03:44:22.759] 持續=117ms 峰值=13775 ✓ 🎯 敲擊 #3
+[tap]        [03:44:22.759] 🔔 三連敲觸發（間隔 234ms / 225ms，一致性 0.96）
+[recorder][03:44:22] 💤 預熱 stream 已關閉
+[tap]        [03:44:22.857] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[recorder][stop] 錄音太短 (0.70s)，略過
+[tap][sample][03:44:25.234] 持續=162ms 峰值=14655 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:25.450] 持續=126ms 峰值=10481 ✓ 🎯 敲擊 #2
+[tap][sample][03:44:25.684] 持續=126ms 峰值=13119 ✓ 🎯 敲擊 #3
+[tap]        [03:44:25.684] 🔔 三連敲觸發（間隔 252ms / 234ms，一致性 0.93）
+[tap]        [03:44:25.757] 💤 敲麥監聽已停止
+[recorder][03:44:25] ⏱️ InputStream() 12.5ms，device=0 Microsoft Sound Mapper - Input / MME
+[recorder][03:44:25] ⏱️ stream.start() 0.5ms
+[recorder][03:44:25] 🎙️ 錄音就緒，總初始化 12.9ms
+[main][03:44:25.771] ⏱️ recorder.start() 耗時 13.3ms，ok=True
+[main][03:44:25.775] 🎙️ 開始錄音
+[recorder][03:44:26] 🎤 第一包音訊到達，麥克風實際開啟延遲 752.0ms
+[tap][sample][03:44:27.332] 持續=99ms 峰值=13937 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:44:27.359] 持續=27ms 峰值=470 ✗弱
+[tap]         ⏱️ 間隔過長重置（1035ms）
+[tap][sample][03:44:28.402] 持續=135ms 峰值=13650 ✓ 🎯 敲擊 #1
+[tap]         ⏱️ 間隔過長重置（1035ms）
+[tap][sample][03:44:29.419] 持續=117ms 峰值=13474 ✓ 🎯 敲擊 #1
+[tap][sample][03:44:29.618] 持續=99ms 峰值=11393 ✓ 🎯 敲擊 #2
+[tap][sample][03:44:29.825] 持續=99ms 峰值=11511 ✓ 🎯 敲擊 #3
+[tap]        [03:44:29.825] 🔔 三連敲觸發（間隔 217ms / 207ms，一致性 0.95）
+[recorder][03:44:29] 💤 預熱 stream 已關閉
+[tap]        [03:44:29.917] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[recorder][VAD] Silero 語音幀 0/104 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][dim]   [03:44:32.192] 持續=27ms 峰值=393 ✗弱
+[tap][sample][03:44:32.380] 持續=54ms 峰值=6754 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:44:32.416] 持續=36ms 峰值=315 ✗弱
+[tap]        [03:46:50.562] 💤 敲麥監聽已停止
+[recorder][03:46:50] 💤 預熱 stream 已關閉
+[0m

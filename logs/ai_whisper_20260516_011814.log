@@ -1,0 +1,195 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_011814.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:18:15.076] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:18:15.077] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][01:18:20.938] 持續=45ms 峰值=703 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:18:20.993] 持續=26ms 峰值=515 ✗弱
+[tap][sample][01:18:21.127] 持續=72ms 峰值=3403 ✓ ⏱️ 防抖略過（距上次 162ms < 180ms）
+[tap][dim]   [01:18:21.190] 持續=63ms 峰值=414 ✗弱
+[tap][sample][01:18:21.217] 持續=27ms 峰值=1242 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:18:21.253] 持續=36ms 峰值=307 ✗弱
+[tap][dim]   [01:18:22.153] 持續=36ms 峰值=427 ✗弱
+[tap]         ⏱️ 間隔過長重置（2079ms）
+[tap][sample][01:18:23.295] 持續=27ms 峰值=1132 ✓ 🎯 敲擊 #1
+[tap][sample][01:18:23.368] 持續=36ms 峰值=934 ✓ ⏱️ 防抖略過（距上次 63ms < 180ms）
+[tap][dim]   [01:18:23.395] 持續=27ms 峰值=318 ✗弱
+[tap][sample][01:18:23.530] 持續=72ms 峰值=9813 ✓ 🎯 敲擊 #2
+[tap][sample][01:18:23.593] 持續=36ms 峰值=1032 ✓ ⏱️ 防抖略過（距上次 98ms < 180ms）
+[tap][dim]   [01:18:23.620] 持續=27ms 峰值=594 ✗弱
+[tap][sample][01:18:23.746] 持續=63ms 峰值=9235 ✓ 🎯 敲擊 #3
+[tap]        [01:18:23.746] 🔔 三連敲觸發（間隔 190ms / 224ms，一致性 0.84）
+[recorder][01:18:23] ⏱️ InputStream() 2.3ms
+[recorder][01:18:23] ⏱️ stream.start() 0.3ms
+[recorder][01:18:23] 🎙️ 錄音就緒，總初始化 2.6ms
+[main][01:18:23.749] ⏱️ recorder.start() 耗時 2.8ms，ok=True
+[main][01:18:23.753] 🎙️ 開始錄音
+[recorder][01:18:23] 🎤 第一包音訊到達，麥克風實際開啟延遲 24.2ms
+[tap][sample][01:18:23.845] 持續=72ms 峰值=2156 ✓ 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 2/39 (5.1%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.1% < 16%）
+[tap][sample][01:18:25.853] 持續=667ms 峰值=8580 ✗長
+[tap][sample][01:18:27.823] 持續=1863ms 峰值=7574 ✗長
+[tap][dim]   [01:18:27.850] 持續=27ms 峰值=439 ✗弱
+[tap][sample][01:18:28.003] 持續=153ms 峰值=2813 ✗長
+[tap][sample][01:18:28.489] 持續=423ms 峰值=4759 ✗長
+[tap][dim]   [01:18:28.542] 持續=54ms 峰值=487 ✗弱
+[tap][sample][01:18:28.641] 持續=99ms 峰值=1619 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:18:28.677] 持續=36ms 峰值=578 ✗弱
+[tap][sample][01:18:28.705] 持續=27ms 峰值=674 ✓ ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap][sample][01:18:29.416] 持續=684ms 峰值=5356 ✗長
+[tap][sample][01:18:29.668] 持續=225ms 峰值=4026 ✗長
+[tap][sample][01:18:30.433] 持續=477ms 峰值=4412 ✗長
+[tap][sample][01:18:30.946] 持續=189ms 峰值=8618 ✗長
+[tap][dim]   [01:18:31.018] 持續=45ms 峰值=529 ✗弱
+[tap][sample][01:18:31.370] 持續=352ms 峰值=11834 ✗長
+[tap][dim]   [01:18:31.396] 持續=26ms 峰值=425 ✗弱
+[tap][sample][01:18:31.720] 持續=261ms 峰值=6431 ✗長
+[tap][sample][01:18:32.170] 持續=387ms 峰值=4129 ✗長
+[tap][dim]   [01:18:32.198] 持續=28ms 峰值=363 ✗弱
+[tap][sample][01:18:32.809] 持續=576ms 峰值=5492 ✗長
+[tap][sample][01:18:32.999] 持續=163ms 峰值=4206 ✗長
+[tap][sample][01:18:33.259] 持續=234ms 峰值=4687 ✗長
+[tap][sample][01:18:33.636] 持續=351ms 峰值=6534 ✗長
+[tap][dim]   [01:18:33.673] 持續=36ms 峰值=487 ✗弱
+[tap][sample][01:18:33.826] 持續=153ms 峰值=1869 ✗長
+[tap][dim]   [01:18:33.898] 持續=72ms 峰值=494 ✗弱
+[recorder][VAD] RMS 語音幀 244/331 (73.7%)，有效語音 7.32s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 10.0s 音訊段落
+[main][01:18:34.930] ✂️ 自動分段送出（靜音達1s，累積 10.0s，靜音 1.0s）
+[tap][sample][01:18:35.176] 持續=63ms 峰值=8726 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:18:35.239] 持續=36ms 峰值=535 ✗弱
+[tap][sample][01:18:35.455] 持續=117ms 峰值=12835 ✓ 🎯 敲擊 #2
+[tap][sample][01:18:35.653] 持續=90ms 峰值=10849 ✓ 🎯 敲擊 #3
+[tap]        [01:18:35.653] 🔔 三連敲觸發（間隔 225ms / 225ms，一致性 1.00）
+[main][01:18:35.655] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.75s)，略過
+[tap][dim]   [01:18:35.689] 持續=36ms 峰值=320 ✗弱
+[paster][01:18:36] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster][01:18:36] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.80s, est_api=1.25s)
+[transcriber][01:18:36.665] ⏱️ API 耗時: 1.56s
+[main][01:18:36.665] ✅ 分段辨識完成: "可以了，但我想問，為什麼你會去改我們程式的代碼，而不是把這些代碼寫在腳本裡面？"
+[paster][01:18:36] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='可以了，但我想問，為什麼你會去改我們程式的代碼，而不是把這些代碼寫在腳本裡面？'
+[paster][01:18:36] 📋 CLIP flow start: target_chars=40, restore_delay=0.30s
+[paster][01:18:36] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:18:36] 📋 CLIP set attempt 1/4: chars=40, bytes=82, preview='。可以了，但我想問，為什麼你會去改我們程式的代碼，而不是把這些代碼寫在腳本裡面？'
+[paster][01:18:36] 📋 CLIP verify ok: attempt=1, chars=40, text='。可以了，但我想問，為什麼你會去改我們程'
+[paster][01:18:36] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。可以了，但我想問，為什麼你會去改我們程式的代碼，而不是把這些代碼寫在腳本裡面？'
+[paster][01:18:36] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:18:36] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:18:36] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:18:36] ⏱️ 收到→貼上完成: 0.18s
+[paster][01:18:36] 📋 CLIP restore wait: 0.30s
+[paster][01:18:37] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:18:37] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:18:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:37] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:18:37] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:18:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:37] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:38] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:38] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:38] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:38] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:38] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:39] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:39] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:39] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:39] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:18:39] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:18:39] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][01:19:32.173] 持續=81ms 峰值=7960 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:19:32.200] 持續=27ms 峰值=408 ✗弱
+[tap][sample][01:19:32.263] 持續=64ms 峰值=1856 ✓ ⏱️ 防抖略過（距上次 108ms < 180ms）
+[tap][sample][01:19:32.452] 持續=126ms 峰值=9589 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:19:32.489] 持續=37ms 峰值=427 ✗弱
+[tap][sample][01:19:32.713] 持續=135ms 峰值=14472 ✓ 🎯 敲擊 #3
+[tap]        [01:19:32.713] 🔔 三連敲觸發（間隔 234ms / 252ms，一致性 0.93）
+[recorder][01:19:32] 🚀 預熱命中，直接開始錄音
+[main][01:19:32.716] ⏱️ recorder.start() 耗時 0.7ms，ok=True
+[main][01:19:32.736] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][01:19:34.729] 持續=639ms 峰值=7357 ✗長
+[tap][sample][01:19:35.080] 持續=324ms 峰值=7516 ✗長
+[tap][sample][01:19:36.385] 持續=450ms 峰值=8054 ✗長
+[tap][dim]   [01:19:36.412] 持續=27ms 峰值=347 ✗弱
+[tap][sample][01:19:36.673] 持續=261ms 峰值=8432 ✗長
+[tap][sample][01:19:37.096] 持續=360ms 峰值=8709 ✗長
+[tap][sample][01:19:37.825] 持續=215ms 峰值=3933 ✗長
+[tap][sample][01:19:38.149] 持續=297ms 峰值=5215 ✗長
+[tap][dim]   [01:19:38.176] 持續=27ms 峰值=377 ✗弱
+[tap][sample][01:19:38.563] 持續=180ms 峰值=4585 ✗長
+[tap][dim]   [01:19:38.599] 持續=36ms 峰值=401 ✗弱
+[tap][sample][01:19:39.373] 持續=747ms 峰值=11054 ✗長
+[tap][dim]   [01:19:39.400] 持續=27ms 峰值=502 ✗弱
+[tap][sample][01:19:40.040] 持續=261ms 峰值=5120 ✗長
+[tap][sample][01:19:40.903] 持續=764ms 峰值=6205 ✗長
+[tap][sample][01:19:41.380] 持續=225ms 峰值=4315 ✗長
+[tap][dim]   [01:19:41.416] 持續=36ms 峰值=539 ✗弱
+[tap][sample][01:19:41.830] 持續=387ms 峰值=5036 ✗長
+[tap][dim]   [01:19:41.857] 持續=27ms 峰值=583 ✗弱
+[tap][sample][01:19:41.893] 持續=36ms 峰值=1744 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:19:41.956] 持續=27ms 峰值=498 ✗弱
+[tap][sample][01:19:42.055] 持續=99ms 峰值=3545 ✓ ⏱️ 防抖略過（距上次 99ms < 180ms）
+[tap][dim]   [01:19:42.082] 持續=27ms 峰值=478 ✗弱
+[tap][sample][01:19:43.045] 持續=513ms 峰值=7242 ✗長
+[tap][dim]   [01:19:43.108] 持續=36ms 峰值=375 ✗弱
+[tap][sample][01:19:43.333] 持續=225ms 峰值=7027 ✗長
+[tap][sample][01:19:43.936] 持續=567ms 峰值=9618 ✗長
+[tap][sample][01:19:44.233] 持續=171ms 峰值=8753 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:19:44.260] 持續=27ms 峰值=372 ✗弱
+[tap][sample][01:19:44.548] 持續=252ms 峰值=5031 ✗長
+[tap][dim]   [01:19:44.575] 持續=27ms 峰值=458 ✗弱
+[tap][sample][01:19:45.160] 持續=540ms 峰值=8383 ✗長
+[tap][sample][01:19:45.349] 持續=126ms 峰值=3603 ✗長
+[tap][dim]   [01:19:45.376] 持續=27ms 峰值=506 ✗弱
+[tap][sample][01:19:45.412] 持續=36ms 峰值=612 ✓ 🎯 敲擊 #1
+[tap]         ⏱️ 間隔過長重置（900ms）
+[tap][sample][01:19:46.438] 持續=162ms 峰值=11516 ✓ 🎯 敲擊 #1
+[tap][sample][01:19:46.663] 持續=126ms 峰值=13332 ✓ 🎯 敲擊 #2
+[tap][sample][01:19:46.888] 持續=135ms 峰值=14481 ✓ 🎯 敲擊 #3
+[tap]        [01:19:46.888] 🔔 三連敲觸發（間隔 261ms / 216ms，一致性 0.83）
+[main][01:19:46.895] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 276/437 (63.2%)，有效語音 8.28s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][01:19:46.901] ✅ 錄音完成，送出辨識
+[tap][dim]   [01:19:46.915] 持續=26ms 峰值=482 ✗弱
+[transcriber][01:19:48.251] ⏱️ API 耗時: 1.20s
+[main][01:19:48.253] ✅ 辨識完成: "你要拿到螢幕座標，應該也不需要在程式裡加代碼吧，應該在腳本裡面就可以做到了吧"
+[paster][01:19:48] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster][01:19:48] 🔮 預取游標位置: at_end=True, last_punct=False (delay=1.11s, est_api=1.56s)
+[paster][01:19:48] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster][01:19:48] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='。', uia=514ms, final='你要拿到螢幕座標，應該也不需要在程式裡加代碼吧，應該在腳本裡面就可以做到了吧'
+[paster][01:19:48] 📋 CLIP flow start: target_chars=39, restore_delay=0.30s
+[paster][01:19:48] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:19:48] 📋 CLIP set attempt 1/4: chars=39, bytes=80, preview='。你要拿到螢幕座標，應該也不需要在程式裡加代碼吧，應該在腳本裡面就可以做到了吧'
+[paster][01:19:48] 📋 CLIP verify ok: attempt=1, chars=39, text='。你要拿到螢幕座標，應該也不需要在程式裡'
+[paster][01:19:48] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。你要拿到螢幕座標，應該也不需要在程式裡加代碼吧，應該在腳本裡面就可以做到了吧'
+[paster][01:19:48] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:19:48] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:19:48] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:19:48] ⏱️ 收到→貼上完成: 0.67s
+[paster][01:19:48] 📋 CLIP restore wait: 0.30s
+[paster][01:19:49] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:19:49] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:19:49] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:49] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:19:49] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:19:49] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:49] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:49] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:50] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:51] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:19:51] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:19:51] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）

@@ -1,0 +1,149 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_033652.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:36:52.792] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:36:52.793] ✅ Ctrl狀態防護已啟動
+[main][03:36:52.793] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[tap]        [03:36:54.210] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][03:38:10.708] 持續=171ms 峰值=3968 ✓ 🎯 敲擊 #1
+[tap][sample][03:38:10.880] 持續=171ms 峰值=7650 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:38:10.880] 持續=0ms 峰值=430 ✗弱
+[tap][sample][03:38:11.050] 持續=81ms 峰值=14214 ✓ 🎯 敲擊 #3
+[tap]        [03:38:11.050] 🔔 三連敲觸發（間隔 171ms / 261ms，一致性 0.66）
+[tap]        [03:38:11.175] 💤 敲麥監聽已停止
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[recorder][03:38:12] ⏱️ InputStream() 1806.8ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][03:38:13] ⏱️ stream.start() 536.9ms
+[recorder][03:38:13] 🎙️ 錄音就緒，總初始化 2343.6ms
+[main][03:38:13.519] ⏱️ recorder.start() 耗時 2344.0ms，ok=True
+[main][03:38:13.524] 🎙️ 開始錄音
+[recorder][03:38:13] 🎤 第一包音訊到達，麥克風實際開啟延遲 811.8ms
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:38:15.857] 持續=432ms 峰值=10055 ✗長
+[tap][sample][03:38:16.027] 持續=171ms 峰值=6812 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 0/63 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][flush] 段落太短 (0.77s)，略過
+[tap]         ⏱️ 間隔過長重置（4176ms）
+[tap][sample][03:38:20.205] 持續=172ms 峰值=7817 ✓ 🎯 敲擊 #1
+[tap][sample][03:38:20.375] 持續=90ms 峰值=7586 ✓ 🎯 敲擊 #2
+[tap][sample][03:38:20.626] 持續=171ms 峰值=7478 ✓ 🎯 敲擊 #3
+[tap]        [03:38:20.626] 🔔 三連敲觸發（間隔 252ms / 171ms，一致性 0.68）
+[recorder][03:38:20] 💤 預熱 stream 已關閉
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[tap]        [03:38:23.110] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][stop] 錄音太短 (0.68s)，略過
+[tap][sample][03:38:25.027] 持續=81ms 峰值=12127 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:38:25.029] 持續=1ms 峰值=320 ✗弱
+[tap][sample][03:38:25.109] 持續=79ms 峰值=4058 ✓ ⏱️ 防抖略過（距上次 83ms < 160ms）
+[tap][sample][03:38:25.280] 持續=81ms 峰值=8716 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:38:25.280] 持續=0ms 峰值=368 ✗弱
+[tap][sample][03:38:25.531] 持續=81ms 峰值=10063 ✓ 🎯 敲擊 #3
+[tap]        [03:38:25.531] 🔔 三連敲觸發（間隔 252ms / 252ms，一致性 1.00）
+[tap]        [03:38:25.655] 💤 敲麥監聽已停止
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[recorder][03:38:27] ⏱️ InputStream() 1836.1ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][03:38:28] ⏱️ stream.start() 571.4ms
+[recorder][03:38:28] 🎙️ 錄音就緒，總初始化 2407.5ms
+[main][03:38:28.066] ⏱️ recorder.start() 耗時 2411.8ms，ok=True
+[main][03:38:28.079] 🎙️ 開始錄音
+[recorder][03:38:28] 🎤 第一包音訊到達，麥克風實際開啟延遲 811.3ms
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:38:29.842] 持續=171ms 峰值=6210 ✓ 🎯 敲擊 #1
+[tap][sample][03:38:30.004] 持續=162ms 峰值=9174 ✓ 🎯 敲擊 #2
+[tap][sample][03:38:30.175] 持續=81ms 峰值=7361 ✓ 🎯 敲擊 #3
+[tap]        [03:38:30.175] 🔔 三連敲觸發（間隔 171ms / 252ms，一致性 0.68）
+[recorder][03:38:30] 💤 預熱 stream 已關閉
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[tap]        [03:38:32.557] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][VAD] Silero 語音幀 0/34 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:38:34.200] 持續=1ms 峰值=9698 ✓ 🎯 敲擊 #1
+[tap][sample][03:38:34.279] 持續=0ms 峰值=1344 ✓ ⏱️ 防抖略過（距上次 80ms < 160ms）
+[tap][sample][03:38:34.532] 持續=162ms 峰值=11453 ✓ 🎯 敲擊 #2
+[tap][sample][03:38:34.711] 持續=90ms 峰值=14879 ✓ 🎯 敲擊 #3
+[tap]        [03:38:34.711] 🔔 三連敲觸發（間隔 170ms / 252ms，一致性 0.68）
+[tap]        [03:38:34.833] 💤 敲麥監聽已停止
+[recorder][03:38:35] ⏱️ InputStream() 837.0ms，device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS
+[recorder][03:38:36] ⏱️ stream.start() 543.7ms
+[recorder][03:38:36] 🎙️ 錄音就緒，總初始化 1380.7ms
+[main][03:38:36.217] ⏱️ recorder.start() 耗時 1381.1ms，ok=True
+[main][03:38:36.222] 🎙️ 開始錄音
+[recorder][03:38:36] 🎤 第一包音訊到達，麥克風實際開啟延遲 855.6ms
+[recorder][VAD] Silero 語音幀 0/29 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:38:37.637] 持續=90ms 峰值=5360 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:38:37.717] 持續=81ms 峰值=378 ✗弱
+[tap][sample][03:38:37.889] 持續=171ms 峰值=9049 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:38:37.970] 持續=82ms 峰值=326 ✗弱
+[tap][sample][03:38:38.059] 持續=89ms 峰值=7485 ✓ 🎯 敲擊 #3
+[tap]        [03:38:38.059] 🔔 三連敲觸發（間隔 171ms / 253ms，一致性 0.68）
+[recorder][03:38:38] 💤 預熱 stream 已關閉
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 29 '耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662))' (Windows WDM-KS)
+[tap]        [03:38:40.457] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+;(DJI Mic Mini-E2C662)) / Windows WDM-KS）
+[recorder][stop] 錄音太短 (0.68s)，略過
+[tap][sample][03:38:40.760] 持續=2699ms 峰值=1161 ✗長
+[tap][sample][03:39:10.360] 持續=81ms 峰值=3043 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:39:10.361] 持續=0ms 峰值=517 ✗弱
+[tap][dim]   [03:39:10.531] 持續=0ms 峰值=369 ✗弱
+[tap]         ⏱️ 間隔過長重置（414ms）
+[tap][sample][03:39:10.695] 持續=0ms 峰值=3757 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:39:10.784] 持續=0ms 峰值=339 ✗弱
+[tap]         ⏱️ 間隔過長重置（9729ms）
+[tap][sample][03:39:20.513] 持續=89ms 峰值=704 ✓ 🎯 敲擊 #1
+[tap]         ⏱️ 間隔過長重置（3590ms）
+[tap][sample][03:39:24.014] 持續=0ms 峰值=1103 ✓ 🎯 敲擊 #1
+[tap][sample][03:39:24.095] 持續=0ms 峰值=933 ✓ ⏱️ 防抖略過（距上次 81ms < 160ms）
+[tap][dim]   [03:39:24.347] 持續=0ms 峰值=404 ✗弱
+[tap]         ⏱️ 間隔過長重置（675ms）
+[tap][sample][03:39:24.689] 持續=0ms 峰值=4898 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:39:24.689] 持續=1ms 峰值=579 ✗弱
+[tap]         ⏱️ 間隔過長重置（3421ms）
+[tap][sample][03:39:28.190] 持續=81ms 峰值=2108 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:39:28.613] 持續=0ms 峰值=564 ✗弱
+[tap][dim]   [03:39:28.873] 持續=0ms 峰值=341 ✗弱
+[tap]         ⏱️ 間隔過長重置（764ms）
+[tap][sample][03:39:29.044] 持續=171ms 峰值=8148 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:39:29.126] 持續=82ms 峰值=508 ✗弱
+[tap][dim]   [03:39:29.296] 持續=81ms 峰值=343 ✗弱
+[tap]         ⏱️ 間隔過長重置（1359ms）
+[tap][sample][03:39:30.232] 持續=0ms 峰值=997 ✓ 🎯 敲擊 #1
+[tap]         ⏱️ 間隔過長重置（856ms）
+[tap][sample][03:39:31.088] 持續=0ms 峰值=1235 ✓ 🎯 敲擊 #1
+[tap][sample][03:39:31.349] 持續=0ms 峰值=680 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:39:31.349] 持續=0ms 峰值=535 ✗弱
+[tap][sample][03:39:31.690] 持續=0ms 峰值=1305 ✓ 🎯 敲擊 #3
+[tap]        [03:39:31.690] 🔔 三連敲觸發（間隔 260ms / 342ms，一致性 0.76）
+[tap]        [03:39:31.806] 💤 敲麥監聽已停止
+[recorder][start] ❌ 錄音裝置錯誤: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[main][03:39:32.981] ⏱️ recorder.start() 耗時 1175.3ms，ok=False
+[audio-device] default input 1 '耳機 (DJI Mic Mini-E2C662 Hands-F' has no callback; using 0 'Microsoft Sound Mapper - Input' (MME)
+[tap]        [03:39:33.177] 🎙️ 敲麥監聽已啟動（device=0 Microsoft Sound Mapper - Input / MME）
+[tap][sample][03:39:37.090] 持續=27ms 峰值=1369 ✓ 🎯 敲擊 #1
+[tap][sample][03:39:37.487] 持續=44ms 峰值=4394 ✓ 🎯 敲擊 #2
+[tap]        [03:41:19.518] 💤 敲麥監聽已停止
+[recorder][03:41:19] 💤 預熱 stream 已關閉
+[0m

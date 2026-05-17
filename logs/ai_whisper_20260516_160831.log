@@ -1,0 +1,91 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_160831.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][16:08:32.041] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][16:08:32.041] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][16:08:57.659] 持續=189ms 峰值=2355 ✗長
+[tap][sample][16:08:57.893] 持續=153ms 峰值=10738 ✓ 🎯 敲擊 #1
+[tap][sample][16:08:58.082] 持續=126ms 峰值=9327 ✓ 🎯 敲擊 #2
+[tap]         ⏱️ 間隔過長重置（1764ms）
+[tap][sample][16:08:59.873] 持續=153ms 峰值=14333 ✓ 🎯 敲擊 #1
+[tap][sample][16:09:00.062] 持續=126ms 峰值=9714 ✓ 🎯 敲擊 #2
+[tap][sample][16:09:00.260] 持續=90ms 峰值=11936 ✓ 🎯 敲擊 #3
+[tap]        [16:09:00.260] 🔔 三連敲觸發（間隔 216ms / 234ms，一致性 0.92）
+[recorder][16:09:00] ⏱️ InputStream() 4.1ms
+[recorder][16:09:00] ⏱️ stream.start() 0.6ms
+[recorder][16:09:00] 🎙️ 錄音就緒，總初始化 4.7ms
+[main][16:09:00.266] ⏱️ recorder.start() 耗時 5.0ms，ok=True
+[main][16:09:00.274] 🎙️ 開始錄音
+[recorder][16:09:00] 🎤 第一包音訊到達，麥克風實際開啟延遲 30.4ms
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][16:09:02.942] 持續=567ms 峰值=4347 ✗長
+[tap][dim]   [16:09:02.969] 持續=27ms 峰值=460 ✗弱
+[tap][dim]   [16:09:03.266] 持續=36ms 峰值=394 ✗弱
+[tap][sample][16:09:03.904] 持續=540ms 峰值=8659 ✗長
+[tap][dim]   [16:09:03.932] 持續=27ms 峰值=381 ✗弱
+[tap][dim]   [16:09:04.292] 持續=72ms 峰值=400 ✗弱
+[tap][dim]   [16:09:04.355] 持續=36ms 峰值=373 ✗弱
+[recorder][VAD] RMS 語音幀 39/129 (30.2%)，有效語音 1.17s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.9s 音訊段落
+[main][16:09:05.349] ✂️ 自動分段送出（靜音達1s，累積 3.9s，靜音 1.0s）
+[tap][sample][16:09:05.570] 持續=153ms 峰值=11703 ✓ 🎯 敲擊 #1
+[tap][sample][16:09:05.758] 持續=126ms 峰值=11780 ✓ 🎯 敲擊 #2
+[tap][sample][16:09:05.957] 持續=135ms 峰值=9388 ✓ 🎯 敲擊 #3
+[tap]        [16:09:05.957] 🔔 三連敲觸發（間隔 216ms / 189ms，一致性 0.88）
+[main][16:09:05.958] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.60s)，略過
+[paster][16:09:06] 📏 [UIA] text='。測試測試', text_after='', at_end=True, last_punct=False
+[paster][16:09:06] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.19s, est_api=0.64s)
+[main][16:09:07.856] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber][16:09:10.862] ⏱️ API 耗時: 4.97s
+[main][16:09:10.863] ✅ 分段辨識完成: "測試測試"
+[main][16:09:10.867] 🔎 Ctrl診斷開始(segments-complete): window=12.0s，state=async_down=none; logical_down=none
+[transcriber][16:09:10.880] ⏱️ API 耗時: 2.87s
+[paster][16:09:10] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='測試測試'
+[paster][16:09:10] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][16:09:10] 📋 CLIP backup: count=7, formats=49367:978B, 13:24B, 50188:24B, 50131:40B, 16:4B, 1:12B, 7:12B, text='MarkItDown '
+[paster][16:09:10] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='。測試測試'
+[paster][16:09:10] 📋 CLIP verify ok: attempt=1, chars=5, text='。測試測試'
+[main][16:09:10.968] 🔎 Ctrl診斷probe(segments-complete/0.10s): async_down=none; logical_down=none
+[paster][16:09:11] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="6515 穎崴｜CPO 技術論壇 - YouTube - Google Chrome"，hwnd=0x05f30e5e，keys_before=async_down=none; logical_down=none，text='。測試測試'
+[paster][16:09:11] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[main][16:09:11.045] 🔎 Ctrl診斷event(segments-complete): type=down，name=left ctrl，scan=-162，state=async_down=none; logical_down=none
+[main][16:09:11.048] 🔎 Ctrl診斷event(segments-complete): type=up，name=left ctrl，scan=-162，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:11.049] 🔎 Ctrl診斷event(segments-complete): type=up，name=left ctrl，scan=-162，state=async_down=none; logical_down=none
+[main][16:09:11.051] 🔎 Ctrl診斷event(segments-complete): type=up，name=right ctrl，scan=-163，state=async_down=none; logical_down=none
+[paster][16:09:11] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[main][16:09:11.053] 🔎 Ctrl診斷event(segments-complete): type=up，name=left ctrl，scan=-162，state=async_down=none; logical_down=none
+[main][16:09:11.053] 🔎 Ctrl診斷event(segments-complete): type=up，name=left ctrl，scan=-162，state=async_down=none; logical_down=none
+[main][16:09:11.054] 🔎 Ctrl診斷event(segments-complete): type=up，name=right ctrl，scan=-163，state=async_down=none; logical_down=none
+[paster][16:09:11] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][16:09:11] ⏱️ 收到→貼上完成: 0.19s
+[paster][16:09:11] 📋 CLIP restore wait: 0.30s
+[paster][16:09:11] 📋 CLIP restore attempt 1/4: text='MarkItDown '
+[paster][16:09:11] 📋 CLIP restore: restored=7/7, formats=49367:978B, 13:24B, 50188:24B, 50131:40B, 16:4B, 1:12B, 7:12B, text='MarkItDown '
+[main][16:09:11.369] 🔎 Ctrl診斷probe(segments-complete/0.50s): async_down=none; logical_down=none
+[paster][16:09:11] 📋 CLIP restore verify ok: attempt=1, text='MarkItDown '
+[paster][16:09:11] 🚫 CLIP guard disarmed: blocked=0
+[main][16:09:12.369] 🔎 Ctrl診斷probe(segments-complete/1.50s): async_down=none; logical_down=none
+[paster][16:09:13] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='MarkItDown '
+[paster][16:09:13] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[main][16:09:13.869] 🔎 Ctrl診斷probe(segments-complete/3.00s): async_down=none; logical_down=none
+[main][16:09:15.899] 🔎 Ctrl診斷event(segments-complete): type=down，name=right ctrl，scan=29，state=async_down=none; logical_down=none
+[main][16:09:15.988] 🔎 Ctrl診斷event(segments-complete): type=up，name=right ctrl，scan=29，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:16.869] 🔎 Ctrl診斷probe(segments-complete/6.00s): async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:19.080] 🔎 Ctrl診斷event(segments-complete): type=down，name=right ctrl，scan=29，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:19.145] 🔎 Ctrl診斷event(segments-complete): type=up，name=right ctrl，scan=29，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:20.159] 🔎 Ctrl診斷event(segments-complete): type=down，name=ctrl，scan=29，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:20.234] 🔎 Ctrl診斷event(segments-complete): type=up，name=ctrl，scan=29，state=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][16:09:20.868] 🔎 Ctrl診斷probe(segments-complete/10.00s): async_down=none; logical_down=none
+[main][16:09:22.870] 🔎 Ctrl診斷結束(segments-complete): async_down=none; logical_down=none
+[tap][dim]   [16:09:59.552] 持續=27ms 峰值=374 ✗弱
+[tap][sample][16:09:59.587] 持續=36ms 峰值=730 ✓ 🎯 敲擊 #1
+[tap][dim]   [16:09:59.615] 持續=27ms 峰值=509 ✗弱
+[tap][dim]   [16:10:00.136] 持續=72ms 峰值=428 ✗弱
+[tap]         💤 敲麥監聽已停止
+[recorder][16:10:29] 💤 預熱 stream 已關閉
+[0m

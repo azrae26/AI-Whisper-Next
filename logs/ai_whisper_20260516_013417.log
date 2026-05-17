@@ -1,0 +1,72 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_013417.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:34:17.828] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:34:17.829] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][01:34:25.251] 持續=162ms 峰值=11106 ✓ 🎯 敲擊 #1
+[tap][sample][01:34:25.379] 持續=27ms 峰值=8303 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:34:25.450] 持續=44ms 峰值=455 ✗弱
+[tap][sample][01:34:25.666] 持續=91ms 峰值=9763 ✓ 🎯 敲擊 #3
+[tap]        [01:34:25.666] 🔔 三連敲觸發（間隔 262ms / 224ms，一致性 0.86）
+[recorder][01:34:25] ⏱️ InputStream() 7.6ms
+[recorder][01:34:25] ⏱️ stream.start() 0.6ms
+[recorder][01:34:25] 🎙️ 錄音就緒，總初始化 8.2ms
+[main][01:34:25.677] ⏱️ recorder.start() 耗時 8.8ms，ok=True
+[main][01:34:25.683] 🎙️ 開始錄音
+[tap][dim]   [01:34:25.701] 持續=35ms 峰值=467 ✗弱
+[recorder][01:34:25] 🎤 第一包音訊到達，麥克風實際開啟延遲 34.2ms
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [01:34:27.296] 持續=28ms 峰值=334 ✗弱
+[tap][sample][01:34:27.619] 持續=323ms 峰值=6470 ✗長
+[tap][dim]   [01:34:27.646] 持續=27ms 峰值=331 ✗弱
+[tap][sample][01:34:28.771] 持續=1125ms 峰值=10049 ✗長
+[tap][dim]   [01:34:28.843] 持續=27ms 峰值=485 ✗弱
+[tap][sample][01:34:28.933] 持續=90ms 峰值=1831 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:34:28.969] 持續=36ms 峰值=492 ✗弱
+[recorder][VAD] RMS 語音幀 53/108 (49.1%)，有效語音 1.59s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][01:34:30.151] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.2s）
+[paster][01:34:30] 📏 [UIA] 文字為空 → 不加句號
+[paster][01:34:30] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][01:34:31.792] ⏱️ API 耗時: 1.46s
+[main][01:34:31.792] ✅ 分段辨識完成: "掃的範圍再小一點"
+[paster][01:34:32] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='掃的範圍再小一點'
+[paster][01:34:32] 📋 CLIP flow start: target_chars=8, restore_delay=0.30s
+[paster][01:34:32] 📋 CLIP backup: count=7, formats=49367:1295B, 13:64B, 50188:24B, 50131:12B, 16:4B, 1:60B, 7:60B, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:34:32] 📋 CLIP set attempt 1/4: chars=8, bytes=18, preview='掃的範圍再小一點'
+[paster][01:34:32] 📋 CLIP verify ok: attempt=1, chars=8, text='掃的範圍再小一點'
+[paster][01:34:32] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='掃的範圍再小一點'
+[paster][01:34:32] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][01:34:32] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][01:34:32] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:34:32] ⏱️ 收到→貼上完成: 0.88s
+[paster][01:34:32] 📋 CLIP restore wait: 0.30s
+[paster][01:34:32] 📋 CLIP restore attempt 1/4: text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:34:32] 📋 CLIP restore: restored=7/7, formats=49367:1295B, 13:64B, 50188:24B, 50131:12B, 16:4B, 1:60B, 7:60B, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:34:33] 📋 CLIP restore verify ok: attempt=1, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:34:33] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 0/36 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]         ⏱️ 間隔過長重置（6086ms）
+[tap][sample][01:34:34.999] 持續=70ms 峰值=8871 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:34:35.090] 持續=37ms 峰值=527 ✗弱
+[tap][sample][01:34:35.287] 持續=108ms 峰值=11668 ✓ 🎯 敲擊 #2
+[paster][01:34:35] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:34:35] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][01:34:35.503] 持續=126ms 峰值=9938 ✓ 🎯 敲擊 #3
+[tap]        [01:34:35.503] 🔔 三連敲觸發（間隔 250ms / 198ms，一致性 0.79）
+[main][01:34:35.504] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 12/30 (40.0%)，有效語音 0.36s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][01:34:35.505] ✅ 錄音完成，送出辨識
+[paster][01:34:36] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster][01:34:36] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.00s, est_api=0.34s)
+[transcriber][01:34:36.266] ⏱️ API 耗時: 0.63s
+[main][01:34:36.267] ✅ 辨識完成: ""

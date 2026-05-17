@@ -1,0 +1,127 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_031922.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:19:22.663] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:19:22.663] ✅ Ctrl狀態防護已啟動
+[main][03:19:22.663] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [03:19:22.713] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap]        [03:20:10.100] 💤 敲麥監聽已停止
+[recorder][03:20:10] ⏱️ InputStream() 20.2ms
+[recorder][03:20:10] ⏱️ stream.start() 0.4ms
+[recorder][03:20:10] 🎙️ 錄音就緒，總初始化 20.6ms
+[main][03:20:10.121] ⏱️ recorder.start() 耗時 20.8ms，ok=True
+[tap]        [03:20:11.116] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:20:11.135] 🎙️ 開始錄音
+[recorder][03:20:11] 🎤 第一包音訊到達，麥克風實際開啟延遲 1145.4ms
+[main][03:20:12.178] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/28 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:20:22.868] 持續=134ms 峰值=11645 ✓ 🎯 敲擊 #1
+[tap][sample][03:20:23.084] 持續=117ms 峰值=11591 ✓ 🎯 敲擊 #2
+[tap][sample][03:20:23.319] 持續=137ms 峰值=12789 ✓ 🎯 敲擊 #3
+[tap]        [03:20:23.319] 🔔 三連敲觸發（間隔 233ms / 216ms，一致性 0.93）
+[tap]        [03:20:23.356] 💤 敲麥監聽已停止
+[recorder][03:20:23] 🚀 預熱命中，直接開始錄音
+[main][03:20:23.361] ⏱️ recorder.start() 耗時 2.5ms，ok=True
+[tap]        [03:20:23.385] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:20:23.395] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:20:24.974] 持續=52ms 峰值=9810 ✓ 🎯 敲擊 #1
+[tap][sample][03:20:25.045] 持續=36ms 峰值=892 ✓ ⏱️ 防抖略過（距上次 88ms < 180ms）
+[tap][sample][03:20:25.270] 持續=90ms 峰值=10743 ✓ 🎯 敲擊 #2
+[tap][sample][03:20:25.459] 持續=90ms 峰值=9515 ✓ 🎯 敲擊 #3
+[tap]        [03:20:25.459] 🔔 三連敲觸發（間隔 259ms / 189ms，一致性 0.73）
+[main][03:20:25.460] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/33 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap]        [03:20:28.419] 💤 敲麥監聽已停止
+[recorder][03:20:28] 🚀 預熱命中，直接開始錄音
+[main][03:20:28.419] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [03:20:28.423] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:20:28.428] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:20:29.861] 持續=387ms 峰值=7120 ✗長
+[main][03:20:30.130] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.68s)，略過
+[tap][sample][03:20:44.837] 持續=126ms 峰值=9903 ✓ 🎯 敲擊 #1
+[tap][sample][03:20:45.052] 持續=90ms 峰值=14350 ✓ 🎯 敲擊 #2
+[tap][sample][03:20:45.286] 持續=126ms 峰值=11373 ✓ 🎯 敲擊 #3
+[tap]        [03:20:45.286] 🔔 三連敲觸發（間隔 252ms / 198ms，一致性 0.79）
+[tap]        [03:20:45.323] 💤 敲麥監聽已停止
+[recorder][03:20:45] 🚀 預熱命中，直接開始錄音
+[main][03:20:45.323] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [03:20:45.326] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:20:45.332] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:20:47.348] 持續=63ms 峰值=6504 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:20:47.446] 持續=72ms 峰值=435 ✗弱
+[tap][dim]   [03:20:47.563] 持續=27ms 峰值=319 ✗弱
+[tap][sample][03:20:47.599] 持續=36ms 峰值=9302 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:20:47.635] 持續=36ms 峰值=465 ✗弱
+[tap][sample][03:20:47.824] 持續=54ms 峰值=8549 ✓ 🎯 敲擊 #3
+[tap]        [03:20:47.824] 🔔 三連敲觸發（間隔 279ms / 207ms，一致性 0.74）
+[main][03:20:47.825] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/45 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][dim]   [03:20:47.861] 持續=36ms 峰值=347 ✗弱
+[tap]        [03:20:56.616] 💤 敲麥監聽已停止
+[recorder][03:20:56] 🚀 預熱命中，直接開始錄音
+[main][03:20:56.616] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [03:20:56.620] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:20:56.625] 🎙️ 開始錄音
+[tap][sample][03:20:57.941] 持續=423ms 峰值=4349 ✗長
+[main][03:20:58.346] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 13/54 (24.1%)，有效語音 0.42s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][03:20:58.364] ✅ 錄音完成，送出辨識
+[paster][03:20:59] 📏 [UIA] 文字為空 → 不加句號
+[paster][03:20:59] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.42s)
+[main][03:21:00.866] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber][03:21:01.779] ⏱️ API 耗時: 0.77s
+[main][03:21:01.780] 🔄 使用重試結果
+[main][03:21:01.780] ✅ 辨識完成: "喂"
+[paster][03:21:01] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='喂'
+[paster][03:21:01] 📋 CLIP flow start: target_chars=1, restore_delay=0.30s
+[paster][03:21:01] 📋 CLIP backup: count=7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:21:01] 📋 CLIP set attempt 1/4: chars=1, bytes=4, preview='喂'
+[paster][03:21:01] 📋 CLIP verify ok: attempt=1, chars=1, text='喂'
+[transcriber][03:21:01.959] ⏱️ API 耗時: 3.43s
+[paster][03:21:01] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x0461116e，keys_before=async_down=none; logical_down=none，text='喂'
+[paster][03:21:01] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][03:21:01] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][03:21:01] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][03:21:01] ⏱️ 收到→貼上完成: 0.20s
+[paster][03:21:01] 📋 CLIP restore wait: 0.30s
+[paster][03:21:02] 📋 CLIP restore attempt 1/4: text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:21:02] 📋 CLIP restore: restored=7/7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:21:02] 📋 CLIP restore verify ok: attempt=1, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:21:02] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample][03:21:03.287] 持續=135ms 峰值=11786 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:21:03.314] 持續=27ms 峰值=337 ✗弱
+[tap][sample][03:21:03.503] 持續=117ms 峰值=12815 ✓ 🎯 敲擊 #2
+[tap][sample][03:21:03.710] 持續=108ms 峰值=12034 ✓ 🎯 敲擊 #3
+[tap]        [03:21:03.710] 🔔 三連敲觸發（間隔 234ms / 216ms，一致性 0.92）
+[tap]        [03:21:03.747] 💤 敲麥監聽已停止
+[recorder][03:21:03] 🚀 預熱命中，直接開始錄音
+[main][03:21:03.747] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [03:21:03.755] 🎙️ 敲麥監聽已啟動（device=1 麥克風 (Realtek(R) Audio)）
+[main][03:21:03.761] 🎙️ 開始錄音
+[paster][03:21:04] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:21:04] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:21:05.338] 持續=54ms 峰值=6820 ✓ 🎯 敲擊 #1
+[tap][sample][03:21:05.419] 持續=36ms 峰值=788 ✓ ⏱️ 防抖略過（距上次 99ms < 180ms）
+[tap][sample][03:21:05.662] 持續=116ms 峰值=12366 ✓ 🎯 敲擊 #2
+[tap][sample][03:21:05.869] 持續=135ms 峰值=8639 ✓ 🎯 敲擊 #3
+[tap]        [03:21:05.869] 🔔 三連敲觸發（間隔 262ms / 188ms，一致性 0.71）
+[main][03:21:05.871] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/34 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap]        [03:21:37.353] 💤 敲麥監聽已停止
+[recorder][03:21:37] 💤 預熱 stream 已關閉
+[0m

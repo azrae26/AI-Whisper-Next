@@ -1,0 +1,295 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_170145.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][17:01:45.449] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][17:01:45.450] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][17:01:45.450] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [17:01:45.464] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][dim]   [17:01:53.149] 持續=36ms 峰值=501 ✗弱
+[tap][sample][17:01:53.212] 持續=63ms 峰值=1093 ✓ 🎯 敲擊 #1
+[tap][dim]   [17:01:53.239] 持續=27ms 峰值=401 ✗弱
+[tap]         ⏱️ 間隔過長重置（576ms）
+[tap][sample][17:01:53.779] 持續=54ms 峰值=8132 ✓ 🎯 敲擊 #1
+[tap][sample][17:01:53.860] 持續=45ms 峰值=1296 ✓ ⏱️ 防抖略過（距上次 90ms < 180ms）
+[tap][sample][17:01:53.977] 持續=63ms 峰值=7706 ✓ 🎯 敲擊 #2
+[tap][sample][17:01:54.075] 持續=63ms 峰值=972 ✓ ⏱️ 防抖略過（距上次 99ms < 180ms）
+[tap][sample][17:01:54.175] 持續=72ms 峰值=6134 ✓ 🎯 敲擊 #3
+[tap]        [17:01:54.175] 🔔 三連敲觸發（間隔 189ms / 189ms，一致性 1.00）
+[tap]        [17:01:54.255] 💤 敲麥監聽已停止
+[recorder][17:01:54] ⏱️ InputStream() 15.5ms
+[recorder][17:01:54] ⏱️ stream.start() 0.6ms
+[recorder][17:01:54] 🎙️ 錄音就緒，總初始化 16.1ms
+[main][17:01:54.272] ⏱️ recorder.start() 耗時 16.6ms，ok=True
+[tap]        [17:01:54.804] 🎙️ 敲麥監聽已啟動
+[main][17:01:54.813] 🎙️ 開始錄音
+[recorder][17:01:55] 🎤 第一包音訊到達，麥克風實際開啟延遲 768.5ms
+[tap][sample][17:01:56.137] 持續=540ms 峰值=4923 ✗長
+[tap][sample][17:01:57.010] 持續=558ms 峰值=3877 ✗長
+[recorder][VAD] Silero 語音幀 33/95 (34.7%)，有效語音 1.06s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][17:01:58.254] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.1s）
+[paster][17:01:58] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:01:58] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[main][17:01:58.704] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:01:58.704] ⌨️ after(0) 執行延遲 0.4ms[main][17:01:58.705] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.62s)，略過
+[transcriber][17:01:59.583] ⏱️ API 耗時: 1.12s
+[main][17:01:59.583] ✅ 分段辨識完成: "測試測試"
+[paster][17:02:00] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][17:02:00] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('PDF 文件，共 27 頁', '', '', 'DocumentControl')，preserve_ctrl=False
+[paster][17:02:00] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:02:00] 📋 CLIP backup: count=7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:00] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試測試'
+[paster][17:02:00] 📋 CLIP verify ok: attempt=1, chars=4, text='測試測試'
+[paster][17:02:00] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="电子玻纤布行业深度研究报告算力基石催化高端需求供需错配开启上行周期-26040327页.pdf - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster][17:02:00] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][17:02:00] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:02:00] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:02:00] ⏱️ 收到→貼上完成: 0.95s
+[paster][17:02:00] 📋 CLIP restore wait: 0.30s
+[paster][17:02:00] 📋 CLIP restore attempt 1/4: text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:00] 📋 CLIP restore: restored=7/7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:00] 📋 CLIP restore verify ok: attempt=1, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:00] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:02:03] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:03] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][17:02:22.849] 持續=27ms 峰值=2996 ✓ 🎯 敲擊 #1
+[tap][dim]   [17:02:22.894] 持續=45ms 峰值=302 ✗弱
+[tap][sample][17:02:23.110] 持續=54ms 峰值=2918 ✓ 🎯 敲擊 #2
+[tap][sample][17:02:23.273] 持續=36ms 峰值=4620 ✓ 🎯 敲擊 #3
+[tap]        [17:02:23.273] 🔔 三連敲觸發（間隔 234ms / 180ms，一致性 0.77）
+[tap]        [17:02:23.318] 💤 敲麥監聽已停止
+[recorder][17:02:23] 🚀 預熱命中，直接開始錄音
+[main][17:02:23.320] ⏱️ recorder.start() 耗時 0.6ms，ok=True
+[tap]        [17:02:23.329] 🎙️ 敲麥監聽已啟動
+[main][17:02:23.345] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][17:02:25.162] 持續=36ms 峰值=3905 ✓ 🎯 敲擊 #1
+[tap][sample][17:02:25.387] 持續=36ms 峰值=4326 ✓ 🎯 敲擊 #2
+[tap][sample][17:02:25.612] 持續=72ms 峰值=2568 ✓ 🎯 敲擊 #3
+[tap]        [17:02:25.612] 🔔 三連敲觸發（間隔 225ms / 189ms，一致性 0.84）
+[main][17:02:25.613] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[main][17:02:27.659] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:02:27.660] ⌨️ after(0) 執行延遲 1.1ms
+[tap]        [17:02:27.702] 💤 敲麥監聽已停止
+[recorder][17:02:27] 🚀 預熱命中，直接開始錄音
+[main][17:02:27.702] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[tap]        [17:02:27.709] 🎙️ 敲麥監聽已啟動
+[main][17:02:27.719] 🎙️ 開始錄音
+[tap][sample][17:02:29.032] 持續=612ms 峰值=5791 ✗長
+[tap][dim]   [17:02:29.059] 持續=27ms 峰值=556 ✗弱
+[tap][sample][17:02:29.986] 持續=540ms 峰值=6348 ✗長
+[tap][dim]   [17:02:30.049] 持續=63ms 峰值=474 ✗弱
+[main][17:02:30.441] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:02:30.441] ⌨️ after(0) 執行延遲 0.9ms[main][17:02:30.442] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 32/85 (37.6%)，有效語音 1.02s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][17:02:30.476] ✅ 錄音完成，送出辨識
+[paster][17:02:30] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:02:30] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.07s, est_api=0.52s)
+[main][17:02:32.981] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber][17:02:33.465] ⏱️ API 耗時: 2.75s
+[main][17:02:33.466] ✅ 辨識完成: "測試測試"
+[paster][17:02:33] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][17:02:33] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('PDF 文件，共 27 頁', '', '', 'DocumentControl')，preserve_ctrl=False
+[paster][17:02:33] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:02:33] 📋 CLIP backup: count=7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:33] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試測試'
+[paster][17:02:33] 📋 CLIP verify ok: attempt=1, chars=4, text='測試測試'
+[paster][17:02:33] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="电子玻纤布行业深度研究报告算力基石催化高端需求供需错配开启上行周期-26040327页.pdf - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster][17:02:33] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][17:02:33] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:02:33] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:02:33] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:02:33] 📋 CLIP restore wait: 0.30s
+[transcriber][17:02:33.917] ⏱️ API 耗時: 0.80s
+[paster][17:02:33] 📋 CLIP restore attempt 1/4: text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:33] 📋 CLIP restore: restored=7/7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:34] 📋 CLIP restore verify ok: attempt=1, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:34] 🚫 CLIP guard disarmed: blocked=0
+[tap][dim]   [17:02:34.864] 持續=27ms 峰值=304 ✗弱
+[main][17:02:35.952] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:02:35.952] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [17:02:35.972] 💤 敲麥監聽已停止
+[recorder][17:02:35] 🚀 預熱命中，直接開始錄音
+[main][17:02:35.972] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [17:02:35.975] 🎙️ 敲麥監聽已啟動
+[main][17:02:35.979] 🎙️ 開始錄音
+[paster][17:02:36] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:36] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][17:02:37.006] 持續=414ms 峰值=4643 ✗長
+[tap][dim]   [17:02:37.042] 持續=36ms 峰值=491 ✗弱
+[tap][sample][17:02:37.167] 持續=126ms 峰值=2135 ✗長
+[tap][sample][17:02:38.220] 持續=603ms 峰值=4125 ✗長
+[recorder][VAD] Silero 語音幀 33/101 (32.7%)，有效語音 1.06s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][17:02:39.246] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.0s）
+[paster][17:02:39] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:02:39] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[main][17:02:40.246] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:02:40.247] ⌨️ after(0) 執行延遲 0.3ms[main][17:02:40.247] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+
+
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:02:40.496] ⏱️ API 耗時: 1.11s
+[main][17:02:40.496] ✅ 分段辨識完成: "測試測試"
+[paster][17:02:40] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][17:02:40] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('PDF 文件，共 27 頁', '', '', 'DocumentControl')，preserve_ctrl=False
+[paster][17:02:40] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:02:40] 📋 CLIP backup: count=7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:40] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試測試'
+[paster][17:02:40] 📋 CLIP verify ok: attempt=1, chars=4, text='測試測試'
+[paster][17:02:40] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="电子玻纤布行业深度研究报告算力基石催化高端需求供需错配开启上行周期-26040327页.pdf - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster][17:02:40] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][17:02:40] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:02:40] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:02:40] ⏱️ 收到→貼上完成: 0.18s
+[paster][17:02:40] 📋 CLIP restore wait: 0.30s
+[paster][17:02:40] 📋 CLIP restore attempt 1/4: text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:40] 📋 CLIP restore: restored=7/7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:41] 📋 CLIP restore verify ok: attempt=1, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:41] 🚫 CLIP guard disarmed: blocked=0
+[main][17:02:42.915] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][17:02:42.916] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [17:02:42.963] 💤 敲麥監聽已停止
+[recorder][17:02:42] 🚀 預熱命中，直接開始錄音
+[main][17:02:42.963] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [17:02:42.966] 🎙️ 敲麥監聽已啟動
+[main][17:02:42.970] 🎙️ 開始錄音
+[paster][17:02:43] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:43] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][17:02:44.314] 持續=648ms 峰值=6948 ✗長
+[tap][sample][17:02:45.466] 持續=639ms 峰值=8789 ✗長
+[recorder][VAD] Silero 語音幀 28/114 (24.6%)，有效語音 0.90s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.7s 音訊段落
+[main][17:02:46.653] ✂️ 自動分段送出（靜音達1s，累積 3.7s，靜音 1.2s）
+[paster][17:02:46] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:02:46] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.17s, est_api=0.62s)
+[transcriber][17:02:47.486] ⏱️ API 耗時: 0.70s
+[main][17:02:47.486] ✅ 分段辨識完成: "測試測試"
+[paster][17:02:47] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][17:02:47] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('PDF 文件，共 27 頁', '', '', 'DocumentControl')，preserve_ctrl=False
+[paster][17:02:47] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:02:47] 📋 CLIP backup: count=7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:47] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試測試'
+[paster][17:02:47] 📋 CLIP verify ok: attempt=1, chars=4, text='測試測試'
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:02:47] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="电子玻纤布行业深度研究报告算力基石催化高端需求供需错配开启上行周期-26040327页.pdf - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster][17:02:47] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][17:02:47] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:02:47] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:02:47] ⏱️ 收到→貼上完成: 0.18s
+[paster][17:02:47] 📋 CLIP restore wait: 0.30s
+[main][17:02:47.752] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][17:02:47.753] ⌨️ after(0) 執行延遲 0.6ms[main][17:02:47.753] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.10s)，略過
+[paster][17:02:47] 📋 CLIP restore attempt 1/4: text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:47] 📋 CLIP restore: restored=7/7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:48] 📋 CLIP restore verify ok: attempt=1, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:48] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:02:50] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:50] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[main][17:02:52.223] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,LCtrl,RCtrl; logical_down=Ctrl,LCtrl,RCtrl
+[main][17:02:52.224] ⌨️ after(0) 執行延遲 0.9ms
+[tap]        [17:02:52.237] 💤 敲麥監聽已停止
+[recorder][17:02:52] 🚀 預熱命中，直接開始錄音
+[main][17:02:52.237] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [17:02:52.243] 🎙️ 敲麥監聽已啟動
+[main][17:02:52.248] 🎙️ 開始錄音
+[tap][sample][17:02:53.935] 持續=540ms 峰值=6400 ✗長
+[tap][dim]   [17:02:54.448] 持續=27ms 峰值=526 ✗弱
+[tap][sample][17:02:55.087] 持續=639ms 峰值=5309 ✗長
+[tap][dim]   [17:02:55.113] 持續=27ms 峰值=325 ✗弱
+[recorder][VAD] Silero 語音幀 35/120 (29.2%)，有效語音 1.12s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.8s 音訊段落
+[main][17:02:56.145] ✂️ 自動分段送出（靜音達1s，累積 3.8s，靜音 1.0s）
+[paster][17:02:56] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:02:56] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.18s, est_api=0.63s)
+[transcriber][17:02:57.073] ⏱️ API 耗時: 0.79s
+[main][17:02:57.074] ✅ 分段辨識完成: "測試測試"
+[paster][17:02:57] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][17:02:57] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('PDF 文件，共 27 頁', '', '', 'DocumentControl')，preserve_ctrl=False
+[paster][17:02:57] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:02:57] 📋 CLIP backup: count=7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:57] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試測試'
+[paster][17:02:57] 📋 CLIP verify ok: attempt=1, chars=4, text='測試測試'
+[main][17:02:57.198] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,LCtrl,RCtrl; logical_down=Ctrl,LCtrl,RCtrl
+[main][17:02:57.198] ⌨️ after(0) 執行延遲 0.5ms[main][17:02:57.198] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 0/34 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[paster][17:02:57] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="电子玻纤布行业深度研究报告算力基石催化高端需求供需错配开启上行周期-26040327页.pdf - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=Ctrl,LCtrl,RCtrl; logical_down=Ctrl,LCtrl,RCtrl，text='測試測試'
+[paster][17:02:57] ⌨️ 貼上前釋放修飾鍵: released=LCtrl,RCtrl，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][17:02:57] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:02:57] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:02:57] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:02:57] 📋 CLIP restore wait: 0.30s
+[paster][17:02:57] 📋 CLIP restore attempt 1/4: text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:57] 📋 CLIP restore: restored=7/7, formats=49367:885B, 13:46B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:57] 📋 CLIP restore verify ok: attempt=1, text='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:57] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:02:59] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='如果停止時真的有新的尾段音訊送出去並辨識'
+[paster][17:02:59] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [17:03:43.336] 持續=36ms 峰值=328 ✗弱
+[tap][sample][17:04:28.903] 持續=63ms 峰值=4797 ✓ 🎯 敲擊 #1
+[tap][sample][17:04:29.092] 持續=36ms 峰值=3730 ✓ 🎯 敲擊 #2
+[tap][sample][17:04:29.290] 持續=45ms 峰值=4658 ✓ 🎯 敲擊 #3
+[tap]        [17:04:29.290] 🔔 三連敲觸發（間隔 216ms / 189ms，一致性 0.87）
+[tap]        [17:04:29.336] 💤 敲麥監聽已停止
+[recorder][17:04:29] 🚀 預熱命中，直接開始錄音
+[main][17:04:29.336] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [17:04:29.340] 🎙️ 敲麥監聽已啟動
+[main][17:04:29.348] 🎙️ 開始錄音
+[tap][sample][17:04:29.568] 持續=27ms 峰值=792 ✓ 🎯 敲擊 #1
+[tap][dim]   [17:04:30.406] 持續=63ms 峰值=547 ✗弱
+[tap][sample][17:04:30.748] 持續=216ms 峰值=9669 ✗長
+[tap]         ⏱️ 間隔過長重置（1278ms）
+[tap][sample][17:04:30.982] 持續=162ms 峰值=8381 ✓ 🎯 敲擊 #1
+[tap][dim]   [17:04:31.073] 持續=91ms 峰值=537 ✗弱
+[tap][sample][17:04:31.738] 持續=665ms 峰值=4984 ✗長
+[tap][sample][17:04:31.999] 持續=189ms 峰值=4352 ✗長
+[tap][sample][17:04:32.161] 持續=135ms 峰值=2934 ✗長
+[tap][sample][17:04:32.665] 持續=449ms 峰值=2133 ✗長
+[tap][dim]   [17:04:32.746] 持續=81ms 峰值=507 ✗弱
+[tap][sample][17:04:32.962] 持續=216ms 峰值=4618 ✗長
+[tap][dim]   [17:04:33.016] 持續=54ms 峰值=492 ✗弱
+[tap][sample][17:04:33.655] 持續=567ms 峰值=5399 ✗長
+[tap][dim]   [17:04:33.700] 持續=45ms 峰值=577 ✗弱
+[tap][sample][17:04:33.889] 持續=189ms 峰值=2809 ✗長
+[tap][sample][17:04:33.951] 持續=36ms 峰值=863 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 88/184 (47.8%)，有效語音 2.82s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.9s 音訊段落
+[main][17:04:35.291] ✂️ 自動分段送出（靜音達1s，累積 5.9s，靜音 1.2s）
+[paster][17:04:35] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:04:35] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.39s, est_api=0.84s)
+[transcriber][17:04:36.360] ⏱️ API 耗時: 0.93s
+[main][17:04:36.363] ✅ 分段辨識完成: "把本文修改的內容全部還原"
+[paster][17:04:36] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='把本文修改的內容全部還原'
+[paster][17:04:36] ⌨️ TEXT input flow start: target_chars=12，視窗="Codex"，hwnd=0x000c0eca，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='把本文修改的內容全部還原'
+[paster][17:04:36] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:04:36] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][17:04:36] ⏱️ 收到→直接輸入完成: 0.05s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:04:36] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]         ⏱️ 間隔過長重置（4167ms）
+[tap][sample][17:04:38.110] 持續=27ms 峰值=3701 ✓ 🎯 敲擊 #1
+[tap][sample][17:04:38.299] 持續=27ms 峰值=3323 ✓ 🎯 敲擊 #2
+[tap][sample][17:04:38.533] 持續=72ms 峰值=3417 ✓ 🎯 敲擊 #3
+[tap]        [17:04:38.533] 🔔 三連敲觸發（間隔 189ms / 189ms，一致性 1.00）
+[main][17:04:38.537] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/33 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap]        [17:13:44.868] 💤 敲麥監聽已停止
+[recorder][17:13:44] 💤 預熱 stream 已關閉
+[0m

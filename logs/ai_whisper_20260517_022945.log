@@ -1,0 +1,20 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_022945.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][02:29:45.295] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][02:29:45.295] ✅ Ctrl狀態防護已啟動
+[main][02:29:45.296] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [02:29:45.312] 🎙️ 敲麥監聽已啟動
+[tap][sample][02:29:46.331] 持續=27ms 峰值=670 ✓ 🎯 敲擊 #1
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap]         ⏱️ 間隔過長重置（68498ms）
+[tap][sample][02:30:54.865] 持續=63ms 峰值=1086 ✓ 🎯 敲擊 #1
+[tap][sample][02:30:54.974] 持續=36ms 峰值=996 ✓ ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap]         ⏱️ 間隔過長重置（810ms）
+[tap][sample][02:30:55.702] 持續=90ms 峰值=1970 ✓ 🎯 敲擊 #1
+[tap][sample][02:30:55.792] 持續=27ms 峰值=3693 ✓ ⏱️ 防抖略過（距上次 153ms < 180ms）
+[tap][dim]   [02:30:55.829] 持續=36ms 峰值=327 ✗弱
+[tap]        [02:34:04.532] 💤 敲麥監聽已停止
+[recorder][02:34:04] 💤 預熱 stream 已關閉
+[0m

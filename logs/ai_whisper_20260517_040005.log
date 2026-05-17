@@ -1,0 +1,31 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_040005.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][04:00:05.642] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][04:00:05.643] ✅ Ctrl狀態防護已啟動
+[main][04:00:05.643] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [04:00:05.644] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，1s 後重試
+[tap]        [04:00:06.649] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，5s 後重試
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap]        [04:00:11.665] 🔌 重置 PortAudio 後端
+[tap]        [04:00:11.950] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，15s 後重試
+[tap]        [04:00:26.957] 🔌 重置 PortAudio 後端
+[tap]        [04:00:27.238] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，30s 後重試
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[main][04:00:30.869] ⏱️ recorder.start() 耗時 1250.1ms，ok=False
+[tap]        [04:00:30.869] 🔌 重置 PortAudio 後端
+[tap]        [04:00:31.145] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[main][04:00:33.101] ⏱️ recorder.start() 耗時 1249.4ms，ok=False
+[tap]        [04:00:33.101] 🔌 重置 PortAudio 後端
+[tap]        [04:00:33.376] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[recorder][start] ❌ 找不到可用錄音裝置: DJI input endpoints are present but none produced callbacks
+[main][04:00:34.638] ⏱️ recorder.start() 耗時 1255.3ms，ok=False
+[tap]        [04:00:34.638] 🔌 重置 PortAudio 後端
+[tap]        [04:00:34.926] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[recorder][04:01:07] 💤 預熱 stream 已關閉
+[0m

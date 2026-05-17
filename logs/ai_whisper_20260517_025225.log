@@ -1,0 +1,43 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_025225.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][02:52:25.558] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][02:52:25.558] ✅ Ctrl狀態防護已啟動
+[main][02:52:25.559] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [02:52:25.571] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][02:52:36.833] 持續=154ms 峰值=9741 ✓ 🎯 敲擊 #1
+[tap][sample][02:52:37.040] 持續=135ms 峰值=13407 ✓ 🎯 敲擊 #2
+[tap][sample][02:52:37.220] 持續=127ms 峰值=14189 ✓ 🎯 敲擊 #3
+[tap]        [02:52:37.220] 🔔 三連敲觸發（間隔 225ms / 189ms，一致性 0.84）
+[tap]        [02:52:37.306] 💤 敲麥監聽已停止
+[recorder][02:52:37] ⏱️ InputStream() 11.4ms
+[recorder][02:52:37] ⏱️ stream.start() 0.4ms
+[recorder][02:52:37] 🎙️ 錄音就緒，總初始化 11.8ms
+[main][02:52:37.319] ⏱️ recorder.start() 耗時 12.0ms，ok=True
+[tap]        [02:52:37.859] 🎙️ 敲麥監聽已啟動
+[main][02:52:37.867] 🎙️ 開始錄音
+[recorder][02:52:38] 🎤 第一包音訊到達，麥克風實際開啟延遲 755.6ms
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][02:52:39.461] 持續=189ms 峰值=14482 ✓ 🎯 敲擊 #1
+[tap][sample][02:52:39.624] 持續=90ms 峰值=11179 ✓ 🎯 敲擊 #2
+[tap][sample][02:52:39.848] 持續=126ms 峰值=8841 ✓ 🎯 敲擊 #3
+[tap]        [02:52:39.848] 🔔 三連敲觸發（間隔 261ms / 189ms，一致性 0.72）
+[main][02:52:39.849] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.78s)，略過
+[tap][dim]   [02:52:42.342] 持續=37ms 峰值=440 ✗弱
+[tap][dim]   [02:52:42.601] 持續=27ms 峰值=328 ✗弱
+[tap][dim]   [02:52:44.645] 持續=37ms 峰值=361 ✗弱
+[tap][sample][02:52:44.933] 持續=27ms 峰值=3107 ✓ 🎯 敲擊 #1
+[tap]        [02:52:45.388] ⚠️ stream 意外終止，排程重啟
+[tap]        [02:52:46.444] 🎙️ 敲麥監聽已啟動
+[tap]        [02:55:10.856] ⚠️ stream 異常，自動重啟
+[tap]        [02:55:10.865] ⚠️ stream 意外終止，排程重啟
+[tap]        [02:55:10.896] 🎙️ 敲麥監聽已啟動
+[tap]        [02:55:10.897] ⚠️ stream 意外終止，排程重啟
+[tap]        [02:55:11.875] 🎙️ 敲麥監聽已啟動
+[tap]        [02:55:48.218] 💤 敲麥監聽已停止
+[recorder][02:55:48] 💤 預熱 stream 已關閉
+[0m

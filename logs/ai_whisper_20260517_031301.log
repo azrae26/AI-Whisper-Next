@@ -1,0 +1,391 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_031301.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][03:13:01.458] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[input][03:13:01.458] ✅ Ctrl狀態防護已啟動
+[main][03:13:01.459] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [03:13:01.476] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][03:13:10.309] 持續=126ms 峰值=9394 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:13:10.346] 持續=37ms 峰值=489 ✗弱
+[tap][sample][03:13:10.535] 持續=136ms 峰值=8069 ✓ 🎯 敲擊 #2
+[tap][sample][03:13:10.759] 持續=153ms 峰值=14424 ✓ 🎯 敲擊 #3
+[tap]        [03:13:10.759] 🔔 三連敲觸發（間隔 216ms / 207ms，一致性 0.96）
+[tap]        [03:13:10.841] 💤 敲麥監聽已停止
+[recorder][03:13:10] ⏱️ InputStream() 10.7ms
+[recorder][03:13:10] ⏱️ stream.start() 0.4ms
+[recorder][03:13:10] 🎙️ 錄音就緒，總初始化 11.2ms
+[main][03:13:10.853] ⏱️ recorder.start() 耗時 11.5ms，ok=True
+[tap]        [03:13:11.376] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:13:11.382] 🎙️ 開始錄音
+[recorder][03:13:11] 🎤 第一包音訊到達，麥克風實際開啟延遲 744.2ms
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:13:12.883] 持續=162ms 峰值=12213 ✓ 🎯 敲擊 #1
+[tap][sample][03:13:13.082] 持續=135ms 峰值=11090 ✓ 🎯 敲擊 #2
+[tap][sample][03:13:13.297] 持續=162ms 峰值=12393 ✓ 🎯 敲擊 #3
+[tap]        [03:13:13.297] 🔔 三連敲觸發（間隔 225ms / 189ms，一致性 0.84）
+[main][03:13:13.298] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.70s)，略過
+[tap][sample][03:13:17.680] 持續=63ms 峰值=2810 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:13:17.743] 持續=27ms 峰值=325 ✗弱
+[tap][sample][03:13:17.770] 持續=27ms 峰值=3764 ✓ ⏱️ 防抖略過（距上次 126ms < 180ms）
+[tap][dim]   [03:13:17.938] 持續=60ms 峰值=469 ✗弱
+[tap]        [03:13:18.291] ⚠️ stream 意外終止（存活 6.9s），1s 後重啟
+[main][03:13:18.292] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:18] 💤 預熱 stream 已關閉
+[tap]        [03:13:19.352] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:13:28.383] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:13:28.384] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:28] 💤 預熱 stream 已關閉
+[tap]        [03:13:28.394] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:13:28.394] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:13:28] 💤 預熱 stream 已關閉
+[tap]        [03:13:29.449] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap][sample][03:13:30.191] 持續=27ms 峰值=5057 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:13:30.218] 持續=27ms 峰值=332 ✗弱
+[tap][sample][03:13:30.352] 持續=72ms 峰值=7401 ✓ ⏱️ 防抖略過（距上次 117ms < 180ms）
+[tap][sample][03:13:30.416] 持續=27ms 峰值=773 ✓ 🎯 敲擊 #2
+[tap][sample][03:13:30.605] 持續=36ms 峰值=4934 ✓ ⏱️ 防抖略過（距上次 180ms < 180ms）
+[tap][sample][03:13:30.668] 持續=27ms 峰值=656 ✓ 🎯 敲擊 #3
+[tap]        [03:13:30.668] 🔔 三連敲觸發（間隔 225ms / 252ms，一致性 0.89）
+[tap]        [03:13:30.751] 💤 敲麥監聽已停止
+[recorder][03:13:30] ⏱️ InputStream() 8.3ms
+[recorder][03:13:30] ⏱️ stream.start() 0.4ms
+[recorder][03:13:30] 🎙️ 錄音就緒，總初始化 8.8ms
+[main][03:13:30.769] ⏱️ recorder.start() 耗時 9.1ms，ok=True
+[tap]        [03:13:31.309] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:13:31.316] 🎙️ 開始錄音
+[recorder][03:13:31] 🎤 第一包音訊到達，麥克風實際開啟延遲 763.6ms
+[tap][sample][03:13:32.467] 持續=117ms 峰值=11455 ✓ 🎯 敲擊 #1
+[tap][sample][03:13:32.701] 持續=135ms 峰值=8985 ✓ 🎯 敲擊 #2
+[tap][sample][03:13:32.917] 持續=126ms 峰值=8228 ✓ 🎯 敲擊 #3
+[tap]        [03:13:32.917] 🔔 三連敲觸發（間隔 216ms / 225ms，一致性 0.96）
+[main][03:13:32.918] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/43 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][03:13:34.654] 持續=36ms 峰值=2144 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:13:34.906] 持續=36ms 峰值=469 ✗弱
+[tap]         ⏱️ 間隔過長重置（450ms）
+[tap][sample][03:13:35.131] 持續=63ms 峰值=5724 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:13:35.158] 持續=27ms 峰值=372 ✗弱
+[tap]        [03:13:35.548] ⚠️ stream 意外終止（存活 4.2s），1s 後重啟
+[main][03:13:35.549] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:35] 💤 預熱 stream 已關閉
+[tap]        [03:13:36.562] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:13:45.582] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:13:45.582] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:45] 💤 預熱 stream 已關閉
+[tap]        [03:13:45.593] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:13:45.593] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:13:45] 💤 預熱 stream 已關閉
+[tap]        [03:13:46.648] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:13:55.697] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:13:55.697] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:55] 💤 預熱 stream 已關閉
+[tap]        [03:13:55.708] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:13:55.708] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:13:55] 💤 預熱 stream 已關閉
+[tap]        [03:13:56.769] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:13:57.956] ⚠️ stream 意外終止（存活 1.2s），1s 後重啟
+[main][03:13:57.956] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:13:57] 💤 預熱 stream 已關閉
+[tap]        [03:13:58.980] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:14:08.000] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:14:08.000] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:14:08] 💤 預熱 stream 已關閉
+[tap]        [03:14:08.011] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:14:08.011] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:14:08] 💤 預熱 stream 已關閉
+[tap]        [03:14:09.030] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:14:18.081] ⚠️ stream 意外終止（存活 9.1s），1s 後重啟
+[main][03:14:18.081] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:14:18] 💤 預熱 stream 已關閉
+[tap]        [03:14:18.092] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:14:18.092] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:14:18] 💤 預熱 stream 已關閉
+[tap]        [03:14:19.106] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:14:28.155] ⚠️ stream 意外終止（存活 9.1s），1s 後重啟
+[main][03:14:28.155] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:14:28] 💤 預熱 stream 已關閉
+[tap]        [03:14:28.166] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:14:28.166] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:14:28] 💤 預熱 stream 已關閉
+[tap]        [03:14:29.202] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:14:38.222] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:14:38.222] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:14:38] 💤 預熱 stream 已關閉
+[tap]        [03:14:38.233] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:14:38.233] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:14:38] 💤 預熱 stream 已關閉
+[tap]        [03:14:39.282] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap][sample][03:14:41.020] 持續=135ms 峰值=14583 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:14:41.056] 持續=36ms 峰值=497 ✗弱
+[tap][sample][03:14:41.209] 持續=99ms 峰值=10025 ✓ 🎯 敲擊 #2
+[tap][sample][03:14:41.399] 持續=90ms 峰值=11447 ✓ 🎯 敲擊 #3
+[tap]        [03:14:41.399] 🔔 三連敲觸發（間隔 225ms / 198ms，一致性 0.88）
+[tap]        [03:14:41.478] 💤 敲麥監聽已停止
+[recorder][03:14:41] ⏱️ InputStream() 10.2ms
+[recorder][03:14:41] ⏱️ stream.start() 0.3ms
+[recorder][03:14:41] 🎙️ 錄音就緒，總初始化 10.4ms
+[main][03:14:41.489] ⏱️ recorder.start() 耗時 10.7ms，ok=True
+[tap]        [03:14:42.020] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:14:42.024] 🎙️ 開始錄音
+[recorder][03:14:42] 🎤 第一包音訊到達，麥克風實際開啟延遲 773.7ms
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:14:44.576] 持續=288ms 峰值=5698 ✗長
+[tap][sample][03:14:44.989] 持續=36ms 峰值=718 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:14:45.025] 持續=36ms 峰值=503 ✗弱
+[tap][sample][03:14:45.052] 持續=27ms 峰值=711 ✓ ⏱️ 防抖略過（距上次 72ms < 180ms）
+[tap][sample][03:14:45.251] 持續=36ms 峰值=8137 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:14:45.277] 持續=27ms 峰值=539 ✗弱
+[tap][dim]   [03:14:45.340] 持續=27ms 峰值=545 ✗弱
+[tap][sample][03:14:45.530] 持續=99ms 峰值=8136 ✓ 🎯 敲擊 #3
+[tap]        [03:14:45.530] 🔔 三連敲觸發（間隔 261ms / 216ms，一致性 0.83）
+[main][03:14:45.531] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 11/65 (16.9%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][03:14:45.548] ✅ 錄音完成，送出辨識
+[paster][03:14:45] 📏 [UIA] 文字為空 → 不加句號
+[paster][03:14:45] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.01s, est_api=0.46s)
+[tap][sample][03:14:45.755] 持續=117ms 峰值=10148 ✓ 🎯 敲擊 #1
+[transcriber][03:14:46.829] ⏱️ API 耗時: 1.09s
+[main][03:14:46.829] ✅ 辨識完成: "喂"
+[paster][03:14:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='喂'
+[paster][03:14:46] 📋 CLIP flow start: target_chars=1, restore_delay=0.30s
+[paster][03:14:46] 📋 CLIP backup: count=7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:14:46] 📋 CLIP set attempt 1/4: chars=1, bytes=4, preview='喂'
+[paster][03:14:46] 📋 CLIP verify ok: attempt=1, chars=1, text='喂'
+[paster][03:14:47] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x01a912b2，keys_before=async_down=none; logical_down=none，text='喂'
+[paster][03:14:47] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][03:14:47] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][03:14:47] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][03:14:47] ⏱️ 收到→貼上完成: 0.20s
+[paster][03:14:47] 📋 CLIP restore wait: 0.30s
+[paster][03:14:47] 📋 CLIP restore attempt 1/4: text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:14:47] 📋 CLIP restore: restored=7/7, formats=49367:271B, 13:52B, 50188:24B, 50131:32B, 16:4B, 1:45B, 7:45B, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:14:47] 📋 CLIP restore verify ok: attempt=1, text='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:14:47] 🚫 CLIP guard disarmed: blocked=0
+[tap]         ⏱️ 間隔過長重置（3258ms）
+[tap][sample][03:14:48.922] 持續=27ms 峰值=1083 ✓ 🎯 敲擊 #1
+[paster][03:14:49] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='我把MIC關掉後，系統匣MIC圖示又會馬'
+[paster][03:14:49] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [03:14:49.660] 持續=27ms 峰值=383 ✗弱
+[tap]         ⏱️ 間隔過長重置（765ms）
+[tap][sample][03:14:49.696] 持續=36ms 峰值=5042 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:14:49.723] 持續=27ms 峰值=365 ✗弱
+[tap]        [03:14:50.176] ⚠️ stream 意外終止（存活 8.2s），1s 後重啟
+[main][03:14:50.176] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:14:50] 💤 預熱 stream 已關閉
+[tap]        [03:14:51.036] ⚠️ stream 異常：stream 不存在（存活 9.0s），1s 後重啟
+[main][03:14:51.036] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream 不存在）
+[recorder][03:14:51] 💤 預熱 stream 已關閉
+[tap]        [03:14:52.063] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:15:01.113] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:15:01.113] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:01] 💤 預熱 stream 已關閉
+[tap]        [03:15:01.124] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:15:01.125] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:15:01] 💤 預熱 stream 已關閉
+[tap]        [03:15:02.147] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:15:11.198] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:15:11.198] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:11] 💤 預熱 stream 已關閉
+[tap]        [03:15:11.208] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:15:11.208] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:15:11] 💤 預熱 stream 已關閉
+[tap]        [03:15:12.233] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:15:21.283] ⚠️ stream 意外終止（存活 9.1s），1s 後重啟
+[main][03:15:21.284] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:21] 💤 預熱 stream 已關閉
+[tap]        [03:15:21.294] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:15:21.294] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:15:21] 💤 預熱 stream 已關閉
+[tap]        [03:15:22.310] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:15:31.361] ⚠️ stream 意外終止（存活 9.1s），1s 後重啟
+[main][03:15:31.362] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:31] 💤 預熱 stream 已關閉
+[tap]        [03:15:31.373] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:15:31.373] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:15:31] 💤 預熱 stream 已關閉
+[tap]        [03:15:32.410] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap][sample][03:15:35.156] 持續=153ms 峰值=11912 ✓ 🎯 敲擊 #1
+[tap][sample][03:15:35.362] 持續=98ms 峰值=14867 ✓ 🎯 敲擊 #2
+[tap][sample][03:15:35.578] 持續=126ms 峰值=13379 ✓ 🎯 敲擊 #3
+[tap]        [03:15:35.578] 🔔 三連敲觸發（間隔 262ms / 188ms，一致性 0.72）
+[tap]        [03:15:35.657] 💤 敲麥監聽已停止
+[recorder][03:15:35] ⏱️ InputStream() 8.2ms
+[recorder][03:15:35] ⏱️ stream.start() 0.3ms
+[recorder][03:15:35] 🎙️ 錄音就緒，總初始化 8.4ms
+[main][03:15:35.666] ⏱️ recorder.start() 耗時 8.7ms，ok=True
+[tap]        [03:15:36.195] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[main][03:15:36.201] 🎙️ 開始錄音
+[recorder][03:15:36] 🎤 第一包音訊到達，麥克風實際開啟延遲 758.4ms
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][03:15:38.298] 持續=163ms 峰值=12640 ✓ 🎯 敲擊 #1
+[tap][sample][03:15:38.486] 持續=117ms 峰值=11921 ✓ 🎯 敲擊 #2
+[tap][sample][03:15:38.711] 持續=126ms 峰值=12940 ✓ 🎯 敲擊 #3
+[tap]        [03:15:38.711] 🔔 三連敲觸發（間隔 234ms / 216ms，一致性 0.92）
+[main][03:15:38.712] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/34 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][dim]   [03:15:40.411] 持續=36ms 峰值=316 ✗弱
+[tap][sample][03:15:40.601] 持續=36ms 峰值=1034 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:15:40.727] 持續=36ms 峰值=406 ✗弱
+[tap][sample][03:15:40.772] 持續=45ms 峰值=5662 ✓ ⏱️ 防抖略過（距上次 162ms < 180ms）
+[tap]        [03:15:41.165] ⚠️ stream 意外終止（存活 5.0s），1s 後重啟
+[main][03:15:41.165] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:41] 💤 預熱 stream 已關閉
+[tap]        [03:15:42.180] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:15:51.230] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:15:51.231] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:15:51] 💤 預熱 stream 已關閉
+[tap]        [03:15:51.242] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:15:51.242] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:15:51] 💤 預熱 stream 已關閉
+[tap]        [03:15:52.265] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:01.284] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:01.285] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:01] 💤 預熱 stream 已關閉
+[tap]        [03:16:01.299] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:01.299] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:01] 💤 預熱 stream 已關閉
+[tap]        [03:16:02.313] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:11.362] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:11.365] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:11] 💤 預熱 stream 已關閉
+[tap]        [03:16:11.395] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:11.398] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:11] 💤 預熱 stream 已關閉
+[tap]        [03:16:12.498] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:21.525] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:21.526] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:21] 💤 預熱 stream 已關閉
+[tap]        [03:16:21.538] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:21.539] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:21] 💤 預熱 stream 已關閉
+[tap]        [03:16:22.555] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:31.604] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:31.604] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:31] 💤 預熱 stream 已關閉
+[tap]        [03:16:31.615] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:31.615] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:31] 💤 預熱 stream 已關閉
+[tap]        [03:16:32.645] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:41.665] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:41.665] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:41] 💤 預熱 stream 已關閉
+[tap]        [03:16:41.675] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:41.675] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:41] 💤 預熱 stream 已關閉
+[tap]        [03:16:42.705] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:16:51.725] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:16:51.725] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:16:51] 💤 預熱 stream 已關閉
+[tap]        [03:16:51.735] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:16:51.735] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:16:51] 💤 預熱 stream 已關閉
+[tap]        [03:16:52.749] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:01.769] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:01.769] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:01] 💤 預熱 stream 已關閉
+[tap]        [03:17:01.780] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:01.780] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:01] 💤 預熱 stream 已關閉
+[tap]        [03:17:02.797] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:11.846] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:11.846] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:11] 💤 預熱 stream 已關閉
+[tap]        [03:17:11.857] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:11.857] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:11] 💤 預熱 stream 已關閉
+[tap]        [03:17:12.883] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:21.932] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:21.933] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:21] 💤 預熱 stream 已關閉
+[tap]        [03:17:21.944] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:21.944] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:21] 💤 預熱 stream 已關閉
+[tap]        [03:17:22.989] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:32.011] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:32.011] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:32] 💤 預熱 stream 已關閉
+[tap]        [03:17:32.022] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:32.022] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:32] 💤 預熱 stream 已關閉
+[tap]        [03:17:33.035] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:42.054] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:42.054] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:42] 💤 預熱 stream 已關閉
+[tap]        [03:17:42.065] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:42.065] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:42] 💤 預熱 stream 已關閉
+[tap]        [03:17:43.079] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:17:52.100] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:17:52.100] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:17:52] 💤 預熱 stream 已關閉
+[tap]        [03:17:52.110] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:17:52.111] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:17:52] 💤 預熱 stream 已關閉
+[tap]        [03:17:53.136] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:02.156] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:02.156] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:02] 💤 預熱 stream 已關閉
+[tap]        [03:18:02.166] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:02.166] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:02] 💤 預熱 stream 已關閉
+[tap]        [03:18:03.209] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:12.260] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:12.260] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:12] 💤 預熱 stream 已關閉
+[tap]        [03:18:12.270] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:12.270] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:12] 💤 預熱 stream 已關閉
+[tap]        [03:18:13.301] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:22.351] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:22.351] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:22] 💤 預熱 stream 已關閉
+[tap]        [03:18:22.364] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:22.365] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:22] 💤 預熱 stream 已關閉
+[tap]        [03:18:23.384] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:32.434] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:32.434] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:32] 💤 預熱 stream 已關閉
+[tap]        [03:18:32.446] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:32.446] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:32] 💤 預熱 stream 已關閉
+[tap]        [03:18:33.489] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:42.539] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:42.540] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:42] 💤 預熱 stream 已關閉
+[tap]        [03:18:42.550] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:42.550] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:42] 💤 預熱 stream 已關閉
+[tap]        [03:18:43.585] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:18:52.635] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:18:52.635] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:18:52] 💤 預熱 stream 已關閉
+[tap]        [03:18:52.646] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:18:52.646] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:18:52] 💤 預熱 stream 已關閉
+[tap]        [03:18:53.661] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:19:02.682] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:19:02.683] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:19:02] 💤 預熱 stream 已關閉
+[tap]        [03:19:02.705] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:19:02.707] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:19:02] 💤 預熱 stream 已關閉
+[tap]        [03:19:03.912] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:19:12.965] ⚠️ stream 意外終止（存活 9.0s），1s 後重啟
+[main][03:19:12.965] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（stream finished unexpectedly）
+[recorder][03:19:12] 💤 預熱 stream 已關閉
+[tap]        [03:19:12.975] ⚠️ stream 異常：9.0s 沒有有效訊號（存活 9.0s），1s 後重啟
+[main][03:19:12.976] 🔄 敲麥 stream 重置，同步關閉預熱錄音 stream（9.0s 沒有有效訊號）
+[recorder][03:19:12] 💤 預熱 stream 已關閉
+[tap]        [03:19:14.006] 🎙️ 敲麥監聽已啟動（device=1 耳機 (DJI Mic Mini-E2C662 Hands-F）
+[tap]        [03:19:20.288] 💤 敲麥監聽已停止
+[recorder][03:19:20] 💤 預熱 stream 已關閉
+[0m

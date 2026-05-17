@@ -1,0 +1,117 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_012219.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:22:19.358] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:22:19.358] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[tap][sample][01:22:25.117] 持續=126ms 峰值=2726 ✗長
+[tap][dim]   [01:22:25.144] 持續=27ms 峰值=534 ✗弱
+[tap][sample][01:22:26.232] 持續=63ms 峰值=908 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:22:26.296] 持續=63ms 峰值=323 ✗弱
+[tap][dim]   [01:22:26.368] 持續=27ms 峰值=462 ✗弱
+[tap][sample][01:22:26.494] 持續=99ms 峰值=1587 ✓ 🎯 敲擊 #2
+[tap]         ⏱️ 間隔過長重置（739ms）
+[tap][sample][01:22:27.197] 持續=63ms 峰值=4569 ✓ 🎯 敲擊 #1
+[tap][sample][01:22:27.294] 持續=71ms 峰值=2755 ✓ ⏱️ 防抖略過（距上次 91ms < 180ms）
+[tap][sample][01:22:27.421] 持續=63ms 峰值=7451 ✓ 🎯 敲擊 #2
+[tap][dim]   [01:22:27.484] 持續=27ms 峰值=447 ✗弱
+[tap][dim]   [01:22:27.574] 持續=27ms 峰值=563 ✗弱
+[tap][sample][01:22:27.611] 持續=37ms 峰值=8088 ✓ 🎯 敲擊 #3
+[tap]        [01:22:27.611] 🔔 三連敲觸發（間隔 225ms / 216ms，一致性 0.96）
+[recorder][01:22:27] ⏱️ InputStream() 19.8ms
+[recorder][01:22:27] ⏱️ stream.start() 2.0ms
+[recorder][01:22:27] 🎙️ 錄音就緒，總初始化 21.8ms
+[main][01:22:27.637] ⏱️ recorder.start() 耗時 23.2ms，ok=True
+[main][01:22:27.656] 🎙️ 開始錄音[recorder][01:22:27] 🎤 第一包音訊到達，麥克風實際開啟延遲 21.4ms
+
+[tap][sample][01:22:27.700] 持續=48ms 峰值=1257 ✓ 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 1/34 (2.9%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.9% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [01:22:31.300] 持續=45ms 峰值=341 ✗弱
+[tap][sample][01:22:31.804] 持續=477ms 峰值=4837 ✗長
+[tap][dim]   [01:22:31.840] 持續=36ms 峰值=501 ✗弱
+[tap][sample][01:22:32.128] 持續=288ms 峰值=2209 ✗長
+[tap][dim]   [01:22:32.155] 持續=27ms 峰值=341 ✗弱
+[tap][sample][01:22:32.416] 持續=261ms 峰值=4150 ✗長
+[tap][sample][01:22:33.855] 持續=963ms 峰值=7269 ✗長
+[tap][dim]   [01:22:33.910] 持續=54ms 峰值=531 ✗弱
+[tap][sample][01:22:34.108] 持續=198ms 峰值=5523 ✗長
+[tap][dim]   [01:22:34.135] 持續=27ms 峰值=593 ✗弱
+[tap][sample][01:22:34.360] 持續=225ms 峰值=11022 ✗長
+[tap][dim]   [01:22:34.396] 持續=36ms 峰值=467 ✗弱
+[tap][sample][01:22:34.621] 持續=225ms 峰值=5244 ✗長
+[tap][dim]   [01:22:34.657] 持續=36ms 峰值=490 ✗弱
+[tap][sample][01:22:34.936] 持續=189ms 峰值=3590 ✗長
+[tap][dim]   [01:22:34.981] 持續=45ms 峰值=370 ✗弱
+[tap][sample][01:22:35.036] 持續=55ms 峰值=7605 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:22:35.071] 持續=35ms 峰值=597 ✗弱
+[tap][sample][01:22:35.621] 持續=522ms 峰值=3062 ✗長
+[tap][sample][01:22:35.890] 持續=216ms 峰值=3228 ✗長
+[tap][dim]   [01:22:35.935] 持續=45ms 峰值=462 ✗弱
+[tap][sample][01:22:36.286] 持續=314ms 峰值=3530 ✗長
+[tap][dim]   [01:22:37.150] 持續=36ms 峰值=561 ✗弱
+[tap][sample][01:22:37.330] 持續=180ms 峰值=3541 ✗長
+[tap][dim]   [01:22:37.376] 持續=46ms 峰值=573 ✗弱
+[tap][sample][01:22:37.599] 持續=224ms 峰值=7498 ✗長
+[tap][dim]   [01:22:37.627] 持續=27ms 峰值=505 ✗弱
+[tap][sample][01:22:37.654] 持續=27ms 峰值=782 ✓ 🎯 敲擊 #1
+[tap][dim]   [01:22:37.690] 持續=36ms 峰值=361 ✗弱
+[tap][sample][01:22:38.014] 持續=288ms 峰值=2349 ✗長
+[tap][sample][01:22:38.653] 持續=576ms 峰值=9247 ✗長
+[tap][dim]   [01:22:38.716] 持續=36ms 峰值=494 ✗弱
+[tap][sample][01:22:38.905] 持續=189ms 峰值=3289 ✗長
+[tap][sample][01:22:39.733] 持續=638ms 峰值=3697 ✗長
+[tap][dim]   [01:22:39.779] 持續=46ms 峰值=309 ✗弱
+[tap][sample][01:22:40.255] 持續=450ms 峰值=3616 ✗長
+[recorder][VAD] RMS 語音幀 228/351 (65.0%)，有效語音 6.84s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 10.6s 音訊段落
+[main][01:22:41.269] ✂️ 自動分段送出（靜音達1s，累積 10.6s，靜音 1.0s）
+[tap][sample][01:22:41.434] 持續=125ms 峰值=11038 ✓ 🎯 敲擊 #1
+[tap][sample][01:22:41.598] 持續=65ms 峰值=7346 ✓ 🎯 敲擊 #2
+[tap][sample][01:22:41.651] 持續=28ms 峰值=929 ✓ ⏱️ 防抖略過（距上次 89ms < 180ms）
+[tap][sample][01:22:41.785] 持續=26ms 峰值=8354 ✓ 🎯 敲擊 #3
+[tap]        [01:22:41.785] 🔔 三連敲觸發（間隔 224ms / 225ms，一致性 0.99）
+[main][01:22:41.786] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.52s)，略過
+[tap][dim]   [01:22:41.857] 持續=72ms 峰值=434 ✗弱
+[tap][sample][01:22:41.883] 持續=27ms 峰值=1474 ✓ 🎯 敲擊 #1
+[paster][01:22:42] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster][01:22:42] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.86s, est_api=1.31s)
+[transcriber][01:22:43.308] ⏱️ API 耗時: 1.85s
+[main][01:22:43.308] ✅ 分段辨識完成: "還是沒成功，你沒辦法透過某種API取得系統雜圖示的精準位置嗎？"
+[paster][01:22:43] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='。', final='還是沒成功，你沒辦法透過某種API取得系統雜圖示的精準位置嗎？'
+[paster][01:22:43] 📋 CLIP flow start: target_chars=31, restore_delay=0.30s
+[paster][01:22:43] 📋 CLIP backup: count=5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:22:43] 📋 CLIP set attempt 1/4: chars=31, bytes=64, preview='還是沒成功，你沒辦法透過某種API取得系統雜圖示的精準位置嗎？'
+[paster][01:22:43] 📋 CLIP verify ok: attempt=1, chars=31, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:22:43] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='還是沒成功，你沒辦法透過某種API取得系統雜圖示的精準位置嗎？'
+[paster][01:22:43] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:22:43] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:22:43] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:22:43] ⏱️ 收到→貼上完成: 0.18s
+[paster][01:22:43] 📋 CLIP restore wait: 0.30s
+[paster][01:22:43] 📋 CLIP restore attempt 1/4: text=missing
+[paster][01:22:43] 📋 CLIP restore: restored=5/5, formats=49161:8B, 50220:11429B, 49171:216B, 8:39652B, 17:39736B, text=missing
+[paster][01:22:43] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:43] 📋 CLIP restore verify ok: attempt=1, text=''
+[paster][01:22:43] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:22:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:44] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:45] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:46] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:46] 📋 CLIP read: CF_UNICODETEXT missing
+[paster][01:22:46] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=''
+[paster][01:22:46] 📋 剪貼簿已還原驗證（5 種格式，restore_ok=True, watch_ok=True）

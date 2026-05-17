@@ -1,0 +1,1603 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260517_154013.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][15:40:13.802] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:40:13.803] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:40:13.803] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [15:40:13.817] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][15:40:37.777] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][15:40:37.777] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [15:40:37.834] 💤 敲麥監聽已停止
+[recorder][15:40:37] ⏱️ InputStream() 29.9ms
+[recorder][15:40:37] ⏱️ stream.start() 0.4ms
+[recorder][15:40:37] 🎙️ 錄音就緒，總初始化 30.3ms
+[main][15:40:37.866] ⏱️ recorder.start() 耗時 30.7ms，ok=True
+[tap]        [15:40:38.444] 🎙️ 敲麥監聽已啟動
+[main][15:40:38.450] 🎙️ 開始錄音
+[recorder][15:40:38] 🎤 第一包音訊到達，麥克風實際開啟延遲 748.2ms
+[main][15:40:39.212] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][15:40:39.212] ⌨️ after(0) 執行延遲 0.4ms
+[main][15:40:39.213] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.60s)，略過
+[main][15:40:40.346] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][15:40:40.346] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [15:40:40.361] 💤 敲麥監聽已停止
+[recorder][15:40:40] 🚀 預熱命中，直接開始錄音
+[main][15:40:40.361] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [15:40:40.365] 🎙️ 敲麥監聽已啟動
+[main][15:40:40.369] 🎙️ 開始錄音
+[main][15:40:40.937] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][15:40:40.938] ⌨️ after(0) 執行延遲 0.5ms[main][15:40:40.939] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.57s)，略過
+[tap][dim]   [15:41:49.326] 持續=27ms 峰值=392 ✗弱
+[tap][sample][15:41:50.488] 持續=45ms 峰值=3115 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:41:50.578] 持續=27ms 峰值=334 ✗弱
+[tap][sample][15:41:50.677] 持續=27ms 峰值=1893 ✓ 🎯 敲擊 #2
+[tap][sample][15:41:50.865] 持續=27ms 峰值=1212 ✓ 🎯 敲擊 #3
+[tap]        [15:41:50.865] 🔔 三連敲觸發（間隔 207ms / 189ms，一致性 0.91）
+[tap]        [15:41:50.912] 💤 敲麥監聽已停止
+[recorder][15:41:50] 🚀 預熱命中，直接開始錄音
+[main][15:41:50.913] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[tap]        [15:41:50.920] 🎙️ 敲麥監聽已啟動
+[main][15:41:50.926] 🎙️ 開始錄音
+[tap][dim]   [15:41:51.820] 持續=36ms 峰值=408 ✗弱
+[tap][sample][15:41:52.198] 持續=378ms 峰值=3115 ✗長
+[tap][dim]   [15:41:52.234] 持續=36ms 峰值=374 ✗弱
+[tap][sample][15:41:52.396] 持續=162ms 峰值=1448 ✗長
+[tap][dim]   [15:41:52.460] 持續=64ms 峰值=586 ✗弱
+[tap][sample][15:41:53.386] 持續=612ms 峰值=2145 ✗長
+[tap][dim]   [15:41:53.413] 持續=27ms 峰值=444 ✗弱
+[tap][sample][15:41:54.124] 持續=126ms 峰值=3059 ✗長
+[tap][sample][15:41:54.636] 持續=450ms 峰值=2222 ✗長
+[tap][dim]   [15:41:54.700] 持續=63ms 峰值=553 ✗弱
+[recorder][VAD] Silero 語音幀 67/152 (44.1%)，有效語音 2.14s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 4.9s 音訊段落
+[main][15:41:55.940] ✂️ 自動分段送出（靜音達1s，累積 4.9s，靜音 1.1s）
+[paster][15:41:56] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:41:56] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.29s, est_api=0.74s)
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:41:57.706] 持續=72ms 峰值=831 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:41:57.768] 持續=63ms 峰值=403 ✗弱
+[tap][sample][15:41:57.841] 持續=72ms 峰值=881 ✓ ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap][dim]   [15:41:57.931] 持續=90ms 峰值=566 ✗弱
+[tap][sample][15:41:57.994] 持續=63ms 峰值=838 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:41:58.057] 持續=63ms 峰值=590 ✗弱
+[main][15:41:58.442] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber][15:41:58.509] ⏱️ API 耗時: 2.40s
+[main][15:41:58.509] ✅ 分段辨識完成: "測試測試測試"
+[paster][15:41:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試測試'
+[paster][15:41:58] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][15:41:58] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:41:58] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='測試測試測試'
+[paster][15:41:58] 📋 CLIP verify ok: attempt=1, chars=6, text='測試測試測試'
+[paster][15:41:58] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='測試測試測試'
+[paster][15:41:58] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:41:58] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:41:58] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:41:58] ⏱️ 收到→貼上完成: 0.29s
+[paster][15:41:58] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/63 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:41:59] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:41:59] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[transcriber][15:41:59.208] ⏱️ API 耗時: 0.63s
+[paster][15:41:59] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:41:59] 🚫 CLIP guard disarmed: blocked=0
+[tap]         ⏱️ 間隔過長重置（1629ms）
+[tap][sample][15:41:59.595] 持續=36ms 峰值=1300 ✓ 🎯 敲擊 #1
+[tap][sample][15:41:59.820] 持續=27ms 峰值=2066 ✓ 🎯 敲擊 #2
+[tap][sample][15:42:00.010] 持續=36ms 峰值=2443 ✓ 🎯 敲擊 #3
+[tap]        [15:42:00.010] 🔔 三連敲觸發（間隔 234ms / 180ms，一致性 0.77）
+[main][15:42:00.012] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/30 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[paster][15:42:01] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:42:01] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [15:42:01.954] 持續=27ms 峰值=422 ✗弱
+[tap][dim]   [15:42:03.466] 持續=72ms 峰值=360 ✗弱
+[tap][sample][15:42:03.691] 持續=27ms 峰值=961 ✓ 🎯 敲擊 #1
+[tap][sample][15:42:03.843] 持續=27ms 峰值=1578 ✓ ⏱️ 防抖略過（距上次 153ms < 180ms）
+[tap][dim]   [15:42:03.879] 持續=36ms 峰值=317 ✗弱
+[tap]         ⏱️ 間隔過長重置（1143ms）
+[tap][sample][15:42:04.833] 持續=27ms 峰值=3166 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:04.878] 持續=45ms 峰值=570 ✗弱
+[tap][sample][15:42:05.067] 持續=27ms 峰值=2171 ✓ 🎯 敲擊 #2
+[tap][sample][15:42:05.284] 持續=54ms 峰值=1589 ✓ 🎯 敲擊 #3
+[tap]        [15:42:05.284] 🔔 三連敲觸發（間隔 234ms / 189ms，一致性 0.81）
+[tap]        [15:42:05.330] 💤 敲麥監聽已停止
+[recorder][15:42:05] 🚀 預熱命中，直接開始錄音
+[main][15:42:05.330] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[tap]        [15:42:05.334] 🎙️ 敲麥監聽已啟動
+[main][15:42:05.342] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:42:06.994] 持續=603ms 峰值=3332 ✗長
+[tap][dim]   [15:42:07.029] 持續=36ms 峰值=558 ✗弱
+[tap][sample][15:42:08.253] 持續=207ms 峰值=968 ✗長
+[tap][dim]   [15:42:08.280] 持續=27ms 峰值=394 ✗弱
+[tap][dim]   [15:42:08.371] 持續=63ms 峰值=470 ✗弱
+[tap][sample][15:42:08.407] 持續=36ms 峰值=649 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:08.470] 持續=63ms 峰值=576 ✗弱
+[tap][sample][15:42:08.497] 持續=27ms 峰值=604 ✓ ⏱️ 防抖略過（距上次 99ms < 180ms）
+[tap][dim]   [15:42:08.596] 持續=99ms 峰值=560 ✗弱
+[recorder][VAD] Silero 語音幀 0/100 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]         ⏱️ 間隔過長重置（7749ms）
+[tap][sample][15:42:16.174] 持續=54ms 峰值=921 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:16.210] 持續=36ms 峰值=345 ✗弱
+[tap][sample][15:42:16.363] 持續=153ms 峰值=2639 ✗長
+[tap]         ⏱️ 間隔過長重置（478ms）
+[tap][sample][15:42:16.660] 持續=62ms 峰值=1145 ✓ 🎯 敲擊 #1
+[tap][sample][15:42:16.786] 持續=99ms 峰值=1256 ✓ ⏱️ 防抖略過（距上次 89ms < 180ms）
+[tap][dim]   [15:42:17.235] 持續=27ms 峰值=355 ✗弱
+[tap]         ⏱️ 間隔過長重置（638ms）
+[tap][sample][15:42:17.298] 持續=63ms 峰值=986 ✓ 🎯 敲擊 #1
+[tap][sample][15:42:17.524] 持續=198ms 峰值=2056 ✗長
+[tap]         ⏱️ 間隔過長重置（477ms）
+[tap][sample][15:42:17.749] 持續=36ms 峰值=1265 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:17.776] 持續=27ms 峰值=498 ✗弱
+[tap][sample][15:42:17.885] 持續=108ms 峰值=1031 ✓ ⏱️ 防抖略過（距上次 63ms < 180ms）
+[tap][dim]   [15:42:17.912] 持續=27ms 峰值=505 ✗弱
+[recorder][VAD] Silero 語音幀 46/108 (42.6%)，有效語音 1.47s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.5s 音訊段落
+[main][15:42:18.973] ✂️ 自動分段送出（靜音達1s，累積 3.5s，靜音 1.1s）
+[paster][15:42:19] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:42:19] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.15s, est_api=0.60s)
+[transcriber][15:42:19.928] ⏱️ API 耗時: 0.82s
+[main][15:42:19.928] ✅ 分段辨識完成: "測試"
+[paster][15:42:19] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試'
+[paster][15:42:19] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:42:19] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:19] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='測試'
+[paster][15:42:20] 📋 CLIP verify ok: attempt=1, chars=2, text='測試'
+[paster][15:42:20] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='測試'
+[paster][15:42:20] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:42:20] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:42:20] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:42:20] ⏱️ 收到→貼上完成: 0.21s
+[paster][15:42:20] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:42:20] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:42:20] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:20] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:42:20] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:42:22] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:42:22] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][15:42:23.023] 持續=251ms 峰值=1234 ✗長
+[tap][dim]   [15:42:23.059] 持續=36ms 峰值=320 ✗弱
+[tap][dim]   [15:42:23.194] 持續=36ms 峰值=598 ✗弱
+[tap]         ⏱️ 間隔過長重置（5481ms）
+[tap][sample][15:42:23.221] 持續=27ms 峰值=983 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:23.320] 持續=72ms 峰值=496 ✗弱
+[tap]         ⏱️ 間隔過長重置（927ms）
+[tap][sample][15:42:24.184] 持續=63ms 峰值=2299 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:24.247] 持續=62ms 峰值=474 ✗弱
+[tap][sample][15:42:24.409] 持續=162ms 峰值=1770 ✗長
+[tap][dim]   [15:42:24.760] 持續=99ms 峰值=583 ✗弱
+[tap]         ⏱️ 間隔過長重置（639ms）
+[tap][sample][15:42:24.787] 持續=27ms 峰值=698 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:24.815] 持續=28ms 峰值=549 ✗弱
+[recorder][VAD] Silero 語音幀 0/113 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:42:30.735] 持續=215ms 峰值=1741 ✗長
+[tap][dim]   [15:42:30.844] 持續=108ms 峰值=559 ✗弱
+[tap]         ⏱️ 間隔過長重置（6084ms）
+[tap][sample][15:42:30.898] 持續=54ms 峰值=2111 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:30.934] 持續=36ms 峰值=401 ✗弱
+[tap][sample][15:42:31.059] 持續=126ms 峰值=1482 ✗長
+[tap][dim]   [15:42:31.087] 持續=27ms 峰值=359 ✗弱
+[tap][dim]   [15:42:31.213] 持續=27ms 峰值=308 ✗弱
+[tap][dim]   [15:42:31.294] 持續=45ms 峰值=370 ✗弱
+[tap][sample][15:42:31.411] 持續=117ms 峰值=1225 ✗長
+[tap][sample][15:42:31.771] 持續=234ms 峰值=1628 ✗長
+[tap][dim]   [15:42:31.798] 持續=27ms 峰值=574 ✗弱
+[recorder][VAD] Silero 語音幀 27/82 (32.9%)，有效語音 0.86s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.7s 音訊段落
+[main][15:42:33.010] ✂️ 自動分段送出（靜音達1s，累積 2.7s，靜音 1.2s）
+[paster][15:42:33] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:42:33] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.07s, est_api=0.52s)
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [15:42:34.741] 持續=26ms 峰值=379 ✗弱
+[transcriber][15:42:35.084] ⏱️ API 耗時: 1.94s
+[main][15:42:35.084] ✅ 分段辨識完成: "你好你好"
+[paster][15:42:35] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='你好你好'
+[paster][15:42:35] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:42:35] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:35] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:42:35] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:42:35] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='你好你好'
+[paster][15:42:35] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:42:35] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:42:35] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:42:35] ⏱️ 收到→貼上完成: 0.18s
+[paster][15:42:35] 📋 CLIP restore wait: 0.30s
+[paster][15:42:35] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:42:35] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:35] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:42:35] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/51 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:42:37] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:42:37] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:42:43.354] 持續=63ms 峰值=724 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:43.381] 持續=27ms 峰值=306 ✗弱
+[tap][sample][15:42:43.479] 持續=36ms 峰值=1011 ✓ ⏱️ 防抖略過（距上次 153ms < 180ms）
+[tap]         ⏱️ 間隔過長重置（693ms）
+[tap][sample][15:42:44.020] 持續=36ms 峰值=1280 ✓ 🎯 敲擊 #1
+[tap][sample][15:42:44.173] 持續=91ms 峰值=935 ✓ ⏱️ 防抖略過（距上次 99ms < 180ms）
+[tap][dim]   [15:42:44.254] 持續=80ms 峰值=586 ✗弱
+[tap][sample][15:42:44.281] 持續=28ms 峰值=613 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:42:44.308] 持續=27ms 峰值=597 ✗弱
+[tap][sample][15:42:44.407] 持續=63ms 峰值=2103 ✓ ⏱️ 防抖略過（距上次 90ms < 180ms）
+[tap][dim]   [15:42:44.434] 持續=27ms 峰值=558 ✗弱
+[tap][sample][15:42:44.623] 持續=189ms 峰值=1023 ✗長
+[tap][sample][15:42:45.109] 持續=378ms 峰值=1589 ✗長
+[tap][dim]   [15:42:45.163] 持續=54ms 峰值=588 ✗弱
+[tap][sample][15:42:45.811] 持續=27ms 峰值=1772 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:45.847] 持續=36ms 峰值=538 ✗弱
+[tap][sample][15:42:46.036] 持續=189ms 峰值=1303 ✗長
+[tap][dim]   [15:42:46.063] 持續=27ms 峰值=417 ✗弱
+[tap][sample][15:42:46.359] 持續=189ms 峰值=2121 ✗長
+[tap][dim]   [15:42:46.387] 持續=27ms 峰值=307 ✗弱
+[tap][dim]   [15:42:46.450] 持續=35ms 峰值=346 ✗弱
+[tap][sample][15:42:46.513] 持續=63ms 峰值=694 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:46.549] 持續=37ms 峰值=392 ✗弱
+[tap][sample][15:42:46.603] 持續=53ms 峰值=1116 ✓ ⏱️ 防抖略過（距上次 100ms < 180ms）
+[tap][sample][15:42:46.963] 持續=153ms 峰值=2726 ✗長
+[tap][dim]   [15:42:46.999] 持續=36ms 峰值=511 ✗弱
+[tap][sample][15:42:47.404] 持續=243ms 峰值=1158 ✗長
+[tap][dim]   [15:42:47.449] 持續=45ms 峰值=334 ✗弱
+[recorder][VAD] Silero 語音幀 41/190 (21.6%)，有效語音 1.31s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 6.1s 音訊段落
+[main][15:42:48.654] ✂️ 自動分段送出（靜音達1s，累積 6.1s，靜音 1.2s）
+[paster][15:42:49] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:42:49] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.41s, est_api=0.86s)
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][15:42:50.600] ⏱️ API 耗時: 1.81s
+[main][15:42:50.601] ✅ 分段辨識完成: "停止錄音這段很重要"
+[paster][15:42:50] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='停止錄音這段很重要'
+[paster][15:42:50] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:42:50] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:50] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:42:50] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:42:50] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='停止錄音這段很重要'
+[paster][15:42:50] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:42:50] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:42:50] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:42:50] ⏱️ 收到→貼上完成: 0.18s
+[paster][15:42:50] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:42:51] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:42:51] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:51] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:42:51] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [15:42:53.137] 持續=27ms 峰值=305 ✗弱
+[tap][sample][15:42:53.164] 持續=27ms 峰值=918 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:53.209] 持續=45ms 峰值=583 ✗弱
+[paster][15:42:53] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:42:53] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][15:42:53.587] 持續=379ms 峰值=1915 ✗長
+[tap][dim]   [15:42:53.614] 持續=27ms 峰值=468 ✗弱
+[tap][dim]   [15:42:53.750] 持續=36ms 峰值=426 ✗弱
+[tap][sample][15:42:53.884] 持續=135ms 峰值=1304 ✗長
+[tap][dim]   [15:42:53.938] 持續=54ms 峰值=462 ✗弱
+[tap][sample][15:42:54.289] 持續=252ms 峰值=1191 ✗長
+[tap][dim]   [15:42:54.334] 持續=45ms 峰值=367 ✗弱
+[tap][sample][15:42:54.424] 持續=90ms 峰值=1088 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:54.451] 持續=27ms 峰值=323 ✗弱
+[tap][sample][15:42:54.577] 持續=126ms 峰值=1169 ✗長
+[tap][dim]   [15:42:54.604] 持續=27ms 峰值=365 ✗弱
+[tap][sample][15:42:54.811] 持續=108ms 峰值=1610 ✓ 🎯 敲擊 #2
+[tap][dim]   [15:42:54.928] 持續=27ms 峰值=418 ✗弱
+[tap][sample][15:42:55.243] 持續=315ms 峰值=1593 ✗長
+[tap][dim]   [15:42:55.288] 持續=45ms 峰值=499 ✗弱
+[tap][sample][15:42:55.540] 持續=162ms 峰值=1457 ✗長
+[tap][dim]   [15:42:55.603] 持續=63ms 峰值=506 ✗弱
+[tap][sample][15:42:55.729] 持續=63ms 峰值=2318 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:42:55.774] 持續=45ms 峰值=355 ✗弱
+[tap][sample][15:42:55.927] 持續=153ms 峰值=1634 ✗長
+[tap][dim]   [15:42:55.955] 持續=28ms 峰值=391 ✗弱
+[tap][sample][15:42:56.116] 持續=99ms 峰值=3733 ✓ 🎯 敲擊 #2
+[tap][sample][15:42:56.206] 持續=27ms 峰值=1094 ✓ ⏱️ 防抖略過（距上次 162ms < 180ms）
+[tap][dim]   [15:42:56.277] 持續=72ms 峰值=408 ✗弱
+[tap][dim]   [15:42:56.404] 持續=37ms 峰值=348 ✗弱
+[tap][sample][15:42:56.699] 持續=294ms 峰值=2696 ✗長
+[tap][dim]   [15:42:56.728] 持續=29ms 峰值=350 ✗弱
+[recorder][VAD] Silero 語音幀 91/177 (51.4%)，有效語音 2.91s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.7s 音訊段落
+[main][15:42:57.789] ✂️ 自動分段送出（靜音達1s，累積 5.7s，靜音 1.0s）
+[paster][15:42:58] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:42:58] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.37s, est_api=0.82s)
+[transcriber][15:42:58.777] ⏱️ API 耗時: 0.85s
+[main][15:42:58.778] ✅ 分段辨識完成: "因為行業是軌模經濟產業"
+[paster][15:42:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='因為行業是軌模經濟產業'
+[paster][15:42:58] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:42:58] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:58] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:42:58] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:42:58] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='因為行業是軌模經濟產業'
+[paster][15:42:58] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:42:58] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:42:58] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:42:58] ⏱️ 收到→貼上完成: 0.19s
+[paster][15:42:58] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:42:59] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:42:59] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:42:59] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:42:59] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:01] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:01] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:04.943] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:04.945] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:43:04] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:04] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=22ms, final='因為行業是軌模經濟產業'
+[paster][15:43:04] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:04] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:04] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:05] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:43:05] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:05] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:05] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:05] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:05] 📋 CLIP restore wait: 0.30s
+[main][15:43:05.256] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:05.257] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:43:05] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:05] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:05] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:05] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:05] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:05] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:05] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:05] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='停止錄音這段很重要'
+[paster][15:43:05] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:05] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:05] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[main][15:43:05.620] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:05.621] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:05] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:05] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:05] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:05] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:05] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:05] 📋 CLIP restore wait: 0.30s
+[paster][15:43:06] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:06] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:06] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:06] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:06] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:06] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:06] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:06] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='你好你好'
+[paster][15:43:06] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:06] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:06] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:06] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:06] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:06] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:06] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:06] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:06] 📋 CLIP restore wait: 0.30s
+[paster][15:43:06] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:06] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:06] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:06] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:08] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:08] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:43:16.366] 持續=117ms 峰值=3924 ✗長
+[recorder][VAD] Silero 語音幀 1/56 (1.8%)，有效語音 0.03s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.8% < 16%）
+[main][15:43:18.169] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:18.169] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:43:18] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:18] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='因為行業是軌模經濟產業'
+[paster][15:43:18] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:18] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:18] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:18] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[tap][dim]   [15:43:18.256] 持續=27ms 峰值=319 ✗弱
+[paster][15:43:18] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:18] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:18] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:18] 📋 CLIP restore wait: 0.30s
+[paster][15:43:18] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:18] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:18] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:18] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/51 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:19.864] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:19.865] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:43:19] 📋 CLIP watchdog skip: pending paste queued, checks=6, repairs=0
+[paster][15:43:19] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:19] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:19] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='停止錄音這段很重要'
+[paster][15:43:19] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:19] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:19] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:20] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:20] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:20] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:20] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:20] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:20] 📋 CLIP restore wait: 0.30s
+[paster][15:43:20] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:20] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:20] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:20] 🚫 CLIP guard disarmed: blocked=0
+[main][15:43:21.264] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:21.266] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:21] 📋 CLIP watchdog skip: pending paste queued, checks=4, repairs=0
+[paster][15:43:21] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:21] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:21] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='你好你好'
+[paster][15:43:21] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:21] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:21] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:21] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:21] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:21] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:21] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:21] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:21] 📋 CLIP restore wait: 0.30s
+[paster][15:43:21] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:21] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:21] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:21] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/63 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:22.822] ⌨️ 記憶快捷鍵 4 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:22.832] 📋 貼上記憶 4: "測試"
+[paster][15:43:22] 📋 CLIP watchdog skip: pending paste queued, checks=5, repairs=0
+[paster][15:43:22] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:22] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:22] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=4ms, final='測試'
+[paster][15:43:22] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:43:22] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:22] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='測試'
+[paster][15:43:23] 📋 CLIP verify ok: attempt=1, chars=2, text='測試'
+[paster][15:43:23] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試'
+[paster][15:43:23] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:23] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:23] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:23] 📋 CLIP restore wait: 0.30s
+[paster][15:43:23] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:23] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:23] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:23] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:25] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:25] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:26.801] ⌨️ 記憶快捷鍵 5 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:26.803] 📋 貼上記憶 5: "測試測試測試"
+[paster][15:43:26] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:26] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=9ms, final='測試測試測試'
+[paster][15:43:26] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][15:43:26] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:26] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='測試測試測試'
+[paster][15:43:26] 📋 CLIP verify ok: attempt=1, chars=6, text='測試測試測試'
+[paster][15:43:26] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試測試測試'
+[paster][15:43:26] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:26] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:26] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:26] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:27] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:27] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:27] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:27] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:29] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:29] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[main][15:43:30.301] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:30.302] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:43:30] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:30] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='因為行業是軌模經濟產業'
+[paster][15:43:30] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:30] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:30] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:30] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:43:30] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:30] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:30] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:30] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:30] 📋 CLIP restore wait: 0.30s
+[main][15:43:30.562] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:30.562] 📋 貼上記憶 2: "停止錄音這段很重要"
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:30] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:30] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:43:30.848] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:30.849] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:30] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:30] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:30] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:30] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:30] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:30] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='停止錄音這段很重要'
+[paster][15:43:30] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:30] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:30] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:30] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:31] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:31] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:31] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:31] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:31] 📋 CLIP restore wait: 0.30s
+[paster][15:43:31] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:31] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:31] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:31] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:31] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:31] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:31] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:31] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='你好你好'
+[paster][15:43:31] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:31] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:31] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:31] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:31] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:31] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:31] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:31] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:31] 📋 CLIP restore wait: 0.30s
+[paster][15:43:31] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:31] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/44 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:32] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:32] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:34] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:34] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [15:43:36.319] 持續=36ms 峰值=456 ✗弱
+[tap][dim]   [15:43:36.409] 持續=36ms 峰值=346 ✗弱
+[main][15:43:37.567] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:37.567] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[recorder][VAD] Silero 語音幀 0/76 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:38] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:38] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=505ms, final='因為行業是軌模經濟產業'
+[paster][15:43:38] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:38] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:38] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:38] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:43:38] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:38] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:38] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:38] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:38] 📋 CLIP restore wait: 0.30s
+[main][15:43:38.290] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:38.290] 📋 貼上記憶 2: "停止錄音這段很重要"
+[tap][dim]   [15:43:38.389] 持續=27ms 峰值=343 ✗弱
+[paster][15:43:38] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:38] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:38] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:38] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:38] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:38] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:39] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:39] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=508ms, final='停止錄音這段很重要'
+[paster][15:43:39] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:39] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:39] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:39] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:39] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='停止錄音這段很重要'
+[paster][15:43:39] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:39] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:43:39] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:39] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/56 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:39] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:39] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:39] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:39] 🚫 CLIP guard disarmed: blocked=0
+[main][15:43:40.044] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:40.046] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:40] 📋 CLIP watchdog skip: pending paste queued, checks=2, repairs=0
+[paster][15:43:40] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:40] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:40] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=509ms, final='你好你好'
+[paster][15:43:40] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:40] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:40] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:40] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:40] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:40] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:40] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:40] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:40] 📋 CLIP restore wait: 0.30s
+[main][15:43:41.057] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:41.059] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:43:41] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:41] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:41] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:41] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:41] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:41] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[main][15:43:41.284] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:41.285] 📋 貼上記憶 3: "你好你好"
+[tap][dim]   [15:43:41.376] 持續=45ms 峰值=384 ✗弱
+[paster][15:43:41] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:41] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=503ms, final='停止錄音這段很重要'
+[paster][15:43:41] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:41] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:41] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:41] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:41] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:41] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:41] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:41] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:41] 📋 CLIP restore wait: 0.30s
+[paster][15:43:42] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:42] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:43:42.273] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:42.273] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:43:42] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:42] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:42] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:42] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/56 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:42.509] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:42.510] 📋 貼上記憶 2: "停止錄音這段很重要"
+[main][15:43:42.739] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:42.741] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:42] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:42] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=510ms, final='你好你好'
+[paster][15:43:42] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:42] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:42] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:42] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:42] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:42] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:42] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:42] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:42] 📋 CLIP restore wait: 0.30s
+[paster][15:43:43] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:43] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:43] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:43] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:43] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:43] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/44 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:43] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:43] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=513ms, final='因為行業是軌模經濟產業'
+[paster][15:43:43] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:43] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:43] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:44] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:43:44] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:44] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:44] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:44] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:44] 📋 CLIP restore wait: 0.30s
+[paster][15:43:44] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:44] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:44] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:44] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:44] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:44] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [15:43:44.598] 持續=27ms 峰值=402 ✗弱
+[main][15:43:44.829] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:44.831] 📋 貼上記憶 2: "停止錄音這段很重要"
+[tap][dim]   [15:43:44.923] 持續=26ms 峰值=576 ✗弱
+[paster][15:43:45] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=514ms, final='停止錄音這段很重要'
+[paster][15:43:45] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:45] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:45] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[main][15:43:45.079] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:45.080] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:45] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[tap][dim]   [15:43:45.139] 持續=27ms 峰值=309 ✗弱
+[paster][15:43:45] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:45] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:45] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:45] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:45] 📋 CLIP restore wait: 0.30s
+[paster][15:43:45] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:45] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:45] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:45] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:45] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:46] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=504ms, final='你好你好'
+[paster][15:43:46] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:46] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:46] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:46] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:46] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:46] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:46] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:46] 🚫 CLIP guard armed: manual Ctrl+V suppressed[recorder][VAD] Silero 語音幀 0/76 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+
+[paster][15:43:46] 📋 CLIP restore wait: 0.30s[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+
+[paster][15:43:46] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:46] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:46] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:46] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:46] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:46] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:47] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:47] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=506ms, final='停止錄音這段很重要'
+[paster][15:43:47] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:47] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:47] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:47] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:47] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,LShift; logical_down=Shift,LShift，text='停止錄音這段很重要'
+[paster][15:43:47] ⌨️ 貼上前釋放修飾鍵: released=LShift，restore_later=LShift，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:47] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,LShift; logical_down=Shift,LShift
+[paster][15:43:47] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:47] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:47] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:47] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:47] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:47] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:47] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:47] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:48] 📏 [UIA] text='app://-/index.html?h', text_after='\n要求後續跟進變更\n￼\n￼\n完整存取權\n', at_end=False, last_punct=False
+[paster][15:43:48] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=507ms, final='你好你好'
+[paster][15:43:48] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:48] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:48] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:48] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:48] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,LShift; logical_down=Shift,LShift，text='你好你好'
+[paster][15:43:48] ⌨️ 貼上前釋放修飾鍵: released=LShift，restore_later=LShift，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:48] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,LShift; logical_down=Shift,LShift
+[paster][15:43:48] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:48] 📋 CLIP restore wait: 0.30s
+[paster][15:43:48] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:48] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:48] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:48] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:50.110] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:50.110] 📋 貼上記憶 3: "你好你好"
+[paster][15:43:50] 📋 CLIP watchdog skip: pending paste queued, checks=6, repairs=0
+[paster][15:43:50] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:50] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:50] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='你好你好'
+[paster][15:43:50] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:50] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:50] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:50] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:50] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:50] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:50] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:50] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:50] 📋 CLIP restore wait: 0.30s
+[paster][15:43:50] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:50] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:50] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:50] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:52] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:52] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:43:53.527] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:53.528] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:43:53] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:53] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=4ms, final='因為行業是軌模經濟產業'
+[paster][15:43:53] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:43:53] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:53] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:43:53] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[tap][dim]   [15:43:53.626] 持續=27ms 峰值=425 ✗弱
+[paster][15:43:53] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:43:53] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:53] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:53] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:53] 📋 CLIP restore wait: 0.30s
+[main][15:43:53.778] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:53.779] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:43:53] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:53] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:43:54.021] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:43:54.022] 📋 貼上記憶 3: "你好你好"
+[tap][dim]   [15:43:54.102] 持續=27ms 峰值=432 ✗弱
+[paster][15:43:54] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:54] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:54] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:54] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:54] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:54] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='停止錄音這段很重要'
+[paster][15:43:54] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:43:54] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:54] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:43:54] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:43:54] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:43:54] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:54] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:54] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:54] 📋 CLIP restore wait: 0.30s
+[paster][15:43:54] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:54] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:54] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:54] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:43:54] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:43:54] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:43:54] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:43:54] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=5ms, final='你好你好'
+[paster][15:43:54] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:43:54] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:43:54] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:43:54] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:43:54] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:43:54] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:43:54] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:43:54] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:43:54] 📋 CLIP restore wait: 0.30s
+[paster][15:43:55] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:43:55] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/69 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:55] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:43:55] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:43:57] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:43:57] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [15:43:58.935] 持續=27ms 峰值=401 ✗弱
+[tap][dim]   [15:43:59.034] 持續=36ms 峰值=354 ✗弱
+[recorder][VAD] Silero 語音幀 0/51 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:01.120] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:01.121] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:01] 📏 [UIA] text='app://-/index.html?h', text_after='\n￼\n￼\n完整存取權\n￼\n5.5\n高\n￼', at_end=False, last_punct=False
+[paster][15:44:01] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=507ms, final='因為行業是軌模經濟產業'
+[paster][15:44:01] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:01] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:01] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[main][15:44:01.671] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:01.672] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:44:01] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:44:01] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:01] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:01] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:01] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:01] 📋 CLIP restore wait: 0.30s
+[main][15:44:02.026] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:02.027] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:02] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:02] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:02] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:02] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:02] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:02] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:02] 📏 [UIA] text='app://-/index.html?h', text_after='\n￼\n￼\n完整存取權\n￼\n5.5\n高\n￼', at_end=False, last_punct=False
+[paster][15:44:02] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=507ms, final='停止錄音這段很重要'
+[paster][15:44:02] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:02] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:02] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:44:02] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:44:02] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:02] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:02] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:02] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:02] 📋 CLIP restore wait: 0.30s
+[paster][15:44:03] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:03] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:03] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:03] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:03] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:03] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:03] 📏 [UIA] text='app://-/index.html?h', text_after='\n￼\n￼\n完整存取權\n￼\n5.5\n高\n￼', at_end=False, last_punct=False
+[paster][15:44:03] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=505ms, final='你好你好'
+[paster][15:44:03] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:03] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:03] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:03] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:03] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:03] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:03] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:03] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:03] 📋 CLIP restore wait: 0.30s
+[paster][15:44:04] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:04] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:04] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:04] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][15:44:05.479] 持續=36ms 峰值=892 ✓ 🎯 敲擊 #1
+[recorder][VAD] Silero 語音幀 0/51 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:06] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:06] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:25.000] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:25.000] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:44:25] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:25] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='因為行業是軌模經濟產業'
+[paster][15:44:25] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:25] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:25] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:44:25] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:25] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:25] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:25] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:25] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:25] 📋 CLIP restore wait: 0.30s
+[paster][15:44:25] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:25] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:25] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:25] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:27] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:28] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:28.585] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:28.586] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:28] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:28] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='你好你好'
+[paster][15:44:28] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:28] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:28] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:28] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:28] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:28] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:28] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:28] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:28] 📋 CLIP restore wait: 0.30s
+[paster][15:44:29] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:29] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:29] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:29] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:31] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:31] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:32.604] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:32.605] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:44:32] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:32] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='停止錄音這段很重要'
+[paster][15:44:32] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:32] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:32] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:32] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:44:32] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:32] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:32] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:32] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:32] 📋 CLIP restore wait: 0.30s
+[main][15:44:33.004] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:33.004] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:33] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:33] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:33] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:33] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:33] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:33] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:33] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:33] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='你好你好'
+[paster][15:44:33] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:33] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:33] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:33] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:33] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:33] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:33] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:33] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:33] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:33] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:33] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:33] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:33] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:35] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:35] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:38.855] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:38.860] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:44:38] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:38] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=11ms, final='因為行業是軌模經濟產業'
+[paster][15:44:38] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:38] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:38] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[tap][dim]   [15:44:38.923] 持續=27ms 峰值=301 ✗弱
+[paster][15:44:38] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:44:39] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:39] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:39] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:39] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:39] 📋 CLIP restore wait: 0.30s
+[main][15:44:39.101] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:39.105] 📋 貼上記憶 2: "停止錄音這段很重要"
+[main][15:44:39.324] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:39.331] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:39] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:39] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:39] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:39] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:39] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:39] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:39] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:39] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=5ms, final='停止錄音這段很重要'
+[paster][15:44:39] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:39] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:39] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:44:39] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:44:39] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:39] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:39] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:39] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:39] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/52 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:39] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:39] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:40] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:40] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:40] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:40] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:40] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:40] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=15ms, final='你好你好'
+[paster][15:44:40] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:40] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:40] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:40] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:40] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:40] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:40] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:40] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:40] 📋 CLIP restore wait: 0.30s
+[paster][15:44:40] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:40] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:40] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:40] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:43] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:43] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:45.659] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:45.660] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:44:45] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='因為行業是軌模經濟產業'
+[paster][15:44:45] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:45] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:45] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:44:45] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:44:45] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:45] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:45] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:45] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:45] 📋 CLIP restore wait: 0.30s
+[main][15:44:46.013] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:46.018] 📋 貼上記憶 2: "停止錄音這段很重要"
+[tap][dim]   [15:44:46.096] 持續=27ms 峰值=388 ✗弱
+[paster][15:44:46] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:46] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:46] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:46] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:46] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=5ms, final='停止錄音這段很重要'
+[paster][15:44:46] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:46] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:44:46] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[main][15:44:46.369] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:46.370] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:46] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:46] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:46] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:46] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:46] 📋 CLIP restore wait: 0.30s
+[paster][15:44:46] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:46] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:46] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:46] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:46] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=4ms, final='你好你好'
+[paster][15:44:46] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:46] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:46] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:46] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:47] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:47] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:47] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:47] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:47] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/43 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:47] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:47] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:47] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:47] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:49] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:49] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:51.663] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:51.663] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:44:51] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:51] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='因為行業是軌模經濟產業'
+[paster][15:44:51] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:51] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:51] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:44:51] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:44:51] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:51] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:51] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:51] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:51] 📋 CLIP restore wait: 0.30s
+[main][15:44:51.885] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:51.886] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:44:52] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:52] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:44:52.141] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:52.143] 📋 貼上記憶 3: "你好你好"
+[tap][dim]   [15:44:52.234] 持續=27ms 峰值=569 ✗弱
+[paster][15:44:52] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:52] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:52] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:52] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:52] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:52] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3ms, final='停止錄音這段很重要'
+[paster][15:44:52] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:52] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:52] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:44:52] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:44:52] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:52] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:52] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:52] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:52] 📋 CLIP restore wait: 0.30s
+[paster][15:44:52] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:52] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:52] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:52] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:52] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:52] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:52] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:52] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=5ms, final='你好你好'
+[paster][15:44:52] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:52] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:52] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:52] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:52] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='你好你好'
+[paster][15:44:52] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:52] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:44:52] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:52] 📋 CLIP restore wait: 0.30s
+[paster][15:44:53] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:53] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[recorder][VAD] Silero 語音幀 0/56 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:53] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:53] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:55] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:44:55] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:44:56.052] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:56.053] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:44:56] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:56] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='因為行業是軌模經濟產業'
+[paster][15:44:56] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:44:56] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:56] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:44:56] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:44:56] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:44:56] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:56] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:56] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:56] 📋 CLIP restore wait: 0.30s
+[main][15:44:56.289] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:56.289] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:44:56] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:56] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:44:56.525] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:56.526] 📋 貼上記憶 3: "你好你好"
+[paster][15:44:56] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:56] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:56] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:56] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:56] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:56] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='停止錄音這段很重要'
+[paster][15:44:56] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:44:56] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:56] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:44:56] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[main][15:44:56.773] ⌨️ 記憶快捷鍵 4 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:56.774] 📋 貼上記憶 4: "測試"
+[paster][15:44:56] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:44:56] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）[paster][15:44:56] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+
+[paster][15:44:56] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:56] 📋 CLIP restore wait: 0.30s
+[main][15:44:57.013] ⌨️ 記憶快捷鍵 5 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:44:57.013] 📋 貼上記憶 5: "測試測試測試"
+[paster][15:44:57] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:57] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:57] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:57] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:57] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:57] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='你好你好'
+[paster][15:44:57] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:44:57] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:44:57] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:44:57] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:44:57] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:57] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:57] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:57] 📋 CLIP restore wait: 0.30s
+[paster][15:44:57] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:57] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:57] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:57] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:57] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:57] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=4ms, final='測試'
+[paster][15:44:57] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:44:57] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:57] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='測試'
+[paster][15:44:57] 📋 CLIP verify ok: attempt=1, chars=2, text='測試'
+[paster][15:44:57] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試'
+[paster][15:44:57] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:57] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:57] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:57] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:44:58] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:58] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:58] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:58] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:44:58] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:44:58] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:44:58] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:44:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='測試測試測試'
+[paster][15:44:58] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][15:44:58] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:58] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='測試測試測試'
+[paster][15:44:58] 📋 CLIP verify ok: attempt=1, chars=6, text='測試測試測試'
+[paster][15:44:58] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試測試測試'
+[paster][15:44:58] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:44:58] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:44:58] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:44:58] 📋 CLIP restore wait: 0.30s
+[tap]         ⏱️ 間隔過長重置（53190ms）
+[tap][sample][15:44:58.714] 持續=81ms 峰值=698 ✓ 🎯 敲擊 #1
+[tap][dim]   [15:44:58.741] 持續=27ms 峰值=372 ✗弱
+[paster][15:44:58] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:44:58] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:44:59] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:44:59] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/56 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:45:01] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:45:01] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:45:03.523] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:45:03.523] 📋 貼上記憶 1: "因為行業是軌模經濟產業"
+[paster][15:45:03] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:45:03] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='因為行業是軌模經濟產業'
+[paster][15:45:03] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][15:45:03] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:03] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='因為行業是軌模經濟產業'
+[paster][15:45:03] 📋 CLIP verify ok: attempt=1, chars=11, text='因為行業是軌模經濟產業'
+[paster][15:45:03] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='因為行業是軌模經濟產業'
+[paster][15:45:03] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:45:03] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:45:03] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:45:03] 📋 CLIP restore wait: 0.30s
+[main][15:45:03.779] ⌨️ 記憶快捷鍵 2 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:45:03.780] 📋 貼上記憶 2: "停止錄音這段很重要"
+[paster][15:45:03] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:45:03] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[main][15:45:04.052] ⌨️ 記憶快捷鍵 3 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:45:04.052] 📋 貼上記憶 3: "你好你好"
+[paster][15:45:04] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:45:04] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:45:04] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:45:04] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:45:04] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:45:04] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='停止錄音這段很重要'
+[paster][15:45:04] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][15:45:04] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:04] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='停止錄音這段很重要'
+[paster][15:45:04] 📋 CLIP verify ok: attempt=1, chars=9, text='停止錄音這段很重要'
+[paster][15:45:04] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='停止錄音這段很重要'
+[paster][15:45:04] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:45:04] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:45:04] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:45:04] 📋 CLIP restore wait: 0.30s
+[main][15:45:04.312] ⌨️ 記憶快捷鍵 4 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main][15:45:04.313] 📋 貼上記憶 4: "測試"
+[tap][dim]   [15:45:04.393] 持續=27ms 峰值=338 ✗弱
+[paster][15:45:04] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:45:04] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:04] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:45:04] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:45:04] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:45:04] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:45:04] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:45:04] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=2ms, final='你好你好'
+[paster][15:45:04] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][15:45:04] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:04] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='你好你好'
+[paster][15:45:04] 📋 CLIP verify ok: attempt=1, chars=4, text='你好你好'
+[paster][15:45:04] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='你好你好'
+[paster][15:45:04] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，keys_after_release=async_down=none; logical_down=none
+[paster][15:45:04] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster][15:45:04] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:45:04] 📋 CLIP restore wait: 0.30s
+[paster][15:45:05] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:45:05] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:05] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:45:05] 🚫 CLIP guard disarmed: blocked=0
+[paster][15:45:05] 📋 CLIP watchdog skip: pending paste queued, checks=0, repairs=0
+[paster][15:45:05] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[paster][15:45:05] 📏 [UIA] 文字為空 → 不加句號
+[paster][15:45:05] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=1ms, final='測試'
+[paster][15:45:05] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][15:45:05] 📋 CLIP backup: count=7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:05] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='測試'
+[paster][15:45:05] 📋 CLIP verify ok: attempt=1, chars=2, text='測試'
+[paster][15:45:05] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x000c0eca，keys_before=async_down=none; logical_down=none，text='測試'
+[paster][15:45:05] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][15:45:05] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][15:45:05] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][15:45:05] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/82 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][15:45:05] 📋 CLIP restore attempt 1/4: text='Win32 RegisterHotKey'
+[paster][15:45:05] 📋 CLIP restore: restored=7/7, formats=49367:1586B, 13:42B, 50188:24B, 50131:32B, 16:4B, 1:21B, 7:21B, text='Win32 RegisterHotKey'
+[paster][15:45:05] 📋 CLIP restore verify ok: attempt=1, text='Win32 RegisterHotKey'
+[paster][15:45:05] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [15:45:08.028] 持續=36ms 峰值=342 ✗弱
+[paster][15:45:08] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='Win32 RegisterHotKey'
+[paster][15:45:08] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/43 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][15:45:09.605] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.44s)，略過
+[main][15:45:14.533] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:14.534] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:14.534] ✅ 記憶快捷鍵 4/5 已註冊 (Win32)
+[main][15:45:14.844] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:14.845] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:14.845] ✅ 記憶快捷鍵 4/5 已註冊 (Win32)
+[main][15:45:15.714] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:15.714] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:15.715] ✅ 記憶快捷鍵 3/5 已註冊 (Win32)
+[main][15:45:16.077] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:16.078] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:16.078] ✅ 記憶快捷鍵 3/5 已註冊 (Win32)
+[main][15:45:17.704] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:17.705] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:17.705] ✅ 記憶快捷鍵 2/5 已註冊 (Win32)
+[main][15:45:18.016] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:18.017] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:18.017] ✅ 記憶快捷鍵 2/5 已註冊 (Win32)
+[main][15:45:20.005] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:20.006] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:20.006] ✅ 記憶快捷鍵 1/5 已註冊 (Win32)
+[main][15:45:20.313] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:20.314] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:20.314] ✅ 記憶快捷鍵 1/5 已註冊 (Win32)
+[main][15:45:21.645] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:21.646] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:21.646] ✅ 記憶快捷鍵 0/5 已註冊 (Win32)
+[main][15:45:21.955] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:21.956] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:21.956] ✅ 記憶快捷鍵 0/5 已註冊 (Win32)
+[main][15:45:29.422] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][15:45:29.423] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][15:45:29.423] ✅ 記憶快捷鍵 0/5 已註冊 (Win32)
+Traceback (most recent call last):
+  File "F:\Cursor\AI Whisper Next\src\ai_whisper\controller.py", line 451, in quit_app
+    self.cleanup()
+  File "F:\Cursor\AI Whisper Next\src\ai_whisper\controller.py", line 459, in cleanup
+    self.save_geometry_now()
+  File "F:\Cursor\AI Whisper Next\src\ai_whisper\controller.py", line 448, in save_geometry_now
+    self.settings_store.save(cfg)
+  File "F:\Cursor\AI Whisper Next\src\ai_whisper\services\settings_store.py", line 66, in save
+    os.replace(tmp, self.path)
+PermissionError: [WinError 5] 存取被拒。: 'F:\\Cursor\\AI Whisper Next\\config.obocgadw.json' -> 'F:\\Cursor\\AI Whisper Next\\config.json'

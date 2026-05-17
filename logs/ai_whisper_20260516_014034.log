@@ -1,0 +1,111 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_014034.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:40:34.857] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][01:40:34.858] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]         🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
+[main][01:41:26.857] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:41:26.858] ⌨️ after(0) 執行延遲 1.2ms
+[recorder][01:41:26] ⏱️ InputStream() 2.8ms
+[recorder][01:41:26] ⏱️ stream.start() 0.3ms
+[recorder][01:41:26] 🎙️ 錄音就緒，總初始化 3.1ms
+[main][01:41:26.861] ⏱️ recorder.start() 耗時 3.4ms，ok=True
+[main][01:41:26.866] 🎙️ 開始錄音
+[recorder][01:41:26] 🎤 第一包音訊到達，麥克風實際開啟延遲 31.8ms
+[main][01:41:27.001] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,RCtrl，before=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl，after=async_down=none; logical_down=none
+[tap][sample][01:41:27.747] 持續=261ms 峰值=6485 ✗長
+[tap][dim]   [01:41:27.874] 持續=27ms 峰值=422 ✗弱
+[tap][sample][01:41:28.162] 持續=288ms 峰值=3277 ✗長
+[tap][sample][01:41:28.450] 持續=153ms 峰值=3789 ✗長
+[tap][sample][01:41:28.612] 持續=135ms 峰值=2265 ✗長
+[main][01:41:30.654] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:41:30.662] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風[main][01:41:30.662] ⌨️ after(0) 執行延遲 8.3ms
+
+[recorder][VAD] RMS 語音幀 79/125 (63.2%)，有效語音 2.37s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][01:41:30.670] ✅ 錄音完成，送出辨識
+[main][01:41:30.808] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,RCtrl，before=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl，after=async_down=none; logical_down=none
+[paster][01:41:31] 📏 [UIA] text='完全沒用，再搜其他解決方案', text_after='', at_end=True, last_punct=False
+[paster][01:41:31] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.18s, est_api=0.63s)
+[main][01:41:33.172] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber][01:41:44.852] ⏱️ API 耗時: 1.23s
+[main][01:41:44.852] 🔄 使用重試結果
+[main][01:41:44.853] ✅ 辨識完成: "用context7搜也可以"
+[transcriber][01:41:45.131] ⏱️ API 耗時: 1.51s
+[paster][01:41:45] 📏 [UIA] text='完全沒用，再搜其他解決方案', text_after='', at_end=True, last_punct=False
+[paster][01:41:45] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='。', uia=507ms, final='用context7搜也可以'
+[paster][01:41:45] 📋 CLIP flow start: target_chars=14, restore_delay=0.30s
+[paster][01:41:45] 📋 CLIP backup: count=7, formats=49367:1295B, 13:64B, 50188:24B, 50131:12B, 16:4B, 1:60B, 7:60B, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:41:45] 📋 CLIP set attempt 1/4: chars=14, bytes=30, preview='。用context7搜也可以'
+[paster][01:41:45] 📋 CLIP verify ok: attempt=1, chars=14, text='。用context7搜也可以'
+[paster][01:41:45] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00101060，keys_before=async_down=none; logical_down=none，text='。用context7搜也可以'
+[paster][01:41:45] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:41:45] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:41:45] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:41:45] ⏱️ 收到→貼上完成: 0.67s
+[paster][01:41:45] 📋 CLIP restore wait: 0.30s
+[paster][01:41:45] 📋 CLIP restore attempt 1/4: text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:41:45] 📋 CLIP restore: restored=7/7, formats=49367:1295B, 13:64B, 50188:24B, 50131:12B, 16:4B, 1:60B, 7:60B, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:41:45] 📋 CLIP restore verify ok: attempt=1, text='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:41:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:41:48] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='還是沒成功，你沒辦法透過某種API取得系'
+[paster][01:41:48] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[main][01:46:32.947] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[recorder][01:46:32] 🚀 預熱命中，直接開始錄音
+[main][01:46:32.949] ⏱️ recorder.start() 耗時 0.5ms，ok=True[main][01:46:32.949] ⌨️ after(0) 執行延遲 1.7ms
+
+[main][01:46:32.955] 🎙️ 開始錄音
+[main][01:46:33.090] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,LCtrl，before=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl，after=async_down=none; logical_down=none
+[tap][sample][01:46:34.216] 持續=522ms 峰值=7999 ✗長
+[tap][sample][01:46:34.756] 持續=478ms 峰值=11381 ✗長
+[tap][sample][01:46:35.907] 持續=513ms 峰值=7364 ✗長
+[tap][sample][01:46:36.142] 持續=207ms 峰值=8736 ✗長
+[tap][dim]   [01:46:36.169] 持續=27ms 峰值=447 ✗弱
+[tap][dim]   [01:46:36.294] 持續=36ms 峰值=562 ✗弱
+[tap][sample][01:46:36.512] 持續=216ms 峰值=5742 ✗長
+[tap][dim]   [01:46:36.548] 持續=36ms 峰值=549 ✗弱
+[tap][sample][01:46:36.862] 持續=315ms 峰值=6309 ✗長
+[tap][dim]   [01:46:36.898] 持續=36ms 峰值=306 ✗弱
+[tap][sample][01:46:37.186] 持續=253ms 峰值=4143 ✗長
+[tap][sample][01:46:37.798] 持續=216ms 峰值=8361 ✗長
+[tap][sample][01:46:38.572] 持續=747ms 峰值=11613 ✗長
+[tap][sample][01:46:39.499] 持續=901ms 峰值=5466 ✗長
+[tap][sample][01:46:39.714] 持續=188ms 峰值=2023 ✗長
+[tap][dim]   [01:46:39.741] 持續=27ms 峰值=440 ✗弱
+[tap][sample][01:46:40.039] 持續=135ms 峰值=2806 ✗長
+[tap][sample][01:46:40.417] 持續=351ms 峰值=4718 ✗長
+[tap][dim]   [01:46:40.490] 持續=27ms 峰值=432 ✗弱
+[tap][sample][01:46:40.804] 持續=314ms 峰值=2538 ✗長
+[tap][sample][01:46:41.452] 持續=621ms 峰值=3593 ✗長
+[tap][sample][01:46:42.334] 持續=854ms 峰值=3065 ✗長
+[main][01:46:42.434] ⌨️ 熱鍵觸發，排入 after(0)，keys=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][01:46:42.436] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風[main][01:46:42.436] ⌨️ after(0) 執行延遲 2.1ms
+
+[recorder][VAD] RMS 語音幀 233/315 (74.0%)，有效語音 6.99s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][01:46:42.438] ✅ 錄音完成，送出辨識
+[main][01:46:42.579] ⌨️ 熱鍵修飾鍵清理(main): released=Ctrl,LCtrl，before=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl，after=async_down=none; logical_down=none
+[paster][01:46:43] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster][01:46:43] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.75s, est_api=1.20s)
+[transcriber][01:46:44.515] ⏱️ API 耗時: 1.94s
+[main][01:46:44.516] ✅ 辨識完成: "那我們不能用腳本發出一個關閉程式的訊息嗎？一定要強制殺程式嗎？"
+[paster][01:46:44] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='。', final='那我們不能用腳本發出一個關閉程式的訊息嗎？一定要強制殺程式嗎？'
+[paster][01:46:44] 📋 CLIP flow start: target_chars=31, restore_delay=0.30s
+[paster][01:46:44] 📋 CLIP backup: count=7, formats=49367:1220B, 13:42B, 50188:24B, 50131:119B, 16:4B, 1:33B, 7:33B, text='完全沒用，context7搜其他解決方案'
+[paster][01:46:44] 📋 CLIP set attempt 1/4: chars=31, bytes=64, preview='那我們不能用腳本發出一個關閉程式的訊息嗎？一定要強制殺程式嗎？'
+[paster][01:46:44] 📋 CLIP verify ok: attempt=1, chars=31, text='那我們不能用腳本發出一個關閉程式的訊息嗎'
+[paster][01:46:44] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Fix system tray icon res… - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x00050d22，keys_before=async_down=none; logical_down=none，text='那我們不能用腳本發出一個關閉程式的訊息嗎？一定要強制殺程式嗎？'
+[paster][01:46:44] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][01:46:44] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][01:46:44] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][01:46:44] ⏱️ 收到→貼上完成: 0.20s
+[paster][01:46:44] 📋 CLIP restore wait: 0.30s
+[paster][01:46:45] 📋 CLIP restore attempt 1/4: text='完全沒用，context7搜其他解決方案'
+[paster][01:46:45] 📋 CLIP restore: restored=7/7, formats=49367:1220B, 13:42B, 50188:24B, 50131:119B, 16:4B, 1:33B, 7:33B, text='完全沒用，context7搜其他解決方案'
+[paster][01:46:45] 📋 CLIP restore verify ok: attempt=1, text='完全沒用，context7搜其他解決方案'
+[paster][01:46:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][01:46:47] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='完全沒用，context7搜其他解決方案'
+[paster][01:46:47] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap]         💤 敲麥監聽已停止
+[recorder][01:47:39] 💤 預熱 stream 已關閉
+[0m
