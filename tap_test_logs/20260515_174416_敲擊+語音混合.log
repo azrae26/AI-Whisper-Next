@@ -1,0 +1,2095 @@
+[main] LOG -> D:\Cursor\AI Whisper Next\ai_whisper_20260515_174416.log
+[settings] config loaded from D:\Cursor\AI Whisper Next\config.json
+[main][17:44:16] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][17:44:16] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torch'
+[tap][sample] 持續=30ms 峰值=1136 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1904 ✓
+[tap][sample] 持續=30ms 峰值=1736 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=2781 ✓
+[tap][sample] 持續=30ms 峰值=1333 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1195 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1203 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1476 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1117 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 1440ms / 220ms，一致性 0.15），忽略
+[tap][sample] 持續=30ms 峰值=1062 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1049 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1283 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1101 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1038 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1167 ✓
+[tap][sample] 持續=30ms 峰值=1152 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=2013 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=4627 ✓
+[tap][sample] 持續=29ms 峰值=1270 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=100ms 峰值=2254 ✓
+[tap][sample] 持續=60ms 峰值=1378 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 351ms / 289ms，一致性 0.82）
+[recorder][17:45:54] ⏱️ InputStream() 12.0ms
+[recorder][17:45:54] ⏱️ stream.start() 0.6ms
+[recorder][17:45:54] 🎙️ 錄音就緒，總初始化 12.6ms
+[main][17:45:54] ⏱️ recorder.start() 耗時 13.2ms，ok=True
+[main][17:45:54] 🎙️ 開始錄音
+[recorder][17:45:54] 🎤 第一包音訊到達，麥克風實際開啟延遲 26.0ms
+[tap][sample] 持續=70ms 峰值=1233 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1214 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=29ms 峰值=1105 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 230ms / 1181ms，一致性 0.19），忽略
+[tap][sample] 持續=100ms 峰值=1745 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1181ms / 319ms，一致性 0.27），忽略
+[recorder][VAD] RMS 語音幀 41/188 (21.8%)，有效語音 1.23s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.7s 音訊段落
+[main][17:46:00] ✂️ 自動分段送出（靜音達1s，累積 5.7s，靜音 1.0s）
+[tap][sample] 持續=31ms 峰值=1832 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:46:01] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:46:01] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.37s, est_api=0.82s)
+[transcriber][17:46:02] ⏱️ API 耗時: 1.96s
+[main][17:46:02] ✅ 分段辨識完成: "那這個之後"
+[paster][17:46:03] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='那這個之後'
+[paster][17:46:03] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][17:46:03] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:03] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='那這個之後'
+[paster][17:46:03] 📋 CLIP verify ok: attempt=1, chars=5, text='那這個之後'
+[paster][17:46:03] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='那這個之後'
+[paster][17:46:03] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:46:03] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:46:03] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:46:03] ⏱️ 收到→貼上完成: 0.53s
+[paster][17:46:03] 📋 CLIP restore wait: 0.30s
+[paster][17:46:03] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:03] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:03] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:03] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:46:06] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:06] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=100ms 峰值=2101 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1093 ✓
+[tap][sample] 持續=129ms 峰值=1989 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=120ms 峰值=2924 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=291ms 峰值=2410 ✗長
+[tap][sample] 持續=190ms 峰值=2399 ✗長
+[tap][sample] 持續=40ms 峰值=1135 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1304 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1277 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 1350ms / 1090ms，一致性 0.81）
+[main][17:46:15] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 154/482 (32.0%)，有效語音 4.62s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:46:15] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=130ms 峰值=1415 ✓
+[tap] 🎯 敲擊 #1
+[transcriber][17:46:16] ⏱️ API 耗時: 1.12s
+[main][17:46:16] ✅ 辨識完成: "如果不要是紅綠，就是線"
+[tap][sample] 持續=63ms 峰值=2101 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=1329 ✓
+[paster][17:46:17] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:46:17] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.25s, est_api=1.70s)
+[paster][17:46:17] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:46:17] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=518ms, final='如果不要是紅綠，就是線'
+[paster][17:46:17] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][17:46:17] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:17] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='如果不要是紅綠，就是線'
+[paster][17:46:17] 📋 CLIP verify ok: attempt=1, chars=11, text='如果不要是紅綠，就是線'
+[paster][17:46:17] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='如果不要是紅綠，就是線'
+[paster][17:46:17] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:46:17] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:46:17] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:46:17] ⏱️ 收到→貼上完成: 0.67s
+[paster][17:46:17] 📋 CLIP restore wait: 0.30s
+[tap][sample] 持續=200ms 峰值=2591 ✗長
+[tap][sample] 持續=30ms 峰值=1066 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 900ms / 890ms，一致性 0.99）
+[recorder][17:46:17] 🚀 預熱命中，直接開始錄音
+[main][17:46:17] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:46:17] 🎙️ 開始錄音
+[paster][17:46:17] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:17] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:17] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:17] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 2/46 (4.3%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 4.3% < 16%）
+[tap][sample] 持續=40ms 峰值=1447 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:46:20] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:20] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1146 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=1398 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 840ms / 760ms，一致性 0.90）
+[main][17:46:21] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 21/78 (26.9%)，有效語音 0.63s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:46:21] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=70ms 峰值=1504 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:46:21] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:46:21] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.03s, est_api=0.48s)
+[transcriber][17:46:22] ⏱️ API 耗時: 1.14s
+[main][17:46:22] ✅ 辨識完成: "這個"
+[paster][17:46:22] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這個'
+[paster][17:46:22] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][17:46:22] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:22] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='這個'
+[paster][17:46:22] 📋 CLIP verify ok: attempt=1, chars=2, text='這個'
+[paster][17:46:23] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='這個'
+[paster][17:46:23] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:46:23] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:46:23] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:46:23] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:46:23] 📋 CLIP restore wait: 0.30s
+[tap][sample] 持續=70ms 峰值=1433 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:46:23] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:23] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[tap][sample] 持續=90ms 峰值=1456 ✓
+[tap][sample] 持續=30ms 峰值=1491 ✓
+[tap] 🎯 敲擊 #2
+[paster][17:46:23] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:23] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=60ms 峰值=1240 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 230ms / 220ms，一致性 0.96）
+[recorder][17:46:23] 🚀 預熱命中，直接開始錄音
+[main][17:46:23] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][17:46:23] 🎙️ 開始錄音
+[paster][17:46:25] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:25] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1222 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=1042 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1391 ✓
+[tap][sample] 持續=100ms 峰值=1195 ✓
+[tap][sample] 持續=90ms 峰值=1853 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1569 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 419ms / 830ms，一致性 0.50）
+[main][17:46:30] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 63/222 (28.4%)，有效語音 1.89s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:46:30] ✅ 錄音完成，送出辨識
+[paster][17:46:31] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:46:31] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.47s, est_api=0.92s)
+[transcriber][17:46:31] ⏱️ API 耗時: 1.22s
+[main][17:46:31] ✅ 辨識完成: "這個有收盤"
+[paster][17:46:31] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這個有收盤'
+[paster][17:46:31] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][17:46:31] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:31] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='這個有收盤'
+[paster][17:46:32] 📋 CLIP verify ok: attempt=1, chars=5, text='這個有收盤'
+[paster][17:46:32] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='這個有收盤'
+[paster][17:46:32] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:46:32] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:46:32] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:46:32] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:46:32] 📋 CLIP restore wait: 0.30s
+[paster][17:46:32] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:32] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:32] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:32] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=1110 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1272 ✓
+[tap][sample] 持續=30ms 峰值=1044 ✓
+[tap] 🎯 敲擊 #2
+[paster][17:46:34] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:46:34] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1090 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1857 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=1167 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1537 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1135 ✓
+[tap][sample] 持續=60ms 峰值=1756 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=90ms 峰值=1385 ✓
+[tap][sample] 持續=130ms 峰值=1733 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 350ms / 1180ms，一致性 0.30），忽略
+[tap][sample] 持續=100ms 峰值=1515 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=129ms 峰值=2066 ✓
+[tap][sample] 持續=30ms 峰值=1028 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1008 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1134 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1023 ✓
+[tap][sample] 持續=190ms 峰值=1316 ✗長
+[tap][sample] 持續=120ms 峰值=1659 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=2528 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1144 ✓
+[tap][sample] 持續=120ms 峰值=2898 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=129ms 峰值=4221 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 230ms / 221ms，一致性 0.96）
+[recorder][17:47:02] 🚀 預熱命中，直接開始錄音
+[main][17:47:02] ⏱️ recorder.start() 耗時 0.4ms，ok=True
+[main][17:47:02] 🎙️ 開始錄音
+[tap][sample] 持續=230ms 峰值=5454 ✗長
+[tap][sample] 持續=289ms 峰值=3641 ✗長
+[tap][sample] 持續=510ms 峰值=4796 ✗長
+[tap][sample] 持續=220ms 峰值=2905 ✗長
+[tap][sample] 持續=161ms 峰值=1674 ✗長
+[tap][sample] 持續=60ms 峰值=1118 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=2402 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1145 ✓
+[tap][sample] 持續=610ms 峰值=3360 ✗長
+[tap][sample] 持續=191ms 峰值=4126 ✗長
+[tap][sample] 持續=100ms 峰值=1805 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=220ms 峰值=3730 ✗長
+[tap][sample] 持續=99ms 峰值=1752 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1510 ✓
+[tap][sample] 持續=189ms 峰值=2186 ✗長
+[tap][sample] 持續=40ms 峰值=1015 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 1121ms / 699ms，一致性 0.62）
+[main][17:47:09] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 185/228 (81.1%)，有效語音 5.55s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:47:09] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=40ms 峰值=1082 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1278 ✓
+[tap] 🎯 敲擊 #2
+[paster][17:47:10] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:10] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.49s, est_api=0.94s)
+[transcriber][17:47:11] ⏱️ API 耗時: 1.16s
+[main][17:47:11] ✅ 辨識完成: "一秒內有點困難"
+[paster][17:47:11] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='一秒內有點困難'
+[paster][17:47:11] 📋 CLIP flow start: target_chars=7, restore_delay=0.30s
+[paster][17:47:11] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:11] 📋 CLIP set attempt 1/4: chars=7, bytes=16, preview='一秒內有點困難'
+[paster][17:47:11] 📋 CLIP verify ok: attempt=1, chars=7, text='一秒內有點困難'
+[paster][17:47:11] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='一秒內有點困難'
+[paster][17:47:11] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:47:11] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:47:11] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:47:11] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:47:11] 📋 CLIP restore wait: 0.30s
+[paster][17:47:11] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:11] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:11] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:11] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=1097 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:47:13] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:13] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=100ms 峰值=1531 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=190ms 峰值=1833 ✗長
+[tap][sample] 持續=100ms 峰值=1398 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1043 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 930ms / 230ms，一致性 0.25），忽略
+[tap][sample] 持續=60ms 峰值=1016 ✓
+[tap][sample] 持續=30ms 峰值=1003 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 230ms / 350ms，一致性 0.66）
+[recorder][17:47:15] 🚀 預熱命中，直接開始錄音
+[main][17:47:15] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][17:47:15] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=1160 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1211 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 40/108 (37.0%)，有效語音 1.20s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][17:47:18] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.0s）
+[paster][17:47:19] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:19] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:47:20] ⏱️ API 耗時: 1.35s
+[main][17:47:20] ✅ 分段辨識完成: "我先進去賣這個"
+[paster][17:47:20] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='我先進去賣這個'
+[paster][17:47:20] 📋 CLIP flow start: target_chars=7, restore_delay=0.30s
+[paster][17:47:20] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:20] 📋 CLIP set attempt 1/4: chars=7, bytes=16, preview='我先進去賣這個'
+[paster][17:47:20] 📋 CLIP verify ok: attempt=1, chars=7, text='我先進去賣這個'
+[paster][17:47:20] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='我先進去賣這個'
+[paster][17:47:20] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:47:20] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:47:20] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:47:20] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:47:20] 📋 CLIP restore wait: 0.30s
+[paster][17:47:20] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:20] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:21] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:21] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=31ms 峰值=1266 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:47:23] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:23] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1044 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 35/175 (20.0%)，有效語音 1.05s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.3s 音訊段落
+[main][17:47:25] ✂️ 自動分段送出（靜音達1s，累積 5.3s，靜音 1.0s）
+[tap][sample] 持續=190ms 峰值=2428 ✗長
+[tap][sample] 持續=70ms 峰值=2057 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:47:26] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:26] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.33s, est_api=0.78s)
+[tap][sample] 持續=30ms 峰值=1100 ✓
+[tap][sample] 持續=31ms 峰值=1507 ✓
+[tap] 🎯 敲擊 #2
+[transcriber][17:47:26] ⏱️ API 耗時: 0.98s
+[main][17:47:26] ✅ 分段辨識完成: "他可以先摟一部分"
+[paster][17:47:26] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='他可以先摟一部分'
+[paster][17:47:26] 📋 CLIP flow start: target_chars=8, restore_delay=0.30s
+[paster][17:47:26] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:26] 📋 CLIP set attempt 1/4: chars=8, bytes=18, preview='他可以先摟一部分'
+[paster][17:47:26] 📋 CLIP verify ok: attempt=1, chars=8, text='他可以先摟一部分'
+[paster][17:47:26] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='他可以先摟一部分'
+[paster][17:47:26] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:47:26] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:47:26] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:47:26] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:47:26] 📋 CLIP restore wait: 0.30s
+[paster][17:47:27] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:27] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:27] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:27] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=260ms 峰值=2568 ✗長
+[paster][17:47:29] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:29] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=40ms 峰值=1372 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=1198 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1006 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1778 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=1251 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1024 ✓
+[recorder][VAD] RMS 語音幀 152/474 (32.1%)，有效語音 4.56s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 14.2s 音訊段落
+[main][17:47:39] ✂️ 自動分段送出（靜音達1s，累積 14.2s，靜音 1.0s）
+[transcriber][17:47:41] ⏱️ API 耗時: 1.26s
+[main][17:47:41] ✅ 分段辨識完成: "因為你有多了排序嘛。如果你沒排序的情況下你剛說的是OK的"
+[paster][17:47:41] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:41] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.22s, est_api=1.67s)
+[paster][17:47:41] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:41] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=513ms, final='因為你有多了排序嘛。如果你沒排序的情況下你剛說的是OK的'
+[paster][17:47:41] 📋 CLIP flow start: target_chars=28, restore_delay=0.30s
+[paster][17:47:41] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:41] 📋 CLIP set attempt 1/4: chars=28, bytes=58, preview='因為你有多了排序嘛。如果你沒排序的情況下你剛說的是OK的'
+[paster][17:47:41] 📋 CLIP verify ok: attempt=1, chars=28, text='因為你有多了排序嘛。如果你沒排序的情況下'
+[paster][17:47:41] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='因為你有多了排序嘛。如果你沒排序的情況下你剛說的是OK的'
+[paster][17:47:41] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:47:41] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:47:41] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:47:41] ⏱️ 收到→貼上完成: 0.67s
+[paster][17:47:41] 📋 CLIP restore wait: 0.30s
+[paster][17:47:41] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:41] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:42] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:42] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 2/95 (2.1%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.1% < 16%）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:47:44] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:44] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=160ms 峰值=1398 ✗長
+[tap][sample] 持續=70ms 峰值=1285 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1914 ✓
+[tap][sample] 持續=31ms 峰值=1088 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1816 ✓
+[tap][sample] 持續=70ms 峰值=1111 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1070 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1041 ✓
+[tap][sample] 持續=70ms 峰值=1526 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 220ms，一致性 0.85）
+[main][17:47:50] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 76/243 (31.3%)，有效語音 2.28s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:47:50] ✅ 錄音完成，送出辨識
+[paster][17:47:51] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:47:51] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.53s, est_api=0.98s)
+[transcriber][17:47:52] ⏱️ API 耗時: 1.03s
+[main][17:47:52] ✅ 辨識完成: "我覺得再快起來也要五秒了"
+[paster][17:47:52] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='我覺得再快起來也要五秒了'
+[paster][17:47:52] 📋 CLIP flow start: target_chars=12, restore_delay=0.30s
+[paster][17:47:52] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:52] 📋 CLIP set attempt 1/4: chars=12, bytes=26, preview='我覺得再快起來也要五秒了'
+[paster][17:47:52] 📋 CLIP verify ok: attempt=1, chars=12, text='我覺得再快起來也要五秒了'
+[paster][17:47:52] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='我覺得再快起來也要五秒了'
+[paster][17:47:52] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:47:52] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:47:52] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:47:52] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:47:52] 📋 CLIP restore wait: 0.30s
+[paster][17:47:52] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:52] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:52] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:52] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:47:54] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:47:54] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1080 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=2200 ✓
+[tap][sample] 持續=60ms 峰值=1035 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1009 ✓
+[tap][sample] 持續=160ms 峰值=1235 ✗長
+[tap][sample] 持續=60ms 峰值=1356 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=320ms 峰值=3004 ✗長
+[tap][sample] 持續=131ms 峰值=1797 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=120ms 峰值=1762 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 540ms / 230ms，一致性 0.43），忽略
+[tap][sample] 持續=70ms 峰值=1684 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 230ms / 440ms，一致性 0.52）
+[recorder][17:48:02] 🚀 預熱命中，直接開始錄音
+[main][17:48:02] ⏱️ recorder.start() 耗時 0.5ms，ok=True
+[main][17:48:02] 🎙️ 開始錄音
+[tap][sample] 持續=70ms 峰值=1756 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1186 ✓
+[tap][sample] 持續=70ms 峰值=1393 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 14/94 (14.9%)，有效語音 0.42s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 14.9% < 16%）
+[tap][sample] 持續=280ms 峰值=1519 ✗長
+[tap][sample] 持續=60ms 峰值=1227 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=200ms 峰值=2129 ✗長
+[tap][sample] 持續=60ms 峰值=1524 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=2339 ✓
+[tap][sample] 持續=30ms 峰值=1056 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 510ms / 290ms，一致性 0.57）
+[main][17:48:07] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 37/50 (74.0%)，有效語音 1.11s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:48:07] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=90ms 峰值=1490 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:48:07] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:48:07] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.40s)
+[tap][sample] 持續=40ms 峰值=1012 ✓
+[tap] 🎯 敲擊 #2
+[transcriber][17:48:08] ⏱️ API 耗時: 0.67s
+[main][17:48:08] ✅ 辨識完成: "沒有一個價值"
+[paster][17:48:08] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='沒有一個價值'
+[paster][17:48:08] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][17:48:08] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:08] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='沒有一個價值'
+[paster][17:48:08] 📋 CLIP verify ok: attempt=1, chars=6, text='沒有一個價值'
+[paster][17:48:08] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='沒有一個價值'
+[paster][17:48:08] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:48:08] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:48:08] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:48:08] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:48:08] 📋 CLIP restore wait: 0.30s
+[tap][sample] 持續=99ms 峰值=1325 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 730ms / 421ms，一致性 0.58）
+[recorder][17:48:08] 🚀 預熱命中，直接開始錄音
+[main][17:48:08] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:48:08] 🎙️ 開始錄音
+[paster][17:48:08] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:08] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[tap][sample] 持續=30ms 峰值=1045 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:48:08] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:08] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=70ms 峰值=1490 ✓
+[tap][sample] 持續=190ms 峰值=1208 ✗長
+[paster][17:48:10] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:10] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1082 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 79/216 (36.6%)，有效語音 2.37s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 6.5s 音訊段落
+[main][17:48:15] ✂️ 自動分段送出（靜音達1s，累積 6.5s，靜音 1.1s）
+[tap][sample] 持續=70ms 峰值=1458 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1011 ✓
+[paster][17:48:16] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:48:16] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.45s, est_api=0.90s)
+[transcriber][17:48:16] ⏱️ API 耗時: 0.88s
+[main][17:48:16] ✅ 分段辨識完成: "有啊，就是這些東西先出來"
+[paster][17:48:16] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='有啊，就是這些東西先出來'
+[paster][17:48:16] 📋 CLIP flow start: target_chars=12, restore_delay=0.30s
+[paster][17:48:16] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:16] 📋 CLIP set attempt 1/4: chars=12, bytes=26, preview='有啊，就是這些東西先出來'
+[paster][17:48:16] 📋 CLIP verify ok: attempt=1, chars=12, text='有啊，就是這些東西先出來'
+[paster][17:48:16] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='有啊，就是這些東西先出來'
+[paster][17:48:16] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:48:16] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:48:16] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:48:16] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:48:16] 📋 CLIP restore wait: 0.30s
+[paster][17:48:16] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:16] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:16] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:16] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:48:19] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:19] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 47/135 (34.8%)，有效語音 1.41s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 4.1s 音訊段落
+[main][17:48:19] ✂️ 自動分段送出（靜音達1s，累積 4.1s，靜音 1.0s）
+[paster][17:48:19] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:48:19] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.21s, est_api=0.66s)
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:48:20] ⏱️ API 耗時: 0.94s
+[main][17:48:20] ✅ 分段辨識完成: "我那後面有些圖片慢慢地出現應該還好吧"
+[paster][17:48:20] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='我那後面有些圖片慢慢地出現應該還好吧'
+[paster][17:48:20] 📋 CLIP flow start: target_chars=18, restore_delay=0.30s
+[paster][17:48:20] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:20] 📋 CLIP set attempt 1/4: chars=18, bytes=38, preview='我那後面有些圖片慢慢地出現應該還好吧'
+[paster][17:48:20] 📋 CLIP verify ok: attempt=1, chars=18, text='我那後面有些圖片慢慢地出現應該還好吧'
+[paster][17:48:20] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='我那後面有些圖片慢慢地出現應該還好吧'
+[paster][17:48:20] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:48:20] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:48:20] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:48:20] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:48:20] 📋 CLIP restore wait: 0.30s
+[paster][17:48:20] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:20] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:20] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:20] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:48:23] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:23] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/95 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1062 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=120ms 峰值=1044 ✓
+[tap][sample] 持續=130ms 峰值=1458 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=130ms 峰值=1540 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1454 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=1323 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 80/460 (17.4%)，有效語音 2.40s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 13.8s 音訊段落
+[main][17:48:37] ✂️ 自動分段送出（靜音達1s，累積 13.8s，靜音 1.2s）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:48:39] ⏱️ API 耗時: 1.17s
+[main][17:48:39] ✅ 分段辨識完成: "沒有線啊"
+[paster][17:48:39] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:48:39] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.18s, est_api=1.63s)
+[paster][17:48:39] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:48:39] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=514ms, final='沒有線啊'
+[paster][17:48:39] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:48:39] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:39] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='沒有線啊'
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:48:39] 📋 CLIP verify ok: attempt=1, chars=4, text='沒有線啊'
+[paster][17:48:39] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='沒有線啊'
+[paster][17:48:39] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:48:39] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:48:39] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:48:39] ⏱️ 收到→貼上完成: 0.67s
+[paster][17:48:39] 📋 CLIP restore wait: 0.30s
+[paster][17:48:40] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:40] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:40] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:40] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:48:42] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:48:42] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 2/156 (1.3%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.3% < 16%）
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1034 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1202 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=100ms 峰值=1586 ✓
+[tap][sample] 持續=90ms 峰值=1388 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1042 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=1347 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1036 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 230ms / 770ms，一致性 0.30），忽略
+[tap][sample] 持續=70ms 峰值=1442 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 770ms / 280ms，一致性 0.36），忽略
+[tap][sample] 持續=70ms 峰值=1178 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1041 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 166/758 (21.9%)，有效語音 4.98s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 22.8s 音訊段落
+[main][17:49:11] ✂️ 自動分段送出（累積夠長+短靜音，累積 22.8s，靜音 1.0s）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:49:13] ⏱️ API 耗時: 1.52s
+[main][17:49:13] ✅ 分段辨識完成: "之前我記得手機版他是不是有給那個啊？就是先畫好的。
+
+他一次給全部嗎？
+
+就這樣啊"
+[paster][17:49:13] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:13] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.53s, est_api=1.98s)
+[paster][17:49:13] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:13] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=516ms, final='之前我記得手機版他是不是有給那個啊？就是先畫好的。\n\n他一次給全部嗎？\n\n就這樣'
+[paster][17:49:13] 📋 CLIP flow start: target_chars=41, restore_delay=0.30s
+[paster][17:49:13] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:13] 📋 CLIP set attempt 1/4: chars=41, bytes=84, preview='之前我記得手機版他是不是有給那個啊？就是先畫好的。\n\n他一次給全部嗎？\n\n就這樣'
+[paster][17:49:13] 📋 CLIP verify ok: attempt=1, chars=41, text='之前我記得手機版他是不是有給那個啊？就是'
+[paster][17:49:13] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='之前我記得手機版他是不是有給那個啊？就是先畫好的。\n\n他一次給全部嗎？\n\n就這樣'
+[paster][17:49:13] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:49:13] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:49:13] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:49:13] ⏱️ 收到→貼上完成: 0.67s
+[paster][17:49:13] 📋 CLIP restore wait: 0.30s
+[paster][17:49:14] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:14] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:14] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:14] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:49:16] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:16] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1317 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 12/209 (5.7%)，有效語音 0.36s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.7% < 16%）
+[tap][sample] 持續=70ms 峰值=1554 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1421 ✓
+[tap][sample] 持續=130ms 峰值=1903 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=100ms 峰值=1099 ✓
+[tap][sample] 持續=60ms 峰值=1521 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 420ms / 350ms，一致性 0.83）
+[main][17:49:19] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 22/41 (53.7%)，有效語音 0.66s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:49:19] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=130ms 峰值=1305 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1340 ✓
+[tap][sample] 持續=30ms 峰值=1040 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1069 ✓
+[paster][17:49:20] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:20] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.37s)
+[transcriber][17:49:20] ⏱️ API 耗時: 0.62s
+[main][17:49:20] ✅ 辨識完成: "就是"
+[paster][17:49:20] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='就是'
+[paster][17:49:20] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][17:49:20] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:20] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='就是'
+[paster][17:49:20] 📋 CLIP verify ok: attempt=1, chars=2, text='就是'
+[paster][17:49:20] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='就是'
+[paster][17:49:20] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:49:21] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:49:21] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:49:21] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:49:21] 📋 CLIP restore wait: 0.30s
+[paster][17:49:21] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:21] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:21] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:21] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:49:23] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:23] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=59ms 峰值=1377 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1084 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1081 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 259ms / 320ms，一致性 0.81）
+[recorder][17:49:25] 🚀 預熱命中，直接開始錄音
+[main][17:49:25] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:49:25] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=1153 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1374 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=59ms 峰值=1386 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 380ms / 1381ms，一致性 0.28），忽略
+[recorder][VAD] RMS 語音幀 29/108 (26.9%)，有效語音 0.87s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][17:49:28] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.1s）
+[paster][17:49:29] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:29] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[transcriber][17:49:29] ⏱️ API 耗時: 0.86s
+[main][17:49:29] ✅ 分段辨識完成: "不是線圖好像是畫好的"
+[paster][17:49:29] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='不是線圖好像是畫好的'
+[paster][17:49:29] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster][17:49:29] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:29] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='不是線圖好像是畫好的'
+[paster][17:49:29] 📋 CLIP verify ok: attempt=1, chars=10, text='不是線圖好像是畫好的'
+[paster][17:49:29] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='不是線圖好像是畫好的'
+[paster][17:49:29] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:49:29] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:49:29] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:49:29] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:49:29] 📋 CLIP restore wait: 0.30s
+[paster][17:49:30] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:30] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:30] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:30] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=40ms 峰值=1126 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:49:32] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:32] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 35/169 (20.7%)，有效語音 1.05s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.1s 音訊段落
+[main][17:49:33] ✂️ 自動分段送出（靜音達1s，累積 5.1s，靜音 1.1s）
+[paster][17:49:34] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:34] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.31s, est_api=0.76s)
+[transcriber][17:49:34] ⏱️ API 耗時: 0.92s
+[main][17:49:34] ✅ 分段辨識完成: "如果只是尿的話那就快很多了"
+[paster][17:49:34] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='如果只是尿的話那就快很多了'
+[paster][17:49:34] 📋 CLIP flow start: target_chars=13, restore_delay=0.30s
+[paster][17:49:34] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:34] 📋 CLIP set attempt 1/4: chars=13, bytes=28, preview='如果只是尿的話那就快很多了'
+[paster][17:49:35] 📋 CLIP verify ok: attempt=1, chars=13, text='如果只是尿的話那就快很多了'
+[paster][17:49:35] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='如果只是尿的話那就快很多了'
+[paster][17:49:35] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:49:35] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:49:35] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:49:35] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:49:35] 📋 CLIP restore wait: 0.30s
+[paster][17:49:35] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:35] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:35] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:35] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:49:37] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:37] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 23/196 (11.7%)，有效語音 0.69s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 11.7% < 16%）
+[recorder][VAD] RMS 語音幀 32/121 (26.4%)，有效語音 0.96s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.6s 音訊段落
+[main][17:49:43] ✂️ 自動分段送出（靜音達1s，累積 3.6s，靜音 1.1s）
+[paster][17:49:43] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:49:43] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.16s, est_api=0.61s)
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:49:44] ⏱️ API 耗時: 0.93s
+[main][17:49:44] ✅ 分段辨識完成: "之前我還看過這個東西"
+[paster][17:49:44] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='之前我還看過這個東西'
+[paster][17:49:44] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster][17:49:44] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:44] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='之前我還看過這個東西'
+[paster][17:49:44] 📋 CLIP verify ok: attempt=1, chars=10, text='之前我還看過這個東西'
+[paster][17:49:44] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='之前我還看過這個東西'
+[paster][17:49:44] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:49:44] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:49:44] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:49:44] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:49:44] 📋 CLIP restore wait: 0.30s
+[paster][17:49:44] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:44] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:45] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:49:47] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:49:47] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=101ms 峰值=1316 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 29/236 (12.3%)，有效語音 0.87s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 12.3% < 16%）
+[recorder][VAD] RMS 語音幀 15/94 (16.0%)，有效語音 0.45s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 16.0% < 16%）
+[tap][sample] 持續=70ms 峰值=1307 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 15/142 (10.6%)，有效語音 0.45s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 10.6% < 16%）
+[tap][sample] 持續=30ms 峰值=1055 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 13/88 (14.8%)，有效語音 0.39s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 14.8% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 34/101 (33.7%)，有效語音 1.02s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][17:50:05] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.1s）
+[paster][17:50:05] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:50:05] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[main][17:50:07] ⚠️ API 超過 2.5s 未回應，重試中…
+[recorder][VAD] RMS 語音幀 5/115 (4.3%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 4.3% < 16%）
+[transcriber][17:50:08] ⏱️ API 耗時: 0.78s
+[main][17:50:08] 🔄 使用重試結果
+[main][17:50:08] ✅ 分段辨識完成: "至少那個全部的你要不要移到後面去"
+[paster][17:50:08] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='至少那個全部的你要不要移到後面去'
+[paster][17:50:08] 📋 CLIP flow start: target_chars=16, restore_delay=0.30s
+[paster][17:50:08] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:50:08] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='至少那個全部的你要不要移到後面去'
+[paster][17:50:08] 📋 CLIP verify ok: attempt=1, chars=16, text='至少那個全部的你要不要移到後面去'
+[paster][17:50:08] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='至少那個全部的你要不要移到後面去'
+[paster][17:50:08] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:50:08] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:50:08] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:50:08] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:50:08] 📋 CLIP restore wait: 0.30s
+[paster][17:50:09] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:50:09] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:50:09] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:50:09] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 4/74 (5.4%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.4% < 16%）
+[transcriber][17:50:11] ⏱️ API 耗時: 5.79s
+[paster][17:50:11] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:50:11] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 24/155 (15.5%)，有效語音 0.72s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 15.5% < 16%）
+[recorder][VAD] RMS 語音幀 1/54 (1.9%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.9% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=60ms 峰值=2319 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 8/142 (5.6%)，有效語音 0.24s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/53 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 3/108 (2.8%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.8% < 16%）
+[recorder][VAD] RMS 語音幀 3/128 (2.3%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.3% < 16%）
+[recorder][VAD] RMS 語音幀 0/68 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/87 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=90ms 峰值=1731 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1029 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 42/344 (12.2%)，有效語音 1.26s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 12.2% < 16%）
+[tap][sample] 持續=60ms 峰值=1150 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1016 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 26/176 (14.8%)，有效語音 0.78s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 14.8% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 2/67 (3.0%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.0% < 16%）
+[recorder][VAD] RMS 語音幀 2/60 (3.3%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.3% < 16%）
+[tap][sample] 持續=90ms 峰值=1356 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 26/210 (12.4%)，有效語音 0.78s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 12.4% < 16%）
+[recorder][VAD] RMS 語音幀 2/94 (2.1%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.1% < 16%）
+[recorder][VAD] RMS 語音幀 1/46 (2.2%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.2% < 16%）
+[tap][sample] 持續=30ms 峰值=1103 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 21/136 (15.4%)，有效語音 0.63s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 15.4% < 16%）
+[recorder][VAD] RMS 語音幀 2/81 (2.5%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=90ms 峰值=1455 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1212 ✓
+[tap][sample] 持續=40ms 峰值=1014 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=160ms 峰值=1790 ✗長
+[tap][sample] 持續=130ms 峰值=1727 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1537 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=1112 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 390ms / 250ms，一致性 0.64）
+[main][17:51:33] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 70/247 (28.3%)，有效語音 2.10s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:51:33] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=70ms 峰值=1040 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:51:34] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:51:34] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.54s, est_api=0.99s)
+[transcriber][17:51:34] ⏱️ API 耗時: 1.23s
+[main][17:51:34] ✅ 辨識完成: "那新架構應該..."
+[paster][17:51:34] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='那新架構應該...'
+[paster][17:51:34] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][17:51:34] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:34] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='那新架構應該...'
+[paster][17:51:34] 📋 CLIP verify ok: attempt=1, chars=9, text='那新架構應該...'
+[paster][17:51:34] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='那新架構應該...'
+[paster][17:51:34] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:51:34] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:51:34] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:51:34] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:51:34] 📋 CLIP restore wait: 0.30s
+[paster][17:51:35] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:35] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:35] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:35] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=60ms 峰值=1590 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:51:37] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:37] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=190ms 峰值=2547 ✗長
+[tap][sample] 持續=120ms 峰值=1817 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1467 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1074 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 350ms / 610ms，一致性 0.57）
+[recorder][17:51:40] 🚀 預熱命中，直接開始錄音
+[main][17:51:40] ⏱️ recorder.start() 耗時 0.6ms，ok=True
+[main][17:51:40] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=1169 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=61ms 峰值=1422 ✓
+[tap][sample] 持續=90ms 峰值=1391 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=1650 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=129ms 峰值=1376 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 990ms / 351ms，一致性 0.35），忽略
+[tap][sample] 持續=130ms 峰值=1307 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 351ms / 380ms，一致性 0.92）
+[main][17:51:43] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 53/130 (40.8%)，有效語音 1.59s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:51:43] ✅ 錄音完成，送出辨識
+[paster][17:51:44] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:51:44] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.19s, est_api=0.64s)
+[transcriber][17:51:45] ⏱️ API 耗時: 0.73s
+[main][17:51:45] ✅ 辨識完成: "圖片是就"
+[paster][17:51:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='圖片是就'
+[paster][17:51:45] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][17:51:45] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:45] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='圖片是就'
+[paster][17:51:45] 📋 CLIP verify ok: attempt=1, chars=4, text='圖片是就'
+[paster][17:51:45] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='圖片是就'
+[paster][17:51:45] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:51:45] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:51:45] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:51:45] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:51:45] 📋 CLIP restore wait: 0.30s
+[paster][17:51:45] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:45] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:45] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:45] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:51:47] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:47] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=130ms 峰值=2262 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=130ms 峰值=1890 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=159ms 峰值=1576 ✗長
+[tap][sample] 持續=60ms 峰值=1145 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 290ms / 610ms，一致性 0.48），忽略
+[tap][sample] 持續=31ms 峰值=1010 ✓
+[tap][sample] 持續=30ms 峰值=1239 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 610ms / 540ms，一致性 0.88）
+[recorder][17:51:50] 🚀 預熱命中，直接開始錄音
+[main][17:51:50] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:51:50] 🎙️ 開始錄音
+[tap][sample] 持續=100ms 峰值=1586 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1106 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=29ms 峰值=1054 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 320ms / 291ms，一致性 0.91）
+[main][17:51:52] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 26/84 (31.0%)，有效語音 0.78s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:51:52] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=130ms 峰值=2092 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:51:53] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:51:53] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.05s, est_api=0.50s)
+[tap][sample] 持續=380ms 峰值=3105 ✗長
+[tap][sample] 持續=280ms 峰值=3754 ✗長
+[transcriber][17:51:53] ⏱️ API 耗時: 0.78s
+[main][17:51:53] ✅ 辨識完成: "這個"
+[paster][17:51:53] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這個'
+[paster][17:51:53] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][17:51:53] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:53] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='這個'
+[paster][17:51:53] 📋 CLIP verify ok: attempt=1, chars=2, text='這個'
+[paster][17:51:53] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='這個'
+[paster][17:51:53] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:51:53] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:51:53] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:51:53] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:51:53] 📋 CLIP restore wait: 0.30s
+[paster][17:51:54] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:54] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:54] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:54] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=1010 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=1048 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=1298 ✓
+[tap][sample] 持續=130ms 峰值=1423 ✓
+[tap][sample] 持續=60ms 峰值=1437 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 1151ms / 579ms，一致性 0.50）
+[recorder][17:51:56] 🚀 預熱命中，直接開始錄音
+[main][17:51:56] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][17:51:56] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=1481 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:51:56] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:56] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=220ms 峰值=2802 ✗長
+[tap][sample] 持續=60ms 峰值=1504 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=90ms 峰值=1317 ✓
+[tap][sample] 持續=60ms 峰值=1875 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 420ms / 320ms，一致性 0.76）
+[main][17:51:57] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 28/32 (87.5%)，有效語音 0.84s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:51:57] ✅ 錄音完成，送出辨識
+[paster][17:51:57] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:51:57] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.35s)
+[transcriber][17:51:58] ⏱️ API 耗時: 0.65s
+[main][17:51:58] ✅ 辨識完成: "其實會很多地方都"
+[paster][17:51:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='其實會很多地方都'
+[paster][17:51:58] 📋 CLIP flow start: target_chars=8, restore_delay=0.30s
+[paster][17:51:58] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:58] 📋 CLIP set attempt 1/4: chars=8, bytes=18, preview='其實會很多地方都'
+[paster][17:51:58] 📋 CLIP verify ok: attempt=1, chars=8, text='其實會很多地方都'
+[paster][17:51:58] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='其實會很多地方都'
+[paster][17:51:58] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:51:58] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:51:58] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:51:58] ⏱️ 收到→貼上完成: 0.20s
+[paster][17:51:58] 📋 CLIP restore wait: 0.30s
+[paster][17:51:58] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:58] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:58] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:51:58] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=70ms 峰值=1475 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:52:00] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:00] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=230ms 峰值=1350 ✗長
+[tap][sample] 持續=70ms 峰值=1669 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1865 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1060 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 670ms / 230ms，一致性 0.34），忽略
+[tap][sample] 持續=30ms 峰值=1052 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 230ms / 610ms，一致性 0.38），忽略
+[tap][sample] 持續=90ms 峰值=1917 ✓
+[tap][sample] 持續=70ms 峰值=1300 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1081 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1101 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=1115 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=221ms 峰值=3364 ✗長
+[tap][sample] 持續=40ms 峰值=1449 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=1068 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 480ms / 610ms，一致性 0.79）
+[recorder][17:52:29] 🚀 預熱命中，直接開始錄音
+[main][17:52:29] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:52:29] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 6/67 (9.0%)，有效語音 0.18s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 9.0% < 16%）
+[tap][sample] 持續=100ms 峰值=1413 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=160ms 峰值=2250 ✗長
+[tap][sample] 持續=30ms 峰值=1051 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1044 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 61/298 (20.5%)，有效語音 1.83s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 8.9s 音訊段落
+[main][17:52:40] ✂️ 自動分段送出（靜音達1s，累積 8.9s，靜音 1.2s）
+[tap][sample] 持續=129ms 峰值=7066 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1448 ✓
+[tap][sample] 持續=100ms 峰值=3463 ✓
+[tap] 🎯 敲擊 #2
+[paster][17:52:41] 📏 [UIA] text='https://develop.pro.', text_after='\n￼\n分組\n全部\n113\n233\n333', at_end=False, last_punct=False
+[paster][17:52:41] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.69s, est_api=1.14s)
+[transcriber][17:52:42] ⏱️ API 耗時: 1.06s
+[main][17:52:42] ✅ 分段辨識完成: "如果他要優先的話就是下禮拜開始翻。你要優先？"
+[paster][17:52:42] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='如果他要優先的話就是下禮拜開始翻。你要優先？'
+[paster][17:52:42] 📋 CLIP flow start: target_chars=22, restore_delay=0.30s
+[paster][17:52:42] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:42] 📋 CLIP set attempt 1/4: chars=22, bytes=46, preview='如果他要優先的話就是下禮拜開始翻。你要優先？'
+[paster][17:52:42] 📋 CLIP verify ok: attempt=1, chars=22, text='如果他要優先的話就是下禮拜開始翻。你要優'
+[paster][17:52:42] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='如果他要優先的話就是下禮拜開始翻。你要優先？'
+[paster][17:52:42] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:52:42] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:52:42] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:52:42] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:52:42] 📋 CLIP restore wait: 0.30s
+[paster][17:52:42] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:42] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:42] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:42] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 15/122 (12.3%)，有效語音 0.45s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 12.3% < 16%）
+[paster][17:52:45] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:45] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 3/53 (5.7%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.7% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 38/196 (19.4%)，有效語音 1.14s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.9s 音訊段落
+[main][17:52:55] ✂️ 自動分段送出（靜音達1s，累積 5.9s，靜音 1.1s）
+[paster][17:52:56] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:52:56] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.39s, est_api=0.84s)
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:52:56] ⏱️ API 耗時: 0.93s
+[main][17:52:56] ✅ 分段辨識完成: "你怎麼還是用Coser"
+[paster][17:52:56] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='你怎麼還是用Coser'
+[paster][17:52:56] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][17:52:56] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:56] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='你怎麼還是用Coser'
+[paster][17:52:57] 📋 CLIP verify ok: attempt=1, chars=11, text='你怎麼還是用Coser'
+[paster][17:52:57] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Uanalyze dashboard - Antigravity - mcp_config.json"，hwnd=0x00031392，keys_before=async_down=none; logical_down=none，text='你怎麼還是用Coser'
+[paster][17:52:57] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:52:57] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:52:57] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:52:57] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:52:57] 📋 CLIP restore wait: 0.30s
+[paster][17:52:57] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:57] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:57] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:57] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:52:59] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:52:59] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1063 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1683 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1042 ✓
+[recorder][VAD] RMS 語音幀 32/182 (17.6%)，有效語音 0.96s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.5s 音訊段落
+[main][17:53:03] ✂️ 自動分段送出（靜音達1s，累積 5.5s，靜音 1.2s）
+[tap][sample] 持續=60ms 峰值=1807 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:53:04] 📏 [UIA] text='你現在看https://staging.', text_after='', at_end=True, last_punct=False
+[paster][17:53:04] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.35s, est_api=0.80s)
+[transcriber][17:53:04] ⏱️ API 耗時: 0.84s
+[main][17:53:04] ✅ 分段辨識完成: "我要習慣講"
+[paster][17:53:04] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='我要習慣講'
+[paster][17:53:04] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][17:53:04] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:04] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='。我要習慣講'
+[paster][17:53:04] 📋 CLIP verify ok: attempt=1, chars=6, text='。我要習慣講'
+[paster][17:53:04] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Uanalyze dashboard - Antigravity - mcp_config.json"，hwnd=0x00031392，keys_before=async_down=none; logical_down=none，text='。我要習慣講'
+[paster][17:53:04] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:53:04] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:53:04] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:53:04] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:53:04] 📋 CLIP restore wait: 0.30s
+[paster][17:53:05] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:05] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:05] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:05] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 9/88 (10.2%)，有效語音 0.27s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 10.2% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:53:07] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:07] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=40ms 峰值=1114 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=1306 ✓
+[recorder][VAD] RMS 語音幀 14/94 (14.9%)，有效語音 0.42s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 14.9% < 16%）
+[tap][sample] 持續=60ms 峰值=1230 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=390ms 峰值=3928 ✗長
+[tap][sample] 持續=70ms 峰值=1924 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=1626 ✓
+[tap][sample] 持續=70ms 峰值=3576 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 1020ms / 930ms，一致性 0.91）
+[main][17:53:12] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 25/71 (35.2%)，有效語音 0.75s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][17:53:12] ✅ 錄音完成，送出辨識
+[tap][sample] 持續=31ms 峰值=1672 ✓
+[tap] 🎯 敲擊 #1
+[paster][17:53:12] 📏 [UIA] text='你現在看https://staging.', text_after='', at_end=True, last_punct=False
+[paster][17:53:12] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.02s, est_api=0.47s)
+[tap][sample] 持續=70ms 峰值=1253 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1340 ✓
+[transcriber][17:53:13] ⏱️ API 耗時: 0.77s
+[main][17:53:13] ✅ 辨識完成: "直接講話"
+[paster][17:53:13] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='直接講話'
+[paster][17:53:13] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][17:53:13] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:13] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='。直接講話'
+[paster][17:53:13] 📋 CLIP verify ok: attempt=1, chars=5, text='。直接講話'
+[paster][17:53:13] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Uanalyze dashboard - Antigravity - mcp_config.json"，hwnd=0x00031392，keys_before=async_down=none; logical_down=none，text='。直接講話'
+[paster][17:53:13] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:53:13] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:53:13] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:53:13] ⏱️ 收到→貼上完成: 0.21s
+[paster][17:53:13] 📋 CLIP restore wait: 0.30s
+[paster][17:53:13] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:13] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:13] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:13] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=70ms 峰值=1947 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 890ms / 1120ms，一致性 0.79）
+[recorder][17:53:14] 🚀 預熱命中，直接開始錄音
+[main][17:53:14] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][17:53:14] 🎙️ 開始錄音
+[tap][sample] 持續=70ms 峰值=1215 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 2/40 (5.0%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.0% < 16%）
+[paster][17:53:16] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:16] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 1/61 (1.6%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 18/155 (11.6%)，有效語音 0.54s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 11.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 7/182 (3.8%)，有效語音 0.21s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.8% < 16%）
+[tap][sample] 持續=129ms 峰值=4477 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 13/114 (11.4%)，有效語音 0.39s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 11.4% < 16%）
+[tap][sample] 持續=100ms 峰值=1814 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1171 ✓
+[tap] 🎯 敲擊 #2
+[recorder][VAD] RMS 語音幀 24/143 (16.8%)，有效語音 0.72s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 4.3s 音訊段落
+[main][17:53:41] ✂️ 自動分段送出（靜音達1s，累積 4.3s，靜音 1.1s）
+[tap][sample] 持續=60ms 峰值=1366 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1093 ✓
+[paster][17:53:42] 📏 [UIA] text='https://develop.pro.', text_after='-7.68%\n+11.44%\n￼\n202', at_end=False, last_punct=False
+[paster][17:53:42] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.23s, est_api=0.68s)
+[transcriber][17:53:42] ⏱️ API 耗時: 0.79s
+[main][17:53:42] ✅ 分段辨識完成: "但是翻的時候"
+[paster][17:53:42] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='但是翻的時候'
+[paster][17:53:42] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][17:53:42] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:42] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='但是翻的時候'
+[paster][17:53:42] 📋 CLIP verify ok: attempt=1, chars=6, text='但是翻的時候'
+[paster][17:53:42] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='但是翻的時候'
+[paster][17:53:42] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:53:42] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:53:42] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:53:42] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:53:42] 📋 CLIP restore wait: 0.30s
+[paster][17:53:42] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:42] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:43] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:43] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 18/108 (16.7%)，有效語音 0.54s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][17:53:44] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.1s）
+[paster][17:53:45] 📏 [UIA] text='https://develop.pro.', text_after='-7.68%\n+11.44%\n￼\n202', at_end=False, last_punct=False
+[paster][17:53:45] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[paster][17:53:45] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:45] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/39 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:53:45] ⏱️ API 耗時: 0.98s
+[main][17:53:45] ✅ 分段辨識完成: "這樣就沒差了吧"
+[paster][17:53:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這樣就沒差了吧'
+[paster][17:53:45] 📋 CLIP flow start: target_chars=7, restore_delay=0.30s
+[paster][17:53:45] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:45] 📋 CLIP set attempt 1/4: chars=7, bytes=16, preview='這樣就沒差了吧'
+[paster][17:53:45] 📋 CLIP verify ok: attempt=1, chars=7, text='這樣就沒差了吧'
+[paster][17:53:46] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='這樣就沒差了吧'
+[paster][17:53:46] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:53:46] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:53:46] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:53:46] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:53:46] 📋 CLIP restore wait: 0.30s
+[paster][17:53:46] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:46] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:46] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:46] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=1375 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=61ms 峰值=2435 ✓
+[tap][sample] 持續=60ms 峰值=1250 ✓
+[tap] 🎯 敲擊 #2
+[paster][17:53:48] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:48] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=60ms 峰值=1036 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1235 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=160ms 峰值=2475 ✗長
+[recorder][VAD] RMS 語音幀 54/230 (23.5%)，有效語音 1.62s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 6.9s 音訊段落
+[main][17:53:52] ✂️ 自動分段送出（靜音達1s，累積 6.9s，靜音 1.1s）
+[paster][17:53:53] 📏 [UIA] text='https://develop.pro.', text_after='-7.68%\n+11.44%\n￼\n202', at_end=False, last_punct=False
+[paster][17:53:53] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.49s, est_api=0.94s)
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][17:53:53] ⏱️ API 耗時: 0.94s
+[main][17:53:53] ✅ 分段辨識完成: "流量很硬耶"
+[paster][17:53:54] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='流量很硬耶'
+[paster][17:53:54] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][17:53:54] 📋 CLIP backup: count=7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:54] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='流量很硬耶'
+[paster][17:53:54] 📋 CLIP verify ok: attempt=1, chars=5, text='流量很硬耶'
+[paster][17:53:54] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="優分析 UAnalyze 達人策略－我的戰情室 - Google Chrome"，hwnd=0x00070aa0，keys_before=async_down=none; logical_down=none，text='流量很硬耶'
+[paster][17:53:54] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:53:54] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:53:54] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:53:54] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:53:54] 📋 CLIP restore wait: 0.30s
+[paster][17:53:54] 📋 CLIP restore attempt 1/4: text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:54] 📋 CLIP restore: restored=7/7, formats=49376:1362B, 13:100B, 49903:24B, 49905:119B, 16:4B, 1:99B, 7:99B, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:54] 📋 CLIP restore verify ok: attempt=1, text='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:54] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 0/74 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][17:53:56] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='再來。下一個問題是要怎麼讓手敲的判斷更精'
+[paster][17:53:56] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=29ms 峰值=1122 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1430 ✓
+[recorder][VAD] RMS 語音幀 20/128 (15.6%)，有效語音 0.60s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 15.6% < 16%）
+[recorder][VAD] RMS 語音幀 35/230 (15.2%)，有效語音 1.05s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 15.2% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=3166 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=4548 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=8034 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 230ms / 250ms，一致性 0.92）
+[main][17:54:19] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.57s)，略過
+[tap][sample] 持續=30ms 峰值=7393 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=7000 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=7128 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 230ms，一致性 0.92）
+[recorder][17:54:21] 🚀 預熱命中，直接開始錄音
+[main][17:54:21] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][17:54:21] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1802 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1644 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=31ms 峰值=5003 ✓
+[recorder][VAD] RMS 語音幀 5/53 (9.4%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 9.4% < 16%）
+[tap][sample] 持續=40ms 峰值=4398 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 230ms / 1400ms，一致性 0.16），忽略
+[tap][sample] 持續=29ms 峰值=2301 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1400ms / 261ms，一致性 0.19），忽略
+[tap][sample] 持續=70ms 峰值=3095 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 261ms / 219ms，一致性 0.84）
+[main][17:54:24] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.70s)，略過
+[tap][sample] 持續=30ms 峰值=1777 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=3235 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3032 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1191 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=2016 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1142 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=2075 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1668 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1207 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=130ms 峰值=1388 ✓
+[tap][sample] 持續=30ms 峰值=1028 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1074 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1060 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=1716 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1115 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=1068 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1024 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1115 ✓
+[tap][sample] 持續=60ms 峰值=1794 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 540ms / 610ms，一致性 0.88）
+[recorder][17:57:21] 🚀 預熱命中，直接開始錄音
+[main][17:57:21] ⏱️ recorder.start() 耗時 0.6ms，ok=True
+[main][17:57:21] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=1161 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 14/162 (8.6%)，有效語音 0.42s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 8.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/88 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 1/94 (1.1%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.1% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1022 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1643 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1277 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 129/758 (17.0%)，有效語音 3.87s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 22.8s 音訊段落
+[main][17:58:00] ✂️ 自動分段送出（累積夠長+短靜音，累積 22.8s，靜音 1.1s）
+[transcriber][17:58:01] ⏱️ API 耗時: 1.18s
+[main][17:58:01] ✅ 分段辨識完成: "我們一來所有的都全部停"
+[paster][17:58:01] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:58:01] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=15ms, final='我們一來所有的都全部停'
+[paster][17:58:01] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster][17:58:01] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][17:58:01] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='我們一來所有的都全部停'
+[paster][17:58:01] 📏 [UIA] 文字為空 → 不加句號
+[paster][17:58:01] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.53s, est_api=1.98s)
+[paster][17:58:01] 📋 CLIP verify ok: attempt=1, chars=11, text='我們一來所有的都全部停'
+[paster][17:58:01] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="媒體播放器"，hwnd=0x00b71502，keys_before=async_down=none; logical_down=none，text='我們一來所有的都全部停'
+[paster][17:58:01] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][17:58:01] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][17:58:01] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][17:58:01] ⏱️ 收到→貼上完成: 0.19s
+[paster][17:58:01] 📋 CLIP restore wait: 0.30s
+[paster][17:58:02] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][17:58:02] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][17:58:02] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][17:58:02] 🚫 CLIP guard disarmed: blocked=0
+[paster][17:58:04] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][17:58:04] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 27/589 (4.6%)，有效語音 0.81s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 4.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/94 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/305 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 1/202 (0.5%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 21/1571 (1.3%)，有效語音 0.63s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.3% < 16%）
+[recorder][VAD] RMS 語音幀 1/257 (0.4%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.4% < 16%）
+[recorder][VAD] RMS 語音幀 2/202 (1.0%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 1/223 (0.4%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.4% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 2/149 (1.3%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.3% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/114 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=40ms 峰值=1220 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 18/474 (3.8%)，有效語音 0.54s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.8% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 5/169 (3.0%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.0% < 16%）
+[recorder][VAD] RMS 語音幀 3/94 (3.2%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.2% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=29ms 峰值=1003 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 6/162 (3.7%)，有效語音 0.18s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.7% < 16%）
+[recorder][VAD] RMS 語音幀 0/101 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 16/243 (6.6%)，有效語音 0.48s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 6.6% < 16%）
+[recorder][VAD] RMS 語音幀 1/237 (0.4%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.4% < 16%）
+[recorder][VAD] RMS 語音幀 3/175 (1.7%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.7% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 5/243 (2.1%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.1% < 16%）
+[recorder][VAD] RMS 語音幀 24/683 (3.5%)，有效語音 0.72s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 1/108 (0.9%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.9% < 16%）
+[recorder][VAD] RMS 語音幀 0/115 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/40 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=70ms 峰值=2850 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1185 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1767 ✓
+[tap][sample] 持續=40ms 峰值=1103 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1333 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 250ms / 1320ms，一致性 0.19），忽略
+[tap][sample] 持續=40ms 峰值=1422 ✓
+[tap][sample] 持續=30ms 峰值=1020 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 110/454 (24.2%)，有效語音 3.30s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 13.6s 音訊段落
+[main][18:01:49] ✂️ 自動分段送出（靜音達1s，累積 13.6s，靜音 1.1s）
+[paster][18:01:50] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:01:50] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.16s, est_api=1.61s)
+[transcriber][18:01:50] ⏱️ API 耗時: 1.00s
+[main][18:01:50] ✅ 分段辨識完成: "又來又來"
+[paster][18:01:50] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='又來又來'
+[paster][18:01:50] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][18:01:50] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:01:50] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='又來又來'
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][18:01:50] 📋 CLIP verify ok: attempt=1, chars=4, text='又來又來'
+[paster][18:01:50] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="媒體播放器"，hwnd=0x00b71502，keys_before=async_down=none; logical_down=none，text='又來又來'
+[paster][18:01:50] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:01:50] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:01:50] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:01:50] ⏱️ 收到→貼上完成: 0.19s
+[paster][18:01:50] 📋 CLIP restore wait: 0.30s
+[paster][18:01:51] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:01:51] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:01:51] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:01:51] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][18:01:53] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:01:53] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/61 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 3/95 (3.2%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.2% < 16%）
+[recorder][VAD] RMS 語音幀 1/121 (0.8%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.8% < 16%）
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 3/47 (6.4%)，有效語音 0.09s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 6.4% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1177 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 12/344 (3.5%)，有效語音 0.36s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 3.5% < 16%）
+[recorder][VAD] RMS 語音幀 73/1171 (6.2%)，有效語音 2.19s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 6.2% < 16%）
+[recorder][VAD] RMS 語音幀 2/385 (0.5%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 25/216 (11.6%)，有效語音 0.75s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 11.6% < 16%）
+[recorder][VAD] RMS 語音幀 0/88 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 2/135 (1.5%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/87 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=59ms 峰值=2369 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=2696 ✓
+[tap][sample] 持續=100ms 峰值=10492 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=101ms 峰值=9317 ✓
+[tap][sample] 持續=90ms 峰值=11142 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 219ms / 1480ms，一致性 0.15），忽略
+[tap][sample] 持續=29ms 峰值=4135 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1480ms / 221ms，一致性 0.15），忽略
+[tap][sample] 持續=40ms 峰值=1100 ✓
+[tap][sample] 持續=70ms 峰值=3564 ✓
+[tap][sample] 持續=30ms 峰值=1343 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 221ms / 289ms，一致性 0.76）
+[main][18:03:31] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 30/145 (20.7%)，有效語音 0.90s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][18:03:31] ✅ 錄音完成，送出辨識
+[paster][18:03:31] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:03:31] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.24s, est_api=0.69s)
+[transcriber][18:03:32] ⏱️ API 耗時: 0.97s
+[main][18:03:32] ✅ 辨識完成: "可是喔"
+[paster][18:03:32] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='可是喔'
+[paster][18:03:32] 📋 CLIP flow start: target_chars=3, restore_delay=0.30s
+[paster][18:03:32] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:03:32] 📋 CLIP set attempt 1/4: chars=3, bytes=8, preview='可是喔'
+[paster][18:03:32] 📋 CLIP verify ok: attempt=1, chars=3, text='可是喔'
+[paster][18:03:32] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="媒體播放器"，hwnd=0x00b71502，keys_before=async_down=none; logical_down=none，text='可是喔'
+[paster][18:03:32] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:03:32] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:03:32] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:03:32] ⏱️ 收到→貼上完成: 0.20s
+[paster][18:03:32] 📋 CLIP restore wait: 0.30s
+[paster][18:03:33] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:03:33] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:03:33] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:03:33] 🚫 CLIP guard disarmed: blocked=0
+[paster][18:03:35] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:03:35] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=31ms 峰值=2120 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1402 ✓
+[tap][sample] 持續=30ms 峰值=2404 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=5495 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 1500ms / 260ms，一致性 0.17），忽略
+[tap][sample] 持續=30ms 峰值=6085 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 260ms / 220ms，一致性 0.85）
+[recorder][18:03:44] 🚀 預熱命中，直接開始錄音
+[main][18:03:44] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:03:44] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=6376 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=4421 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=4412 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 230ms，一致性 0.92）
+[main][18:03:45] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 4/46 (8.7%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 8.7% < 16%）
+[tap][sample] 持續=30ms 峰值=2277 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1191 ✓
+[tap][sample] 持續=29ms 峰值=1879 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=6075 ✓
+[tap][sample] 持續=30ms 峰值=7616 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 701ms / 419ms，一致性 0.60）
+[recorder][18:03:47] 🚀 預熱命中，直接開始錄音
+[main][18:03:47] ⏱️ recorder.start() 耗時 0.4ms，ok=True
+[main][18:03:47] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=7593 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=5670 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=6290 ✓
+[tap][sample] 持續=30ms 峰值=7281 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 250ms / 1220ms，一致性 0.21），忽略
+[tap][sample] 持續=70ms 峰值=4283 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1220ms / 220ms，一致性 0.18），忽略
+[tap][sample] 持續=30ms 峰值=4346 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 220ms / 230ms，一致性 0.96）
+[main][18:03:50] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 13/91 (14.3%)，有效語音 0.39s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 14.3% < 16%）
+[tap][sample] 持續=30ms 峰值=7725 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=7631 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=6482 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 220ms，一致性 0.85）
+[recorder][18:03:51] 🚀 預熱命中，直接開始錄音
+[main][18:03:51] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:03:51] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=2658 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=7476 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=5524 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 220ms / 230ms，一致性 0.96）
+[main][18:03:53] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 4/52 (7.7%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 7.7% < 16%）
+[tap][sample] 持續=31ms 峰值=1545 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=3052 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=2929 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 480ms / 570ms，一致性 0.84）
+[recorder][18:03:55] 🚀 預熱命中，直接開始錄音
+[main][18:03:55] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:03:55] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=4762 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1379 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=130ms 峰值=4080 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 350ms / 260ms，一致性 0.74）
+[main][18:03:57] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 9/64 (14.1%)，有效語音 0.27s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 14.1% < 16%）
+[tap][sample] 持續=160ms 峰值=2648 ✗長
+[tap][sample] 持續=40ms 峰值=1008 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1157 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=130ms 峰值=3268 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 840ms / 280ms，一致性 0.33），忽略
+[tap][sample] 持續=101ms 峰值=3424 ✓
+[tap][sample] 持續=60ms 峰值=4034 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 280ms / 1000ms，一致性 0.28），忽略
+[tap][sample] 持續=30ms 峰值=2320 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 1000ms / 570ms，一致性 0.57）
+[recorder][18:04:01] 🚀 預熱命中，直接開始錄音
+[main][18:04:01] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:04:01] 🎙️ 開始錄音
+[tap][sample] 持續=90ms 峰值=1938 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1518 ✓
+[tap][sample] 持續=30ms 峰值=2125 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1450 ✓
+[tap][sample] 持續=70ms 峰值=4699 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 250ms，一致性 0.86）
+[main][18:04:02] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.68s)，略過
+[tap][sample] 持續=30ms 峰值=3151 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1041 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1464 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1400 ✓
+[tap][sample] 持續=190ms 峰值=2118 ✗長
+[tap][sample] 持續=100ms 峰值=1419 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1689 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 670ms / 1120ms，一致性 0.60）
+[recorder][18:04:15] 🚀 預熱命中，直接開始錄音
+[main][18:04:15] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:04:15] 🎙️ 開始錄音
+[tap][sample] 持續=160ms 峰值=2624 ✗長
+[tap][sample] 持續=60ms 峰值=1376 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=130ms 峰值=1754 ✓
+[tap][sample] 持續=30ms 峰值=1214 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=1111 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 510ms / 610ms，一致性 0.84）
+[main][18:04:16] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 47/63 (74.6%)，有效語音 1.41s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][18:04:16] ✅ 錄音完成，送出辨識
+[paster][18:04:16] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:04:16] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.44s)
+[tap][sample] 持續=30ms 峰值=1057 ✓
+[tap] 🎯 敲擊 #1
+[transcriber][18:04:18] ⏱️ API 耗時: 1.36s
+[main][18:04:18] ✅ 辨識完成: "我怎麼會這麼屌"
+[paster][18:04:18] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='我怎麼會這麼屌'
+[paster][18:04:18] 📋 CLIP flow start: target_chars=7, restore_delay=0.30s
+[paster][18:04:18] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:04:18] 📋 CLIP set attempt 1/4: chars=7, bytes=16, preview='我怎麼會這麼屌'
+[paster][18:04:18] 📋 CLIP verify ok: attempt=1, chars=7, text='我怎麼會這麼屌'
+[paster][18:04:18] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="媒體播放器"，hwnd=0x00b71502，keys_before=async_down=none; logical_down=none，text='我怎麼會這麼屌'
+[paster][18:04:18] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:04:18] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:04:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:04:18] ⏱️ 收到→貼上完成: 0.21s
+[paster][18:04:18] 📋 CLIP restore wait: 0.30s
+[paster][18:04:19] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:04:19] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:04:19] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:04:19] 🚫 CLIP guard disarmed: blocked=0
+[paster][18:04:21] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:04:21] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=31ms 峰值=1039 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1180 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1301 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1123 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=59ms 峰值=1396 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1135 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1246 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1041 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1063 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=129ms 峰值=1471 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=1327 ✓
+[tap][sample] 持續=70ms 峰值=1470 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=90ms 峰值=1663 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 699ms / 1350ms，一致性 0.52）
+[recorder][18:05:53] 🚀 預熱命中，直接開始錄音
+[main][18:05:53] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:05:53] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 12/142 (8.5%)，有效語音 0.36s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 8.5% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/61 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 16/162 (9.9%)，有效語音 0.48s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 9.9% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/156 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 4/162 (2.5%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.5% < 16%）
+[tap][sample] 持續=61ms 峰值=1623 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1215 ✓
+[tap][sample] 持續=30ms 峰值=1109 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=120ms 峰值=1467 ✓
+[recorder][VAD] RMS 語音幀 25/169 (14.8%)，有效語音 0.75s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 14.8% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 5/243 (2.1%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.1% < 16%）
+[recorder][VAD] RMS 語音幀 0/67 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1183 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1364 ✓
+[tap] 🎯 敲擊 #1
+[recorder][VAD] RMS 語音幀 32/237 (13.5%)，有效語音 0.96s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 13.5% < 16%）
+[recorder][VAD] RMS 語音幀 1/74 (1.4%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.4% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 4/243 (1.6%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.6% < 16%）
+[recorder][VAD] RMS 語音幀 23/223 (10.3%)，有效語音 0.69s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 10.3% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/54 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）

@@ -51,5 +51,5 @@ python -m ai_whisper
 ## 安全注意
 
 - 不要提交真實 API Key。
-- 不要提交打包輸出、虛擬環境或產生的 metadata；`tap_test_logs/` 等診斷分流建議維持不提交。主程式 **`logs/`** 可依需求納版本庫，若日誌曾含機密或完整對話請先清理。
-- 目前 `.gitignore` 已排除 `config.json`、多數 `*.log`（**`logs/` 內主程式輸出除外**）、`build/`、`dist/`、虛擬環境和 package metadata。
+- 不要提交打包輸出、虛擬環境或產生的 metadata。主程式 **`logs/`** 與敲麥 **`tap_test_logs/`** 可依需求納版本庫，若曾含機密或完整對話請先清理。
+- 目前 `.gitignore` 已排除 `config.json`、多數 `*.log`（**`logs/`、`tap_test_logs/` 例外**）、`build/`、`dist/`、虛擬環境和 package metadata。

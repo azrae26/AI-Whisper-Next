@@ -1,0 +1,132 @@
+[tap]        [03:50:15.620] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:50:16.765] 持續=171ms 峰值=10505 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:16.936] 持續=89ms 峰值=10140 ✓ 🎯 敲擊 #2
+[tap][sample][03:50:17.189] 持續=161ms 峰值=8131 ✓ 🎯 敲擊 #3
+[tap]        [03:50:17.189] 🔔 三連敲觸發（間隔 253ms / 179ms，一致性 0.71）
+[tap][dim]   [03:50:17.190] 持續=1ms 峰值=372 ✗弱
+[tap]        [03:50:17.243] 💤 敲麥監聽已停止
+[tap][sample][03:50:19.340] 持續=171ms 峰值=5422 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:19.600] 持續=171ms 峰值=6341 ✓ 🎯 敲擊 #2
+[tap][sample][03:50:19.852] 持續=171ms 峰值=8276 ✓ 🎯 敲擊 #3
+[tap]        [03:50:19.852] 🔔 三連敲觸發（間隔 261ms / 252ms，一致性 0.97）
+[tap]        [03:50:20.494] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:50:21.815] 持續=0ms 峰值=2047 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:22.075] 持續=0ms 峰值=6454 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:50:22.075] 持續=0ms 峰值=510 ✗弱
+[tap][sample][03:50:22.298] 持續=173ms 峰值=6419 ✓ ⏱️ 防抖略過（距上次 49ms < 160ms）
+[tap]        [03:50:24.080] ⚠️ stream 意外終止（存活 3.6s），1s 後重試
+[tap]        [03:50:25.086] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:50:30.105] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:50:45.119] 🔌 重置 PortAudio 後端
+[tap]        [03:50:46.124] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:50:46.393] 持續=81ms 峰值=10414 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:46.654] 持續=80ms 峰值=11996 ✓ 🎯 敲擊 #2
+[tap]         ⏱️ 間隔過長重置（1440ms）
+[tap][sample][03:50:48.104] 持續=90ms 峰值=11369 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:48.364] 持續=89ms 峰值=10509 ✓ 🎯 敲擊 #2
+[tap][sample][03:50:48.617] 持續=171ms 峰值=9965 ✓ 🎯 敲擊 #3
+[tap]        [03:50:48.617] 🔔 三連敲觸發（間隔 261ms / 170ms，一致性 0.65）
+[tap]        [03:50:48.737] 💤 敲麥監聽已停止
+[tap][sample][03:50:51.875] 持續=261ms 峰值=6640 ✗長
+[tap][sample][03:50:52.045] 持續=171ms 峰值=6392 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:52.298] 持續=172ms 峰值=6992 ✓ 🎯 敲擊 #2
+[tap]         ⏱️ 間隔過長重置（2043ms）
+[tap][sample][03:50:54.350] 持續=180ms 峰值=6547 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:54.601] 持續=171ms 峰值=9771 ✓ 🎯 敲擊 #2
+[tap][sample][03:50:54.853] 持續=171ms 峰值=7427 ✓ 🎯 敲擊 #3
+[tap]        [03:50:54.853] 🔔 三連敲觸發（間隔 261ms / 252ms，一致性 0.97）
+[tap]        [03:50:55.514] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:50:59.713] 持續=171ms 峰值=11168 ✓ 🎯 敲擊 #1
+[tap][sample][03:50:59.893] 持續=89ms 峰值=11704 ✓ 🎯 敲擊 #2
+[tap][dim]   [03:50:59.974] 持續=81ms 峰值=432 ✗弱
+[tap][sample][03:51:00.227] 持續=162ms 峰值=13692 ✓ 🎯 敲擊 #3
+[tap]        [03:51:00.227] 🔔 三連敲觸發（間隔 262ms / 260ms，一致性 0.99）
+[tap]        [03:51:00.354] 💤 敲麥監聽已停止
+[tap][sample][03:51:02.719] 持續=171ms 峰值=6093 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:51:02.720] 持續=1ms 峰值=548 ✗弱
+[tap][sample][03:51:02.801] 持續=81ms 峰值=973 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:03.223] 持續=342ms 峰值=7872 ✗長
+[tap]         ⏱️ 間隔過長重置（2555ms）
+[tap][sample][03:51:05.446] 持續=171ms 峰值=7684 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:05.699] 持續=171ms 峰值=8020 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:05.869] 持續=81ms 峰值=7254 ✓ 🎯 敲擊 #3
+[tap]        [03:51:05.869] 🔔 三連敲觸發（間隔 252ms / 261ms，一致性 0.97）
+[tap]        [03:51:06.524] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:51:08.281] 持續=81ms 峰值=1442 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:08.372] 持續=90ms 峰值=1053 ✓ ⏱️ 防抖略過（距上次 81ms < 160ms）
+[tap][sample][03:51:08.542] 持續=90ms 峰值=5876 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:08.769] 持續=174ms 峰值=4979 ✓ ⏱️ 防抖略過（距上次 142ms < 160ms）
+[tap][dim]   [03:51:08.769] 持續=1ms 峰值=470 ✗弱
+[tap]        [03:51:10.564] ⚠️ stream 意外終止（存活 4.0s），1s 後重試
+[tap]        [03:51:11.572] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:51:16.581] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:51:31.598] 🔌 重置 PortAudio 後端
+[tap]        [03:51:32.592] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:51:32.977] 持續=171ms 峰值=14472 ✓ 🎯 敲擊 #1
+[tap]         ⏱️ 間隔過長重置（8100ms）
+[tap][sample][03:51:40.996] 持續=90ms 峰值=10238 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:41.248] 持續=170ms 峰值=8400 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:41.500] 持續=171ms 峰值=11264 ✓ 🎯 敲擊 #3
+[tap]        [03:51:41.500] 🔔 三連敲觸發（間隔 171ms / 251ms，一致性 0.68）
+[tap]        [03:51:41.625] 💤 敲麥監聽已停止
+[tap][sample][03:51:44.947] 持續=171ms 峰值=6906 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:45.209] 持續=171ms 峰值=7520 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:45.460] 持續=170ms 峰值=10651 ✓ 🎯 敲擊 #3
+[tap]        [03:51:45.460] 🔔 三連敲觸發（間隔 261ms / 253ms，一致性 0.97）
+[tap]        [03:51:46.101] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:51:48.961] 持續=171ms 峰值=12140 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:49.214] 持續=172ms 峰值=10668 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:49.385] 持續=81ms 峰值=10206 ✓ 🎯 敲擊 #3
+[tap]        [03:51:49.385] 🔔 三連敲觸發（間隔 252ms / 261ms，一致性 0.97）
+[tap]        [03:51:49.508] 💤 敲麥監聽已停止
+[tap][sample][03:51:52.302] 持續=164ms 峰值=6985 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:52.733] 持續=342ms 峰值=7466 ✗長
+[tap]         ⏱️ 間隔過長重置（4428ms）
+[tap][sample][03:51:56.747] 持續=180ms 峰值=9229 ✓ 🎯 敲擊 #1
+[tap][sample][03:51:56.999] 持續=171ms 峰值=9248 ✓ 🎯 敲擊 #2
+[tap][sample][03:51:57.170] 持續=170ms 峰值=6854 ✓ 🎯 敲擊 #3
+[tap]        [03:51:57.170] 🔔 三連敲觸發（間隔 261ms / 172ms，一致性 0.66）
+[tap]        [03:51:57.835] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:52:07.168] 持續=90ms 峰值=615 ✓ 🎯 敲擊 #1
+[tap]        [03:52:09.679] ⚠️ stream 意外終止（存活 11.8s），1s 後重試
+[tap]        [03:52:10.688] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:52:15.694] ❌ 無法開啟監聽 stream: Error opening InputStream: Invalid device [PaErrorCode -9996]
+[tap]        [03:52:30.697] 🔌 重置 PortAudio 後端
+[tap]        [03:52:31.007] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，30s 後重試
+[tap]        [03:53:01.017] 🔌 重置 PortAudio 後端
+[tap]        [03:53:02.982] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:53:04.705] 持續=171ms 峰值=10489 ✓ 🎯 敲擊 #1
+[tap][sample][03:53:04.958] 持續=171ms 峰值=10312 ✓ 🎯 敲擊 #2
+[tap][sample][03:53:05.129] 持續=171ms 峰值=12446 ✓ 🎯 敲擊 #3
+[tap]        [03:53:05.129] 🔔 三連敲觸發（間隔 252ms / 171ms，一致性 0.68）
+[tap]        [03:53:05.253] 💤 敲麥監聽已停止
+[tap][sample][03:53:07.865] 持續=171ms 峰值=7554 ✓ 🎯 敲擊 #1
+[tap][sample][03:53:08.026] 持續=162ms 峰值=7311 ✓ 🎯 敲擊 #2
+[tap][sample][03:53:08.287] 持續=171ms 峰值=9998 ✓ 🎯 敲擊 #3
+[tap]        [03:53:08.287] 🔔 三連敲觸發（間隔 171ms / 252ms，一致性 0.68）
+[tap]        [03:53:08.947] 🎙️ 敲麥監聽已啟動（device=29 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0
+[tap][sample][03:53:26.575] 持續=80ms 峰值=1827 ✓ 🎯 敲擊 #1
+[tap][dim]   [03:53:26.576] 持續=0ms 峰值=477 ✗弱
+[tap][sample][03:53:26.656] 持續=81ms 峰值=719 ✓ ⏱️ 防抖略過（距上次 81ms < 160ms）
+[tap][sample][03:53:26.746] 持續=0ms 峰值=4429 ✓ 🎯 敲擊 #2
+[tap][sample][03:53:27.007] 持續=0ms 峰值=4471 ✓ 🎯 敲擊 #3
+[tap]        [03:53:27.007] 🔔 三連敲觸發（間隔 252ms / 260ms，一致性 0.97）
+[tap]        [03:53:27.509] 💤 敲麥監聽已停止
+[tap]        [03:53:28.806] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，1s 後重試
+[tap]        [03:53:29.822] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，5s 後重試
+[tap]        [03:53:34.828] 🔌 重置 PortAudio 後端
+[tap]        [03:53:35.107] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，15s 後重試
+[tap]        [03:53:50.110] 🔌 重置 PortAudio 後端
+[tap]        [03:53:50.391] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，30s 後重試
+[tap]        [03:54:20.393] 🔌 重置 PortAudio 後端
+[tap]        [03:54:30.736] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [03:55:30.793] 🔌 重置 PortAudio 後端
+[tap]        [03:55:31.073] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [03:56:31.087] 🔌 重置 PortAudio 後端
+[tap]        [03:56:31.380] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [03:57:31.394] 🔌 重置 PortAudio 後端
+[tap]        [03:57:31.686] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [03:58:31.692] 🔌 重置 PortAudio 後端
+[tap]        [03:58:31.976] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [03:59:31.991] 🔌 重置 PortAudio 後端
+[tap]        [03:59:32.275] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試

@@ -1,0 +1,36 @@
+[tap]        [04:01:54.889] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，1s 後重試[main][04:01:54.889] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [04:01:55.895] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:01:57.910] 🔌 重置 PortAudio 後端
+[tap]        [04:01:58.186] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:00.190] 🔌 重置 PortAudio 後端
+[tap]        [04:02:00.487] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:02.494] 🔌 重置 PortAudio 後端
+[tap]        [04:02:02.779] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:04.795] 🔌 重置 PortAudio 後端
+[tap]        [04:02:05.073] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:07.081] 🔌 重置 PortAudio 後端
+[tap]        [04:02:07.360] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:09.360] 🔌 重置 PortAudio 後端
+[tap]        [04:02:09.705] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:11.740] 🔌 重置 PortAudio 後端
+[tap]        [04:02:12.128] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:14.143] 🔌 重置 PortAudio 後端
+[tap]        [04:02:14.524] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:16.534] 🔌 重置 PortAudio 後端
+[tap]        [04:02:16.895] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:18.912] 🔌 重置 PortAudio 後端
+[tap]        [04:02:19.193] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:21.194] 🔌 重置 PortAudio 後端
+[tap]        [04:02:21.484] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:23.495] 🔌 重置 PortAudio 後端
+[tap]        [04:02:23.774] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:25.790] 🔌 重置 PortAudio 後端
+[tap]        [04:02:26.074] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:28.081] 🔌 重置 PortAudio 後端
+[tap]        [04:02:28.362] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:30.374] 🔌 重置 PortAudio 後端
+[tap]        [04:02:30.659] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:32.671] 🔌 重置 PortAudio 後端
+[tap]        [04:02:32.957] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試
+[tap]        [04:02:34.969] 🔌 重置 PortAudio 後端
+[tap]        [04:02:35.249] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks (23 耳機 (@System32\drivers\bthhfenum.sys,#2;%1 Hands-Free AG Audio%0  ;(DJI Mic Mini-E2C662)) / Windows WDM-KS / 8000Hz -> device not ready)，2s 後重試

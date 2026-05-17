@@ -1,0 +1,345 @@
+[main] LOG -> D:\Cursor\AI Whisper Next\ai_whisper_20260515_180720.log
+[settings] config loaded from D:\Cursor\AI Whisper Next\config.json
+[main][18:07:20] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][18:07:20] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torch'
+[tap][sample] 持續=30ms 峰值=6586 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=4059 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=5310 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 291ms / 219ms，一致性 0.75）
+[recorder][18:07:25] ⏱️ InputStream() 10.2ms
+[recorder][18:07:25] ⏱️ stream.start() 1.2ms
+[recorder][18:07:25] 🎙️ 錄音就緒，總初始化 11.4ms
+[main][18:07:25] ⏱️ recorder.start() 耗時 11.8ms，ok=True
+[main][18:07:25] 🎙️ 開始錄音
+[recorder][18:07:25] 🎤 第一包音訊到達，麥克風實際開啟延遲 28.5ms
+[tap][sample] 持續=90ms 峰值=1522 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1535 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=29ms 峰值=1633 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 540ms / 290ms，一致性 0.54）
+[main][18:07:26] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 28/55 (50.9%)，有效語音 0.84s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][18:07:26] ✅ 錄音完成，送出辨識
+[paster][18:07:26] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:07:26] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.42s)
+[tap][sample] 持續=30ms 峰值=1898 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=2443 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=5053 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 1340ms / 220ms，一致性 0.16），忽略
+[tap][sample] 持續=30ms 峰值=7449 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 220ms / 230ms，一致性 0.95）
+[transcriber][18:07:28] ⏱️ API 耗時: 1.66s
+[main][18:07:28] ✅ 辨識完成: "對，我看你了"
+[paster][18:07:28] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='對，我看你了'
+[paster][18:07:28] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][18:07:28] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:07:28] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='對，我看你了'
+[paster][18:07:28] 📋 CLIP verify ok: attempt=1, chars=6, text='對，我看你了'
+[paster][18:07:29] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x013311e4，keys_before=async_down=none; logical_down=none，text='對，我看你了'
+[paster][18:07:29] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:07:29] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:07:29] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:07:29] ⏱️ 收到→貼上完成: 0.37s
+[paster][18:07:29] 📋 CLIP restore wait: 0.30s
+[paster][18:07:29] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:07:29] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:07:29] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:07:29] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=60ms 峰值=1754 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1341 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1120 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 290ms，一致性 0.86）
+[recorder][18:07:31] 🚀 預熱命中，直接開始錄音
+[main][18:07:31] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:07:31] 🎙️ 開始錄音
+[paster][18:07:31] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:07:31] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=7545 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=10162 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=9986 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 260ms，一致性 0.96）
+[main][18:07:33] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 6/32 (18.8%)，有效語音 0.18s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（有效語音太短 0.18s < 0.35s）
+[tap][sample] 持續=30ms 峰值=2425 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=1714 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=2169 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 320ms / 250ms，一致性 0.78）
+[recorder][18:07:36] 🚀 預熱命中，直接開始錄音
+[main][18:07:36] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:07:36] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/46 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=60ms 峰值=1351 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1232 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1331 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 230ms，一致性 0.92）
+[main][18:07:38] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 2/32 (6.2%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 6.2% < 16%）
+[tap][sample] 持續=70ms 峰值=5832 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=10569 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=11042 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 250ms，一致性 0.96）
+[recorder][18:07:40] 🚀 預熱命中，直接開始錄音
+[main][18:07:40] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:07:40] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=1013 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1974 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3558 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 290ms / 1440ms，一致性 0.20），忽略
+[tap][sample] 持續=70ms 峰值=4929 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1440ms / 250ms，一致性 0.17），忽略
+[tap][sample] 持續=60ms 峰值=5407 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 250ms / 290ms，一致性 0.86）
+[main][18:07:44] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 10/89 (11.2%)，有效語音 0.30s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 11.2% < 16%）
+[tap][sample] 持續=30ms 峰值=4947 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=6734 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=7439 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 220ms / 320ms，一致性 0.69）
+[recorder][18:07:46] 🚀 預熱命中，直接開始錄音
+[main][18:07:46] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:07:46] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=30ms 峰值=8376 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=5009 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=7610 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 220ms，一致性 0.76）
+[main][18:07:48] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.75s)，略過
+[tap][sample] 持續=29ms 峰值=2058 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1819 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=2594 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 289ms / 250ms，一致性 0.86）
+[recorder][18:07:50] 🚀 預熱命中，直接開始錄音
+[main][18:07:50] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:07:50] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=3896 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=4735 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=5107 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 280ms，一致性 0.93）
+[main][18:07:51] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 4/52 (7.7%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 7.7% < 16%）
+[tap][sample] 持續=30ms 峰值=3324 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1796 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1943 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 320ms / 250ms，一致性 0.78）
+[recorder][18:07:53] 🚀 預熱命中，直接開始錄音
+[main][18:07:53] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:07:53] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=1098 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=3388 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=4153 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 450ms / 260ms，一致性 0.58）
+[main][18:07:55] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 9/60 (15.0%)，有效語音 0.27s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 15.0% < 16%）
+[tap][sample] 持續=40ms 峰值=4581 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=5938 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=6263 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 1320ms / 250ms，一致性 0.19），忽略
+[tap][sample] 持續=30ms 峰值=8238 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 250ms / 260ms，一致性 0.96）
+[recorder][18:07:57] 🚀 預熱命中，直接開始錄音
+[main][18:07:57] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:07:57] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=6945 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=6161 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=7685 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 280ms，一致性 0.97）
+[main][18:07:59] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 6/56 (10.7%)，有效語音 0.18s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 10.7% < 16%）
+[tap][sample] 持續=30ms 峰值=1568 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=1447 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1847 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 291ms / 259ms，一致性 0.89）
+[recorder][18:08:01] 🚀 預熱命中，直接開始錄音
+[main][18:08:01] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:08:01] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=10207 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=9147 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=5763 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 250ms，一致性 0.96）
+[main][18:08:03] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 8/64 (12.5%)，有效語音 0.24s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 12.5% < 16%）
+[tap][sample] 持續=40ms 峰值=2401 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=1408 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1624 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 290ms，一致性 1.00）
+[recorder][18:08:04] 🚀 預熱命中，直接開始錄音
+[main][18:08:04] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:08:04] 🎙️ 開始錄音
+[tap][sample] 持續=40ms 峰值=2507 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=5918 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=31ms 峰值=4791 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 290ms，一致性 0.90）
+[main][18:08:07] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 5/73 (6.8%)，有效語音 0.15s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 6.8% < 16%）
+[tap][sample] 持續=30ms 峰值=7185 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=2336 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=7875 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 250ms，一致性 0.96）
+[recorder][18:08:08] 🚀 預熱命中，直接開始錄音
+[main][18:08:08] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:08:08] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=4559 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=2297 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=5118 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 280ms，一致性 0.93）
+[main][18:08:10] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 4/53 (7.5%)，有效語音 0.12s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 7.5% < 16%）
+[tap][sample] 持續=60ms 峰值=5403 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=8274 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=8410 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 250ms，一致性 0.86）
+[recorder][18:08:12] 🚀 預熱命中，直接開始錄音
+[main][18:08:12] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:08:12] 🎙️ 開始錄音
+[tap][sample] 持續=30ms 峰值=8848 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=2797 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=60ms 峰值=7279 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 250ms / 260ms，一致性 0.96）
+[main][18:08:13] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 6/51 (11.8%)，有效語音 0.18s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 11.8% < 16%）
+[tap][sample] 持續=30ms 峰值=1201 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=3131 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=40ms 峰值=1700 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 250ms，一致性 0.96）
+[recorder][18:08:15] 🚀 預熱命中，直接開始錄音
+[main][18:08:15] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:08:15] 🎙️ 開始錄音
+[tap][sample] 持續=60ms 峰值=12548 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=5924 ✓
+[tap][sample] 持續=60ms 峰值=5668 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=10850 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 290ms / 290ms，一致性 1.00）
+[main][18:08:17] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 10/59 (16.9%)，有效語音 0.30s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（有效語音太短 0.30s < 0.35s）
+[tap][sample] 持續=30ms 峰值=2045 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=4588 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=3897 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 1350ms / 250ms，一致性 0.18），忽略
+[tap][sample] 持續=30ms 峰值=6790 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 250ms / 260ms，一致性 0.96）
+[recorder][18:08:19] 🚀 預熱命中，直接開始錄音
+[main][18:08:19] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:08:19] 🎙️ 開始錄音
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample] 持續=60ms 峰值=12416 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=59ms 峰值=4467 ✓
+[tap][sample] 持續=61ms 峰值=8460 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=7468 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 260ms / 250ms，一致性 0.96）
+[main][18:08:21] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 8/26 (30.8%)，有效語音 0.24s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（有效語音太短 0.24s < 0.35s）
+[tap] 💤 敲麥監聽已停止
+[recorder][18:08:27] 💤 預熱 stream 已關閉

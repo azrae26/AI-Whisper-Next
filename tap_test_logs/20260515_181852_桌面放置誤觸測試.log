@@ -1,0 +1,241 @@
+[main] LOG -> D:\Cursor\AI Whisper Next\ai_whisper_20260515_181852.log
+[settings] config loaded from D:\Cursor\AI Whisper Next\config.json
+[main][18:18:52] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][18:18:52] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torch'
+[tap][sample] 持續=60ms 峰值=3032 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=3177 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3850 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 260ms / 1150ms，一致性 0.23），忽略
+[tap][sample] 持續=100ms 峰值=3300 ✗長
+[tap][sample] 持續=40ms 峰值=1408 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=2986 ✓
+[tap][sample] 持續=30ms 峰值=1003 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=200ms 峰值=3433 ✗長
+[tap][sample] 持續=30ms 峰值=3723 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=4003 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=190ms 峰值=3529 ✗長
+[tap][sample] 持續=30ms 峰值=3663 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=4155 ✓
+[tap][sample] 持續=70ms 峰值=2278 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=3461 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=90ms 峰值=3653 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 580ms / 1090ms，一致性 0.53）
+[recorder][18:19:10] ⏱️ InputStream() 10.2ms
+[recorder][18:19:10] ⏱️ stream.start() 0.6ms
+[recorder][18:19:10] 🎙️ 錄音就緒，總初始化 10.7ms
+[main][18:19:10] ⏱️ recorder.start() 耗時 11.1ms，ok=True
+[main][18:19:10] 🎙️ 開始錄音
+[recorder][18:19:10] 🎤 第一包音訊到達，麥克風實際開啟延遲 28.3ms
+[tap][sample] 持續=40ms 峰值=3954 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=100ms 峰值=2935 ✓
+[tap][sample] 持續=70ms 峰值=3731 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=160ms 峰值=3811 ✗長
+[tap][sample] 持續=60ms 峰值=2822 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=3004 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=90ms 峰值=7518 ✓
+[tap][sample] 持續=100ms 峰值=3100 ✗長
+[tap][sample] 持續=70ms 峰值=13420 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=4886 ✓
+[tap][sample] 持續=40ms 峰值=3646 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1219 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 320ms / 1160ms，一致性 0.28），忽略
+[tap][sample] 持續=70ms 峰值=1847 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1160ms / 250ms，一致性 0.22），忽略
+[tap][sample] 持續=31ms 峰值=1627 ✓
+[tap] 🎯 敲擊 #5
+[tap] 🔔 三連敲觸發（間隔 250ms / 230ms，一致性 0.92）
+[main][18:19:19] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 81/305 (26.6%)，有效語音 2.43s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][18:19:19] ✅ 錄音完成，送出辨識
+[paster][18:19:20] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:19:20] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.72s, est_api=1.17s)
+[transcriber][18:19:21] ⏱️ API 耗時: 1.62s
+[main][18:19:21] ✅ 辨識完成: "哪裡沒有標示"
+[paster][18:19:21] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='哪裡沒有標示'
+[paster][18:19:21] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][18:19:21] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:19:21] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='哪裡沒有標示'
+[paster][18:19:22] 📋 CLIP verify ok: attempt=1, chars=6, text='哪裡沒有標示'
+[paster][18:19:22] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x00090b6a，keys_before=async_down=none; logical_down=none，text='哪裡沒有標示'
+[paster][18:19:22] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:19:22] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:19:22] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:19:22] ⏱️ 收到→貼上完成: 0.35s
+[paster][18:19:22] 📋 CLIP restore wait: 0.30s
+[tap][sample] 持續=29ms 峰值=1801 ✓
+[tap] 🎯 敲擊 #1
+[paster][18:19:22] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:19:22] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[tap][sample] 持續=130ms 峰值=1268 ✗長
+[paster][18:19:22] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:19:22] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=3161 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=60ms 峰值=1277 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1002 ✓
+[tap][sample] 持續=30ms 峰值=1002 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 771ms / 419ms，一致性 0.54）
+[recorder][18:19:24] 🚀 預熱命中，直接開始錄音
+[main][18:19:24] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[main][18:19:24] 🎙️ 開始錄音
+[paster][18:19:24] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:19:24] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=30ms 峰值=1060 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=90ms 峰值=4617 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=29ms 峰值=1117 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 290ms / 1021ms，一致性 0.28），忽略
+[tap][sample] 持續=40ms 峰值=1507 ✓
+[tap][sample] 持續=40ms 峰值=4233 ✓
+[tap] 🎯 敲擊 #4
+[tap] 🔔 三連敲觸發（間隔 1021ms / 699ms，一致性 0.69）
+[main][18:19:26] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] RMS 語音幀 26/89 (29.2%)，有效語音 0.78s，閾值 450，最低比例 16%，最低語音 0.35s
+[main][18:19:26] ✅ 錄音完成，送出辨識
+[paster][18:19:27] 📏 [UIA] 文字為空 → 不加句號
+[paster][18:19:27] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.07s, est_api=0.52s)
+[transcriber][18:19:28] ⏱️ API 耗時: 1.27s
+[main][18:19:28] ✅ 辨識完成: "的確odwi"
+[paster][18:19:28] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='的確odwi'
+[paster][18:19:28] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][18:19:28] 📋 CLIP backup: count=4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:19:28] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='的確odwi'
+[paster][18:19:28] 📋 CLIP verify ok: attempt=1, chars=6, text='的確odwi'
+[paster][18:19:28] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x00090b6a，keys_before=async_down=none; logical_down=none，text='的確odwi'
+[paster][18:19:28] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，keys_after_release=async_down=none; logical_down=none
+[paster][18:19:28] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][18:19:28] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][18:19:28] ⏱️ 收到→貼上完成: 0.20s
+[paster][18:19:28] 📋 CLIP restore wait: 0.30s
+[tap][sample] 持續=30ms 峰值=3600 ✓
+[tap] 🎯 敲擊 #1
+[paster][18:19:29] 📋 CLIP restore attempt 1/4: text='https://data.uanalyz'
+[paster][18:19:29] 📋 CLIP restore: restored=4/4, formats=13:194B, 16:4B, 1:97B, 7:97B, text='https://data.uanalyz'
+[paster][18:19:29] 📋 CLIP restore verify ok: attempt=1, text='https://data.uanalyz'
+[paster][18:19:29] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample] 持續=30ms 峰值=3240 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=131ms 峰值=3919 ✗長
+[paster][18:19:31] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='https://data.uanalyz'
+[paster][18:19:31] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[tap][sample] 持續=60ms 峰值=4112 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=190ms 峰值=3286 ✗長
+[tap][sample] 持續=60ms 峰值=1428 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=31ms 峰值=2649 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3867 ✓
+[tap][sample] 持續=90ms 峰值=4135 ✓
+[tap][sample] 持續=70ms 峰值=2954 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 610ms / 250ms，一致性 0.41），忽略
+[tap][sample] 持續=60ms 峰值=10055 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 250ms / 840ms，一致性 0.30），忽略
+[tap][sample] 持續=129ms 峰值=3721 ✗長
+[tap][sample] 持續=100ms 峰值=4148 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=2197 ✓
+[tap][sample] 持續=30ms 峰值=1238 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=3649 ✓
+[tap][sample] 持續=40ms 峰值=1276 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=2095 ✓
+[tap][sample] 持續=230ms 峰值=4785 ✗長
+[tap][sample] 持續=40ms 峰值=1472 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=4149 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=1052 ✓
+[tap][sample] 持續=30ms 峰值=1244 ✓
+[tap] 🎯 敲擊 #3
+[tap] 🔔 三連敲觸發（間隔 450ms / 290ms，一致性 0.64）
+[recorder][18:19:42] 🚀 預熱命中，直接開始錄音
+[main][18:19:42] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[main][18:19:42] 🎙️ 開始錄音
+[tap][sample] 持續=40ms 峰值=3834 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=2799 ✓
+[tap][sample] 持續=90ms 峰值=2989 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=4216 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=29ms 峰值=2903 ✓
+[tap][sample] 持續=60ms 峰值=2968 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3787 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=40ms 峰值=1863 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=3922 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 250ms / 1440ms，一致性 0.17），忽略
+[tap][sample] 持續=30ms 峰值=4278 ✓
+[tap] 🎯 敲擊 #4
+[tap] ⚠️ 節奏不一致（間隔 1440ms / 260ms，一致性 0.18），忽略
+[tap][sample] 持續=160ms 峰值=3515 ✗長
+[tap][sample] 持續=30ms 峰值=1380 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=30ms 峰值=3793 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=70ms 峰值=1848 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=160ms 峰值=4021 ✗長
+[recorder][VAD] RMS 語音幀 62/460 (13.5%)，有效語音 1.86s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 13.5% < 16%）
+[tap][sample] 持續=30ms 峰值=3416 ✓
+[tap] 🎯 敲擊 #1
+[tap][sample] 持續=70ms 峰值=2297 ✓
+[tap] 🎯 敲擊 #2
+[tap][sample] 持續=30ms 峰值=3326 ✓
+[tap] 🎯 敲擊 #3
+[tap] ⚠️ 節奏不一致（間隔 250ms / 1280ms，一致性 0.20），忽略
+[recorder][VAD] RMS 語音幀 13/149 (8.7%)，有效語音 0.39s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 8.7% < 16%）
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 1/87 (1.1%)，有效語音 0.03s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 1.1% < 16%）
+[recorder][VAD] RMS 語音幀 0/34 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/60 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 2/87 (2.3%)，有效語音 0.06s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 2.3% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/47 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] RMS 語音幀 0/33 (0.0%)，有效語音 0.00s，閾值 450，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap] 💤 敲麥監聽已停止
+[recorder][18:20:14] 💤 預熱 stream 已關閉

@@ -14,6 +14,9 @@ dist/
 # 例外：主程式輸出在 logs/（團隊可納版本庫）；其餘路徑的 *.log 仍忽略。
 !logs/
 !logs/**/*.log
+# 例外：敲麥 / tap 診斷分流 log（可版本庫）。
+!tap_test_logs/
+!tap_test_logs/**/*.log
 config.json
 config.json.*
 *.pack.bak

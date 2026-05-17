@@ -1,0 +1,12 @@
+[tap]        [04:00:05.644] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，1s 後重試
+[tap]        [04:00:06.649] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，5s 後重試
+[tap]        [04:00:11.665] 🔌 重置 PortAudio 後端
+[tap]        [04:00:11.950] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，15s 後重試
+[tap]        [04:00:26.957] 🔌 重置 PortAudio 後端
+[tap]        [04:00:27.238] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，30s 後重試
+[tap]        [04:00:30.869] 🔌 重置 PortAudio 後端
+[tap]        [04:00:31.145] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [04:00:33.101] 🔌 重置 PortAudio 後端
+[tap]        [04:00:33.376] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
+[tap]        [04:00:34.638] 🔌 重置 PortAudio 後端
+[tap]        [04:00:34.926] ⏳ 等待 MIC 裝置：DJI input endpoints are present but none produced callbacks，60s 後重試
