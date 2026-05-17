@@ -201,6 +201,11 @@ switch ($Role) {
             exit 1
         }
         Stop-AiWhisper
+        # 打包前把 dist\AI Whisper 裡的 exe 執行 log 搬回專案根目錄保留
+        Get-ChildItem "$distDir\ai_whisper_*.log" -ErrorAction SilentlyContinue | ForEach-Object {
+            $dest = Join-Path $workspace $_.Name
+            if (-not (Test-Path $dest)) { Copy-Item $_.FullName $dest -Force }
+        }
         Remove-DirectoryWithRetry $distDir
         New-Item -ItemType Directory -Path (Join-Path $workspace "dist") -Force | Out-Null
         Copy-DirectoryWithRobocopy $stagedDistDir $distDir

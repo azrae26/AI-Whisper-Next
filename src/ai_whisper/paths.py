@@ -27,7 +27,7 @@ def config_file() -> Path:
 
 
 def log_dir() -> Path:
-    return base_dir()
+    return base_dir() / "logs"
 
 
 def tap_log_dir() -> Path:

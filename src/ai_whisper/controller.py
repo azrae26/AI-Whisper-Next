@@ -79,6 +79,13 @@ class AppController(QObject):
         self._connect()
         self._apply_initial_state()
         preload_silero_vad()
+        if self.cfg.apiKey:
+            threading.Thread(
+                target=TranscriptionService.warmup_connection,
+                args=(self.cfg.apiKey,),
+                daemon=True,
+                name="APIWarmup",
+            ).start()
 
     def _connect(self) -> None:
         self.window.toggle_clicked.connect(self.toggle_recording)

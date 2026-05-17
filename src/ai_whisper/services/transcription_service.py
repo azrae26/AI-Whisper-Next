@@ -13,12 +13,34 @@ from ..text_processing import normalize_transcription_text
 
 
 class TranscriptionService:
-    @staticmethod
-    def transcribe_raw(wav_bytes: bytes, api_key: str, model: str) -> str:
-        client = OpenAI(api_key=api_key)
+    _clients: dict[str, OpenAI] = {}
+    _clients_lock = threading.Lock()
+
+    @classmethod
+    def _get_client(cls, api_key: str) -> OpenAI:
+        with cls._clients_lock:
+            if api_key not in cls._clients:
+                cls._clients[api_key] = OpenAI(api_key=api_key)
+            return cls._clients[api_key]
+
+    @classmethod
+    def warmup_connection(cls, api_key: str) -> None:
+        """Pre-establish TCP+TLS connection to OpenAI so first transcription is faster."""
+        if not api_key:
+            return
+        try:
+            t0 = time.perf_counter()
+            client = cls._get_client(api_key)
+            client.models.retrieve("whisper-1")
+            safe_print(f"[transcriber][{now_str()}] 🔌 HTTP 連線預熱完成 ({time.perf_counter() - t0:.2f}s)")
+        except Exception as e:
+            safe_print(f"[transcriber][{now_str()}] ⚠️ HTTP 連線預熱失敗: {e}")
+
+    @classmethod
+    def transcribe_raw(cls, wav_bytes: bytes, api_key: str, model: str) -> str:
         audio_file = io.BytesIO(wav_bytes)
         t0 = time.perf_counter()
-        response = client.audio.transcriptions.create(
+        response = cls._get_client(api_key).audio.transcriptions.create(
             model=model,
             file=("audio.wav", audio_file, "audio/wav"),
             language="zh",
