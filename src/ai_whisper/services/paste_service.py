@@ -6,6 +6,7 @@ import os
 import queue
 import threading
 import time
+from typing import Any
 
 import keyboard
 import uiautomation as auto
@@ -46,6 +47,26 @@ def _safe_print(msg: str) -> None:
             print(msg.encode("utf-8", "replace").decode("utf-8", "replace"), flush=True)
         except Exception:
             pass
+
+
+def _uia_read_focused_plain_text(control: object) -> tuple[bool, str]:
+    """從聚焦控制項取純文字；以 getattr 呼叫 Pattern（類別 stub 常未宣告 Get*Pattern）。"""
+    get_vp = getattr(control, "GetValuePattern", None)
+    if callable(get_vp):
+        try:
+            vp = get_vp()
+            return (True, (getattr(vp, "Value", None) or "") if vp is not None else "")
+        except Exception:
+            pass
+    get_tp = getattr(control, "GetTextPattern", None)
+    if callable(get_tp):
+        try:
+            tp: Any = get_tp()
+            doc = tp.DocumentRange.GetText(-1)
+            return (True, doc or "")
+        except Exception:
+            return (False, "")
+    return (False, "")
 
 
 class PasteService:
@@ -180,7 +201,6 @@ class PasteService:
             kernel32.CloseHandle(handle)
 
     @staticmethod
-    @staticmethod
     def _focused_control_signature() -> tuple[str, str, str, str]:
         try:
             focused = auto.GetFocusedControl()
@@ -241,17 +261,8 @@ class PasteService:
             focused = auto.GetFocusedControl()
             if not focused:
                 return (False, "")
-            try:
-                vp = focused.GetValuePattern()
-                return (True, vp.Value or "")
-            except Exception:
-                pass
-            try:
-                tp = focused.GetTextPattern()
-                text = tp.DocumentRange.GetText(-1)
-                return (True, text or "")
-            except Exception:
-                return (False, "")
+            ok, txt = _uia_read_focused_plain_text(focused)
+            return (True, txt) if ok else (False, "")
         except Exception:
             return (False, "")
 
@@ -401,7 +412,7 @@ class PasteService:
                 repairs += 1
                 _safe_print(
                     f"[paster][{_now()}] ⚠️ CLIP watchdog re-restore: "
-                    f"check={checks}, got_pasted={repr(current[:20])}"
+                    f"check={checks}, got_pasted={repr((current or '')[:20])}"
                 )
                 self._restore_clipboard_verified(items)
                 continue
@@ -524,7 +535,7 @@ class PasteService:
                 if current == text:
                     _safe_print(
                         f"[paster][{_now()}] 📋 CLIP verify ok: "
-                        f"attempt={attempt}, chars={len(current)}, text={repr(current[:20])}"
+                        f"attempt={attempt}, chars={len(text)}, text={repr(text[:20])}"
                     )
                     return True
                 _safe_print(
@@ -543,16 +554,23 @@ class PasteService:
             if not focused:
                 _safe_print(f"[paster][{_now()}] ⚠️ 無焦點控件")
                 return (False, False)
-            try:
-                vp = focused.GetValuePattern()
-                text = vp.Value or ""
-            except Exception:
-                text = ""
+            text = ""
+            get_vp = getattr(focused, "GetValuePattern", None)
+            if callable(get_vp):
+                try:
+                    vp = get_vp()
+                    text = getattr(vp, "Value", None) or "" if vp is not None else ""
+                except Exception:
+                    text = ""
             if not text:
                 _safe_print(f"[paster][{_now()}] 📏 [UIA] 文字為空 → 不加句號")
                 return (False, False)
+            get_tp = getattr(focused, "GetTextPattern", None)
+            if not callable(get_tp):
+                _safe_print(f"[paster][{_now()}] ⚠️ [UIA] 無 TextPattern")
+                return (False, False)
             try:
-                tp = focused.GetTextPattern()
+                tp: Any = get_tp()
                 doc_range = tp.DocumentRange
                 sel = tp.GetSelection()
                 if not sel:
@@ -648,6 +666,8 @@ class PasteService:
             preserve_ctrl_modifier,
             focus_sig,
         )
+        before_readable: bool = False
+        before_text: str = ""
         if use_direct_text:
             before_readable, before_text = self._focused_text_snapshot()
             _safe_print(

@@ -60,6 +60,7 @@ class WaveformOverlay(QWidget):
         self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating, True)
         self.setFixedSize(WIN_W, WIN_H)
         self._levels: list[float] = []
+        self._waveform_visible = False
         self._processing = False
         self._proc_start = 0.0
         self._status_text = ""
@@ -75,18 +76,18 @@ class WaveformOverlay(QWidget):
         self._text_dim_right = -1.0
         self._dim_font = QFont("Microsoft JhengHei UI", 13)  # used for QFontMetrics; kept separate from _paint_font
         self._dim_font.setBold(True)
-        self._recording_shadow_labels: list[QLabel] = []
+        self._status_shadow_labels: list[QLabel] = []
         for blur, alpha in ((20, 204), (12, 153), (6, 128)):
-            label = self._make_recording_status_label(f"rgba(0, 0, 0, {alpha})")
+            label = self._make_status_label(f"rgba(0, 0, 0, {alpha})")
             shadow = QGraphicsDropShadowEffect(label)
             shadow.setBlurRadius(blur)
             shadow.setOffset(0, 0)
             shadow.setColor(QColor(0, 0, 0, alpha))
             label.setGraphicsEffect(shadow)
             label.hide()
-            self._recording_shadow_labels.append(label)
-        self._recording_status_label = self._make_recording_status_label("#F5D0FE")
-        self._recording_status_label.hide()
+            self._status_shadow_labels.append(label)
+        self._status_label = self._make_status_label("#F5D0FE")
+        self._status_label.hide()
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
 
@@ -101,21 +102,11 @@ class WaveformOverlay(QWidget):
         # Pre-allocated QRect list for batched drawRects — avoids per-frame allocation
         self._bar_rects: list[QRect] = [QRect() for _ in range(BAR_COUNT)]
 
-        # Prime window surface, font, AND QGraphicsDropShadowEffect GPU shaders.
-        # Shadow effect shader compilation is lazy — it blocks the main thread the
-        # first time the label is actually painted. Force it here at startup.
+        # Prime window surface, font, and shadow effect before the first real overlay show.
         self.show()
-        for label in self._recording_shadow_labels:
-            label.setText("預熱")
-            label.show()
-        self._recording_status_label.setText("預熱")
-        self._recording_status_label.show()
-        self.repaint()  # synchronous paint → compiles shaders, caches font glyphs
-        for label in self._recording_shadow_labels:
-            label.hide()
-            label.setText("")
-        self._recording_status_label.hide()
-        self._recording_status_label.setText("")
+        self._set_status_label("預熱", QColor("#F5D0FE"), on_waveform=True)
+        self.repaint()  # synchronous paint -> caches font glyphs
+        self._set_status_label("")
         self.hide()
 
     def showEvent(self, event) -> None:
@@ -123,13 +114,15 @@ class WaveformOverlay(QWidget):
         _fix_win11_frame(self)
 
     def show_recording(self) -> None:
+        self._waveform_visible = True
         self._processing = False
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
         self._hide_after_recording_status = False
         self._recording_status_token += 1
-        self._set_recording_status_label("")
+        self._update_recording_status_metrics("")
+        self._set_status_label("")
         self._levels = []
         self._timer.stop()
         self._anchor_to_cursor_screen()
@@ -139,14 +132,16 @@ class WaveformOverlay(QWidget):
         self.update()
 
     def show_processing(self) -> None:
+        self._waveform_visible = False
         self._processing = True
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
         self._hide_after_recording_status = False
         self._recording_status_token += 1
-        self._set_recording_status_label("")
+        self._update_recording_status_metrics("")
         self._proc_start = time.time()
+        self._set_status_label("識別中", self._processing_color(), on_waveform=False)
         self._position_at_cursor_screen()
         self.show()
         self.raise_()
@@ -155,14 +150,15 @@ class WaveformOverlay(QWidget):
     def set_recording_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
         if self._processing or self._status_text:
             return
-        self._hide_after_recording_status = False
+        self._hide_after_recording_status = not self._waveform_visible
         had_status = bool(self._recording_status_text)
         self._recording_status_token += 1
         token = self._recording_status_token
         self._recording_status_text = text
         self._recording_status_color = QColor(color)
         self._recording_status_until = 0.0
-        self._set_recording_status_label(text, color)
+        self._update_recording_status_metrics(text, color)
+        self._set_status_label(text, self._recording_status_color, on_waveform=self._waveform_visible)
         if had_status != bool(text):
             self._position_at_cursor_screen()
         if text and duration_ms > 0:
@@ -173,14 +169,16 @@ class WaveformOverlay(QWidget):
         self.update()
 
     def show_status(self, text: str, color: str, duration_ms: int) -> None:
+        self._waveform_visible = False
         self._processing = False
         self._status_text = text
         self._recording_status_text = ""
         self._recording_status_until = 0.0
         self._hide_after_recording_status = False
         self._recording_status_token += 1
-        self._set_recording_status_label("")
+        self._update_recording_status_metrics("")
         self._status_color = QColor(color)
+        self._set_status_label(text, self._status_color, on_waveform=False)
         self._status_until = time.time() + duration_ms / 1000
         self._position_at_cursor_screen()
         self.show()
@@ -188,22 +186,26 @@ class WaveformOverlay(QWidget):
         self._timer.start(50)
 
     def hide_overlay(self) -> None:
+        self._waveform_visible = False
         self._processing = False
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
         self._hide_after_recording_status = False
         self._recording_status_token += 1
-        self._set_recording_status_label("")
+        self._update_recording_status_metrics("")
+        self._set_status_label("")
         self._timer.stop()
         self.hide()
 
     def finish_recording_without_replay(self) -> None:
+        self._waveform_visible = False
         self._processing = False
         self._status_text = ""
         self._levels = []
         if self._recording_status_text:
             self._hide_after_recording_status = True
+            self._set_status_label(self._recording_status_text, self._recording_status_color, on_waveform=False)
             self._position_at_cursor_screen()
             self.show()
             self.raise_()
@@ -213,8 +215,29 @@ class WaveformOverlay(QWidget):
         else:
             self.hide_overlay()
 
+    def stop_waveform_keep_status(self) -> None:
+        self._waveform_visible = False
+        self._levels = []
+        if self._recording_status_text:
+            self._hide_after_recording_status = True
+            self._set_status_label(self._recording_status_text, self._recording_status_color, on_waveform=False)
+            if self._recording_status_until and not self._timer.isActive():
+                self._timer.start(50)
+            self.show()
+            self.raise_()
+        else:
+            self._processing = True
+            self._hide_after_recording_status = False
+            self._proc_start = time.time()
+            self._set_status_label("識別中", self._processing_color(), on_waveform=False)
+            if not self._timer.isActive():
+                self._timer.start(50)
+            self.show()
+            self.raise_()
+        self.update()
+
     def set_levels(self, levels: list[float]) -> None:
-        if self._processing:
+        if not self._waveform_visible or self._processing:
             return
         self._levels = levels  # already trimmed to BAR_COUNT by get_waveform()
         self.update()
@@ -246,6 +269,8 @@ class WaveformOverlay(QWidget):
 
     def _tick_processing(self) -> None:
         now = time.time()
+        if self._processing:
+            self._set_status_label("識別中", self._processing_color(), on_waveform=False)
         if self._status_text and now >= self._status_until:
             self.hide_overlay()
             return
@@ -253,8 +278,9 @@ class WaveformOverlay(QWidget):
             self._recording_status_text = ""
             self._recording_status_until = 0.0
             self._recording_status_token += 1
-            self._set_recording_status_label("")
-            if self._hide_after_recording_status:
+            self._update_recording_status_metrics("")
+            self._set_status_label("")
+            if self._hide_after_recording_status or not self._waveform_visible:
                 self.hide_overlay()
                 return
             self._position_at_cursor_screen()
@@ -307,79 +333,61 @@ class WaveformOverlay(QWidget):
     def paintEvent(self, event) -> None:
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
-        rect = QRectF(0, 0, WIN_W, WIN_H)
 
-        # Draw cached background (build once, reuse every frame)
+        # Layer 1: background.
         if self._bg_pixmap is None:
             self._bg_pixmap = self._build_bg_pixmap()
         painter.drawPixmap(0, 0, self._bg_pixmap)
 
-        if self._processing:
-            elapsed = time.time() - self._proc_start
-            t = (math.sin(elapsed * 2 * math.pi) + 1) / 2
-            r = int(34 + (165 - 34) * t)
-            g = int(211 + (243 - 211) * t)
-            b = int(238 + (252 - 238) * t)
-            painter.setPen(QColor(r, g, b))
-            painter.setFont(self._paint_font)
-            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "識別中")
-            return
+        draw_waveform = self._waveform_visible and not self._processing and not self._status_text
 
-        if self._status_text:
-            painter.setPen(self._status_color)
-            painter.setFont(self._paint_font)
-            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, self._status_text)
-            return
+        # Layer 2: waveform.
+        if draw_waveform:
+            data = self._levels
+            n = len(data)
+            if n < BAR_COUNT:
+                data = [0.0] * (BAR_COUNT - n) + data
+            peak = max(data) if data else 0.0
+            scale = max(1.0, peak / 0.82)
+            bar_dim = self._bar_dim
+            mid = int(_BAR_MID)
+            max_half = _BAR_MAX_HALF
 
-        # Bar rendering — batch into two drawRects calls (bright / normal), zero QColor allocs
-        data = self._levels
-        n = len(data)
-        if n < BAR_COUNT:
-            data = [0.0] * (BAR_COUNT - n) + data
-        peak = max(data) if data else 0.0
-        scale = max(1.0, peak / 0.82)
-        bar_dim = self._bar_dim
-        mid = int(_BAR_MID)
-        max_half = _BAR_MAX_HALF
+            painter.setPen(Qt.PenStyle.NoPen)
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
 
-        painter.setPen(Qt.PenStyle.NoPen)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
+            bright_rects: list[QRect] = []
+            normal_rects: list[QRect] = []
+            bright_alphas: list[int] = []
+            normal_alphas: list[int] = []
 
-        bright_rects: list[QRect] = []
-        normal_rects: list[QRect] = []
-        bright_alphas: list[int] = []
-        normal_alphas: list[int] = []
+            for i, lv in enumerate(data):
+                display_lv = min(0.92, lv / scale)
+                h = max(2, int(display_lv * max_half))
+                alpha_t = _BAR_EDGE_T[i] * bar_dim[i]
+                bar_rect = self._bar_rects[i]
+                bar_rect.setRect(_BAR_X0[i], mid - h, BAR_WIDTH, h * 2)
+                if lv > 0.6:
+                    bright_rects.append(bar_rect)
+                    bright_alphas.append(int(240 * alpha_t))
+                else:
+                    normal_rects.append(bar_rect)
+                    normal_alphas.append(int(230 * alpha_t))
 
-        for i, lv in enumerate(data):
-            display_lv = min(0.92, lv / scale)
-            h = max(2, int(display_lv * max_half))
-            alpha_t = _BAR_EDGE_T[i] * bar_dim[i]
-            rect = self._bar_rects[i]
-            rect.setRect(_BAR_X0[i], mid - h, BAR_WIDTH, h * 2)
-            if lv > 0.6:
-                bright_rects.append(rect)
-                bright_alphas.append(int(240 * alpha_t))
-            else:
-                normal_rects.append(rect)
-                normal_alphas.append(int(230 * alpha_t))
+            # Bright bars — group by common alpha where possible, else draw individually
+            for bar_rect, alpha in zip(bright_rects, bright_alphas):
+                self._color_bright.setAlpha(alpha)
+                painter.setBrush(self._color_bright)
+                painter.drawRect(bar_rect)
+            for bar_rect, alpha in zip(normal_rects, normal_alphas):
+                self._color_normal.setAlpha(alpha)
+                painter.setBrush(self._color_normal)
+                painter.drawRect(bar_rect)
 
-        # Bright bars — group by common alpha where possible, else draw individually
-        for rect, alpha in zip(bright_rects, bright_alphas):
-            self._color_bright.setAlpha(alpha)
-            painter.setBrush(self._color_bright)
-            painter.drawRect(rect)
-        for rect, alpha in zip(normal_rects, normal_alphas):
-            self._color_normal.setAlpha(alpha)
-            painter.setBrush(self._color_normal)
-            painter.drawRect(rect)
-
-    def _set_recording_status_label(self, text: str, color: str = "#F5D0FE") -> None:
-        for label in self._recording_shadow_labels:
-            label.setText(text)
-        self._recording_status_label.setText(text)
+    def _update_recording_status_metrics(self, text: str, color: str = "#F5D0FE") -> None:
         if text:
             text_w = QFontMetrics(self._dim_font).horizontalAdvance(text)
-            text_cx = STATUS_OFFSET_X + WIN_W / 2
+            text_cx = WIN_W / 2
             pad = -20
             self._text_dim_left = text_cx - text_w / 2 - pad
             self._text_dim_right = text_cx + text_w / 2 + pad
@@ -387,20 +395,45 @@ class WaveformOverlay(QWidget):
             self._text_dim_left = -1.0
             self._text_dim_right = -1.0
         self._rebuild_bar_dim()
-        if text:
-            text_color = QColor(color).name()
-            self._recording_status_label.setStyleSheet(
-                f"background:transparent;color:{text_color};font-size:13pt;font-weight:700;"
-            )
-            for label in self._recording_shadow_labels:
+
+    def _processing_color(self) -> QColor:
+        elapsed = time.time() - self._proc_start
+        t = (math.sin(elapsed * 2 * math.pi) + 1) / 2
+        r = int(216 + (245 - 216) * t)
+        g = int(180 + (208 - 180) * t)
+        return QColor(r, g, 254)
+
+    def _set_status_label(self, text: str = "", color: QColor | None = None, *, on_waveform: bool = False) -> None:
+        if not text:
+            for label in self._status_shadow_labels:
+                label.hide()
+                label.setText("")
+            self._status_label.hide()
+            self._status_label.setText("")
+            return
+
+        text_color = (color or QColor("#F5D0FE")).name()
+        for label in self._status_shadow_labels:
+            label.setText(text)
+            if on_waveform:
                 label.raise_()
                 label.show()
-            self._recording_status_label.raise_()
-            self._recording_status_label.show()
-        else:
-            for label in self._recording_shadow_labels:
+            else:
                 label.hide()
-            self._recording_status_label.hide()
+        self._status_label.setText(text)
+        self._status_label.setStyleSheet(
+            f"background:transparent;color:{text_color};font-size:13pt;font-weight:700;"
+        )
+        self._status_label.raise_()
+        self._status_label.show()
+
+    def _make_status_label(self, color: str) -> QLabel:
+        label = QLabel(self)
+        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
+        label.setStyleSheet(f"background:transparent;color:{color};font-size:13pt;font-weight:700;")
+        label.setGeometry(0, 0, WIN_W, WIN_H)
+        return label
 
     def _rebuild_bar_dim(self) -> None:
         """Recompute per-bar dim factors; called only when text_dim_left/right changes."""
@@ -433,11 +466,3 @@ class WaveformOverlay(QWidget):
         self._recording_status_until = time.time() + duration_ms / 1000
         if not self._timer.isActive():
             self._timer.start(50)
-
-    def _make_recording_status_label(self, color: str) -> QLabel:
-        label = QLabel(self)
-        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
-        label.setStyleSheet(f"background:transparent;color:{color};font-size:13pt;font-weight:700;")
-        label.setGeometry(STATUS_OFFSET_X, 0, WIN_W, WIN_H)
-        return label

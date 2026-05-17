@@ -205,6 +205,7 @@ class AppController(QObject):
         self._anim_timer.stop()
         self._waveform_timer.stop()
         self.state = "processing"
+        self.window.stop_recording_waveform_keep_status()
         frames = self.audio.stop_capture()
         self._schedule_warmup_shutdown()
         self.executor.submit(self._process_final_audio, frames, self._prev_seg_event)
