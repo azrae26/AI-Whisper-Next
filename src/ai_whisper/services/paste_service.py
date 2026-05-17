@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ctypes
 import datetime
+import os
 import queue
 import threading
 import time
@@ -23,6 +24,8 @@ CLIPBOARD_RESTORE_RETRIES = 4
 CLIPBOARD_RESTORE_VERIFY_DELAY_SEC = 0.12
 CLIPBOARD_WATCHDOG_DURATION_SEC = 2.20
 CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
+UNICODE_INPUT_VERIFY_DELAY_SEC = 0.08
+UNICODE_INPUT_VERIFY_SUFFIX_CHARS = 2
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
     "．，；：？！"
@@ -54,6 +57,7 @@ class PasteService:
         self._manual_paste_guard_lock = threading.Lock()
         self._manual_paste_guard_handler = None
         self._manual_paste_guard_blocks = 0
+        self._manual_paste_guard_pending = False
         self._init_clipboard_api()
         self._worker = threading.Thread(target=self._paste_worker, daemon=True, name="PasteWorker")
         self._worker.start()
@@ -62,15 +66,17 @@ class PasteService:
         def _blocked_paste() -> None:
             with self._manual_paste_guard_lock:
                 self._manual_paste_guard_blocks += 1
+                self._manual_paste_guard_pending = True
                 blocks = self._manual_paste_guard_blocks
             _safe_print(
                 f"[paster][{_now()}] 🚫 CLIP guard: blocked manual Ctrl+V "
-                f"until restore completes (count={blocks}, temp={repr(pasted_text[:20])})"
+                f"until restore completes (count={blocks}, replay=queued, temp={repr(pasted_text[:20])})"
             )
 
         try:
             with self._manual_paste_guard_lock:
                 self._manual_paste_guard_blocks = 0
+                self._manual_paste_guard_pending = False
                 if self._manual_paste_guard_handler is not None:
                     keyboard.remove_hotkey(self._manual_paste_guard_handler)
                     self._manual_paste_guard_handler = None
@@ -86,18 +92,29 @@ class PasteService:
             _safe_print(f"[paster][{_now()}] ⚠️ CLIP guard arm failed: {e}")
             return False
 
-    def _disarm_manual_paste_guard(self) -> None:
+    def _disarm_manual_paste_guard(self) -> bool:
         try:
             with self._manual_paste_guard_lock:
                 handler = self._manual_paste_guard_handler
                 blocks = self._manual_paste_guard_blocks
+                pending = self._manual_paste_guard_pending
                 self._manual_paste_guard_handler = None
                 self._manual_paste_guard_blocks = 0
+                self._manual_paste_guard_pending = False
             if handler is not None:
                 keyboard.remove_hotkey(handler)
                 _safe_print(f"[paster][{_now()}] 🚫 CLIP guard disarmed: blocked={blocks}")
+            return pending
         except Exception as e:
             _safe_print(f"[paster][{_now()}] ⚠️ CLIP guard disarm failed: {e}")
+            return False
+
+    def _replay_manual_paste_if_requested(self, pending: bool) -> None:
+        if not pending:
+            return
+        _safe_print(f"[paster][{_now()}] 🚫 CLIP guard replay: manual Ctrl+V after restore")
+        self.input.send_ctrl_v()
+        time.sleep(0.08)
 
     @staticmethod
     def _init_clipboard_api() -> None:
@@ -117,6 +134,144 @@ class PasteService:
         user32.GetClipboardData.restype = ctypes.c_void_p
         user32.EnumClipboardFormats.argtypes = [ctypes.c_uint]
         user32.EnumClipboardFormats.restype = ctypes.c_uint
+
+    @staticmethod
+    def _foreground_window() -> tuple[int, str, str, str]:
+        try:
+            user32 = ctypes.windll.user32
+            hwnd = user32.GetForegroundWindow()
+            buf = ctypes.create_unicode_buffer(128)
+            user32.GetWindowTextW(hwnd, buf, 128)
+            cls_buf = ctypes.create_unicode_buffer(128)
+            user32.GetClassNameW(hwnd, cls_buf, 128)
+            process_name = ""
+            pid = ctypes.c_ulong()
+            user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
+            if pid.value:
+                process_name = PasteService._process_name_from_pid(pid.value)
+            return hwnd, buf.value, process_name, cls_buf.value
+        except Exception:
+            return 0, "(unknown)", "", ""
+
+    @staticmethod
+    def _process_name_from_pid(pid: int) -> str:
+        PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+        kernel32 = ctypes.windll.kernel32
+        kernel32.OpenProcess.argtypes = [ctypes.c_uint, ctypes.c_bool, ctypes.c_uint]
+        kernel32.OpenProcess.restype = ctypes.c_void_p
+        kernel32.QueryFullProcessImageNameW.argtypes = [
+            ctypes.c_void_p,
+            ctypes.c_uint,
+            ctypes.c_wchar_p,
+            ctypes.POINTER(ctypes.c_uint),
+        ]
+        kernel32.QueryFullProcessImageNameW.restype = ctypes.c_bool
+        kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+        handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+        if not handle:
+            return ""
+        try:
+            buf = ctypes.create_unicode_buffer(1024)
+            size = ctypes.c_uint(len(buf))
+            if not kernel32.QueryFullProcessImageNameW(handle, 0, buf, ctypes.byref(size)):
+                return ""
+            return os.path.basename(buf.value).lower()
+        finally:
+            kernel32.CloseHandle(handle)
+
+    @staticmethod
+    @staticmethod
+    def _focused_control_signature() -> tuple[str, str, str, str]:
+        try:
+            focused = auto.GetFocusedControl()
+            if not focused:
+                return ("", "", "", "")
+            return (
+                getattr(focused, "Name", "") or "",
+                getattr(focused, "ClassName", "") or "",
+                getattr(focused, "AutomationId", "") or "",
+                getattr(focused, "ControlTypeName", "") or "",
+            )
+        except Exception:
+            return ("", "", "", "")
+
+    @staticmethod
+    def _is_chrome_omnibox(process_name: str, focus_sig: tuple[str, str, str, str]) -> bool:
+        if process_name != "chrome.exe":
+            return False
+        needle = " ".join(focus_sig).lower()
+        return any(
+            token in needle
+            for token in (
+                "omnibox",
+                "address",
+                "search or type",
+                "網址",
+                "位址",
+                "搜尋或輸入",
+                "搜尋或輸入網址",
+            )
+        )
+
+    @staticmethod
+    def _should_use_direct_text_input(
+        win_title: str,
+        process_name: str,
+        preserve_ctrl_modifier: bool,
+        focus_sig: tuple[str, str, str, str],
+    ) -> bool:
+        if preserve_ctrl_modifier:
+            return False
+        if process_name in {"codex.exe", "cursor.exe", "antigravity.exe", "line.exe"}:
+            return True
+        title = win_title.lower()
+        if win_title == "Codex" or win_title.startswith("Codex "):
+            return True
+        if " - cursor" in title or title.endswith(" cursor"):
+            return True
+        if "antigravity" in title:
+            return True
+        if PasteService._is_chrome_omnibox(process_name, focus_sig):
+            return False
+        return False
+
+    @staticmethod
+    def _focused_text_snapshot() -> tuple[bool, str]:
+        try:
+            focused = auto.GetFocusedControl()
+            if not focused:
+                return (False, "")
+            try:
+                vp = focused.GetValuePattern()
+                return (True, vp.Value or "")
+            except Exception:
+                pass
+            try:
+                tp = focused.GetTextPattern()
+                text = tp.DocumentRange.GetText(-1)
+                return (True, text or "")
+            except Exception:
+                return (False, "")
+        except Exception:
+            return (False, "")
+
+    @staticmethod
+    def _verify_direct_text_input(
+        before_readable: bool,
+        before_text: str,
+        final_text: str,
+        at_end: bool,
+    ) -> tuple[bool, str]:
+        after_readable, after_text = PasteService._focused_text_snapshot()
+        if not before_readable or not after_readable:
+            return (True, "unreadable")
+        if after_text == before_text:
+            return (False, "unchanged")
+        suffix_len = min(UNICODE_INPUT_VERIFY_SUFFIX_CHARS, len(final_text))
+        suffix = final_text[-suffix_len:] if suffix_len > 0 else ""
+        if at_end and suffix and not after_text.endswith(suffix):
+            return (False, f"changed_suffix_mismatch:{repr(after_text[-suffix_len:])}!={repr(suffix)}")
+        return (True, "changed")
 
     @staticmethod
     def _is_hglobal_format(fmt: int) -> bool:
@@ -449,10 +604,24 @@ class PasteService:
                 return None
             return (at_end, last_char_is_punctuation)
 
-    def paste_text(self, text: str, delay_ms: int = 50, t_received: float = 0.0, end_prefix: str = "。") -> None:
-        self._paste_queue.put((text, delay_ms, t_received, end_prefix))
+    def paste_text(
+        self,
+        text: str,
+        delay_ms: int = 50,
+        t_received: float = 0.0,
+        end_prefix: str = "。",
+        preserve_ctrl_modifier: bool = False,
+    ) -> None:
+        self._paste_queue.put((text, delay_ms, t_received, end_prefix, preserve_ctrl_modifier))
 
-    def _execute_paste(self, text: str, delay_ms: int, t_received: float, end_prefix: str) -> None:
+    def _execute_paste(
+        self,
+        text: str,
+        delay_ms: int,
+        t_received: float,
+        end_prefix: str,
+        preserve_ctrl_modifier: bool,
+    ) -> None:
         prefetched = self._consume_prefetch()
         if prefetched is not None:
             at_end, last_char_is_punctuation = prefetched
@@ -471,6 +640,66 @@ class PasteService:
             _safe_print(f"[paster][{_now()}] 🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix}, prefix={repr(end_prefix)}, uia={elapsed_ms:.0f}ms, final={repr(text[:40])}")
 
         final_text = (end_prefix + text) if add_prefix else text
+        hwnd, win_title, process_name, class_name = self._foreground_window()
+        focus_sig = self._focused_control_signature()
+        use_direct_text = self._should_use_direct_text_input(
+            win_title,
+            process_name,
+            preserve_ctrl_modifier,
+            focus_sig,
+        )
+        if use_direct_text:
+            before_readable, before_text = self._focused_text_snapshot()
+            _safe_print(
+                f"[paster][{_now()}] ⌨️ TEXT input flow start: "
+                f"target_chars={len(final_text)}，視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
+                f"process={process_name or '?'}，class={class_name or '?'}，"
+                f"focus={focus_sig}，"
+                f"verify_readable={before_readable}，keys_before={self.input.modifier_state_summary()}，"
+                f"text={repr(final_text[:40])}"
+            )
+        else:
+            _safe_print(
+                f"[paster][{_now()}] ⌨️ TEXT input skipped: "
+                f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}，"
+                f"preserve_ctrl={preserve_ctrl_modifier}"
+            )
+        if use_direct_text:
+            released_modifiers = self.input.release_modifiers_for_paste(preserve_ctrl=False)
+            _safe_print(
+                f"[paster][{_now()}] ⌨️ 直接輸入前釋放修飾鍵: "
+                f"released={self.input.vk_list(released_modifiers)}，"
+                f"keys_after_release={self.input.modifier_state_summary()}"
+            )
+            try:
+                ok = self.input.send_unicode_text(final_text)
+            finally:
+                self.input.force_release_ctrl()
+                self.input.restore_modifiers([vk for vk in released_modifiers if not self.input.is_ctrl_vk(vk)])
+            _safe_print(
+                f"[paster][{_now()}] ⌨️ TEXT input done: "
+                f"ok={ok}，keys_after_send={self.input.modifier_state_summary()}"
+            )
+            if t_received:
+                _safe_print(f"[paster][{_now()}] ⏱️ 收到→直接輸入完成: {time.perf_counter() - t_received:.2f}s")
+            verified = False
+            verify_reason = "send_failed"
+            if ok:
+                time.sleep(UNICODE_INPUT_VERIFY_DELAY_SEC)
+                verified, verify_reason = self._verify_direct_text_input(
+                    before_readable,
+                    before_text,
+                    final_text,
+                    at_end,
+                )
+            _safe_print(
+                f"[paster][{_now()}] ⌨️ TEXT input verify: "
+                f"ok={verified}，reason={verify_reason}"
+            )
+            if ok and verified:
+                return
+            _safe_print(f"[paster][{_now()}] ⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V")
+
         _safe_print(
             f"[paster][{_now()}] 📋 CLIP flow start: "
             f"target_chars={len(final_text)}, restore_delay={CLIPBOARD_RESTORE_DELAY_SEC:.2f}s"
@@ -490,37 +719,39 @@ class PasteService:
                 _safe_print(f"[paster][{_now()}] 📋 CLIP restore after failed set: ok={restored}")
             return
         time.sleep(CLIPBOARD_SETTLE_DELAY_SEC)
-        try:
-            user32 = ctypes.windll.user32
-            hwnd = user32.GetForegroundWindow()
-            buf = ctypes.create_unicode_buffer(128)
-            user32.GetWindowTextW(hwnd, buf, 128)
-            win_title = buf.value
-        except Exception:
-            hwnd, win_title = 0, "(unknown)"
+        hwnd, win_title, process_name, class_name = self._foreground_window()
         _safe_print(
             f"[paster][{_now()}] ⌨️ Ctrl+V 準備送出，cb_ok={cb_ok}，"
             f"視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
+            f"process={process_name or '?'}，class={class_name or '?'}，"
             f"keys_before={self.input.modifier_state_summary()}，text={repr(final_text[:40])}"
         )
-        released_modifiers = self.input.release_modifiers_for_paste()
+        released_modifiers = self.input.release_modifiers_for_paste(preserve_ctrl=preserve_ctrl_modifier)
+        ctrl_preserved = preserve_ctrl_modifier and self.input.ctrl_state_down()
         modifiers_to_restore = [vk for vk in released_modifiers if not self.input.is_ctrl_vk(vk)]
         _safe_print(
             f"[paster][{_now()}] ⌨️ 貼上前釋放修飾鍵: "
             f"released={self.input.vk_list(released_modifiers)}，"
             f"restore_later={self.input.vk_list(modifiers_to_restore)}，"
-            f"keys_after_release={self.input.modifier_state_summary()}"
+            f"preserve_ctrl={ctrl_preserved}，keys_after_release={self.input.modifier_state_summary()}"
         )
-        try:
-            self.input.send_ctrl_v()
-        finally:
-            self.input.force_release_ctrl()
-            self.input.restore_modifiers(modifiers_to_restore)
+        if ctrl_preserved:
+            try:
+                self.input.send_v()
+            finally:
+                self.input.restore_modifiers(modifiers_to_restore)
+        else:
+            try:
+                self.input.send_ctrl_v()
+            finally:
+                self.input.force_release_ctrl()
+                self.input.restore_modifiers(modifiers_to_restore)
         _safe_print(
             f"[paster][{_now()}] ⌨️ Ctrl+V 已送出，"
             f"keys_after_send={self.input.modifier_state_summary()}"
         )
-        self.input.schedule_ctrl_cleanup("post-paste")
+        if not ctrl_preserved and self.input.ctrl_state_down():
+            self.input.cleanup_ctrl_now("post-paste-immediate")
         guard_armed = self._arm_manual_paste_guard(final_text)
         if t_received:
             _safe_print(f"[paster][{_now()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
@@ -530,8 +761,9 @@ class PasteService:
             if old_clipboard is not None:
                 restored = self._restore_clipboard_verified(old_clipboard)
                 if restored and guard_armed:
-                    self._disarm_manual_paste_guard()
+                    pending_manual_paste = self._disarm_manual_paste_guard()
                     guard_armed = False
+                    self._replay_manual_paste_if_requested(pending_manual_paste)
                 watched = self._watch_clipboard_restore(old_clipboard, final_text) if restored else False
                 _safe_print(
                     f"[paster][{_now()}] 📋 剪貼簿已還原驗證"

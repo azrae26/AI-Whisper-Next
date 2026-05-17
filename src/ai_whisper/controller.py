@@ -205,7 +205,6 @@ class AppController(QObject):
         self._anim_timer.stop()
         self._waveform_timer.stop()
         self.state = "processing"
-        self.processing_started.emit()
         frames = self.audio.stop_capture()
         self._schedule_warmup_shutdown()
         self.executor.submit(self._process_final_audio, frames, self._prev_seg_event)
@@ -228,6 +227,7 @@ class AppController(QObject):
                 self.no_audio.emit()
             return
         safe_print(f"[main][{now_str()}] ✅ 錄音完成，送出辨識")
+        self.processing_started.emit()
         self.paste.prefetch_cursor_position(len(segment.wav_bytes))
         self._run_transcribe(segment.wav_bytes, prev_event, is_segment=False)
 
@@ -369,9 +369,7 @@ class AppController(QObject):
     def _on_segments_complete(self) -> None:
         self.state = "idle"
         self.window.set_idle_state()
-        self.window.set_status("辨識完成 ✓", "#6EE7B7")
-        self.window.show_overlay_status("辨識完成 ✓", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
-        QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
+        self.window.finish_recording_overlay_without_replay()
 
     def _on_transcribe_done(self, text: str) -> None:
         self.state = "idle"
@@ -426,7 +424,7 @@ class AppController(QObject):
         text = self.window.history_text(idx)
         if text:
             safe_print(f"[main][{now_str()}] 📋 貼上記憶 {idx + 1}: \"{text[:20]}\"")
-            self.paste.paste_text(text, delay_ms=0)
+            self.paste.paste_text(text, delay_ms=0, preserve_ctrl_modifier=True)
         else:
             safe_print(f"[main][{now_str()}] ⚠️ 記憶 {idx + 1} 不存在")
 

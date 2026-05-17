@@ -21,7 +21,6 @@ MOD_NORMALIZE = {
     "left alt": "alt", "right alt": "alt",
     "left windows": "windows", "right windows": "windows",
 }
-NAME_HOOK_KEYS = {"insert", "pause"}
 
 
 def parse_hotkey(hk_str: str) -> tuple[list[str], str | None]:
@@ -38,12 +37,11 @@ class HotkeyService(QObject):
     capture_cancelled = Signal()
 
     HK_BASE_ID = 0xBFF0
-    MOD_MAP = {"alt": 0x0001, "ctrl": 0x0002, "control": 0x0002, "shift": 0x0004}
+    MOD_MAP = {"alt": 0x0001, "ctrl": 0x0002, "control": 0x0002, "shift": 0x0004, "windows": 0x0008, "win": 0x0008}
 
     def __init__(self, input_service: InputService):
         super().__init__()
         self.input = input_service
-        self._comma_hook_remove = None
         self._capturing = False
         self._capture_keys: set[str] = set()
         self._hk_thread = None
@@ -54,20 +52,16 @@ class HotkeyService(QObject):
             keyboard.unhook_all_hotkeys()
         except Exception:
             pass
-        if self._comma_hook_remove:
-            try:
-                self._comma_hook_remove()
-            except Exception:
-                pass
-            self._comma_hook_remove = None
+        self._stop_win32_hotkeys()
 
         try:
-            hk_mods, hk_main = parse_hotkey(hotkey)
-            hc_mods, hc_main = parse_hotkey(hotkey_comma)
-            name_triggers: list[tuple[list[str], str, str]] = []
+            hk_mods, _hk_main = parse_hotkey(hotkey)
+            hc_mods, _hc_main = parse_hotkey(hotkey_comma)
+            win32_main_hotkeys: list[tuple[str, str, str, int, int, str]] = []
 
-            if hk_main in NAME_HOOK_KEYS:
-                name_triggers.append((hk_mods, hk_main, "。"))
+            hk_win32_mods, hk_win32_vk = self.parse_hotkey_win32(hotkey)
+            if hk_win32_vk:
+                win32_main_hotkeys.append(("main", "。", "句號", hk_win32_mods, hk_win32_vk, hotkey))
             else:
                 def _hk_fired(p="。"):
                     t = time.perf_counter()
@@ -80,8 +74,9 @@ class HotkeyService(QObject):
                     safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey, _hk_fired)
 
-            if hc_main in NAME_HOOK_KEYS:
-                name_triggers.append((hc_mods, hc_main, "，"))
+            hc_win32_mods, hc_win32_vk = self.parse_hotkey_win32(hotkey_comma)
+            if hc_win32_vk:
+                win32_main_hotkeys.append(("comma", "，", "逗號", hc_win32_mods, hc_win32_vk, hotkey_comma))
             else:
                 def _hk_comma_fired(p="，"):
                     t = time.perf_counter()
@@ -94,32 +89,10 @@ class HotkeyService(QObject):
                     safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey_comma, _hk_comma_fired)
 
-            if name_triggers:
-                def _on_name_hook(event, triggers=name_triggers):
-                    if event.event_type != keyboard.KEY_DOWN:
-                        return
-                    name = event.name.lower() if event.name else ""
-                    if not name:
-                        return
-                    for mods, expected_name, punct in triggers:
-                        if name == expected_name and all(keyboard.is_pressed(m) for m in mods):
-                            t = time.perf_counter()
-                            safe_print(
-                                f"[main][{now_str()}] ⌨️ 熱鍵觸發（name hook），排入 after(0)，"
-                                f"keys={self.input.modifier_state_summary()}"
-                            )
-                            self.toggle_requested.emit(punct)
-                            self.input.schedule_hotkey_modifier_cleanup(mods, "name")
-                            safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
-                            break
-                self._comma_hook_remove = keyboard.hook(_on_name_hook)
-
             safe_print(f"[main][{now_str()}] ✅ 快捷鍵 {hotkey}（句號）、{hotkey_comma}（逗號）已註冊")
+            self.register_win32_hotkeys(win32_main_hotkeys, history_hotkeys)
         except Exception as e:
             safe_print(f"[main][{now_str()}] ❌ 快捷鍵註冊失敗: {e}")
-
-        self.input.start_ctrl_guard()
-        self.register_history_hotkeys(history_hotkeys)
 
     def start_capture(self) -> None:
         try:
@@ -172,6 +145,15 @@ class HotkeyService(QObject):
             "enter": 0x0D,
             "tab": 0x09,
             "pause": 0x13,
+            "page up": 0x21,
+            "page down": 0x22,
+            "end": 0x23,
+            "home": 0x24,
+            "left": 0x25,
+            "up": 0x26,
+            "right": 0x27,
+            "down": 0x28,
+            "insert": 0x2D,
             "escape": 0x1B,
             "backspace": 0x08,
             "delete": 0x2E,
@@ -182,19 +164,28 @@ class HotkeyService(QObject):
         parts = [p.strip().lower() for p in hk_str.split("+")]
         mods, vk = 0, 0
         for p in parts:
-            if p in cls.MOD_MAP:
-                mods |= cls.MOD_MAP[p]
+            normalized = MOD_NORMALIZE.get(p, p)
+            if normalized in cls.MOD_MAP:
+                mods |= cls.MOD_MAP[normalized]
             else:
-                vk = cls.key_to_vk(p)
+                vk = cls.key_to_vk(normalized)
         return mods, vk
 
-    def register_history_hotkeys(self, history_hotkeys: list[str]) -> None:
+    def _stop_win32_hotkeys(self) -> None:
         old_tid = self._hk_thread_id
         old_thread = self._hk_thread
         if old_thread and old_thread.is_alive() and old_tid:
             ctypes.windll.user32.PostThreadMessageW(old_tid, 0x0012, 0, 0)
             old_thread.join(timeout=1.0)
         self._hk_thread_id = 0
+        self._hk_thread = None
+
+    def register_win32_hotkeys(
+        self,
+        main_hotkeys: list[tuple[str, str, str, int, int, str]],
+        history_hotkeys: list[str],
+    ) -> None:
+        self._stop_win32_hotkeys()
 
         defaults = ["alt+shift+1", "alt+shift+2", "alt+shift+3", "alt+shift+4", "alt+shift+5"]
         parsed = []
@@ -208,27 +199,59 @@ class HotkeyService(QObject):
             user32.RegisterHotKey.restype = ctypes.c_bool
             user32.RegisterHotKey.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_uint, ctypes.c_uint]
             self._hk_thread_id = ctypes.windll.kernel32.GetCurrentThreadId()
-            ok_count = 0
+            registered_ids: list[int] = []
+            main_id_to_hotkey: dict[int, tuple[str, str, str]] = {}
+            history_id_to_index: dict[int, int] = {}
+            main_ok_count = 0
+            history_ok_count = 0
+            next_id = self.HK_BASE_ID
+            for source, punct, label, mods, vk, raw in main_hotkeys:
+                if not vk:
+                    continue
+                hotkey_id = next_id
+                next_id += 1
+                if user32.RegisterHotKey(None, hotkey_id, mods | 0x4000, vk):
+                    registered_ids.append(hotkey_id)
+                    main_id_to_hotkey[hotkey_id] = (source, punct, label)
+                    main_ok_count += 1
+                else:
+                    safe_print(f"[main][{now_str()}] ❌ Win32 主快捷鍵註冊失敗: {raw} (mods=0x{mods:X} vk=0x{vk:X})")
             for i, (mods, vk) in enumerate(parsed):
                 if not vk:
                     continue
-                if user32.RegisterHotKey(None, self.HK_BASE_ID + i, mods | 0x4000, vk):
-                    ok_count += 1
+                hotkey_id = next_id
+                next_id += 1
+                if user32.RegisterHotKey(None, hotkey_id, mods | 0x4000, vk):
+                    registered_ids.append(hotkey_id)
+                    history_id_to_index[hotkey_id] = i
+                    history_ok_count += 1
                 else:
                     safe_print(f"[main][{now_str()}] ❌ Win32 記憶快捷鍵 {i + 1} 註冊失敗 (mods=0x{mods:X} vk=0x{vk:X})")
-            safe_print(f"[main][{now_str()}] ✅ 記憶快捷鍵 {ok_count}/5 已註冊 (Win32)")
+            if main_hotkeys:
+                safe_print(f"[main][{now_str()}] ✅ 主快捷鍵 {main_ok_count}/{len(main_hotkeys)} 已註冊 (Win32)")
+            safe_print(f"[main][{now_str()}] ✅ 記憶快捷鍵 {history_ok_count}/5 已註冊 (Win32)")
             msg = wintypes.MSG()
             while user32.GetMessageW(ctypes.byref(msg), None, 0, 0) > 0:
                 if msg.message == 0x0312:
-                    idx = msg.wParam - self.HK_BASE_ID
-                    if 0 <= idx < 5:
+                    hotkey_id = int(msg.wParam)
+                    if hotkey_id in main_id_to_hotkey:
+                        _source, punct, label = main_id_to_hotkey[hotkey_id]
+                        t = time.perf_counter()
+                        safe_print(
+                            f"[main][{now_str()}] ⌨️ 主快捷鍵觸發（Win32/{label}），"
+                            f"keys={self.input.modifier_state_summary()}"
+                        )
+                        self.toggle_requested.emit(punct)
+                        safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
+                    elif hotkey_id in history_id_to_index:
+                        idx = history_id_to_index[hotkey_id]
                         safe_print(
                             f"[main][{now_str()}] ⌨️ 記憶快捷鍵 {idx + 1} 觸發，"
                             f"keys={self.input.modifier_state_summary()}"
                         )
                         self.history_requested.emit(int(idx))
-            for i in range(5):
-                user32.UnregisterHotKey(None, self.HK_BASE_ID + i)
+            for hotkey_id in registered_ids:
+                user32.UnregisterHotKey(None, hotkey_id)
 
         self._hk_thread = threading.Thread(target=_listener, daemon=True, name="HotkeyListener")
         self._hk_thread.start()
@@ -238,11 +261,5 @@ class HotkeyService(QObject):
             keyboard.unhook_all_hotkeys()
         except Exception:
             pass
-        if self._comma_hook_remove:
-            try:
-                self._comma_hook_remove()
-            except Exception:
-                pass
         self.input.stop_ctrl_guard()
-        if self._hk_thread and self._hk_thread.is_alive() and self._hk_thread_id:
-            ctypes.windll.user32.PostThreadMessageW(self._hk_thread_id, 0x0012, 0, 0)
+        self._stop_win32_hotkeys()

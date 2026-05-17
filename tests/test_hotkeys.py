@@ -12,3 +12,9 @@ def test_win32_history_vk_mapping():
     assert HotkeyService.parse_hotkey_win32("ctrl+f5") == (0x0002, 0x6F + 5)
     assert HotkeyService.parse_hotkey_win32("pause") == (0, 0x13)
 
+
+def test_win32_main_hotkey_vk_mapping():
+    assert HotkeyService.parse_hotkey_win32("ctrl+f12") == (0x0002, 0x7B)
+    assert HotkeyService.parse_hotkey_win32("left ctrl+f12") == (0x0002, 0x7B)
+    assert HotkeyService.parse_hotkey_win32("insert") == (0, 0x2D)
+    assert HotkeyService.parse_hotkey_win32("ctrl+page up") == (0x0002, 0x21)

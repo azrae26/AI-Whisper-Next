@@ -10,6 +10,8 @@ from ..logging_setup import now_str, safe_print
 
 KEYEVENTF_KEYDOWN = 0
 KEYEVENTF_KEYUP = 0x0002
+KEYEVENTF_UNICODE = 0x0004
+INPUT_KEYBOARD = 1
 VK_LCONTROL = 0xA2
 VK_V = 0x56
 CTRL_VKS = (0x11, 0xA2, 0xA3)  # generic Ctrl, left Ctrl, right Ctrl
@@ -58,6 +60,51 @@ MOD_RELEASE_VKS = {
     "alt": (0x12, 0xA4, 0xA5),
     "windows": (0x5B, 0x5C),
 }
+
+
+class KEYBDINPUT(ctypes.Structure):
+    _fields_ = (
+        ("wVk", ctypes.c_ushort),
+        ("wScan", ctypes.c_ushort),
+        ("dwFlags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.c_void_p),
+    )
+
+
+class MOUSEINPUT(ctypes.Structure):
+    _fields_ = (
+        ("dx", ctypes.c_long),
+        ("dy", ctypes.c_long),
+        ("mouseData", ctypes.c_ulong),
+        ("dwFlags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.c_void_p),
+    )
+
+
+class HARDWAREINPUT(ctypes.Structure):
+    _fields_ = (
+        ("uMsg", ctypes.c_ulong),
+        ("wParamL", ctypes.c_ushort),
+        ("wParamH", ctypes.c_ushort),
+    )
+
+
+class INPUTUNION(ctypes.Union):
+    _fields_ = (
+        ("mi", MOUSEINPUT),
+        ("ki", KEYBDINPUT),
+        ("hi", HARDWAREINPUT),
+    )
+
+
+class INPUT(ctypes.Structure):
+    _anonymous_ = ("u",)
+    _fields_ = (
+        ("type", ctypes.c_ulong),
+        ("u", INPUTUNION),
+    )
 
 
 class InputService:
@@ -109,10 +156,12 @@ class InputService:
             except Exception:
                 continue
 
-    def release_modifiers_for_paste(self) -> list[int]:
+    def release_modifiers_for_paste(self, preserve_ctrl: bool = False) -> list[int]:
         user32 = ctypes.windll.user32
         released: list[int] = []
         for vk in PASTE_MODIFIER_VKS:
+            if preserve_ctrl and self.is_ctrl_vk(vk):
+                continue
             try:
                 if user32.GetAsyncKeyState(vk) & 0x8000:
                     user32.keybd_event(vk, 0, KEYEVENTF_KEYUP, 0)
@@ -137,6 +186,31 @@ class InputService:
             user32.keybd_event(VK_V, 0, KEYEVENTF_KEYUP, 0)
         finally:
             self.force_release_ctrl()
+
+    def send_v(self) -> None:
+        user32 = ctypes.windll.user32
+        user32.keybd_event(VK_V, 0, KEYEVENTF_KEYDOWN, 0)
+        user32.keybd_event(VK_V, 0, KEYEVENTF_KEYUP, 0)
+
+    def send_unicode_text(self, text: str) -> bool:
+        if not text:
+            return True
+        user32 = ctypes.windll.user32
+        normalized = text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r")
+        data = normalized.encode("utf-16-le", "surrogatepass")
+        units = [data[i] | (data[i + 1] << 8) for i in range(0, len(data), 2)]
+        for unit in units:
+            inputs = (INPUT * 2)()
+            inputs[0].type = INPUT_KEYBOARD
+            inputs[0].ki.wScan = unit
+            inputs[0].ki.dwFlags = KEYEVENTF_UNICODE
+            inputs[1].type = INPUT_KEYBOARD
+            inputs[1].ki.wScan = unit
+            inputs[1].ki.dwFlags = KEYEVENTF_UNICODE | KEYEVENTF_KEYUP
+            sent = user32.SendInput(2, inputs, ctypes.sizeof(INPUT))
+            if sent != 2:
+                return False
+        return True
 
     def schedule_hotkey_modifier_cleanup(self, mods: list[str], source: str) -> None:
         vks: list[int] = []
@@ -179,6 +253,9 @@ class InputService:
             timer = threading.Timer(delay, self._release_stuck_ctrl_if_needed, args=(source,))
             timer.daemon = True
             timer.start()
+
+    def cleanup_ctrl_now(self, source: str) -> None:
+        self._release_stuck_ctrl_if_needed(source)
 
     def _release_stuck_ctrl_if_needed(self, source: str) -> None:
         user32 = ctypes.windll.user32

@@ -745,6 +745,9 @@ class MainWindow(QMainWindow):
     def show_overlay_status(self, text: str, color: str, duration_ms: int) -> None:
         self.waveform_overlay.show_status(text, color, duration_ms)
 
+    def finish_recording_overlay_without_replay(self) -> None:
+        self.waveform_overlay.finish_recording_without_replay()
+
     def prewarm(self) -> None:
         pass  # disabled — was causing 3s main-thread block via dangling QPropertyAnimation
 

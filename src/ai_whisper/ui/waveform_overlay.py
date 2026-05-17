@@ -67,6 +67,7 @@ class WaveformOverlay(QWidget):
         self._recording_status_color = QColor("#F5D0FE")
         self._recording_status_until = 0.0
         self._recording_status_token = 0
+        self._hide_after_recording_status = False
         self._status_color = QColor(16, 185, 129)
         self._status_until = 0.0
         self._screen_name = ""
@@ -126,6 +127,7 @@ class WaveformOverlay(QWidget):
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
+        self._hide_after_recording_status = False
         self._recording_status_token += 1
         self._set_recording_status_label("")
         self._levels = []
@@ -141,6 +143,7 @@ class WaveformOverlay(QWidget):
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
+        self._hide_after_recording_status = False
         self._recording_status_token += 1
         self._set_recording_status_label("")
         self._proc_start = time.time()
@@ -152,6 +155,7 @@ class WaveformOverlay(QWidget):
     def set_recording_status(self, text: str = "", color: str = "#F5D0FE", duration_ms: int = 0) -> None:
         if self._processing or self._status_text:
             return
+        self._hide_after_recording_status = False
         had_status = bool(self._recording_status_text)
         self._recording_status_token += 1
         token = self._recording_status_token
@@ -173,6 +177,7 @@ class WaveformOverlay(QWidget):
         self._status_text = text
         self._recording_status_text = ""
         self._recording_status_until = 0.0
+        self._hide_after_recording_status = False
         self._recording_status_token += 1
         self._set_recording_status_label("")
         self._status_color = QColor(color)
@@ -187,10 +192,26 @@ class WaveformOverlay(QWidget):
         self._status_text = ""
         self._recording_status_text = ""
         self._recording_status_until = 0.0
+        self._hide_after_recording_status = False
         self._recording_status_token += 1
         self._set_recording_status_label("")
         self._timer.stop()
         self.hide()
+
+    def finish_recording_without_replay(self) -> None:
+        self._processing = False
+        self._status_text = ""
+        self._levels = []
+        if self._recording_status_text:
+            self._hide_after_recording_status = True
+            self._position_at_cursor_screen()
+            self.show()
+            self.raise_()
+            if self._recording_status_until and not self._timer.isActive():
+                self._timer.start(50)
+            self.update()
+        else:
+            self.hide_overlay()
 
     def set_levels(self, levels: list[float]) -> None:
         if self._processing:
@@ -233,6 +254,9 @@ class WaveformOverlay(QWidget):
             self._recording_status_until = 0.0
             self._recording_status_token += 1
             self._set_recording_status_label("")
+            if self._hide_after_recording_status:
+                self.hide_overlay()
+                return
             self._position_at_cursor_screen()
             self.update()
         if not self._processing and not self._status_text and not self._recording_status_text:
