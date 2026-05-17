@@ -1,0 +1,17 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260517_222125.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][22:21:25.184] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][22:21:25.185] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][22:21:25.185] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [22:21:25.200] 🎙️ 敲麥監聽已啟動
+[tap][dim]   [22:21:26.300] 持續=29ms 峰值=521 ✗弱
+[recorder][VAD] 載入 Silero VAD 模型...
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][22:21:27.360] 持續=135ms 峰值=1718 ✗長 K=-0.7 CF=2.4 SC=1048Hz | fK=-0.3 fCF=2.6 fSC=897Hz
+[transcriber][22:21:27.391] 🔌 HTTP 連線預熱完成 (2.19s)
+[tap][dim]   [22:21:27.396] 持續=36ms 峰值=582 ✗弱
+[tap][dim]   [22:21:34.498] 持續=27ms 峰值=350 ✗弱
+[tap][dim]   [22:21:39.240] 持續=45ms 峰值=393 ✗弱
+[tap][dim]   [22:22:14.971] 持續=27ms 峰值=304 ✗弱
+[tap][sample][22:22:15.033] 持續=63ms 峰值=647 ✓ K=-1.3 CF=1.8 SC=1527Hz | fK=-1.3 fCF=1.9 fSC=1727Hz 🎯 敲擊 #1
