@@ -1,8 +1,0 @@
-[main] LOG -> F:\Cursor\AI Whisper Next\ai_whisper_20260516_012103.log
-[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
-[main][01:21:03.677] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
-[main][01:21:03.678] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
-[tap]         🎙️ 敲麥監聽已啟動
-[recorder][VAD] 載入 Silero VAD 模型...
-Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
-[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: No module named 'torchaudio'
