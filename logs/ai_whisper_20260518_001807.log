@@ -1,0 +1,12 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_001807.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:18:08.053] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:18:08.054] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:18:08.054] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:18:08.070] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:18:10.249] 🔌 HTTP 連線預熱完成 (2.18s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap]        [00:18:29.493] 💤 敲麥監聽已停止
+[recorder][00:18:29] 💤 預熱 stream 已關閉

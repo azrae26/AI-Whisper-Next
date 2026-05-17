@@ -1,0 +1,91 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_001653.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:16:53.679] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:16:53.680] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:16:53.680] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:16:53.696] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:16:55.802] 🔌 HTTP 連線預熱完成 (2.11s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][00:17:17.947] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:17:17.947] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:17:18.016] 💤 敲麥監聽已停止
+[recorder][00:17:18] ⏱️ InputStream() 13.1ms
+[recorder][00:17:18] ⏱️ stream.start() 0.4ms
+[recorder][00:17:18] 🎙️ 錄音就緒，總初始化 13.5ms
+[main][00:17:18.030] ⏱️ recorder.start() 耗時 13.9ms，ok=True
+[tap]        [00:17:18.570] 🎙️ 敲麥監聽已啟動
+[main][00:17:18.580] 🎙️ 開始錄音
+[recorder][00:17:18] 🎤 第一包音訊到達，麥克風實際開啟延遲 760.0ms
+[tap][dim]   [00:17:19.447] 持續=45ms 峰值=360 ✗弱
+[tap][sample][00:17:19.762] 持續=315ms 峰值=4946 ✗長 K=3.7 CF=5.7 SC=822Hz Att=50.2ms | fK=4.3 fCF=6.0 fSC=817Hz fFlat=0.078 fHF=0.000
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][VAD] Silero 語音幀 12/63 (19.0%)，有效語音 0.38s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.0s 音訊段落
+[main][00:17:21.213] ✂️ 自動分段送出（靜音達1s，累積 2.0s，靜音 1.0s）
+[paster][00:17:21] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:17:21] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.45s)
+[tap][sample][00:17:21.760] 持續=603ms 峰值=6793 ✗長 K=3.0 CF=5.7 SC=2231Hz Att=55.1ms | fK=3.3 fCF=5.8 fSC=2231Hz fFlat=0.514 fHF=0.044
+[transcriber][00:17:22.307] ⏱️ API 耗時: 1.07s
+[main][00:17:22.332] ✅ 分段辨識完成: "好"
+[paster][00:17:44] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='好'
+[paster][00:17:44] ⌨️ TEXT input flow start: target_chars=1，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='好'
+[paster][00:17:44] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:17:44] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:17:44] ⏱️ 收到→直接輸入完成: 22.23s
+[paster][00:17:44] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 12/54 (22.2%)，有效語音 0.38s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 1.7s 音訊段落
+[main][00:17:45.621] ✂️ 自動分段送出（靜音達1s，累積 1.7s，靜音 1.0s）
+[paster][00:17:45] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:17:45] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.42s)
+[transcriber][00:17:46.615] ⏱️ API 耗時: 0.99s
+[main][00:17:46.615] ✅ 分段辨識完成: "測試"
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:17:46] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試'
+[paster][00:17:46] ⌨️ TEXT input flow start: target_chars=2，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='測試'
+[paster][00:17:46] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:17:46] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:17:46] ⏱️ 收到→直接輸入完成: 0.04s
+[paster][00:17:46] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.18s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]        [00:18:05.663] 💤 敲麥監聽已停止
+[recorder][00:18:05] 💤 預熱 stream 已關閉
+[0m

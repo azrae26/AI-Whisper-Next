@@ -1,0 +1,522 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_001322.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:13:23.018] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:13:23.019] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:13:23.019] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:13:23.039] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:13:25.093] 🔌 HTTP 連線預熱完成 (2.05s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][00:13:27.924] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:27.924] ⌨️ after(0) 執行延遲 0.5ms
+[tap]        [00:13:27.977] 💤 敲麥監聽已停止
+[recorder][00:13:27] ⏱️ InputStream() 14.7ms
+[recorder][00:13:27] ⏱️ stream.start() 0.4ms
+[recorder][00:13:27] 🎙️ 錄音就緒，總初始化 15.1ms
+[main][00:13:27.992] ⏱️ recorder.start() 耗時 15.3ms，ok=True
+[tap]        [00:13:28.522] 🎙️ 敲麥監聽已啟動
+[main][00:13:28.529] 🎙️ 開始錄音
+[recorder][00:13:28] 🎤 第一包音訊到達，麥克風實際開啟延遲 739.3ms
+[tap][sample][00:13:29.866] 持續=477ms 峰值=4285 ✗長 K=2.1 CF=5.6 SC=805Hz Att=199.3ms | fK=2.5 fCF=5.8 fSC=805Hz fFlat=0.122 fHF=0.001
+[tap][dim]   [00:13:30.027] 持續=36ms 峰值=304 ✗弱
+[tap][sample][00:13:31.080] 持續=1026ms 峰值=5047 ✗長 K=0.2 CF=4.1 SC=2169Hz Att=140.2ms | fK=0.3 fCF=4.2 fSC=2173Hz fFlat=0.501 fHF=0.026
+[tap][dim]   [00:13:31.494] 持續=27ms 峰值=312 ✗弱
+[tap][dim]   [00:13:31.629] 持續=45ms 峰值=330 ✗弱
+[recorder][VAD] Silero 語音幀 46/126 (36.5%)，有效語音 1.47s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 4.1s 音訊段落
+[main][00:13:32.936] ✂️ 自動分段送出（靜音達1s，累積 4.1s，靜音 1.1s）
+[paster][00:13:33] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:33] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.21s, est_api=0.66s)
+[transcriber][00:13:33.951] ⏱️ API 耗時: 1.01s
+[main][00:13:33.952] ✅ 分段辨識完成: "好，測試一下喔"
+[paster][00:13:34] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='好，測試一下喔'
+[paster][00:13:34] ⌨️ TEXT input flow start: target_chars=7，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='好，測試一下喔'
+[paster][00:13:34] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:34] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:34] ⏱️ 收到→直接輸入完成: 0.89s
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:13:34] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:13:36.724] 持續=36ms 峰值=305 ✗弱
+[tap][sample][00:13:37.273] 持續=549ms 峰值=7963 ✗長 K=1.4 CF=4.4 SC=1244Hz Att=95.7ms | fK=1.7 fCF=4.5 fSC=1244Hz fFlat=0.185 fHF=0.006
+[main][00:13:38.009] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:38.009] ⌨️ after(0) 執行延遲 0.3ms[main][00:13:38.010] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 16/42 (38.1%)，有效語音 0.51s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:13:38.024] ✅ 錄音完成，送出辨識
+[paster][00:13:38] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:38] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.39s)
+[transcriber][00:13:39.245] ⏱️ API 耗時: 1.22s
+[main][00:13:39.245] ✅ 辨識完成: "有嗎"
+[paster][00:13:39] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='有嗎'
+[paster][00:13:39] ⌨️ TEXT input flow start: target_chars=2，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='有嗎'
+[paster][00:13:39] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:39] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:39] ⏱️ 收到→直接輸入完成: 0.06s
+[paster][00:13:39] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[main][00:13:40.038] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:40.038] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:13:40.063] 💤 敲麥監聽已停止
+[recorder][00:13:40] 🚀 預熱命中，直接開始錄音
+[main][00:13:40.064] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:13:40.067] 🎙️ 敲麥監聽已啟動
+[main][00:13:40.071] 🎙️ 開始錄音
+[tap][sample][00:13:41.161] 持續=414ms 峰值=5101 ✗長 K=1.8 CF=4.9 SC=1000Hz Att=142.1ms | fK=2.2 fCF=5.1 fSC=999Hz fFlat=0.139 fHF=0.001
+[main][00:13:41.352] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:41.352] ⌨️ after(0) 執行延遲 0.3ms
+[main][00:13:41.353] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[main][00:13:42.286] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:42.286] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:13:42.329] 💤 敲麥監聽已停止
+[recorder][00:13:42] 🚀 預熱命中，直接開始錄音
+[main][00:13:42.329] ⏱️ recorder.start() 耗時 0.3ms，ok=True
+[tap]        [00:13:42.334] 🎙️ 敲麥監聽已啟動
+[main][00:13:42.339] 🎙️ 開始錄音
+[tap][sample][00:13:43.842] 持續=990ms 峰值=7311 ✗長 K=1.7 CF=5.5 SC=1012Hz Att=628.2ms | fK=1.9 fCF=5.6 fSC=1011Hz fFlat=0.142 fHF=0.002
+[main][00:13:44.482] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:44.482] ⌨️ after(0) 執行延遲 0.3ms[main][00:13:44.482] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 15/67 (22.4%)，有效語音 0.48s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:13:44.503] ✅ 錄音完成，送出辨識
+[paster][00:13:44] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:44] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.02s, est_api=0.47s)
+[transcriber][00:13:45.299] ⏱️ API 耗時: 0.80s
+[main][00:13:45.300] ✅ 辨識完成: "好有嗎"
+[paster][00:13:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='好有嗎'
+[paster][00:13:45] ⌨️ TEXT input flow start: target_chars=3，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='好有嗎'
+[paster][00:13:45] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:45] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:45] ⏱️ 收到→直接輸入完成: 0.06s
+[paster][00:13:45] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[main][00:13:46.245] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:13:46.246] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [00:13:46.289] 💤 敲麥監聽已停止
+[recorder][00:13:46] 🚀 預熱命中，直接開始錄音
+[main][00:13:46.289] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [00:13:46.292] 🎙️ 敲麥監聽已啟動
+[main][00:13:46.296] 🎙️ 開始錄音
+[tap][dim]   [00:13:46.965] 持續=36ms 峰值=533 ✗弱
+[tap][sample][00:13:47.703] 持續=675ms 峰值=7051 ✗長 K=2.2 CF=4.6 SC=1295Hz Att=0.1ms | fK=2.4 fCF=4.7 fSC=1292Hz fFlat=0.275 fHF=0.004
+[recorder][VAD] Silero 語音幀 19/76 (25.0%)，有效語音 0.61s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][00:13:48.762] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.0s）
+[paster][00:13:48] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:48] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[tap][sample][00:13:49.531] 持續=648ms 峰值=6507 ✗長 K=2.8 CF=5.7 SC=1478Hz Att=168.1ms | fK=3.0 fCF=5.9 fSC=1475Hz fFlat=0.353 fHF=0.009
+[tap][dim]   [00:13:49.558] 持續=27ms 峰值=472 ✗弱
+[transcriber][00:13:49.589] ⏱️ API 耗時: 0.83s
+[main][00:13:49.590] ✅ 分段辨識完成: "這是"
+[paster][00:13:49] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這是'
+[paster][00:13:49] ⌨️ TEXT input flow start: target_chars=2，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='這是'
+[paster][00:13:49] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:49] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:49] ⏱️ 收到→直接輸入完成: 0.04s
+[paster][00:13:49] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 19/56 (33.9%)，有效語音 0.61s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 1.8s 音訊段落
+[main][00:13:50.583] ✂️ 自動分段送出（靜音達1s，累積 1.8s，靜音 1.0s）
+[paster][00:13:50] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:50] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.43s)
+[transcriber][00:13:51.142] ⏱️ API 耗時: 0.56s
+[main][00:13:51.142] ✅ 分段辨識完成: "這是"
+[paster][00:13:51] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這是'
+[paster][00:13:51] ⌨️ TEXT input flow start: target_chars=2，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='這是'
+[paster][00:13:51] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:51] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:51] ⏱️ 收到→直接輸入完成: 0.04s
+[paster][00:13:51] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[tap][sample][00:13:51.511] 持續=585ms 峰值=5520 ✗長 K=2.5 CF=5.1 SC=1459Hz Att=136.5ms | fK=2.8 fCF=5.3 fSC=1464Hz fFlat=0.294 fHF=0.005
+[recorder][VAD] Silero 語音幀 18/64 (28.1%)，有效語音 0.58s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.1s 音訊段落
+[main][00:13:52.619] ✂️ 自動分段送出（靜音達1s，累積 2.1s，靜音 1.1s）
+[paster][00:13:52] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:52] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.01s, est_api=0.46s)
+[transcriber][00:13:53.515] ⏱️ API 耗時: 0.89s
+[main][00:13:53.515] ✅ 分段辨識完成: "這是"
+[paster][00:13:53] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='這是'
+[paster][00:13:53] ⌨️ TEXT input flow start: target_chars=2，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='這是'
+[paster][00:13:53] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:53] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:53] ⏱️ 收到→直接輸入完成: 0.04s
+[paster][00:13:53] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.23s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:13:55.380] 持續=27ms 峰值=674 ✓ K=18.3 CF=6.8 SC=1446Hz Att=0.3ms | fK=39.2 fCF=9.7 fSC=1445Hz fFlat=0.244 fHF=0.007 🎯 敲擊 #1
+[tap][sample][00:13:56.658] 持續=1179ms 峰值=7682 ✗長 K=2.7 CF=5.9 SC=1952Hz Att=130.6ms | fK=2.8 fCF=6.0 fSC=1953Hz fFlat=0.468 fHF=0.022
+[tap][dim]   [00:13:56.685] 持續=27ms 峰值=563 ✗弱
+[recorder][VAD] Silero 語音幀 36/76 (47.4%)，有效語音 1.15s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][00:13:57.696] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.0s）
+[paster][00:13:57] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:13:57] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[transcriber][00:13:58.323] ⏱️ API 耗時: 0.63s
+[main][00:13:58.323] ✅ 分段辨識完成: "測試測試"
+[paster][00:13:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試'
+[paster][00:13:58] ⌨️ TEXT input flow start: target_chars=4，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster][00:13:58] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:13:58] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:13:58] ⏱️ 收到→直接輸入完成: 0.05s
+[paster][00:13:58] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:14:14.739] 持續=387ms 峰值=12554 ✗長 K=3.5 CF=4.9 SC=1248Hz Att=98.2ms | fK=4.0 fCF=5.1 fSC=1245Hz fFlat=0.243 fHF=0.002
+[tap][sample][00:14:14.928] 持續=162ms 峰值=8842 ✓ K=3.1 CF=4.4 SC=1347Hz Att=0.1ms | fK=4.3 fCF=4.8 fSC=1337Hz fFlat=0.237 fHF=0.008 🎯 敲擊 #1
+[tap][sample][00:14:15.289] 持續=288ms 峰值=5971 ✗長 K=3.4 CF=7.8 SC=3323Hz Att=0.1ms | fK=4.1 fCF=8.2 fSC=3321Hz fFlat=0.613 fHF=0.192
+[tap][dim]   [00:14:15.316] 持續=27ms 峰值=473 ✗弱
+[tap][dim]   [00:14:15.378] 持續=36ms 峰值=439 ✗弱
+[tap][sample][00:14:15.928] 持續=414ms 峰值=5713 ✗長 K=2.6 CF=5.8 SC=1358Hz Att=89.5ms | fK=3.0 fCF=6.0 fSC=1355Hz fFlat=0.260 fHF=0.006
+[tap][sample][00:14:16.089] 持續=126ms 峰值=6655 ✗長 K=1.8 CF=4.3 SC=2683Hz Att=58.9ms | fK=3.0 fCF=4.8 fSC=2692Hz fFlat=0.577 fHF=0.118
+[tap][dim]   [00:14:16.116] 持續=27ms 峰值=503 ✗弱
+[tap][sample][00:14:16.306] 持續=126ms 峰值=6375 ✗長 K=5.0 CF=4.6 SC=1443Hz Att=0.6ms | fK=7.0 fCF=5.1 fSC=1445Hz fFlat=0.234 fHF=0.012
+[tap][dim]   [00:14:16.369] 持續=36ms 峰值=350 ✗弱
+[tap][sample][00:14:17.493] 持續=648ms 峰值=9914 ✗長 K=5.2 CF=5.7 SC=877Hz Att=79.4ms | fK=5.6 fCF=5.8 fSC=879Hz fFlat=0.177 fHF=0.001
+[tap][sample][00:14:18.447] 持續=162ms 峰值=10499 ✓ K=3.8 CF=4.2 SC=1212Hz Att=2.2ms | fK=5.2 fCF=4.6 fSC=1208Hz fFlat=0.217 fHF=0.003 🎯 敲擊 #1
+[tap][dim]   [00:14:18.492] 持續=45ms 峰值=537 ✗弱
+[tap][sample][00:14:18.762] 持續=243ms 峰值=7291 ✗長 K=3.2 CF=5.8 SC=1738Hz Att=70.0ms | fK=3.9 fCF=6.1 fSC=1736Hz fFlat=0.403 fHF=0.020
+[tap][dim]   [00:14:18.808] 持續=45ms 峰值=443 ✗弱
+[tap][sample][00:14:19.122] 持續=315ms 峰值=4511 ✗長 K=2.8 CF=5.6 SC=2446Hz Att=17.8ms | fK=3.3 fCF=5.8 fSC=2443Hz fFlat=0.534 fHF=0.036
+[tap][dim]   [00:14:19.159] 持續=36ms 峰值=549 ✗弱
+[tap][sample][00:14:19.410] 持續=252ms 峰值=7838 ✗長 K=3.3 CF=4.6 SC=1039Hz Att=32.8ms | fK=4.1 fCF=4.9 fSC=1045Hz fFlat=0.212 fHF=0.002
+[tap][dim]   [00:14:19.483] 持續=72ms 峰值=556 ✗弱
+[tap][sample][00:14:20.823] 持續=738ms 峰值=10396 ✗長 K=2.6 CF=5.3 SC=2029Hz Att=271.7ms | fK=2.9 fCF=5.4 fSC=2031Hz fFlat=0.510 fHF=0.022
+[tap][dim]   [00:14:20.851] 持續=27ms 峰值=388 ✗弱
+[tap][sample][00:14:21.849] 持續=684ms 峰值=6738 ✗長 K=2.3 CF=5.8 SC=2354Hz Att=87.1ms | fK=2.5 fCF=5.9 fSC=2356Hz fFlat=0.549 fHF=0.041
+[tap][dim]   [00:14:21.940] 持續=90ms 峰值=560 ✗弱
+[tap][dim]   [00:14:22.713] 持續=63ms 峰值=584 ✗弱
+[recorder][VAD] Silero 語音幀 163/324 (50.3%)，有效語音 5.22s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 10.4s 音訊段落
+[main][00:14:24.224] ✂️ 自動分段送出（靜音達1s，累積 10.4s，靜音 1.2s）
+[paster][00:14:25] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:14:25] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.84s, est_api=1.29s)
+[tap][dim]   [00:14:25.261] 持續=27ms 峰值=565 ✗弱
+[transcriber][00:14:25.614] ⏱️ API 耗時: 1.39s
+[main][00:14:25.615] ✅ 分段辨識完成: "亮的字改為這個，然後把中間的計算的曲線"
+[paster][00:14:25] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='亮的字改為這個，然後把中間的計算的曲線'
+[paster][00:14:25] ⌨️ TEXT input flow start: target_chars=19，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='亮的字改為這個，然後把中間的計算的曲線'
+[paster][00:14:25] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:14:25] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:14:25] ⏱️ 收到→直接輸入完成: 0.06s
+[paster][00:14:25] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/69 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:14:27.663] 持續=261ms 峰值=11186 ✗長 K=4.1 CF=4.9 SC=2204Hz Att=40.2ms | fK=5.0 fCF=5.2 fSC=2208Hz fFlat=0.542 fHF=0.034
+[tap][dim]   [00:14:27.691] 持續=27ms 峰值=472 ✗弱
+[tap][sample][00:14:27.853] 持續=162ms 峰值=10872 ✓ K=4.6 CF=4.4 SC=1183Hz Att=0.1ms | fK=6.1 fCF=4.8 fSC=1184Hz fFlat=0.211 fHF=0.004 🎯 敲擊 #1
+[tap][dim]   [00:14:27.942] 持續=90ms 峰值=589 ✗弱
+[tap][sample][00:14:29.230] 持續=1287ms 峰值=6390 ✗長 K=4.2 CF=6.5 SC=2580Hz Att=30.7ms | fK=4.5 fCF=6.7 fSC=2578Hz fFlat=0.557 fHF=0.077
+[tap][dim]   [00:14:29.256] 持續=27ms 峰值=364 ✗弱
+[tap]         ⏱️ 間隔過長重置（1800ms）
+[tap][sample][00:14:29.581] 持續=90ms 峰值=7474 ✓ K=2.8 CF=4.1 SC=744Hz Att=86.9ms | fK=4.7 fCF=4.7 fSC=728Hz fFlat=0.101 fHF=0.001 🎯 敲擊 #1
+[tap][dim]   [00:14:29.610] 持續=30ms 峰值=444 ✗弱
+[tap][sample][00:14:30.004] 持續=324ms 峰值=10845 ✗長 K=4.9 CF=5.5 SC=1328Hz Att=7.8ms | fK=5.7 fCF=5.7 fSC=1328Hz fFlat=0.303 fHF=0.004
+[tap][sample][00:14:30.823] 持續=791ms 峰值=4611 ✗長 K=3.5 CF=6.3 SC=3190Hz Att=0.1ms | fK=3.8 fCF=6.5 fSC=3191Hz fFlat=0.666 fHF=0.182
+[tap][dim]   [00:14:30.860] 持續=37ms 峰值=326 ✗弱
+[tap][sample][00:14:32.048] 持續=955ms 峰值=7431 ✗長 K=5.1 CF=6.6 SC=2585Hz Att=670.4ms | fK=5.3 fCF=6.8 fSC=2584Hz fFlat=0.555 fHF=0.067
+[tap][dim]   [00:14:32.083] 持續=35ms 峰值=570 ✗弱
+[tap][sample][00:14:32.885] 持續=676ms 峰值=7048 ✗長 K=6.5 CF=6.7 SC=3086Hz Att=6.9ms | fK=6.9 fCF=6.9 fSC=3083Hz fFlat=0.633 fHF=0.183
+[tap][dim]   [00:14:32.911] 持續=26ms 峰值=491 ✗弱
+[tap][sample][00:14:33.010] 持續=99ms 峰值=3578 ✓ K=4.4 CF=6.1 SC=1393Hz Att=0.1ms | fK=6.8 fCF=7.1 fSC=1392Hz fFlat=0.248 fHF=0.008 🎯 敲擊 #1
+[tap][dim]   [00:14:33.037] 持續=27ms 峰值=351 ✗弱
+[tap][sample][00:14:33.290] 持續=217ms 峰值=2669 ✗長 K=6.9 CF=10.7 SC=4109Hz Att=0.1ms | fK=8.3 fCF=11.4 fSC=4118Hz fFlat=0.668 fHF=0.574
+[recorder][VAD] Silero 語音幀 163/254 (64.2%)，有效語音 5.22s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 8.1s 音訊段落
+[main][00:14:34.533] ✂️ 自動分段送出（靜音達1s，累積 8.1s，靜音 1.1s）
+[tap][dim]   [00:14:34.728] 持續=36ms 峰值=447 ✗弱
+[paster][00:14:35] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:14:35] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.61s, est_api=1.06s)
+[transcriber][00:14:35.488] ⏱️ API 耗時: 0.95s
+[main][00:14:35.488] ✅ 分段辨識完成: "中等長度的時候我不要中間字，我要稍微偏深的字"
+[paster][00:14:35] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='中等長度的時候我不要中間字，我要稍微偏深的字'
+[paster][00:14:35] ⌨️ TEXT input flow start: target_chars=22，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='中等長度的時候我不要中間字，我要稍微偏深的字'
+[paster][00:14:35] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:14:35] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:14:35] ⏱️ 收到→直接輸入完成: 0.05s
+[paster][00:14:35] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/43 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.18s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]        [00:16:51.359] 💤 敲麥監聽已停止
+[recorder][00:16:51] 💤 預熱 stream 已關閉
+[0m

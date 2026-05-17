@@ -1,0 +1,947 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_002237.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:22:37.574] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:22:37.574] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:22:37.574] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:22:37.590] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:22:39.954] 🔌 HTTP 連線預熱完成 (2.36s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][00:22:41.259] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:22:41.260] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:22:41.323] 💤 敲麥監聽已停止
+[recorder][00:22:41] ⏱️ InputStream() 10.3ms
+[recorder][00:22:41] ⏱️ stream.start() 0.4ms
+[recorder][00:22:41] 🎙️ 錄音就緒，總初始化 10.7ms
+[main][00:22:41.334] ⏱️ recorder.start() 耗時 11.0ms，ok=True
+[tap]        [00:22:41.866] 🎙️ 敲麥監聽已啟動
+[main][00:22:41.875] 🎙️ 開始錄音
+[recorder][00:22:42] 🎤 第一包音訊到達，麥克風實際開啟延遲 762.7ms
+[tap][sample][00:22:44.220] 持續=1674ms 峰值=9401 ✗長 K=2.2 CF=5.4 SC=2730Hz Att=37.1ms | fK=2.3 fCF=5.3 fSC=2858Hz fFlat=0.570 fHF=0.131
+[tap][dim]   [00:22:44.247] 持續=27ms 峰值=329 ✗弱
+[main][00:22:44.259] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:22:44.259] ⌨️ after(0) 執行延遲 0.3ms[main][00:22:44.259] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 45/68 (66.2%)，有效語音 1.44s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:22:44.435] ✅ 錄音完成，送出辨識
+[paster][00:22:44] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:22:44] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.02s, est_api=0.47s)
+[transcriber][00:22:45.702] ⏱️ API 耗時: 1.27s
+[main][00:22:45.703] ✅ 辨識完成: "測試測試測試"
+[paster][00:22:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試測試測試'
+[paster][00:22:45] ⌨️ TEXT input flow start: target_chars=6，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='測試測試測試'
+[paster][00:22:45] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:22:45] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:22:45] ⏱️ 收到→直接輸入完成: 0.07s
+[paster][00:22:45] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[main][00:22:47.090] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:22:47.090] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:22:47.110] 💤 敲麥監聽已停止
+[recorder][00:22:47] 🚀 預熱命中，直接開始錄音
+[main][00:22:47.111] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [00:22:47.114] 🎙️ 敲麥監聽已啟動
+[main][00:22:47.118] 🎙️ 開始錄音
+[tap][sample][00:22:48.837] 持續=1116ms 峰值=10618 ✗長 K=2.9 CF=6.1 SC=2210Hz Att=938.9ms | fK=3.1 fCF=6.1 fSC=2204Hz fFlat=0.520 fHF=0.049
+[tap][dim]   [00:22:48.910] 持續=36ms 峰值=537 ✗弱
+[tap][sample][00:22:49.548] 持續=639ms 峰值=5470 ✗長 K=3.1 CF=6.0 SC=2936Hz Att=510.3ms | fK=3.4 fCF=6.2 fSC=2933Hz fFlat=0.605 fHF=0.147
+[tap][dim]   [00:22:49.584] 持續=36ms 峰值=353 ✗弱
+[tap][sample][00:22:50.602] 持續=1017ms 峰值=8486 ✗長 K=7.3 CF=7.1 SC=1378Hz Att=75.3ms | fK=7.6 fCF=7.2 fSC=1384Hz fFlat=0.311 fHF=0.005
+[tap][dim]   [00:22:50.674] 持續=72ms 峰值=556 ✗弱
+[tap][dim]   [00:22:50.728] 持續=27ms 峰值=476 ✗弱
+[tap][sample][00:22:52.014] 持續=1287ms 峰值=7201 ✗長 K=2.9 CF=5.4 SC=1626Hz Att=326.4ms | fK=3.1 fCF=5.5 fSC=1623Hz fFlat=0.385 fHF=0.010
+[tap][dim]   [00:22:52.041] 持續=27ms 峰值=549 ✗弱
+[tap][sample][00:22:52.384] 持續=342ms 峰值=2921 ✗長 K=1.2 CF=4.9 SC=1172Hz Att=78.1ms | fK=1.6 fCF=5.1 fSC=1176Hz fFlat=0.197 fHF=0.002
+[tap][sample][00:22:52.653] 持續=189ms 峰值=4474 ✗長 K=5.7 CF=5.8 SC=1438Hz Att=0.1ms | fK=7.1 fCF=6.3 fSC=1439Hz fFlat=0.287 fHF=0.009
+[tap][dim]   [00:22:52.681] 持續=27ms 峰值=478 ✗弱
+[tap][sample][00:22:53.392] 持續=684ms 峰值=8938 ✗長 K=6.1 CF=7.5 SC=1662Hz Att=9.1ms | fK=6.5 fCF=7.7 fSC=1662Hz fFlat=0.420 fHF=0.010
+[tap][sample][00:22:53.608] 持續=189ms 峰值=2519 ✗長 K=23.1 CF=11.6 SC=1854Hz Att=0.1ms | fK=27.4 fCF=12.6 fSC=1853Hz fFlat=0.337 fHF=0.049
+[tap][sample][00:22:53.769] 持續=126ms 峰值=3076 ✗長 K=16.0 CF=8.4 SC=1579Hz Att=0.1ms | fK=20.6 fCF=9.4 fSC=1589Hz fFlat=0.283 fHF=0.009
+[tap][dim]   [00:22:53.823] 持續=27ms 峰值=329 ✗弱
+[tap][sample][00:22:53.931] 持續=108ms 峰值=1501 ✓ K=2.0 CF=4.5 SC=1493Hz Att=60.3ms | fK=2.5 fCF=4.9 fSC=1487Hz fFlat=0.259 fHF=0.009 🎯 敲擊 #1
+[tap][dim]   [00:22:53.959] 持續=27ms 峰值=577 ✗弱
+[tap][sample][00:22:55.147] 持續=1188ms 峰值=13776 ✗長 K=4.8 CF=6.2 SC=2129Hz Att=605.2ms | fK=5.0 fCF=6.3 fSC=2127Hz fFlat=0.540 fHF=0.041
+[tap][dim]   [00:22:55.174] 持續=27ms 峰值=575 ✗弱
+[tap][sample][00:22:55.947] 持續=774ms 峰值=11327 ✗長 K=3.7 CF=5.1 SC=1540Hz Att=359.2ms | fK=3.9 fCF=5.2 fSC=1536Hz fFlat=0.391 fHF=0.010
+[tap][dim]   [00:22:55.984] 持續=36ms 峰值=411 ✗弱
+[tap][sample][00:22:56.388] 持續=378ms 峰值=3757 ✗長 K=1.9 CF=4.9 SC=1218Hz Att=0.1ms | fK=2.3 fCF=5.1 fSC=1220Hz fFlat=0.222 fHF=0.002
+[tap][dim]   [00:22:56.434] 持續=45ms 峰值=363 ✗弱
+[tap][sample][00:22:57.063] 持續=630ms 峰值=3746 ✗長 K=5.8 CF=7.3 SC=2558Hz Att=0.1ms | fK=6.2 fCF=7.5 fSC=2560Hz fFlat=0.539 fHF=0.079
+[tap][dim]   [00:22:57.099] 持續=36ms 峰值=444 ✗弱
+[tap][sample][00:22:57.351] 持續=252ms 峰值=5404 ✗長 K=4.0 CF=4.5 SC=1002Hz Att=0.2ms | fK=4.8 fCF=4.8 fSC=1003Hz fFlat=0.183 fHF=0.001
+[tap][dim]   [00:22:57.388] 持續=36ms 峰值=440 ✗弱
+[tap][sample][00:22:57.424] 持續=36ms 峰值=603 ✓ K=1.4 CF=3.4 SC=1256Hz Att=29.4ms | fK=3.1 fCF=4.3 fSC=1339Hz fFlat=0.303 fHF=0.003 🎯 敲擊 #1
+[tap][sample][00:22:57.927] 持續=450ms 峰值=8195 ✗長 K=9.1 CF=6.8 SC=1559Hz Att=375.2ms | fK=9.9 fCF=7.0 fSC=1550Hz fFlat=0.364 fHF=0.005
+[tap][dim]   [00:22:57.963] 持續=36ms 峰值=541 ✗弱
+[tap][sample][00:22:58.143] 持續=180ms 峰值=2754 ✗長 K=9.4 CF=9.6 SC=1620Hz Att=0.1ms | fK=11.3 fCF=10.3 fSC=1620Hz fFlat=0.330 fHF=0.024
+[tap][dim]   [00:22:58.188] 持續=45ms 峰值=312 ✗弱
+[tap][sample][00:22:58.314] 持續=126ms 峰值=1799 ✗長 K=3.3 CF=4.8 SC=953Hz Att=13.8ms | fK=4.5 fCF=5.3 fSC=929Hz fFlat=0.158 fHF=0.000
+[tap][dim]   [00:22:58.351] 持續=36ms 峰值=489 ✗弱
+[tap][sample][00:22:58.764] 持續=387ms 峰值=5025 ✗長 K=2.6 CF=5.7 SC=1412Hz Att=17.1ms | fK=3.1 fCF=5.9 fSC=1411Hz fFlat=0.248 fHF=0.006
+[tap][dim]   [00:22:58.791] 持續=27ms 峰值=556 ✗弱
+[tap][sample][00:22:58.863] 持續=72ms 峰值=795 ✓ K=0.5 CF=3.0 SC=600Hz Att=27.6ms | fK=0.8 fCF=3.4 fSC=589Hz fFlat=0.088 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [00:22:58.890] 持續=27ms 峰值=490 ✗弱
+[tap][sample][00:22:59.313] 持續=423ms 峰值=6963 ✗長 K=3.8 CF=6.0 SC=997Hz Att=0.1ms | fK=4.3 fCF=6.2 fSC=998Hz fFlat=0.179 fHF=0.001
+[tap][dim]   [00:22:59.340] 持續=27ms 峰值=577 ✗弱
+[tap][sample][00:22:59.628] 持續=288ms 峰值=3984 ✗長 K=2.7 CF=4.4 SC=3690Hz Att=64.7ms | fK=3.3 fCF=4.6 fSC=3688Hz fFlat=0.594 fHF=0.350
+[tap][sample][00:23:00.033] 持續=342ms 峰值=11837 ✗長 K=3.0 CF=4.4 SC=832Hz Att=124.6ms | fK=3.5 fCF=4.6 fSC=833Hz fFlat=0.124 fHF=0.000
+[tap][dim]   [00:23:00.069] 持續=36ms 峰值=424 ✗弱
+[tap][sample][00:23:00.168] 持續=99ms 峰值=3178 ✓ K=3.5 CF=4.9 SC=3222Hz Att=81.6ms | fK=5.4 fCF=5.7 fSC=3220Hz fFlat=0.619 fHF=0.197 🎯 敲擊 #1
+[tap][dim]   [00:23:00.204] 持續=36ms 峰值=480 ✗弱
+[tap][sample][00:23:00.231] 持續=27ms 峰值=631 ✓ K=4.7 CF=4.3 SC=1134Hz Att=20.1ms | fK=5.5 fCF=5.2 fSC=1128Hz fFlat=0.268 fHF=0.001 ⏱️ 防抖略過（距上次 135ms < 180ms）
+[tap][dim]   [00:23:00.330] 持續=99ms 峰值=389 ✗弱
+[tap][sample][00:23:01.104] 持續=774ms 峰值=4155 ✗長 K=3.8 CF=6.4 SC=2692Hz Att=355.7ms | fK=4.1 fCF=6.5 fSC=2689Hz fFlat=0.603 fHF=0.081
+[tap][dim]   [00:23:01.131] 持續=27ms 峰值=325 ✗弱
+[tap][sample][00:23:01.384] 持續=252ms 峰值=9257 ✗長 K=9.9 CF=6.3 SC=997Hz Att=0.1ms | fK=11.5 fCF=6.7 fSC=992Hz fFlat=0.159 fHF=0.001
+[tap][dim]   [00:23:01.419] 持續=36ms 峰值=359 ✗弱
+[tap][sample][00:23:01.581] 持續=162ms 峰值=6637 ✗長 K=4.1 CF=5.2 SC=757Hz Att=72.8ms | fK=5.5 fCF=5.7 fSC=758Hz fFlat=0.123 fHF=0.001
+[tap][dim]   [00:23:01.608] 持續=27ms 峰值=499 ✗弱
+[tap][sample][00:23:02.788] 持續=1080ms 峰值=8915 ✗長 K=9.1 CF=8.3 SC=2628Hz Att=384.0ms | fK=9.5 fCF=8.4 fSC=2625Hz fFlat=0.600 fHF=0.080
+[main][00:23:03.034] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:23:03.035] ⌨️ after(0) 執行延遲 0.3ms[main][00:23:03.035] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 466/498 (93.6%)，有效語音 14.91s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:23:03.175] ✅ 錄音完成，送出辨識
+[paster][00:23:04] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:23:04] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.33s, est_api=1.78s)
+[transcriber][00:23:04.669] ⏱️ API 耗時: 1.49s
+[main][00:23:04.670] ✅ 辨識完成: "測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍段已經修改了，亮藍段維持，語法檢查頁已經通過，已經重啟了"
+[paster][00:23:04] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍'
+[paster][00:23:04] ⌨️ TEXT input flow start: target_chars=68，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍'
+[paster][00:23:04] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:23:04] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:23:04] ⏱️ 收到→直接輸入完成: 0.10s
+[paster][00:23:04] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[main][00:23:27.509] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[main][00:23:27.513] 📋 貼上記憶 1: "測試一下深藍段已經替換，接著我確認有沒有"
+[paster][00:23:27] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:23:27] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=7ms, final='測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍'
+[paster][00:23:27] ⌨️ TEXT input skipped: process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，preserve_ctrl=True
+[paster][00:23:27] 📋 CLIP flow start: target_chars=68, restore_delay=0.30s
+[paster][00:23:27] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:27] 📋 CLIP set attempt 1/4: chars=68, bytes=138, preview='測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍'
+[paster][00:23:27] 📋 CLIP verify ok: attempt=1, chars=68, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:27] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，keys_before=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt，text='測試一下深藍段已經替換，接著我確認有沒有更多要修改的好了，識別中的呼吸動畫的深藍'
+[paster][00:23:27] ⌨️ 貼上前釋放修飾鍵: released=LShift,LAlt，restore_later=LShift,LAlt，preserve_ctrl=True，keys_after_release=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[paster][00:23:27] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt; logical_down=Shift,Ctrl,Alt,LShift,LCtrl,LAlt
+[paster][00:23:27] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:23:27] 📋 CLIP restore wait: 0.30s
+[paster][00:23:28] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:28] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:28] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:28] 🚫 CLIP guard disarmed: blocked=0
+[paster][00:23:30] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:30] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[main][00:23:35.910] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:23:35.910] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:23:35.961] 💤 敲麥監聽已停止
+[recorder][00:23:35] 🚀 預熱命中，直接開始錄音
+[main][00:23:35.961] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [00:23:35.965] 🎙️ 敲麥監聽已啟動
+[main][00:23:35.971] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:23:50.362] 持續=27ms 峰值=551 ✗弱
+[tap][sample][00:23:50.721] 持續=360ms 峰值=3115 ✗長 K=1.5 CF=4.2 SC=1127Hz Att=54.2ms | fK=1.9 fCF=4.4 fSC=1127Hz fFlat=0.223 fHF=0.002
+[tap][sample][00:23:51.450] 持續=351ms 峰值=7899 ✗長 K=9.8 CF=6.9 SC=731Hz Att=87.1ms | fK=10.9 fCF=7.2 fSC=720Hz fFlat=0.107 fHF=0.001
+[tap][dim]   [00:23:51.478] 持續=27ms 峰值=548 ✗弱
+[recorder][VAD] Silero 語音幀 17/95 (17.9%)，有效語音 0.54s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][00:23:52.653] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.2s）
+[paster][00:23:52] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:23:52] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[tap][sample][00:23:53.242] 持續=117ms 峰值=1524 ✗長 K=0.7 CF=3.7 SC=1211Hz Att=42.5ms | fK=1.3 fCF=4.1 fSC=1212Hz fFlat=0.251 fHF=0.002
+[tap][dim]   [00:23:53.278] 持續=36ms 峰值=526 ✗弱
+[transcriber][00:23:53.437] ⏱️ API 耗時: 0.78s
+[main][00:23:53.437] ✅ 分段辨識完成: "欸，有嗎？"
+[paster][00:23:53] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='欸，有嗎？'
+[paster][00:23:53] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:23:53] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:23:53] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:53] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='欸，有嗎？'
+[tap][sample][00:23:53.493] 持續=216ms 峰值=1544 ✗長 K=5.5 CF=6.8 SC=905Hz Att=133.9ms | fK=6.4 fCF=7.2 fSC=901Hz fFlat=0.124 fHF=0.001
+[tap][dim]   [00:23:53.529] 持續=36ms 峰值=421 ✗弱
+[paster][00:23:53] 📋 CLIP verify ok: attempt=1, chars=5, text='欸，有嗎？'
+[tap][sample][00:23:53.602] 持續=72ms 峰值=1120 ✓ K=-0.4 CF=2.8 SC=736Hz Att=5.6ms | fK=0.8 fCF=3.4 fSC=736Hz fFlat=0.138 fHF=0.000 🎯 敲擊 #1
+[paster][00:23:53] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='欸，有嗎？'
+[paster][00:23:53] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:23:53] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:23:53] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:23:53] ⏱️ 收到→貼上完成: 0.19s
+[paster][00:23:53] 📋 CLIP restore wait: 0.30s
+[paster][00:23:53] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:53] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:54] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:54] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 11/63 (17.5%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.0s 音訊段落
+[main][00:23:54.675] ✂️ 自動分段送出（靜音達1s，累積 2.0s，靜音 1.1s）
+[paster][00:23:54] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:23:54] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.45s)
+[transcriber][00:23:55.254] ⏱️ API 耗時: 0.58s
+[main][00:23:55.255] ✅ 分段辨識完成: "你好"
+[paster][00:23:55] 📋 CLIP watchdog skip: pending paste queued, checks=7, repairs=0
+[paster][00:23:55] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[paster][00:23:55] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='你好'
+[paster][00:23:55] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:23:55] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][00:23:55] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:55] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='你好'
+[paster][00:23:55] 📋 CLIP verify ok: attempt=1, chars=2, text='你好'
+[paster][00:23:55] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='你好'
+[paster][00:23:55] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:23:55] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:23:55] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:23:55] ⏱️ 收到→貼上完成: 0.38s
+[paster][00:23:55] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:23:55] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:55] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:56] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:56] 🚫 CLIP guard disarmed: blocked=0
+[tap][dim]   [00:23:56.698] 持續=27ms 峰值=317 ✗弱
+[tap][sample][00:23:56.913] 持續=216ms 峰值=3672 ✗長 K=2.8 CF=4.4 SC=910Hz Att=64.6ms | fK=3.6 fCF=4.7 fSC=922Hz fFlat=0.188 fHF=0.001
+[tap][dim]   [00:23:56.958] 持續=45ms 峰值=308 ✗弱
+[tap][sample][00:23:57.876] 持續=540ms 峰值=3503 ✗長 K=1.1 CF=4.7 SC=1659Hz Att=301.4ms | fK=1.3 fCF=4.8 fSC=1656Hz fFlat=0.367 fHF=0.008
+[tap][dim]   [00:23:57.921] 持續=45ms 峰值=466 ✗弱
+[paster][00:23:58] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:58] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 24/95 (25.3%)，有效語音 0.77s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][00:23:58.954] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.0s）
+[paster][00:23:59] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:23:59] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[transcriber][00:23:59.590] ⏱️ API 耗時: 0.64s
+[main][00:23:59.590] ✅ 分段辨識完成: "對，看一下"
+[paster][00:23:59] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='對，看一下'
+[paster][00:23:59] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:23:59] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:23:59] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:23:59] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='對，看一下'
+[paster][00:23:59] 📋 CLIP verify ok: attempt=1, chars=5, text='對，看一下'
+[paster][00:23:59] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='對，看一下'
+[paster][00:23:59] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:23:59] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:23:59] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:23:59] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:23:59] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:00] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:00] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:00] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:00] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample][00:24:01.116] 持續=477ms 峰值=6798 ✗長 K=6.4 CF=7.1 SC=1293Hz Att=98.7ms | fK=7.0 fCF=7.3 fSC=1290Hz fFlat=0.224 fHF=0.005
+[recorder][VAD] Silero 語音幀 14/69 (20.3%)，有效語音 0.45s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.2s 音訊段落
+[main][00:24:02.200] ✂️ 自動分段送出（靜音達1s，累積 2.2s，靜音 1.1s）
+[paster][00:24:02] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:24:02] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.02s, est_api=0.47s)
+[paster][00:24:02] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:02] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[transcriber][00:24:03.159] ⏱️ API 耗時: 0.96s
+[main][00:24:03.159] ✅ 分段辨識完成: "有沒有"
+[paster][00:24:03] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='有沒有'
+[paster][00:24:03] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:24:03] 📋 CLIP flow start: target_chars=3, restore_delay=0.30s
+[paster][00:24:03] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:03] 📋 CLIP set attempt 1/4: chars=3, bytes=8, preview='有沒有'
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:03] 📋 CLIP verify ok: attempt=1, chars=3, text='有沒有'
+[paster][00:24:03] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='有沒有'
+[paster][00:24:03] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:03] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:03] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:03] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:03] 📋 CLIP restore wait: 0.30s
+[paster][00:24:03] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:03] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:03] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:03] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample][00:24:04.222] 持續=288ms 峰值=4127 ✗長 K=1.7 CF=4.6 SC=1287Hz Att=68.8ms | fK=2.2 fCF=4.8 fSC=1279Hz fFlat=0.208 fHF=0.007
+[tap][dim]   [00:24:04.249] 持續=27ms 峰值=535 ✗弱
+[tap][sample][00:24:04.509] 持續=189ms 峰值=4937 ✗長 K=5.5 CF=6.0 SC=1399Hz Att=33.0ms | fK=6.8 fCF=6.5 fSC=1397Hz fFlat=0.324 fHF=0.008
+[tap][sample][00:24:04.735] 持續=198ms 峰值=3067 ✗長 K=6.9 CF=6.9 SC=1320Hz Att=28.4ms | fK=8.4 fCF=7.4 fSC=1316Hz fFlat=0.264 fHF=0.006
+[tap][dim]   [00:24:04.762] 持續=27ms 峰值=476 ✗弱
+[recorder][VAD] Silero 語音幀 27/82 (32.9%)，有效語音 0.86s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.6s 音訊段落
+[main][00:24:05.853] ✂️ 自動分段送出（靜音達1s，累積 2.6s，靜音 1.1s）
+[paster][00:24:05] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:24:05] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.06s, est_api=0.51s)
+[paster][00:24:05] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:05] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[transcriber][00:24:06.692] ⏱️ API 耗時: 0.84s
+[main][00:24:06.692] ✅ 分段辨識完成: "有沒有看到？"
+[paster][00:24:06] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='有沒有看到？'
+[paster][00:24:06] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:24:06] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][00:24:06] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:06] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='有沒有看到？'
+[paster][00:24:06] 📋 CLIP verify ok: attempt=1, chars=6, text='有沒有看到？'
+[paster][00:24:06] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='有沒有看到？'
+[paster][00:24:06] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:06] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:06] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:06] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:06] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:07] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:07] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:07] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:07] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:09] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:09] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:24:10.683] 持續=252ms 峰值=8496 ✗長 K=5.3 CF=4.8 SC=956Hz Att=24.9ms | fK=6.3 fCF=5.0 fSC=955Hz fFlat=0.163 fHF=0.001
+[tap][dim]   [00:24:10.719] 持續=36ms 峰值=450 ✗弱
+[recorder][VAD] Silero 語音幀 2/43 (4.7%)，有效語音 0.06s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 4.7% < 16%）
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:24:13.563] 持續=36ms 峰值=323 ✗弱
+[tap][sample][00:24:13.923] 持續=297ms 峰值=7558 ✗長 K=5.8 CF=5.2 SC=1006Hz Att=16.1ms | fK=6.7 fCF=5.5 fSC=1004Hz fFlat=0.157 fHF=0.001
+[recorder][VAD] Silero 語音幀 0/62 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:24:16.191] 持續=558ms 峰值=7675 ✗長 K=3.0 CF=5.6 SC=1665Hz Att=42.8ms | fK=3.4 fCF=5.8 fSC=1671Hz fFlat=0.351 fHF=0.010
+[tap][dim]   [00:24:16.218] 持續=27ms 峰值=472 ✗弱
+[recorder][VAD] Silero 語音幀 15/76 (19.7%)，有效語音 0.48s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][00:24:17.428] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.2s）
+[paster][00:24:17] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:24:17] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[transcriber][00:24:18.148] ⏱️ API 耗時: 0.72s
+[main][00:24:18.148] ✅ 分段辨識完成: "看一下"
+[paster][00:24:18] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='看一下'
+[paster][00:24:18] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Picnic Day Sky Color | #00D3F3 Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #00d3f3 Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #00d3f3 #9af4ff #00ddff #72efff #f2deff #edd2ff #67e8f9 #22d3ee #d9ffc1 #c1fffd #e3c1ff #e5c1ff #e2b8ff #d79bff #dba6ff Color Details', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:24:18] 📋 CLIP flow start: target_chars=3, restore_delay=0.30s
+[paster][00:24:18] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:18] 📋 CLIP set attempt 1/4: chars=3, bytes=8, preview='看一下'
+[paster][00:24:18] 📋 CLIP verify ok: attempt=1, chars=3, text='看一下'
+[paster][00:24:18] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='看一下'
+[paster][00:24:18] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:18] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:18] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:18] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:18] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:18] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:18] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:18] 🚫 CLIP guard disarmed: blocked=0
+[tap][sample][00:24:19.000] 持續=126ms 峰值=2442 ✗長 K=3.2 CF=4.8 SC=1078Hz Att=33.6ms | fK=4.7 fCF=5.3 fSC=1259Hz fFlat=0.310 fHF=0.002
+[tap][sample][00:24:20.187] 持續=1143ms 峰值=5626 ✗長 K=2.9 CF=5.9 SC=1579Hz Att=86.7ms | fK=3.1 fCF=6.0 fSC=1576Hz fFlat=0.346 fHF=0.008
+[tap][dim]   [00:24:20.251] 持續=63ms 峰值=481 ✗弱
+[paster][00:24:20] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:20] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 40/88 (45.5%)，有效語音 1.28s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.8s 音訊段落
+[main][00:24:21.295] ✂️ 自動分段送出（靜音達1s，累積 2.8s，靜音 1.1s）
+[paster][00:24:21] 📏 [UIA] text='#00d3f3', text_after='', at_end=True, last_punct=False
+[paster][00:24:21] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.08s, est_api=0.53s)
+[transcriber][00:24:21.995] ⏱️ API 耗時: 0.70s
+[main][00:24:21.996] ✅ 分段辨識完成: "你看一下這個內容"
+[paster][00:24:22] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='。', final='你看一下這個內容'
+[paster][00:24:22] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('#afc3f0', 'color-input', 'colorValue', 'EditControl')，preserve_ctrl=False
+[paster][00:24:22] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster][00:24:22] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:22] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='。你看一下這個內容'
+[paster][00:24:22] 📋 CLIP verify ok: attempt=1, chars=9, text='。你看一下這個內容'
+[paster][00:24:22] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='。你看一下這個內容'
+[paster][00:24:22] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:22] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:22] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:22] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:22] 📋 CLIP restore wait: 0.30s
+[paster][00:24:22] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:22] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:22] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:22] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:24:23.706] 持續=63ms 峰值=413 ✗弱
+[tap][sample][00:24:24.057] 持續=351ms 峰值=4987 ✗長 K=4.6 CF=6.5 SC=856Hz Att=128.2ms | fK=5.3 fCF=6.8 fSC=854Hz fFlat=0.102 fHF=0.001
+[tap][sample][00:24:24.445] 持續=126ms 峰值=6894 ✗長 K=2.1 CF=4.9 SC=581Hz Att=53.9ms | fK=3.3 fCF=5.5 fSC=597Hz fFlat=0.103 fHF=0.000
+[tap][sample][00:24:24.759] 持續=279ms 峰值=5450 ✗長 K=4.1 CF=6.9 SC=1008Hz Att=46.7ms | fK=4.8 fCF=7.2 fSC=1014Hz fFlat=0.238 fHF=0.002
+[tap][dim]   [00:24:24.804] 持續=45ms 峰值=441 ✗弱
+[paster][00:24:24] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:24] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 25/75 (33.3%)，有效語音 0.80s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][00:24:25.958] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.2s）
+[paster][00:24:26] 📏 [UIA] text='https://icolorpalett', text_after='ed Color Palettes\nVi', at_end=False, last_punct=False
+[paster][00:24:26] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[transcriber][00:24:26.601] ⏱️ API 耗時: 0.64s
+[main][00:24:26.601] ✅ 分段辨識完成: "好，OK"
+[paster][00:24:26] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='好，OK'
+[paster][00:24:26] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Picnic Day Sky Color | #00D3F3', '', 'RootWebArea', 'DocumentControl')，preserve_ctrl=False
+[paster][00:24:26] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][00:24:26] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:26] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='好，OK'
+[paster][00:24:26] 📋 CLIP verify ok: attempt=1, chars=4, text='好，OK'
+[paster][00:24:26] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='好，OK'
+[paster][00:24:26] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:26] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:26] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:26] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:26] 📋 CLIP restore wait: 0.30s
+[paster][00:24:27] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:27] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:27] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:27] 🚫 CLIP guard disarmed: blocked=0
+[tap][dim]   [00:24:27.387] 持續=27ms 峰值=498 ✗弱
+[tap][sample][00:24:27.774] 持續=297ms 峰值=8682 ✗長 K=5.0 CF=4.9 SC=1033Hz Att=24.9ms | fK=5.9 fCF=5.2 fSC=1035Hz fFlat=0.162 fHF=0.001
+[tap][dim]   [00:24:28.764] 持續=36ms 峰值=459 ✗弱
+[tap][sample][00:24:29.178] 持續=378ms 峰值=6342 ✗長 K=6.0 CF=5.9 SC=932Hz Att=68.4ms | fK=6.8 fCF=6.2 fSC=933Hz fFlat=0.156 fHF=0.001
+[paster][00:24:29] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:29] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 13/95 (13.7%)，有效語音 0.42s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 13.7% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:24:32.572] 持續=27ms 峰值=350 ✗弱
+[tap][sample][00:24:33.048] 持續=450ms 峰值=6081 ✗長 K=1.4 CF=4.1 SC=1030Hz Att=62.0ms | fK=1.7 fCF=4.2 fSC=1028Hz fFlat=0.204 fHF=0.002
+[tap][sample][00:24:33.337] 持續=252ms 峰值=5458 ✗長 K=3.4 CF=4.7 SC=1551Hz Att=45.0ms | fK=4.1 fCF=5.0 fSC=1548Hz fFlat=0.288 fHF=0.009
+[tap][dim]   [00:24:33.364] 持續=27ms 峰值=464 ✗弱
+[recorder][VAD] Silero 語音幀 25/62 (40.3%)，有效語音 0.80s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.0s 音訊段落
+[main][00:24:34.485] ✂️ 自動分段送出（靜音達1s，累積 2.0s，靜音 1.1s）
+[paster][00:24:34] 📏 [UIA] text='https://icolorpalett', text_after='ed Color Palettes\nVi', at_end=False, last_punct=False
+[paster][00:24:34] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.45s)
+[transcriber][00:24:35.415] ⏱️ API 耗時: 0.93s
+[main][00:24:35.415] ✅ 分段辨識完成: "ok ok"
+[paster][00:24:35] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='ok ok'
+[paster][00:24:35] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Picnic Day Sky Color | #00D3F3', '', 'RootWebArea', 'DocumentControl')，preserve_ctrl=False
+[paster][00:24:35] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:24:35] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:35] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='ok ok'
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:35] 📋 CLIP verify ok: attempt=1, chars=5, text='ok ok'
+[paster][00:24:35] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='ok ok'
+[paster][00:24:35] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:35] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:35] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:35] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:24:35] 📋 CLIP restore wait: 0.30s
+[paster][00:24:35] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:35] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:36] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:36] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:24:37.233] 持續=270ms 峰值=8661 ✗長 K=3.1 CF=5.2 SC=1541Hz Att=75.3ms | fK=3.7 fCF=5.5 fSC=1541Hz fFlat=0.291 fHF=0.007
+[tap][dim]   [00:24:37.278] 持續=45ms 峰值=367 ✗弱
+[tap][dim]   [00:24:37.441] 持續=36ms 峰值=306 ✗弱
+[tap][sample][00:24:37.530] 持續=89ms 峰值=1752 ✓ K=4.2 CF=5.9 SC=2237Hz Att=63.9ms | fK=6.5 fCF=6.8 fSC=2239Hz fFlat=0.394 fHF=0.038 🎯 敲擊 #1
+[tap][sample][00:24:38.080] 持續=522ms 峰值=5202 ✗長 K=5.7 CF=7.8 SC=2079Hz Att=438.9ms | fK=6.2 fCF=8.1 fSC=2080Hz fFlat=0.478 fHF=0.023
+[tap][dim]   [00:24:38.134] 持續=54ms 峰值=479 ✗弱
+[paster][00:24:38] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:38] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 18/76 (23.7%)，有效語音 0.58s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.4s 音訊段落
+[main][00:24:39.212] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.0s）
+[paster][00:24:39] 📏 [UIA] text='https://icolorpalett', text_after='ed Color Palettes\nVi', at_end=False, last_punct=False
+[paster][00:24:39] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.04s, est_api=0.49s)
+[transcriber][00:24:39.929] ⏱️ API 耗時: 0.71s
+[main][00:24:39.930] ✅ 分段辨識完成: "對，你看一下"
+[paster][00:24:39] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='對，你看一下'
+[paster][00:24:39] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Picnic Day Sky Color | #00D3F3', '', 'RootWebArea', 'DocumentControl')，preserve_ctrl=False
+[paster][00:24:39] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][00:24:39] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:39] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='對，你看一下'
+[paster][00:24:40] 📋 CLIP verify ok: attempt=1, chars=6, text='對，你看一下'
+[paster][00:24:40] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='對，你看一下'
+[paster][00:24:40] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:40] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:40] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:40] ⏱️ 收到→貼上完成: 0.19s
+[paster][00:24:40] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:40] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:40] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:40] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:40] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:24:41.878] 持續=27ms 峰值=476 ✗弱
+[tap][sample][00:24:42.240] 持續=362ms 峰值=4523 ✗長 K=2.7 CF=6.8 SC=885Hz Att=125.2ms | fK=3.2 fCF=7.1 fSC=886Hz fFlat=0.118 fHF=0.001
+[tap][sample][00:24:42.751] 持續=98ms 峰值=4017 ✓ K=1.7 CF=4.4 SC=608Hz Att=34.3ms | fK=3.2 fCF=5.1 fSC=593Hz fFlat=0.076 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [00:24:42.778] 持續=27ms 峰值=335 ✗弱
+[paster][00:24:42] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:42] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:24:43.102] 持續=324ms 峰值=3302 ✗長 K=1.2 CF=4.0 SC=1235Hz Att=35.3ms | fK=1.6 fCF=4.2 fSC=1235Hz fFlat=0.310 fHF=0.003
+[tap][dim]   [00:24:43.129] 持續=27ms 峰值=506 ✗弱
+[recorder][VAD] Silero 語音幀 24/82 (29.3%)，有效語音 0.77s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 2.6s 音訊段落
+[main][00:24:44.302] ✂️ 自動分段送出（靜音達1s，累積 2.6s，靜音 1.1s）
+[paster][00:24:44] 📏 [UIA] text='https://icolorpalett', text_after='ed Color Palettes\nVi', at_end=False, last_punct=False
+[paster][00:24:44] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.06s, est_api=0.51s)
+[transcriber][00:24:44.952] ⏱️ API 耗時: 0.64s
+[main][00:24:44.964] ✅ 分段辨識完成: "ok"
+[paster][00:24:45] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='ok'
+[paster][00:24:45] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Picnic Day Sky Color | #00D3F3', '', 'RootWebArea', 'DocumentControl')，preserve_ctrl=False
+[paster][00:24:45] 📋 CLIP flow start: target_chars=2, restore_delay=0.30s
+[paster][00:24:45] 📋 CLIP backup: count=6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:45] 📋 CLIP set attempt 1/4: chars=2, bytes=6, preview='ok'
+[paster][00:24:45] 📋 CLIP verify ok: attempt=1, chars=2, text='ok'
+[paster][00:24:45] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Picnic Day Sky Color | #00D3F3 - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='ok'
+[paster][00:24:45] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:24:45] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:24:45] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:24:45] ⏱️ 收到→貼上完成: 0.50s
+[paster][00:24:45] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:45] 📋 CLIP restore attempt 1/4: text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:45] 📋 CLIP restore: restored=6/6, formats=49161:8B, 13:138B, 1:142B, 49171:216B, 16:4B, 7:137B, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:45] 📋 CLIP restore verify ok: attempt=1, text='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:45] 🚫 CLIP guard disarmed: blocked=0
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:24:48] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='測試一下深藍段已經替換，接著我確認有沒有'
+[paster][00:24:48] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 2/37 (5.4%)，有效語音 0.06s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 5.4% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][00:24:54.446] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:24:54.446] ⌨️ after(0) 執行延遲 0.4ms[main][00:24:54.447] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.05s)，略過
+[main][00:24:54.837] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:24:54.838] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:24:54.857] 💤 敲麥監聽已停止
+[recorder][00:24:54] 🚀 預熱命中，直接開始錄音
+[main][00:24:54.857] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:24:54.861] 🎙️ 敲麥監聽已啟動
+[main][00:24:54.867] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][00:24:55.934] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:24:55.935] ⌨️ after(0) 執行延遲 0.3ms[main][00:24:55.935] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.05s)，略過
+[main][00:24:59.105] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:24:59.105] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [00:24:59.129] 💤 敲麥監聽已停止
+[recorder][00:24:59] 🚀 預熱命中，直接開始錄音
+[main][00:24:59.129] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:24:59.132] 🎙️ 敲麥監聽已啟動
+[main][00:24:59.138] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/63 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][sample][00:26:10.691] 持續=397ms 峰值=4547 ✗長 K=4.7 CF=6.1 SC=722Hz Att=350.1ms | fK=5.3 fCF=6.3 fSC=718Hz fFlat=0.111 fHF=0.000
+[tap][dim]   [00:26:10.717] 持續=26ms 峰值=373 ✗弱
+[tap][sample][00:26:10.932] 持續=189ms 峰值=10161 ✓ K=12.9 CF=6.5 SC=767Hz Att=4.6ms | fK=15.6 fCF=7.1 fSC=769Hz fFlat=0.142 fHF=0.000 🎯 敲擊 #1
+[tap][sample][00:26:11.923] 持續=567ms 峰值=13665 ✗長 K=2.6 CF=4.5 SC=1700Hz Att=15.1ms | fK=2.9 fCF=4.6 fSC=1699Hz fFlat=0.439 fHF=0.014
+[tap][dim]   [00:26:12.004] 持續=81ms 峰值=502 ✗弱
+[tap]         ⏱️ 間隔過長重置（1260ms）
+[tap][sample][00:26:12.058] 持續=54ms 峰值=650 ✓ K=0.3 CF=2.8 SC=839Hz Att=4.8ms | fK=0.4 fCF=3.0 fSC=588Hz fFlat=0.129 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [00:26:12.131] 持續=73ms 峰值=526 ✗弱
+[tap][sample][00:26:12.346] 持續=189ms 峰值=3144 ✗長 K=4.1 CF=7.2 SC=1810Hz Att=0.5ms | fK=5.3 fCF=7.8 fSC=1807Hz fFlat=0.300 fHF=0.021
+[tap][dim]   [00:26:12.699] 持續=29ms 峰值=584 ✗弱
+[tap][sample][00:26:13.272] 持續=574ms 峰值=4853 ✗長 K=3.5 CF=5.5 SC=3572Hz Att=409.4ms | fK=3.9 fCF=5.6 fSC=3569Hz fFlat=0.591 fHF=0.337
+[tap][dim]   [00:26:13.444] 持續=35ms 峰值=440 ✗弱
+[tap][sample][00:26:14.299] 持續=855ms 峰值=4666 ✗長 K=5.3 CF=8.3 SC=2322Hz Att=594.8ms | fK=5.6 fCF=8.4 fSC=2317Hz fFlat=0.569 fHF=0.045
+[tap][dim]   [00:26:14.325] 持續=27ms 峰值=326 ✗弱
+[tap][sample][00:26:14.713] 持續=252ms 峰值=5475 ✗長 K=4.1 CF=5.3 SC=1136Hz Att=61.9ms | fK=4.9 fCF=5.6 fSC=1135Hz fFlat=0.181 fHF=0.002
+[tap][dim]   [00:26:14.748] 持續=36ms 峰值=452 ✗弱
+[tap][sample][00:26:14.884] 持續=135ms 峰值=10867 ✓ K=4.7 CF=5.0 SC=1332Hz Att=2.7ms | fK=6.6 fCF=5.6 fSC=1335Hz fFlat=0.268 fHF=0.003 🎯 敲擊 #1
+[tap][dim]   [00:26:14.937] 持續=53ms 峰值=505 ✗弱
+[tap][sample][00:26:15.648] 持續=675ms 峰值=3040 ✗長 K=4.6 CF=7.2 SC=3375Hz Att=71.6ms | fK=5.0 fCF=7.4 fSC=3386Hz fFlat=0.613 fHF=0.276
+[tap][sample][00:26:16.773] 持續=531ms 峰值=3930 ✗長 K=1.1 CF=4.3 SC=2917Hz Att=442.1ms | fK=1.4 fCF=4.4 fSC=2918Hz fFlat=0.572 fHF=0.087
+[tap][sample][00:26:17.340] 持續=513ms 峰值=3922 ✗長 K=4.4 CF=5.3 SC=1447Hz Att=0.0ms | fK=4.9 fCF=5.4 fSC=1445Hz fFlat=0.254 fHF=0.011
+[tap][sample][00:26:18.132] 持續=243ms 峰值=4063 ✗長 K=2.7 CF=5.0 SC=1851Hz Att=68.7ms | fK=3.4 fCF=5.3 fSC=1848Hz fFlat=0.421 fHF=0.013
+[tap][dim]   [00:26:18.169] 持續=36ms 峰值=372 ✗弱
+[tap][sample][00:26:18.484] 持續=315ms 峰值=2887 ✗長 K=3.2 CF=6.3 SC=2837Hz Att=0.1ms | fK=3.7 fCF=6.6 fSC=2839Hz fFlat=0.591 fHF=0.054
+[tap][dim]   [00:26:18.529] 持續=45ms 峰值=532 ✗弱
+[tap][sample][00:26:18.933] 持續=405ms 峰值=3326 ✗長 K=4.5 CF=7.5 SC=1439Hz Att=2.4ms | fK=5.1 fCF=7.8 fSC=1443Hz fFlat=0.277 fHF=0.008
+[tap][sample][00:26:19.680] 持續=234ms 峰值=3957 ✗長 K=4.1 CF=5.0 SC=2396Hz Att=82.1ms | fK=4.9 fCF=5.3 fSC=2397Hz fFlat=0.507 fHF=0.039
+[tap][dim]   [00:26:19.707] 持續=27ms 峰值=580 ✗弱
+[tap][sample][00:26:20.220] 持續=513ms 峰值=5629 ✗長 K=3.4 CF=4.8 SC=2702Hz Att=51.1ms | fK=3.8 fCF=4.9 fSC=2703Hz fFlat=0.575 fHF=0.095
+[tap][dim]   [00:26:20.247] 持續=27ms 峰值=495 ✗弱
+[tap][sample][00:26:20.536] 持續=288ms 峰值=6828 ✗長 K=10.4 CF=8.2 SC=1266Hz Att=39.5ms | fK=11.8 fCF=8.7 fSC=1266Hz fFlat=0.215 fHF=0.004
+[tap][dim]   [00:26:20.563] 持續=27ms 峰值=421 ✗弱
+[tap][sample][00:26:21.093] 持續=486ms 峰值=2161 ✗長 K=6.6 CF=7.7 SC=1400Hz Att=0.1ms | fK=7.2 fCF=8.0 fSC=1399Hz fFlat=0.294 fHF=0.006
+[tap][sample][00:26:22.110] 持續=513ms 峰值=5663 ✗長 K=2.8 CF=5.1 SC=823Hz Att=54.8ms | fK=3.1 fCF=5.2 fSC=824Hz fFlat=0.110 fHF=0.001
+[tap][sample][00:26:22.966] 持續=792ms 峰值=7829 ✗長 K=4.9 CF=7.0 SC=2458Hz Att=315.9ms | fK=5.2 fCF=7.2 fSC=2456Hz fFlat=0.584 fHF=0.065
+[tap][sample][00:26:23.289] 持續=279ms 峰值=4514 ✗長 K=2.3 CF=4.0 SC=2774Hz Att=97.1ms | fK=2.9 fCF=4.2 fSC=2760Hz fFlat=0.544 fHF=0.050
+[tap][sample][00:26:24.640] 持續=1089ms 峰值=6095 ✗長 K=6.0 CF=7.4 SC=2122Hz Att=248.8ms | fK=6.2 fCF=7.5 fSC=2120Hz fFlat=0.533 fHF=0.036
+[tap][dim]   [00:26:24.667] 持續=27ms 峰值=541 ✗弱
+[tap][sample][00:26:25.053] 持續=245ms 峰值=3088 ✗長 K=4.9 CF=5.8 SC=925Hz Att=70.6ms | fK=5.8 fCF=6.2 fSC=916Hz fFlat=0.151 fHF=0.001
+[tap][dim]   [00:26:25.090] 持續=36ms 峰值=300 ✗弱
+[tap][sample][00:26:25.206] 持續=117ms 峰值=8298 ✓ K=5.2 CF=5.6 SC=1379Hz Att=5.4ms | fK=7.2 fCF=6.3 fSC=1376Hz fFlat=0.313 fHF=0.004 🎯 敲擊 #1
+[tap][dim]   [00:26:25.279] 持續=72ms 峰值=596 ✗弱
+[tap][sample][00:26:25.413] 持續=135ms 峰值=2843 ✗長 K=4.8 CF=5.9 SC=1733Hz Att=1.9ms | fK=6.8 fCF=6.6 fSC=1724Hz fFlat=0.392 fHF=0.016
+[tap][dim]   [00:26:25.468] 持續=27ms 峰值=573 ✗弱
+[tap][sample][00:26:26.008] 持續=540ms 峰值=4484 ✗長 K=4.4 CF=6.3 SC=3585Hz Att=402.8ms | fK=4.9 fCF=6.5 fSC=3594Hz fFlat=0.609 fHF=0.363
+[recorder][VAD] Silero 語音幀 390/558 (69.9%)，有效語音 12.48s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 17.9s 音訊段落
+[main][00:26:27.229] ✂️ 自動分段送出（靜音達1s，累積 17.9s，靜音 1.1s）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:26:28] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:26:28] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.39s, est_api=1.84s)
+[transcriber][00:26:28.948] ⏱️ API 耗時: 1.72s
+[main][00:26:28.948] ✅ 分段辨識完成: "幫我把破型的紫色還原成原本的藍色，但是那個中間的漸層色不要改哦，然後識別文字則還原成原本的紫色"
+[paster][00:26:28] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='幫我把破型的紫色還原成原本的藍色，但是那個中間的漸層色不要改哦，然後識別文字則還'
+[paster][00:26:28] ⌨️ TEXT input flow start: target_chars=47，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='幫我把破型的紫色還原成原本的藍色，但是那個中間的漸層色不要改哦，然後識別文字則還'
+[paster][00:26:28] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:26:29] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:26:29] ⏱️ 收到→直接輸入完成: 0.07s
+[paster][00:26:29] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:26:32.343] 持續=27ms 峰值=487 ✗弱
+[recorder][VAD] Silero 語音幀 0/50 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.18s)，略過
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/39 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:27:39.529] 持續=36ms 峰值=511 ✗弱
+[tap][sample][00:27:39.844] 持續=315ms 峰值=7566 ✗長 K=7.3 CF=6.0 SC=703Hz Att=252.8ms | fK=8.3 fCF=6.3 fSC=707Hz fFlat=0.149 fHF=0.000
+[tap][sample][00:27:40.698] 持續=819ms 峰值=6574 ✗長 K=3.8 CF=5.6 SC=2529Hz Att=256.2ms | fK=4.0 fCF=5.7 fSC=2536Hz fFlat=0.513 fHF=0.082
+[tap][dim]   [00:27:40.735] 持續=36ms 峰值=583 ✗弱
+[tap][sample][00:27:40.896] 持續=162ms 峰值=4874 ✗長 K=4.4 CF=5.4 SC=1406Hz Att=15.7ms | fK=5.7 fCF=5.9 fSC=1407Hz fFlat=0.291 fHF=0.007
+[tap][dim]   [00:27:40.933] 持續=36ms 峰值=600 ✗弱
+[tap][sample][00:27:42.012] 持續=1080ms 峰值=6670 ✗長 K=4.0 CF=5.6 SC=3366Hz Att=344.2ms | fK=4.2 fCF=5.7 fSC=3367Hz fFlat=0.604 fHF=0.276
+[tap][dim]   [00:27:42.048] 持續=36ms 峰值=550 ✗弱
+[tap][dim]   [00:27:42.814] 持續=27ms 峰值=317 ✗弱
+[recorder][VAD] Silero 語音幀 80/164 (48.8%)，有效語音 2.56s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 5.3s 音訊段落
+[main][00:27:43.922] ✂️ 自動分段送出（靜音達1s，累積 5.3s，靜音 1.1s）
+[transcriber][00:27:44.831] ⏱️ API 耗時: 0.91s
+[main][00:27:44.831] ✅ 分段辨識完成: "然後給我藍色跟紫色的色號"
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:27:48] 📏 [UIA] 文字為空 → 不加句號[paster][00:27:48] 📏 [UIA] 文字為空 → 不加句號
+
+[paster][00:27:48] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.33s, est_api=0.78s)[paster][00:27:48] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=3747ms, final='然後給我藍色跟紫色的色號'
+
+[paster][00:27:48] ⌨️ TEXT input flow start: target_chars=12，視窗="Codex"，hwnd=0x00120ad4，process=codex.exe，class=Chrome_WidgetWin_1，focus=('', 'ProseMirror ProseMirror-focused', '', 'GroupControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='然後給我藍色跟紫色的色號'
+[paster][00:27:48] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][00:27:48] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][00:27:48] ⏱️ 收到→直接輸入完成: 3.76s
+[paster][00:27:48] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[tap]        [00:27:58.265] 💤 敲麥監聽已停止
+[recorder][00:27:58] 💤 預熱 stream 已關閉

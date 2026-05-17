@@ -1,0 +1,104 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_002112.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:21:12.736] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:21:12.737] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:21:12.737] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:21:12.753] 🎙️ 敲麥監聽已啟動
+[main][00:21:13.677] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:21:13.681] ⌨️ after(0) 執行延遲 4.2ms
+[tap]        [00:21:13.743] 💤 敲麥監聽已停止
+[recorder][00:21:13] ⏱️ InputStream() 6.2ms
+[recorder][00:21:13] ⏱️ stream.start() 3.3ms
+[recorder][00:21:13] 🎙️ 錄音就緒，總初始化 9.4ms
+[main][00:21:13.753] ⏱️ recorder.start() 耗時 9.7ms，ok=True
+[tap]        [00:21:14.286] 🎙️ 敲麥監聽已啟動
+[main][00:21:14.293] 🎙️ 開始錄音
+[recorder][00:21:14] 🎤 第一包音訊到達，麥克風實際開啟延遲 788.4ms
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:21:14.864] 🔌 HTTP 連線預熱完成 (2.11s)
+[tap][dim]   [00:21:15.048] 持續=27ms 峰值=442 ✗弱
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap][sample][00:21:15.985] 持續=936ms 峰值=5920 ✗長 K=3.6 CF=5.6 SC=2733Hz Att=105.2ms | fK=3.8 fCF=5.6 fSC=2737Hz fFlat=0.608 fHF=0.089
+[tap][dim]   [00:21:16.012] 持續=27ms 峰值=568 ✗弱
+[main][00:21:16.066] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:21:16.066] ⌨️ after(0) 執行延遲 0.3ms[main][00:21:16.067] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 29/48 (60.4%)，有效語音 0.93s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:21:16.213] ✅ 錄音完成，送出辨識
+[paster][00:21:16] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:21:16] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.41s)
+[transcriber][00:21:17.270] ⏱️ API 耗時: 1.06s
+[main][00:21:17.271] ✅ 辨識完成: "測試一下"
+[paster][00:21:17] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='測試一下'
+[paster][00:21:18] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster][00:21:18] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][00:21:18] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='9af4ff'
+[paster][00:21:18] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='測試一下'
+[paster][00:21:18] 📋 CLIP verify ok: attempt=1, chars=4, text='測試一下'
+[paster][00:21:18] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x00ab09a0，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='測試一下'
+[paster][00:21:18] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:21:18] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:21:18] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:21:18] ⏱️ 收到→貼上完成: 1.01s
+[paster][00:21:18] 📋 CLIP restore wait: 0.30s
+[paster][00:21:18] 📋 CLIP restore attempt 1/4: text='9af4ff'
+[paster][00:21:18] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='9af4ff'
+[paster][00:21:18] 📋 CLIP restore verify ok: attempt=1, text='9af4ff'
+[paster][00:21:18] 🚫 CLIP guard disarmed: blocked=0
+[main][00:21:19.083] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:21:19.083] ⌨️ after(0) 執行延遲 0.5ms
+[tap]        [00:21:19.099] 💤 敲麥監聽已停止
+[recorder][00:21:19] 🚀 預熱命中，直接開始錄音
+[main][00:21:19.100] ⏱️ recorder.start() 耗時 0.4ms，ok=True
+[tap]        [00:21:19.103] 🎙️ 敲麥監聽已啟動
+[main][00:21:19.107] 🎙️ 開始錄音
+[tap][sample][00:21:20.107] 持續=324ms 峰值=5076 ✗長 K=2.0 CF=4.9 SC=1465Hz Att=2.7ms | fK=2.5 fCF=5.2 fSC=1537Hz fFlat=0.367 fHF=0.008
+[tap][dim]   [00:21:20.133] 持續=27ms 峰值=461 ✗弱
+[paster][00:21:20] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='9af4ff'
+[paster][00:21:20] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:21:21.069] 持續=936ms 峰值=4317 ✗長 K=2.6 CF=5.7 SC=3028Hz Att=130.6ms | fK=2.8 fCF=5.8 fSC=3037Hz fFlat=0.647 fHF=0.142
+[tap][sample][00:21:21.952] 持續=855ms 峰值=5304 ✗長 K=4.9 CF=6.9 SC=2966Hz Att=631.1ms | fK=5.2 fCF=7.0 fSC=2962Hz fFlat=0.644 fHF=0.125
+[tap][dim]   [00:21:22.023] 持續=72ms 峰值=531 ✗弱
+[tap][sample][00:21:23.266] 持續=801ms 峰值=5134 ✗長 K=2.5 CF=5.3 SC=2035Hz Att=677.9ms | fK=2.8 fCF=5.4 fSC=2038Hz fFlat=0.503 fHF=0.023
+[tap][dim]   [00:21:23.328] 持續=63ms 峰值=575 ✗弱
+[tap][sample][00:21:24.381] 持續=963ms 峰值=12555 ✗長 K=7.7 CF=6.8 SC=2315Hz Att=7.7ms | fK=8.0 fCF=6.9 fSC=2316Hz fFlat=0.557 fHF=0.054
+[tap][sample][00:21:24.615] 持續=162ms 峰值=2855 ✗長 K=2.3 CF=5.4 SC=3192Hz Att=20.1ms | fK=3.2 fCF=5.9 fSC=3187Hz fFlat=0.634 fHF=0.169
+[tap][dim]   [00:21:24.643] 持續=27ms 峰值=600 ✗弱
+[tap][sample][00:21:24.741] 持續=99ms 峰值=795 ✓ K=-0.3 CF=2.9 SC=699Hz Att=18.5ms | fK=0.0 fCF=3.2 fSC=611Hz fFlat=0.117 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [00:21:24.768] 持續=27ms 峰值=407 ✗弱
+[tap][dim]   [00:21:24.831] 持續=27ms 峰值=316 ✗弱
+[tap][sample][00:21:26.829] 持續=1998ms 峰值=6048 ✗長 K=5.9 CF=6.9 SC=2654Hz Att=50.4ms | fK=5.5 fCF=6.6 fSC=2753Hz fFlat=0.587 fHF=0.110
+[tap][dim]   [00:21:26.883] 持續=54ms 峰值=594 ✗弱
+[tap][sample][00:21:27.424] 持續=540ms 峰值=11037 ✗長 K=6.6 CF=5.4 SC=1996Hz Att=438.3ms | fK=7.2 fCF=5.6 fSC=1995Hz fFlat=0.415 fHF=0.011
+[tap][sample][00:21:28.099] 持續=639ms 峰值=2325 ✗長 K=12.5 CF=13.0 SC=1493Hz Att=96.9ms | fK=13.2 fCF=13.3 fSC=1489Hz fFlat=0.366 fHF=0.007
+[main][00:21:28.280] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:21:28.280] ⌨️ after(0) 執行延遲 0.4ms[main][00:21:28.281] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 245/287 (85.4%)，有效語音 7.84s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:21:28.374] ✅ 錄音完成，送出辨識
+[paster][00:21:29] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:21:29] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.72s, est_api=1.17s)
+[transcriber][00:21:29.523] ⏱️ API 耗時: 1.15s
+[main][00:21:29.523] ✅ 辨識完成: "再來測試一下測試一下"
+[paster][00:21:29] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='再來測試一下測試一下'
+[paster][00:21:29] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster][00:21:29] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster][00:21:29] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='9af4ff'
+[paster][00:21:29] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='再來測試一下測試一下'
+[paster][00:21:29] 📋 CLIP verify ok: attempt=1, chars=10, text='再來測試一下測試一下'
+[paster][00:21:29] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x00ab09a0，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='再來測試一下測試一下'
+[paster][00:21:29] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:21:29] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:21:29] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:21:29] ⏱️ 收到→貼上完成: 0.21s
+[paster][00:21:29] 📋 CLIP restore wait: 0.30s
+[paster][00:21:30] 📋 CLIP restore attempt 1/4: text='9af4ff'
+[paster][00:21:30] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='9af4ff'
+[paster][00:21:30] 📋 CLIP restore verify ok: attempt=1, text='9af4ff'
+[paster][00:21:30] 🚫 CLIP guard disarmed: blocked=0
+[paster][00:21:32] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='9af4ff'
+[paster][00:21:32] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [00:21:56.863] 持續=27ms 峰值=309 ✗弱
+[tap]        [00:22:35.150] 💤 敲麥監聽已停止
+[recorder][00:22:35] 💤 預熱 stream 已關閉
