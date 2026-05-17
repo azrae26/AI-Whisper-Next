@@ -1,0 +1,383 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260518_004833.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:48:33.306] ✅ 快捷鍵 ctrl+f12（句號）、ctrl+f11（逗號）已註冊
+[main][00:48:33.307] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:48:33.307] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:48:33.324] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][00:48:35.419] 🔌 HTTP 連線預熱完成 (2.09s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][00:48:50.589] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:48:50.589] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:48:50.652] 💤 敲麥監聽已停止
+[recorder][00:48:50] ⏱️ InputStream() 14.0ms
+[recorder][00:48:50] ⏱️ stream.start() 0.3ms
+[recorder][00:48:50] 🎙️ 錄音就緒，總初始化 14.4ms
+[main][00:48:50.667] ⏱️ recorder.start() 耗時 14.5ms，ok=True
+[tap]        [00:48:51.207] 🎙️ 敲麥監聽已啟動
+[main][00:48:51.212] 🎙️ 開始錄音
+[recorder][00:48:51] 🎤 第一包音訊到達，麥克風實際開啟延遲 786.6ms
+[tap][dim]   [00:48:52.264] 持續=36ms 峰值=408 ✗弱
+[tap][sample][00:48:52.678] 持續=414ms 峰值=5927 ✗長 K=3.0 CF=7.0 SC=839Hz Att=98.8ms | fK=3.5 fCF=7.2 fSC=842Hz fFlat=0.125 fHF=0.001
+[tap][dim]   [00:48:52.740] 持續=34ms 峰值=377 ✗弱
+[tap][sample][00:48:53.478] 持續=738ms 峰值=8265 ✗長 K=4.7 CF=7.3 SC=2700Hz Att=516.0ms | fK=5.0 fCF=7.5 fSC=2701Hz fFlat=0.574 fHF=0.112
+[tap][sample][00:48:53.902] 持續=396ms 峰值=5738 ✗長 K=4.8 CF=7.1 SC=3257Hz Att=137.8ms | fK=5.4 fCF=7.4 fSC=3259Hz fFlat=0.662 fHF=0.249
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][VAD] Silero 語音幀 52/112 (46.4%)，有效語音 1.66s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.6s 音訊段落
+[main][00:48:55.269] ✂️ 自動分段送出（靜音達1s，累積 3.6s，靜音 1.2s）
+[paster][00:48:55] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:48:55] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.16s, est_api=0.61s)
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[transcriber][00:48:56.392] ⏱️ API 耗時: 1.12s
+[main][00:48:56.394] ✅ 分段辨識完成: "甚至改成"
+[paster][00:49:05] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='甚至改成'
+[paster][00:49:05] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster][00:49:05] 📋 CLIP flow start: target_chars=4, restore_delay=0.30s
+[paster][00:49:05] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:05] 📋 CLIP set attempt 1/4: chars=4, bytes=10, preview='甚至改成'
+[paster][00:49:05] 📋 CLIP verify ok: attempt=1, chars=4, text='甚至改成'
+[paster][00:49:05] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x031b0d30，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='甚至改成'
+[paster][00:49:05] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:05] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:05] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:05] ⏱️ 收到→貼上完成: 9.20s
+[paster][00:49:05] 📋 CLIP restore wait: 0.30s
+[paster][00:49:05] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:05] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:06] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:06] 🚫 CLIP guard disarmed: blocked=0
+[tap][dim]   [00:49:06.871] 持續=45ms 峰值=404 ✗弱
+[main][00:49:07.646] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:07.647] ⌨️ after(0) 執行延遲 0.5ms
+[main][00:49:07.649] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/54 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][dim]   [00:49:08.076] 持續=35ms 峰值=364 ✗弱
+[paster][00:49:08] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:08] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[main][00:49:08.311] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl[tap][dim]   [00:49:08.311] 持續=45ms 峰值=505 ✗弱
+
+[main][00:49:08.311] ⌨️ after(0) 執行延遲 1.0ms
+[tap]        [00:49:08.350] 💤 敲麥監聽已停止
+[recorder][00:49:08] 🚀 預熱命中，直接開始錄音
+[main][00:49:08.350] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:49:08.354] 🎙️ 敲麥監聽已啟動
+[main][00:49:08.361] 🎙️ 開始錄音
+[tap][dim]   [00:49:08.797] 持續=36ms 峰值=371 ✗弱
+[tap][sample][00:49:09.724] 持續=927ms 峰值=10513 ✗長 K=2.8 CF=4.5 SC=2695Hz Att=115.4ms | fK=3.0 fCF=4.6 fSC=2700Hz fFlat=0.542 fHF=0.089
+[tap][dim]   [00:49:09.750] 持續=27ms 峰值=436 ✗弱
+[main][00:49:09.969] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:09.972] ⌨️ after(0) 執行延遲 3.1ms[main][00:49:09.974] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 28/50 (56.0%)，有效語音 0.90s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:49:09.995] ✅ 錄音完成，送出辨識
+[paster][00:49:09] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:09] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.41s)
+[transcriber][00:49:10.779] ⏱️ API 耗時: 0.78s
+[main][00:49:10.781] ✅ 辨識完成: "深紫色"
+[paster][00:49:10] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='深紫色'
+[paster][00:49:10] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:10] 📋 CLIP flow start: target_chars=3, restore_delay=0.30s
+[paster][00:49:10] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:10] 📋 CLIP set attempt 1/4: chars=3, bytes=8, preview='深紫色'
+[paster][00:49:10] 📋 CLIP verify ok: attempt=1, chars=3, text='深紫色'
+[paster][00:49:10] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='深紫色'
+[paster][00:49:10] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:10] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:10] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:10] ⏱️ 收到→貼上完成: 0.22s
+[paster][00:49:10] 📋 CLIP restore wait: 0.30s
+[paster][00:49:11] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:11] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[main][00:49:11.380] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl
+[main][00:49:11.382] ⌨️ after(0) 執行延遲 2.1ms
+[tap]        [00:49:11.399] 💤 敲麥監聽已停止
+[recorder][00:49:11] 🚀 預熱命中，直接開始錄音
+[main][00:49:11.399] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [00:49:11.402] 🎙️ 敲麥監聽已啟動
+[main][00:49:11.405] 🎙️ 開始錄音
+[paster][00:49:11] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:11] 🚫 CLIP guard disarmed: blocked=0
+[tap][dim]   [00:49:11.912] 持續=37ms 峰值=315 ✗弱
+[tap][sample][00:49:12.722] 持續=810ms 峰值=10989 ✗長 K=1.9 CF=4.9 SC=2878Hz Att=292.9ms | fK=2.1 fCF=5.0 fSC=2876Hz fFlat=0.570 fHF=0.121
+[tap][sample][00:49:13.314] 持續=567ms 峰值=7071 ✗長 K=4.8 CF=6.2 SC=1459Hz Att=0.1ms | fK=5.2 fCF=6.4 fSC=1459Hz fFlat=0.249 fHF=0.009
+[tap][dim]   [00:49:13.350] 持續=36ms 峰值=314 ✗弱
+[paster][00:49:13] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:13] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[recorder][VAD] Silero 語音幀 41/95 (43.2%)，有效語音 1.31s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][00:49:14.465] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.1s）
+[paster][00:49:14] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:14] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[transcriber][00:49:15.468] ⏱️ API 耗時: 1.00s
+[main][00:49:15.468] ✅ 分段辨識完成: "深紫色改為"
+[paster][00:49:15] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='深紫色改為'
+[paster][00:49:15] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:15] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:49:15] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:15] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='深紫色改為'
+[paster][00:49:15] 📋 CLIP verify ok: attempt=1, chars=5, text='深紫色改為'
+[paster][00:49:15] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=Ctrl,LCtrl; logical_down=Ctrl,LCtrl，text='深紫色改為'
+[paster][00:49:15] ⌨️ 貼上前釋放修飾鍵: released=LCtrl，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:15] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:15] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:15] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:49:15] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:49:15] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:15] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:16] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:16] 🚫 CLIP guard disarmed: blocked=0[main][00:49:16.077] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+
+[main][00:49:16.085] ⌨️ after(0) 執行延遲 8.5ms
+[main][00:49:16.089] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.44s)，略過
+[main][00:49:17.219] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:17.222] ⌨️ after(0) 執行延遲 3.6ms
+[tap]        [00:49:17.268] 💤 敲麥監聽已停止
+[recorder][00:49:17] 🚀 預熱命中，直接開始錄音
+[main][00:49:17.269] ⏱️ recorder.start() 耗時 0.4ms，ok=True
+[tap]        [00:49:17.277] 🎙️ 敲麥監聽已啟動
+[main][00:49:17.285] 🎙️ 開始錄音
+[paster][00:49:18] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:18] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:49:18.498] 持續=864ms 峰值=11417 ✗長 K=2.0 CF=4.3 SC=2503Hz Att=717.3ms | fK=2.2 fCF=4.3 fSC=2503Hz fFlat=0.531 fHF=0.080
+[tap][sample][00:49:19.137] 持續=612ms 峰值=7599 ✗長 K=7.4 CF=6.4 SC=1556Hz Att=0.1ms | fK=7.9 fCF=6.6 fSC=1555Hz fFlat=0.352 fHF=0.012
+[recorder][VAD] Silero 語音幀 31/89 (34.8%)，有效語音 0.99s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] ✅ 取出 2.9s 音訊段落
+[main][00:49:20.446] ✂️ 自動分段送出（靜音達1s，累積 2.9s，靜音 1.0s）
+[paster][00:49:20] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:20] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.09s, est_api=0.54s)
+[transcriber][00:49:21.043] ⏱️ API 耗時: 0.59s
+[main][00:49:21.043] ✅ 分段辨識完成: "深紫色改為"
+[paster][00:49:21] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='深紫色改為'
+[paster][00:49:21] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:21] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:49:21] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:21] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='深紫色改為'
+[paster][00:49:21] 📋 CLIP verify ok: attempt=1, chars=5, text='深紫色改為'
+[paster][00:49:21] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='深紫色改為'
+[paster][00:49:21] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:21] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:21] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:21] ⏱️ 收到→貼上完成: 0.19s
+[paster][00:49:21] 📋 CLIP restore wait: 0.30s
+[paster][00:49:21] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:21] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:49:21] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:21] 🚫 CLIP guard disarmed: blocked=0
+[main][00:49:21.698] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:21.699] ⌨️ after(0) 執行延遲 0.3ms[main][00:49:21.699] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.16s)，略過
+[main][00:49:22.842] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:22.842] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:49:22.856] 💤 敲麥監聽已停止
+[recorder][00:49:22] 🚀 預熱命中，直接開始錄音
+[main][00:49:22.856] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:49:22.859] 🎙️ 敲麥監聽已啟動
+[main][00:49:22.863] 🎙️ 開始錄音
+[tap][dim]   [00:49:23.539] 持續=45ms 峰值=321 ✗弱
+[paster][00:49:23] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:23] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:49:24.051] 持續=513ms 峰值=9915 ✗長 K=1.6 CF=4.3 SC=1268Hz Att=67.6ms | fK=1.9 fCF=4.4 fSC=1268Hz fFlat=0.218 fHF=0.006
+[tap][dim]   [00:49:24.078] 持續=27ms 峰值=408 ✗弱
+[tap][sample][00:49:24.330] 持續=90ms 峰值=2153 ✓ K=0.8 CF=3.6 SC=934Hz Att=34.9ms | fK=1.8 fCF=4.1 fSC=955Hz fFlat=0.151 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [00:49:24.366] 持續=36ms 峰值=452 ✗弱
+[tap][sample][00:49:25.069] 持續=675ms 峰值=7303 ✗長 K=1.4 CF=5.0 SC=1634Hz Att=0.2ms | fK=1.6 fCF=5.1 fSC=1632Hz fFlat=0.317 fHF=0.008
+[tap][dim]   [00:49:25.140] 持續=72ms 峰值=576 ✗弱
+[recorder][VAD] Silero 語音幀 38/101 (37.6%)，有效語音 1.22s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.2s 音訊段落
+[main][00:49:26.157] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.0s）
+[paster][00:49:26] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:26] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.12s, est_api=0.57s)
+[transcriber][00:49:26.819] ⏱️ API 耗時: 0.66s
+[main][00:49:26.820] ✅ 分段辨識完成: "如果你看一下"
+[paster][00:49:26] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='如果你看一下'
+[paster][00:49:26] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:26] 📋 CLIP flow start: target_chars=6, restore_delay=0.30s
+[paster][00:49:26] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:26] 📋 CLIP set attempt 1/4: chars=6, bytes=14, preview='如果你看一下'
+[paster][00:49:26] 📋 CLIP verify ok: attempt=1, chars=6, text='如果你看一下'
+[paster][00:49:26] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='如果你看一下'
+[paster][00:49:26] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:27] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:27] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:27] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:49:27] 📋 CLIP restore wait: 0.30s
+[paster][00:49:27] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:27] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:49:27] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:27] 🚫 CLIP guard disarmed: blocked=0
+[main][00:49:27.846] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:27.846] ⌨️ after(0) 執行延遲 0.3ms[main][00:49:27.847] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.52s)，略過
+[main][00:49:28.592] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:28.593] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [00:49:28.624] 💤 敲麥監聽已停止
+[recorder][00:49:28] 🚀 預熱命中，直接開始錄音
+[main][00:49:28.625] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:49:28.629] 🎙️ 敲麥監聽已啟動
+[main][00:49:28.636] 🎙️ 開始錄音
+[paster][00:49:29] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:29] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:49:29.911] 持續=900ms 峰值=11334 ✗長 K=2.7 CF=4.3 SC=2436Hz Att=228.4ms | fK=2.9 fCF=4.4 fSC=2430Hz fFlat=0.516 fHF=0.061
+[tap][sample][00:49:30.540] 持續=567ms 峰值=7728 ✗長 K=3.3 CF=5.9 SC=1365Hz Att=0.4ms | fK=3.6 fCF=6.1 fSC=1366Hz fFlat=0.280 fHF=0.006
+[recorder][VAD] Silero 語音幀 43/95 (45.3%)，有效語音 1.38s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 3.0s 音訊段落
+[main][00:49:31.709] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.1s）
+[paster][00:49:31] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:31] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[transcriber][00:49:32.600] ⏱️ API 耗時: 0.89s
+[main][00:49:32.600] ✅ 分段辨識完成: "深紫色改為"
+[paster][00:49:32] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='深紫色改為'
+[paster][00:49:32] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:32] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:49:32] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:32] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='深紫色改為'
+[paster][00:49:32] 📋 CLIP verify ok: attempt=1, chars=5, text='深紫色改為'
+[paster][00:49:32] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='深紫色改為'
+[paster][00:49:32] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:32] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:32] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:32] ⏱️ 收到→貼上完成: 0.18s
+[paster][00:49:32] 📋 CLIP restore wait: 0.30s
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[paster][00:49:33] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:33] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:33] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:33] 🚫 CLIP guard disarmed: blocked=0
+[main][00:49:33.227] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:33.227] ⌨️ after(0) 執行延遲 0.4ms[main][00:49:33.228] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.34s)，略過
+[main][00:49:34.166] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:34.167] ⌨️ after(0) 執行延遲 1.0ms
+[tap]        [00:49:34.181] 💤 敲麥監聽已停止
+[recorder][00:49:34] 🚀 預熱命中，直接開始錄音
+[main][00:49:34.184] ⏱️ recorder.start() 耗時 1.1ms，ok=True
+[tap]        [00:49:34.194] 🎙️ 敲麥監聽已啟動
+[main][00:49:34.199] 🎙️ 開始錄音
+[paster][00:49:35] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:35] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][sample][00:49:35.482] 持續=765ms 峰值=11234 ✗長 K=1.5 CF=3.9 SC=2804Hz Att=512.1ms | fK=1.7 fCF=4.0 fSC=2799Hz fFlat=0.581 fHF=0.112
+[tap][dim]   [00:49:35.518] 持續=36ms 峰值=533 ✗弱
+[tap][sample][00:49:36.121] 持續=576ms 峰值=8216 ✗長 K=5.3 CF=6.5 SC=1160Hz Att=217.5ms | fK=5.7 fCF=6.7 fSC=1164Hz fFlat=0.238 fHF=0.003
+[main][00:49:36.144] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:49:36.144] ⌨️ after(0) 執行延遲 0.3ms[main][00:49:36.145] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 39/60 (65.0%)，有效語音 1.25s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][00:49:36.162] ✅ 錄音完成，送出辨識
+[paster][00:49:36] 📏 [UIA] 文字為空 → 不加句號
+[paster][00:49:36] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.45s)
+[transcriber][00:49:36.888] ⏱️ API 耗時: 0.73s
+[main][00:49:36.889] ✅ 辨識完成: "甚至設改為"
+[paster][00:49:36] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='。', final='甚至設改為'
+[paster][00:49:36] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('breadcrumb Liliac Color | #D493FF Your all-in-one color resource. Download hex background images, Adobe swatches (ASE), PDF color sheets, and SVG files. Explore palettes, harmonies, accessibility, conversions, and professional exports — designed for designers, developers, and color perfectionists. Choose Color Selected Color Click to copy HEX RGB HSL #d493ff Copy Color Value View Color Details Reset to Default Color Generate Random Color Recent Colors #d493ff #edd2ff #ca7bff #c1fffd #45def4 #99f3ff #22d3ee #82f0ff #c472fc #c066fc #be61fc #ba58fc #aa37f7 #9c14f6 #a325f6 #ac39f8 #b34af8', 'col-md-8 col-sm-12  offset-md-1', 'content', 'GroupControl')，preserve_ctrl=False
+[paster][00:49:36] 📋 CLIP flow start: target_chars=5, restore_delay=0.30s
+[paster][00:49:36] 📋 CLIP backup: count=6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:36] 📋 CLIP set attempt 1/4: chars=5, bytes=12, preview='甚至設改為'
+[paster][00:49:37] 📋 CLIP verify ok: attempt=1, chars=5, text='甚至設改為'
+[paster][00:49:37] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Liliac Color | #D493FF - Google Chrome"，hwnd=0x003d0bfe，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='甚至設改為'
+[paster][00:49:37] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][00:49:37] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][00:49:37] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][00:49:37] ⏱️ 收到→貼上完成: 0.21s
+[paster][00:49:37] 📋 CLIP restore wait: 0.30s
+[paster][00:49:37] 📋 CLIP restore attempt 1/4: text='d493ff'
+[paster][00:49:37] 📋 CLIP restore: restored=6/6, formats=13:14B, 50188:24B, 50131:40B, 16:4B, 1:7B, 7:7B, text='d493ff'
+[paster][00:49:37] 📋 CLIP restore verify ok: attempt=1, text='d493ff'
+[paster][00:49:37] 🚫 CLIP guard disarmed: blocked=0
+[paster][00:49:39] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='d493ff'
+[paster][00:49:39] 📋 剪貼簿已還原驗證（6 種格式，restore_ok=True, watch_ok=True）
+[tap][dim]   [00:50:18.169] 持續=26ms 峰值=333 ✗弱
+[tap][sample][00:50:20.481] 持續=585ms 峰值=12584 ✗長 K=3.4 CF=4.9 SC=2711Hz Att=43.9ms | fK=3.7 fCF=5.1 fSC=2712Hz fFlat=0.643 fHF=0.108
+[main][00:50:21.055] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:50:21.055] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [00:50:23.057] 💤 敲麥監聽已停止
+[main][00:50:24.164] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:50:24.164] ⌨️ after(0) 執行延遲 0.4ms
+[recorder][00:50:24] 🚀 預熱命中，直接開始錄音
+[main][00:50:24.817] ⏱️ recorder.start() 耗時 3.3ms，ok=True
+[tap]        [00:50:24.833] 🎙️ 敲麥監聽已啟動
+[main][00:50:24.844] 🎙️ 開始錄音
+[main][00:50:24.846] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.03s)，略過
+[main][00:50:26.059] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:50:26.059] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [00:50:26.087] 💤 敲麥監聽已停止
+[recorder][00:50:26] 🚀 預熱命中，直接開始錄音
+[main][00:50:26.087] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [00:50:26.090] 🎙️ 敲麥監聽已啟動
+[main][00:50:26.093] 🎙️ 開始錄音
+[tap][sample][00:50:27.754] 持續=963ms 峰值=12644 ✗長 K=3.2 CF=5.4 SC=2692Hz Att=128.3ms | fK=3.4 fCF=5.5 fSC=2691Hz fFlat=0.598 fHF=0.099
+[tap][sample][00:50:28.771] 持續=991ms 峰值=9560 ✗長 K=3.2 CF=5.7 SC=1681Hz Att=0.2ms | fK=3.4 fCF=5.8 fSC=1681Hz fFlat=0.408 fHF=0.011
+[recorder][VAD] Silero 語音幀 59/121 (48.8%)，有效語音 1.89s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.18s)，略過
+[main][00:50:28.835] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過
+[main][00:50:43.454] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+[main][00:50:53.079] ⌨️ after(0) 執行延遲 24243.8ms[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.18s)，略過
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[main][00:50:53.104] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=none; logical_down=none
+
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[main][00:50:53.105] ⌨️ after(0) 執行延遲 1.0ms[recorder][flush] ✅ 取出 3.9s 音訊段落
+
+
+[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過[main][00:50:53.108] ⌨️ 主快捷鍵觸發（Win32/句號），keys=async_down=none; logical_down=none[main][00:50:53.109] ✂️ 自動分段送出（靜音達1s，累積 3.9s，靜音 1.1s）
+
+
+[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+[recorder][flush] 段落太短 (0.21s)，略過[main][00:50:53.111] ⌨️ after(0) 執行延遲 3.4ms
+
+[recorder][flush] 段落太短 (0.21s)，略過
+
+
+
+[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.23s)，略過[recorder][flush] 段落太短 (0.18s)，略過
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][flush] 段落太短 (0.21s)，略過[recorder][flush] 段落太短 (0.18s)，略過[recorder][flush] 段落太短 (0.21s)，略過
+
+
+[recorder][stop] 錄音太短 (0.10s)，略過
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）

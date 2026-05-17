@@ -38,7 +38,8 @@ WAVEFORM_COLOR_DARK = "#22D3EE"
 WAVEFORM_COLOR_MID = "#52E1F6"
 WAVEFORM_COLOR_LIGHT = "#99f3ff"
 STATUS_PROCESSING_LIGHT = "#edd2ff"
-STATUS_PROCESSING_DARK = "#ca7bff"
+STATUS_PROCESSING_DARK = "#d493ff"
+STATUS_FONT_SIZE = 14
 
 
 def _mix_three_stop_color(dark: QColor, mid: QColor, light: QColor, t: float, alpha: int) -> QColor:
@@ -100,7 +101,7 @@ class WaveformOverlay(QWidget):
         self._screen_name = ""
         self._text_dim_left = -1.0
         self._text_dim_right = -1.0
-        self._dim_font = QFont("Microsoft JhengHei UI", 13)  # used for QFontMetrics; kept separate from _paint_font
+        self._dim_font = QFont("Microsoft JhengHei UI", STATUS_FONT_SIZE)  # used for QFontMetrics; kept separate from _paint_font
         self._dim_font.setBold(True)
         self._status_shadow_labels: list[QLabel] = []
         for blur, alpha in ((20, 204), (12, 153), (6, 128)):
@@ -118,7 +119,7 @@ class WaveformOverlay(QWidget):
         self._timer.timeout.connect(self._tick_processing)
 
         # Cache expensive objects to avoid allocating them on every paintEvent
-        self._paint_font = QFont("Microsoft JhengHei UI", 13)
+        self._paint_font = QFont("Microsoft JhengHei UI", STATUS_FONT_SIZE)
         self._paint_font.setBold(True)
         self._bg_pixmap: QPixmap | None = None  # built on first paint; WIN_W/H are constants
         self._bar_dim: list[float] = [1.0] * BAR_COUNT  # recomputed only when text_dim changes
@@ -446,7 +447,7 @@ class WaveformOverlay(QWidget):
                 label.hide()
         self._status_label.setText(text)
         self._status_label.setStyleSheet(
-            f"background:transparent;color:{text_color};font-size:13pt;font-weight:700;"
+            f"background:transparent;color:{text_color};font-size:{STATUS_FONT_SIZE}pt;font-weight:700;"
         )
         self._status_label.raise_()
         self._status_label.show()
@@ -455,7 +456,7 @@ class WaveformOverlay(QWidget):
         label = QLabel(self)
         label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
-        label.setStyleSheet(f"background:transparent;color:{color};font-size:13pt;font-weight:700;")
+        label.setStyleSheet(f"background:transparent;color:{color};font-size:{STATUS_FONT_SIZE}pt;font-weight:700;")
         label.setGeometry(0, 0, WIN_W, WIN_H)
         return label
 
