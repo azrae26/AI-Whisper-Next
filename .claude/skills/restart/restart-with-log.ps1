@@ -49,7 +49,13 @@ $env:PYTHONUNBUFFERED = "1"
 Start-Process cmd -ArgumentList "/c", "py -3.12 -u run_ai_whisper.py" -WorkingDirectory $workspace -WindowStyle Hidden
 
 Start-Sleep -Seconds 6
-$logFull = Get-ChildItem -Path $workspace -Filter "ai_whisper_*.log" | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
+$logDir = Join-Path $workspace "logs"
+$fromLogs = @()
+if (Test-Path -LiteralPath $logDir) {
+    $fromLogs = @(Get-ChildItem -Path $logDir -Filter "ai_whisper_*.log" -File -ErrorAction SilentlyContinue)
+}
+$fromRoot = @(Get-ChildItem -Path $workspace -Filter "ai_whisper_*.log" -File -ErrorAction SilentlyContinue)
+$logFull = @($fromLogs + $fromRoot) | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 if ($logFull) {
     Write-Host "--- LOG (last 15 lines) ---"
     Get-Content $logFull -Tail 15 -Encoding UTF8

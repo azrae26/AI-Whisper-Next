@@ -1,0 +1,55 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260519_012727.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:27:27.616] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][01:27:27.617] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][01:27:27.617] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [01:27:27.632] 🎙️ 敲麥監聽已啟動
+[recorder][VAD] 載入 Silero VAD 模型...
+[transcriber][01:27:29.915] 🔌 HTTP 連線預熱完成 (2.28s)
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[main][01:27:30.091] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:27:30.092] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [01:27:30.169] 💤 敲麥監聽已停止
+[recorder][01:27:30] ⏱️ InputStream() 12.0ms
+[recorder][01:27:30] ⏱️ stream.start() 0.3ms
+[recorder][01:27:30] 🎙️ 錄音就緒，總初始化 12.3ms
+[main][01:27:30.183] ⏱️ recorder.start() 耗時 12.5ms，ok=True
+[tap]        [01:27:30.717] 🎙️ 敲麥監聽已啟動
+[main][01:27:30.729] 🎙️ 開始錄音
+[recorder][01:27:30] 🎤 第一包音訊到達，麥克風實際開啟延遲 747.0ms
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:27:47.019] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:27:47.019] ⌨️ after(0) 執行延遲 0.3ms[main][01:27:47.020] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 0/26 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap]        [01:29:46.157] 💤 敲麥監聽已停止
+[recorder][01:29:46] 💤 預熱 stream 已關閉

@@ -107,6 +107,7 @@ class AppController(QObject):
         self.segment_processing_finished.connect(self._on_segment_processing_finished)
         self.segment_status.connect(self._set_segment_waveform_status)
         self.tap_triggered.connect(self.toggle_recording)
+        self.window.overlay_pos_changed.connect(self._save_overlay_pos)
 
     def _apply_initial_state(self) -> None:
         self.cfg.startup = is_startup_enabled()
@@ -124,6 +125,14 @@ class AppController(QObject):
         cfg.geometry = self._geometry_string()
         self._pending_config = cfg
         self._save_timer.start(300)
+
+    def _save_overlay_pos(self, key: str, x: int, y: int) -> None:
+        positions = dict(self.settings_store.get().overlay_positions)
+        if x < 0 or y < 0:
+            positions.pop(key, None)
+        else:
+            positions[key] = {"x": x, "y": y}
+        self.settings_store.save({"overlay_positions": positions})
 
     def _flush_settings(self) -> None:
         if self._pending_config is None:

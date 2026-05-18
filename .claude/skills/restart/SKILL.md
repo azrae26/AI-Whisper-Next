@@ -45,7 +45,7 @@ working_directory 指向 workspace 根目錄（不要寫死磁碟代號，家裡
 
 ## 確認啟動成功
 
-重啟腳本結束後，內部確認最新 `ai_whisper_*.log` 或正在跑的 `run_ai_whisper.py` 程序。
+重啟腳本結束後，內部確認 `logs/` 下最新 `ai_whisper_*.log`（含執行中的 `*.current.log`）或正在跑的 `run_ai_whisper.py` 程序。
 
 不要額外再執行 `py run_ai_whisper.py`。
 
@@ -58,8 +58,8 @@ working_directory 指向 workspace 根目錄（不要寫死磁碟代號，家裡
 
 ## LOG 監控
 
-- log 寫入 `ai_whisper_yyyyMMdd_HHmmss.log`（workspace 根目錄）
-- 若使用者說「幫我看 LOG」、「看 log」，讀取最新的 `ai_whisper_*.log` 檔
+- 主程式 log 在專案根目錄下 `logs/`，檔名：執行中為 `ai_whisper_yyyyMMdd_HHmmss.current.log`；下次啟動時上一輪會被改名為 `ai_whisper_yyyyMMdd_HHmmss.log`（見 **`CLAUDE.md`**「Log 位置」）。篩選 `ai_whisper_*.log` 時仍會涵蓋 `.current.log`。
+- 若使用者說「幫我看 LOG」、「看 log」，讀取 `logs/` 內最新修改的 `ai_whisper_*.log` 檔。
 
 ## 注意事項
 

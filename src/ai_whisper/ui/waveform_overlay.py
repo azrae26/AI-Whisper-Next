@@ -1,11 +1,21 @@
 from __future__ import annotations
 
 import ctypes
+import ctypes.wintypes
 import math
+import socket
 import time
 
-from PySide6.QtCore import QRect, QRectF, Qt, QTimer
-from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath, QPixmap
+from ..logging_setup import safe_print
+from PySide6.QtCore import QPoint, QPointF, QRect, QRectF, Qt, QTimer
+
+_HOSTNAME = socket.gethostname()
+
+
+def _screen_key(screen_name: str) -> str:
+    """Unique key per computer+screen, used for position persistence."""
+    return f"{_HOSTNAME}/{screen_name}"
+from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath, QPixmap, QPen
 from PySide6.QtWidgets import QApplication, QGraphicsDropShadowEffect, QLabel, QWidget
 
 def _fix_win11_frame(widget) -> None:
@@ -73,15 +83,140 @@ _BAR_EDGE_T: list[float] = [
 ]
 STATUS_TIMER_ARM_DELAY_MS = 120
 
+# --- Drag/reset button panel (separate interactive window on top of transparent overlay) ---
+_BTN_W = 22
+_BTN_H = 22
+_BTN_PAD_R = 6    # px from right edge of main overlay
+_BTN_GAP = 4      # gap between the two buttons
+_BTN_TOTAL_H = _BTN_H * 2 + _BTN_GAP
+_BTN_X = WIN_W - _BTN_PAD_R - _BTN_W
+_RESET_BTN_Y = (WIN_H - _BTN_TOTAL_H) // 2
+_DRAG_BTN_Y = _RESET_BTN_Y + _BTN_H + _BTN_GAP
+_HOVER_ZONE_X = WIN_W - 50  # rightmost 50 px triggers panel visibility
+# Panel window geometry (in main overlay logical coords → panel-local coords)
+_PANEL_X = _BTN_X          # panel left = main BTN_X
+_PANEL_Y = _RESET_BTN_Y    # panel top  = main RESET_BTN_Y
+_PANEL_W = _BTN_W          # 22 px wide
+_PANEL_H = _BTN_TOTAL_H    # 48 px tall
+# Button rects in PANEL-LOCAL coordinates
+_PNL_RESET = QRect(0, 0, _BTN_W, _BTN_H)
+_PNL_DRAG  = QRect(0, _BTN_H + _BTN_GAP, _BTN_W, _BTN_H)
 
-class WaveformOverlay(QWidget):
-    def __init__(self):
+
+class _OverlayButtons(QWidget):
+    """Small interactive window that hosts drag-handle + reset buttons.
+    Sits on top of the fully transparent WaveformOverlay, so it can receive
+    real OS mouse events — no polling, no hacks."""
+
+    def __init__(self, main: "WaveformOverlay") -> None:
         super().__init__(None)
+        self._main = main
+        self._syncing = False
         self.setWindowFlags(
             Qt.WindowType.FramelessWindowHint
             | Qt.WindowType.Tool
             | Qt.WindowType.WindowStaysOnTopHint
-            | Qt.WindowType.WindowTransparentForInput
+        )
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
+        self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating, True)
+        self.setFixedSize(_PANEL_W, _PANEL_H)
+
+    def showEvent(self, event) -> None:
+        super().showEvent(event)
+        _fix_win11_frame(self)
+
+    def sync_to_main(self) -> None:
+        """Reposition this panel to align with the main overlay's button area."""
+        if not self._syncing:
+            self._syncing = True
+            self.move(self._main.x() + _PANEL_X, self._main.y() + _PANEL_Y)
+            self._syncing = False
+
+    def moveEvent(self, event) -> None:
+        super().moveEvent(event)
+        if not self._syncing:
+            # Panel moved via OS-native HTCAPTION drag — pull main overlay along.
+            self._syncing = True
+            self._main.move(self.x() - _PANEL_X, self.y() - _PANEL_Y)
+            self._syncing = False
+
+    def nativeEvent(self, eventType, message):
+        if eventType == b"windows_generic_MSG":
+            msg = ctypes.cast(int(message), ctypes.POINTER(ctypes.wintypes.MSG)).contents
+            if msg.message == 0x0021:  # WM_MOUSEACTIVATE
+                # Return MA_NOACTIVATE so panel never steals focus, but click IS still delivered.
+                return True, 3
+            if msg.message == 0x0201:  # WM_LBUTTONDOWN — handle reset here (reliable for Tool windows)
+                if _PNL_RESET.contains(self.mapFromGlobal(QCursor.pos())):
+                    self._main._do_reset()
+                return True, 0
+            if msg.message == 0x0084:  # WM_NCHITTEST
+                local = self.mapFromGlobal(QCursor.pos())
+                if _PNL_DRAG.contains(local):
+                    return True, 2   # HTCAPTION — OS handles drag natively
+                return True, 1       # HTCLIENT (1, not 0) — reset button / gap
+            if msg.message == 0x0232:  # WM_EXITSIZEMOVE — drag ended
+                self._main._clamp_to_screen()
+                self.sync_to_main()
+                key = _screen_key(self._main._screen_name)
+                pos = self._main.pos()
+                self._main._custom_pos = pos
+                self._main._overlay_positions[key] = {"x": pos.x(), "y": pos.y()}
+                safe_print(f"[overlay] 位置儲存 screen={self._main._screen_name} x={pos.x()} y={pos.y()}")
+                if self._main._on_pos_changed:
+                    self._main._on_pos_changed(key, pos.x(), pos.y())
+        return super().nativeEvent(eventType, message)
+
+    def paintEvent(self, event) -> None:
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+        # Button backgrounds
+        painter.setPen(Qt.PenStyle.NoPen)
+        for rect in (_PNL_RESET, _PNL_DRAG):
+            path = QPainterPath()
+            path.addRoundedRect(QRectF(rect).adjusted(1, 1, -1, -1), 5, 5)
+            painter.fillPath(path, QColor(255, 255, 255, 30))
+        icon_color = QColor(255, 255, 255, 200)
+        # Reset icon — CCW rotation arrow
+        pen = QPen(icon_color, 1.2, Qt.PenStyle.SolidLine)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
+        pen.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
+        painter.setPen(pen)
+        painter.setBrush(Qt.BrushStyle.NoBrush)
+        rcx = _BTN_W / 2.0
+        rcy = _BTN_H / 2.0
+        r = 3.85
+        painter.drawArc(QRectF(rcx - r, rcy - r, r * 2, r * 2), 200 * 16, 260 * 16)
+        ex = rcx + r * math.cos(math.radians(100))
+        ey = rcy - r * math.sin(math.radians(100))
+        painter.drawLine(QPointF(ex, ey), QPointF(ex + 2.4, ey + 1.3))
+        painter.drawLine(QPointF(ex, ey), QPointF(ex + 1.75, ey - 2.1))
+        # Drag icon — 2×3 grip dots
+        painter.setPen(Qt.PenStyle.NoPen)
+        painter.setBrush(icon_color)
+        dcx = _BTN_W / 2.0
+        dcy = _BTN_H + _BTN_GAP + _BTN_H / 2.0
+        sq, gap = 2.8, 1.4
+        x0 = dcx - sq - gap / 2
+        y0 = dcy - sq * 1.5 - gap
+        for col in range(2):
+            for row in range(3):
+                painter.drawRoundedRect(
+                    QRectF(x0 + col * (sq + gap), y0 + row * (sq + gap), sq, sq), 0.85, 0.85
+                )
+
+
+class WaveformOverlay(QWidget):
+    def __init__(self, overlay_positions: dict | None = None, on_pos_changed=None):
+        super().__init__(None)
+        self._on_pos_changed = on_pos_changed
+        self._overlay_positions: dict = overlay_positions or {}
+        self._custom_pos: QPoint | None = None  # set per-screen in _anchor_to_cursor_screen
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint
+            | Qt.WindowType.Tool
+            | Qt.WindowType.WindowStaysOnTopHint
+            | Qt.WindowType.WindowTransparentForInput  # passes ALL mouse events (incl. wheel) through
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
         self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating, True)
@@ -135,6 +270,12 @@ class WaveformOverlay(QWidget):
         self.repaint()  # synchronous paint -> caches font glyphs
         self._set_status_label("")
         self.hide()
+
+        # Hover polling – shows/hides the button panel when cursor enters right-edge zone.
+        self._btn_panel = _OverlayButtons(self)
+        self._hover_timer = QTimer(self)
+        self._hover_timer.timeout.connect(self._check_button_hover)
+        self._hover_timer.start(50)
 
     def showEvent(self, event) -> None:
         super().showEvent(event)
@@ -228,6 +369,7 @@ class WaveformOverlay(QWidget):
         self._update_recording_status_metrics("")
         self._set_status_label("")
         self._timer.stop()
+        self._btn_panel.hide()
         self.hide()
 
     def finish_recording_without_replay(self) -> None:
@@ -274,23 +416,64 @@ class WaveformOverlay(QWidget):
         self._levels = levels  # already trimmed to BAR_COUNT by get_waveform()
         self.update()
 
-    def _position_at_cursor_screen(self) -> None:
+    def _clamp_to_screen(self) -> None:
+        """Ensure the overlay stays within the anchored screen (no cross-screen drag)."""
         screen = self._anchored_screen()
         if screen is None:
-            self._anchor_to_cursor_screen()
-            screen = self._anchored_screen()
-        if screen is None:
             screen = QApplication.primaryScreen()
+        if screen is None:
+            return
         rect = screen.availableGeometry()
-        x = rect.left() + (rect.width() - WIN_W) // 2
-        y = rect.bottom() - WIN_H - MARGIN_BOTTOM - OVERLAY_RAISE_Y
-        self.move(x, y)
+        x = max(rect.left(), min(self.x(), rect.right() - WIN_W))
+        y = max(rect.top(), min(self.y(), rect.bottom() - WIN_H))
+        new_pos = QPoint(x, y)
+        if new_pos != self.pos():
+            self.move(new_pos)
+            if self._custom_pos is not None:
+                self._custom_pos = new_pos
+        if self._btn_panel.isVisible():
+            self._btn_panel.sync_to_main()
+
+    def _position_at_cursor_screen(self) -> None:
+        if self._custom_pos is not None:
+            self.move(self._custom_pos)
+            self._clamp_to_screen()
+        else:
+            screen = self._anchored_screen()
+            if screen is None:
+                self._anchor_to_cursor_screen()
+                screen = self._anchored_screen()
+            if screen is None:
+                screen = QApplication.primaryScreen()
+            rect = screen.availableGeometry()
+            x = rect.left() + (rect.width() - WIN_W) // 2
+            y = rect.bottom() - WIN_H - MARGIN_BOTTOM - OVERLAY_RAISE_Y
+            self.move(x, y)
+        if self._btn_panel.isVisible():
+            self._btn_panel.sync_to_main()
+
+    def _do_reset(self) -> None:
+        """Reset overlay position to screen default (called by button panel)."""
+        self._custom_pos = None
+        key = _screen_key(self._screen_name)
+        self._overlay_positions.pop(key, None)
+        safe_print(f"[overlay] 位置重置 screen={self._screen_name}")
+        self._position_at_cursor_screen()
+        if self._on_pos_changed:
+            self._on_pos_changed(key, -1, -1)
 
     def _anchor_to_cursor_screen(self) -> None:
         screen = QApplication.screenAt(QCursor.pos())
         if screen is None:
             screen = QApplication.primaryScreen()
         self._screen_name = screen.name() if screen is not None else ""
+        # Load saved position for this computer+screen
+        key = _screen_key(self._screen_name)
+        pos_data = self._overlay_positions.get(key)
+        if pos_data:
+            self._custom_pos = QPoint(int(pos_data["x"]), int(pos_data["y"]))
+        else:
+            self._custom_pos = None
 
     def _anchored_screen(self):
         if self._screen_name:
@@ -484,6 +667,33 @@ class WaveformOverlay(QWidget):
             else:
                 dims.append(0.15)
         self._bar_dim = dims
+
+    # ------------------------------------------------------------------
+    # Right-edge drag / reset buttons
+    # ------------------------------------------------------------------
+
+    def _check_button_hover(self) -> None:
+        """Show/hide the interactive button panel based on cursor position."""
+        if not self.isVisible():
+            self._btn_panel.hide()
+            return
+        # Physical-pixel check avoids DPI mapping issues with WindowTransparentForInput.
+        cursor_pt = ctypes.wintypes.POINT()
+        ctypes.windll.user32.GetCursorPos(ctypes.byref(cursor_pt))
+        win_rect = ctypes.wintypes.RECT()
+        ctypes.windll.user32.GetWindowRect(int(self.winId()), ctypes.byref(win_rect))
+        dpr = self.devicePixelRatio()
+        cx, cy = cursor_pt.x, cursor_pt.y
+        hover = (
+            win_rect.left + round(_HOVER_ZONE_X * dpr) <= cx < win_rect.right
+            and win_rect.top <= cy < win_rect.bottom
+        )
+        if hover and not self._btn_panel.isVisible():
+            self._btn_panel.sync_to_main()
+            self._btn_panel.show()
+            self._btn_panel.raise_()
+        elif not hover and self._btn_panel.isVisible():
+            self._btn_panel.hide()
 
     def _arm_recording_status_timeout(self, token: int, text: str, duration_ms: int) -> None:
         if token != self._recording_status_token or self._recording_status_text != text:

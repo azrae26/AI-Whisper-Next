@@ -113,6 +113,10 @@ class SettingsStore:
             vad_min_speech_sec=_float_value(data.get("vad_min_speech_sec"), defaults.vad_min_speech_sec),
             tap_trigger_enabled=bool(data.get("tap_trigger_enabled", defaults.tap_trigger_enabled)),
             tap_sensitivity=_float_value(data.get("tap_sensitivity"), defaults.tap_sensitivity),
+            overlay_positions={
+                k: v for k, v in (data.get("overlay_positions") or {}).items()
+                if isinstance(v, dict) and "x" in v and "y" in v
+            },
         )
 
 

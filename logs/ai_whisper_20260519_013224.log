@@ -1,0 +1,137 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260519_013224.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][01:32:24.811] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][01:32:24.812] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][01:32:24.813] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [01:32:24.829] 🎙️ 敲麥監聽已啟動
+[transcriber][01:32:26.631] 🔌 HTTP 連線預熱完成 (1.80s)
+[main][01:32:26.896] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:26.897] ⌨️ after(0) 執行延遲 1.0ms
+[recorder][VAD] 載入 Silero VAD 模型...
+[tap]        [01:32:26.975] 💤 敲麥監聽已停止
+[recorder][01:32:26] ⏱️ InputStream() 8.9ms
+[recorder][01:32:26] ⏱️ stream.start() 0.5ms
+[recorder][01:32:26] 🎙️ 錄音就緒，總初始化 9.4ms
+[main][01:32:26.985] ⏱️ recorder.start() 耗時 9.7ms，ok=True
+Using cache found in C:\Users\Administrator/.cache\torch\hub\snakers4_silero-vad_master
+[recorder][VAD] Silero VAD 模型載入完成
+[tap]        [01:32:27.517] 🎙️ 敲麥監聽已啟動
+[main][01:32:27.523] 🎙️ 開始錄音
+[recorder][01:32:27] 🎤 第一包音訊到達，麥克風實際開啟延遲 756.9ms
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[btn_panel] WM_LBUTTONDOWN received
+[btn_panel] local=PySide6.QtCore.QPoint(9, 14) reset_rect=PySide6.QtCore.QRect(0, 0, 22, 22) hit=True
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[btn_panel] WM_LBUTTONDOWN received
+[btn_panel] local=PySide6.QtCore.QPoint(12, 16) reset_rect=PySide6.QtCore.QRect(0, 0, 22, 22) hit=True
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:32:41.116] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:41.117] ⌨️ after(0) 執行延遲 0.3ms[main][01:32:41.118] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[main][01:32:42.064] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:42.064] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [01:32:42.097] 💤 敲麥監聽已停止
+[recorder][01:32:42] 🚀 預熱命中，直接開始錄音
+[main][01:32:42.097] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [01:32:42.099] 🎙️ 敲麥監聽已啟動
+[main][01:32:42.105] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[btn_panel] WM_LBUTTONDOWN received
+[btn_panel] local=PySide6.QtCore.QPoint(10, 12) reset_rect=PySide6.QtCore.QRect(0, 0, 22, 22) hit=True
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:32:47.527] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:47.527] ⌨️ after(0) 執行延遲 0.3ms[main][01:32:47.528] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.75s)，略過
+[main][01:32:48.024] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:48.025] ⌨️ after(0) 執行延遲 1.0ms
+[tap]        [01:32:48.070] 💤 敲麥監聽已停止
+[recorder][01:32:48] 🚀 預熱命中，直接開始錄音
+[main][01:32:48.070] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [01:32:48.073] 🎙️ 敲麥監聽已啟動
+[main][01:32:48.078] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:32:49.831] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:49.831] ⌨️ after(0) 執行延遲 0.5ms
+[main][01:32:49.836] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.75s)，略過
+[main][01:32:51.382] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:51.383] ⌨️ after(0) 執行延遲 0.7ms
+[tap]        [01:32:51.412] 💤 敲麥監聽已停止
+[recorder][01:32:51] 🚀 預熱命中，直接開始錄音
+[main][01:32:51.412] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [01:32:51.414] 🎙️ 敲麥監聽已啟動
+[main][01:32:51.420] 🎙️ 開始錄音
+[main][01:32:52.039] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:32:52.041] ⌨️ after(0) 執行延遲 1.5ms
+[main][01:32:52.044] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.62s)，略過
+[tap][dim]   [01:34:23.705] 持續=54ms 峰值=397 ✗弱
+[tap][dim]   [01:34:24.192] 持續=36ms 峰值=445 ✗弱
+[main][01:34:42.084] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:34:42.085] ⌨️ after(0) 執行延遲 0.4ms
+[tap]        [01:34:42.121] 💤 敲麥監聽已停止
+[recorder][01:34:42] 🚀 預熱命中，直接開始錄音
+[main][01:34:42.121] ⏱️ recorder.start() 耗時 0.1ms，ok=True
+[tap]        [01:34:42.124] 🎙️ 敲麥監聽已啟動
+[main][01:34:42.129] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[btn_panel] WM_LBUTTONDOWN received
+[btn_panel] local=PySide6.QtCore.QPoint(8, 10) reset_rect=PySide6.QtCore.QRect(0, 0, 22, 22) hit=True
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:34:45.069] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:34:45.069] ⌨️ after(0) 執行延遲 0.4ms[main][01:34:45.071] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 0/28 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[main][01:34:46.425] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:34:46.426] ⌨️ after(0) 執行延遲 0.3ms
+[tap]        [01:34:46.457] 💤 敲麥監聽已停止
+[recorder][01:34:46] 🚀 預熱命中，直接開始錄音
+[main][01:34:46.457] ⏱️ recorder.start() 耗時 0.2ms，ok=True
+[tap]        [01:34:46.459] 🎙️ 敲麥監聽已啟動
+[main][01:34:46.464] 🎙️ 開始錄音
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/31 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][01:34:49.939] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][01:34:49.940] ⌨️ after(0) 執行延遲 1.1ms
+[main][01:34:49.944] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][stop] 錄音太短 (0.26s)，略過
+[btn_panel] WM_LBUTTONDOWN received
+[btn_panel] local=PySide6.QtCore.QPoint(4, 14) reset_rect=PySide6.QtCore.QRect(0, 0, 22, 22) hit=True
+[tap]        [01:36:06.985] 💤 敲麥監聽已停止
+[recorder][01:36:07] 💤 預熱 stream 已關閉

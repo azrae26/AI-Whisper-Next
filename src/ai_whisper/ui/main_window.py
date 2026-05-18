@@ -477,6 +477,7 @@ class MainWindow(QMainWindow):
     copy_history_requested = Signal(int)
     tray_quit_requested = Signal()
     geometry_changed = Signal()
+    overlay_pos_changed = Signal(str, int, int)  # key, x, y; x=-1,y=-1 means reset
 
     _CORNER_RADIUS = 10
 
@@ -495,7 +496,10 @@ class MainWindow(QMainWindow):
         self._state = "idle"
         self._mic_centered = True
         self._mic_animation: QPropertyAnimation | None = None
-        self.waveform_overlay = WaveformOverlay()
+        self.waveform_overlay = WaveformOverlay(
+            overlay_positions=cfg.overlay_positions,
+            on_pos_changed=self.overlay_pos_changed.emit,
+        )
         self._build(cfg)
         self._setup_tray()
 
