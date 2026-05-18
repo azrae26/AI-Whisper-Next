@@ -43,7 +43,7 @@ python -m ai_whisper
 
 ## 設定
 
-程式會把本機設定存在 `config.json`（含選用的 `overlay_positions`：各螢幕波形浮層的 x/y）。這個檔案可能包含 OpenAI API Key，所以已經刻意加入 `.gitignore`，不會提交到 GitHub。
+程式會把本機設定存在 `config.json`（含選用的 `overlay_positions`：以**本機 Windows 電腦名稱**＋**螢幕名稱**為鍵，不同電腦互不覆蓋，同一份設定檔可並存多機的座標）。這個檔案可能包含 OpenAI API Key，所以已經刻意加入 `.gitignore`，不會提交到 GitHub。
 
 如果目前資料夾沒有 `config.json`，程式可以讀取舊版 AI Whisper 專案裡相容的設定。
 
