@@ -70,6 +70,18 @@ def safe_print(msg: str) -> None:
         pass
 
 
+def _retire_current_logs(directory: Path) -> None:
+    """把目錄裡所有 *.current.log rename 成 *.log（去掉 .current 標記）。"""
+    try:
+        for p in directory.glob("*.current.log"):
+            try:
+                p.rename(p.with_name(p.name.replace(".current.log", ".log")))
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+
 def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
     try:
         try:
@@ -81,13 +93,15 @@ def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
         ts = _dt.datetime.now().strftime("%Y%m%d_%H%M%S")
 
         log_dir.mkdir(parents=True, exist_ok=True)
-        log_path = log_dir / f"ai_whisper_{ts}.log"
+        _retire_current_logs(log_dir)
+        log_path = log_dir / f"ai_whisper_{ts}.current.log"
         log_file = open(log_path, "w", encoding="utf-8", buffering=1)
 
         tap_file = None
         if tap_dir is not None:
             tap_dir.mkdir(parents=True, exist_ok=True)
-            tap_path = tap_dir / f"{ts}.log"
+            _retire_current_logs(tap_dir)
+            tap_path = tap_dir / f"{ts}.current.log"
             tap_file = open(tap_path, "w", encoding="utf-8", buffering=1)
 
         sys.stdout = _Tee(sys.stdout, log_file, tap_file)

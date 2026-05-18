@@ -17,6 +17,9 @@ dist/
 # 例外：敲麥 / tap 診斷分流 log（可版本庫）。
 !tap_test_logs/
 !tap_test_logs/**/*.log
+# 執行中的最新 log（帶 .current 標記）— 忽略，程式停止後自動改名成一般 .log。
+logs/*.current.log
+tap_test_logs/*.current.log
 config.json
 config.json.*
 *.pack.bak
