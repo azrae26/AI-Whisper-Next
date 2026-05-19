@@ -66,9 +66,9 @@ idle → recording → processing → idle
 
 ## Log 位置
 
-- 一般從原始碼執行 / `restart` Skill 重啟：主程式 log **目錄**為 `paths.log_dir()`（專案根目錄下的 `logs/`）。**執行中**實際寫入檔名為 `logs/ai_whisper_yyyyMMdd_HHmmss.current.log`；下次 `install_log_tee` 啟動時會將目錄內既有 `*.current.log` 改名為去掉 `.current` 的 `*.log`，再開新的 timestamp `.current.log`。**定稿後**在檔案系統上即為 `logs/ai_whisper_yyyyMMdd_HHmmss.log`。`.gitignore` 忽略 `logs/*.current.log`，避免未結束寫入被納版本庫。
+- 一般從原始碼執行 / `restart` Skill 重啟：主程式 log **目錄**為 `paths.log_dir()`（專案根目錄下的 `logs/`）。**執行中**檔名為 `logs/ai_whisper_yyyyMMdd_HHmmss_{hostname}.current.log`，`{hostname}` 為本機電腦名經過 `logging_setup._sanitize_hostname()`（非英數改 `_`）；下次 `install_log_tee` **只會**將與本機相符的 `*_{hostname}.current.log` 改名為去掉 `.current` 的 `*_{hostname}.log`（細節以程式 `glob("*_{hostname}.current.log")` 為準），再開新一輪。**定稿後**即 `logs/ai_whisper_yyyyMMdd_HHmmss_{hostname}.log`。多機共用同步目錄時不會把另一台仍在寫的 `.current` 誤更名。`.gitignore` 忽略 `logs/*.current.log`。
 - 打包後 exe 執行：同上規則，路徑在 exe 同層底下的 `logs/`（例如 `dist/AI Whisper/logs/`）。
-- 敲麥 / tap 診斷分流：執行中為 `tap_test_logs/yyyyMMdd_HHmmss.current.log`，歸檔後為 `tap_test_logs/yyyyMMdd_HHmmss.log`；`.gitignore` 忽略 `tap_test_logs/*.current.log`。只收主 log 裡含 `[tap]` 的行；打包後 exe 也會寫回專案根目錄的 `tap_test_logs/`。
+- 敲麥 / tap 診斷分流：執行中為 `tap_test_logs/yyyyMMdd_HHmmss_{hostname}.current.log`，歸檔後為 `tap_test_logs/yyyyMMdd_HHmmss_{hostname}.log`；退役規則同主程式（僅 `*_{hostname}.current.log`）。`.gitignore` 忽略 `tap_test_logs/*.current.log`。只收主 log 裡含 `[tap]` 的行；打包後 exe 也會寫回專案根目錄的 `tap_test_logs/`。
 - 打包流程 stdout/stderr：`dist/pack_yyyyMMdd_HHmmss.out.log` 與 `dist/pack_yyyyMMdd_HHmmss.err.log`。
 
 ---

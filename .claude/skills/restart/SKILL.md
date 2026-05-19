@@ -58,7 +58,7 @@ working_directory 指向 workspace 根目錄（不要寫死磁碟代號，家裡
 
 ## LOG 監控
 
-- 主程式 log 在專案根目錄下 `logs/`，檔名：執行中為 `ai_whisper_yyyyMMdd_HHmmss.current.log`；下次啟動時上一輪會被改名為 `ai_whisper_yyyyMMdd_HHmmss.log`（見 **`CLAUDE.md`**「Log 位置」）。篩選 `ai_whisper_*.log` 時仍會涵蓋 `.current.log`。
+- 主程式 log 在專案根目錄下 `logs/`，檔名：`ai_whisper_yyyyMMdd_HHmmss_{hostname}.current.log`（見 **`CLAUDE.md`**「Log 位置」、「`hostname`」與 `_sanitize_hostname`）；下次啟動僅退役本機後綴的 `.current`。篩選 `ai_whisper_*.log` 仍涵蓋 `.current.log`。
 - 若使用者說「幫我看 LOG」、「看 log」，讀取 `logs/` 內最新修改的 `ai_whisper_*.log` 檔。
 
 ## 注意事項

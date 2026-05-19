@@ -551,6 +551,11 @@ class WaveformOverlay(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
+        # Clear previous frame first (WA_TranslucentBackground doesn't guarantee this on Windows).
+        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_Clear)
+        painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
+        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceOver)
+
         # Layer 1: background.
         if self._bg_pixmap is None:
             self._bg_pixmap = self._build_bg_pixmap()

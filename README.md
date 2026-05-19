@@ -47,7 +47,7 @@ python -m ai_whisper
 
 如果目前資料夾沒有 `config.json`，程式可以讀取舊版 AI Whisper 專案裡相容的設定。
 
-主程式除錯日誌會寫在 `logs/`：執行中為 `ai_whisper_yyyyMMdd_HHmmss.current.log`，下次啟動時會將上一輪 `.current.log` 改名為正式的 `ai_whisper_yyyyMMdd_HHmmss.log`（細節與 tap 分流見 **`AGENTS.md`**／**`CLAUDE.md`**「Log 位置」）。
+主程式除錯日誌在 `logs/`，格式為時間戳加上本機主機後綴，執行中為 `*.current.log`，下次啟動僅對**本機**上一輪執行轉正定檔（tap 同理；見 **`AGENTS.md`**／**`CLAUDE.md`**「Log 位置」）。
 
 ## 安全注意
 

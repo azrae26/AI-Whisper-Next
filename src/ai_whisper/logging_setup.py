@@ -2,8 +2,14 @@ from __future__ import annotations
 
 import datetime as _dt
 import re
+import socket
 import sys
 from pathlib import Path
+
+
+def _sanitize_hostname() -> str:
+    h = socket.gethostname()
+    return re.sub(r"[^a-zA-Z0-9_-]", "_", h) or "unknown"
 
 
 _ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
@@ -70,10 +76,10 @@ def safe_print(msg: str) -> None:
         pass
 
 
-def _retire_current_logs(directory: Path) -> None:
-    """把目錄裡所有 *.current.log rename 成 *.log（去掉 .current 標記）。"""
+def _retire_current_logs(directory: Path, hostname: str) -> None:
+    """把本機的 *_{hostname}.current.log rename 成 *_{hostname}.log。"""
     try:
-        for p in directory.glob("*.current.log"):
+        for p in directory.glob(f"*_{hostname}.current.log"):
             try:
                 p.rename(p.with_name(p.name.replace(".current.log", ".log")))
             except Exception:
@@ -91,17 +97,18 @@ def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
             pass
 
         ts = _dt.datetime.now().strftime("%Y%m%d_%H%M%S")
+        hostname = _sanitize_hostname()
 
         log_dir.mkdir(parents=True, exist_ok=True)
-        _retire_current_logs(log_dir)
-        log_path = log_dir / f"ai_whisper_{ts}.current.log"
+        _retire_current_logs(log_dir, hostname)
+        log_path = log_dir / f"ai_whisper_{ts}_{hostname}.current.log"
         log_file = open(log_path, "w", encoding="utf-8", buffering=1)
 
         tap_file = None
         if tap_dir is not None:
             tap_dir.mkdir(parents=True, exist_ok=True)
-            _retire_current_logs(tap_dir)
-            tap_path = tap_dir / f"{ts}.current.log"
+            _retire_current_logs(tap_dir, hostname)
+            tap_path = tap_dir / f"{ts}_{hostname}.current.log"
             tap_file = open(tap_path, "w", encoding="utf-8", buffering=1)
 
         sys.stdout = _Tee(sys.stdout, log_file, tap_file)
