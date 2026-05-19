@@ -1,5 +1,6 @@
 ﻿# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
-# 職責：依電腦選擇打包用 venv，確保 venv 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config。
+# 職責：依電腦選擇打包用 venv，確保 venv 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config；分享用 zip 不包含 exe 執行 logs。
+# 備註：替換 dist\AI Whisper 前將 exe 側既有 logs（與專案根的 logs 分開）複製到 .pack_dist_exe_logs_stash，建置完成後鏡射回 dist\AI Whisper\logs，避免清空 dist 時遺失紀錄。
 
 param(
     [string]$Role = "main"
@@ -23,6 +24,8 @@ $distDir = Join-Path $workspace "dist\AI Whisper"
 $stagedDistRoot = Join-Path $workspace "dist_build"
 $stagedDistDir = Join-Path $stagedDistRoot "AI Whisper"
 $configBak = Join-Path $workspace "config.json.pack.bak"
+# 打包時暫存 dist exe 底下的 logs（非專案 logs/——避免與原始碼執行紀錄混用）
+$packDistExeLogsStashDir = Join-Path $workspace ".pack_dist_exe_logs_stash"
 
 function Stop-AiWhisper {
     # 先抓住現有程序（送 QUIT 前取得，才能 WaitForExit）
@@ -201,14 +204,34 @@ switch ($Role) {
             exit 1
         }
         Stop-AiWhisper
-        # 打包前把 dist\AI Whisper 裡的 exe 執行 log 搬回專案根目錄保留
-        Get-ChildItem "$distDir\ai_whisper_*.log" -ErrorAction SilentlyContinue | ForEach-Object {
-            $dest = Join-Path $workspace $_.Name
-            if (-not (Test-Path $dest)) { Copy-Item $_.FullName $dest -Force }
+
+        # 清空 dist 前備份 exe 側 logs\ → 根目錄 .pack_dist_exe_logs_stash（不寫入專案的 logs\）
+        $distExeLogsDir = Join-Path $distDir "logs"
+        $stashPackedExeLogs = $false
+        if (Test-Path $distExeLogsDir) {
+            $distLogFiles = @(Get-ChildItem -LiteralPath $distExeLogsDir -Recurse -File -ErrorAction SilentlyContinue)
+            if ($distLogFiles.Count -gt 0) {
+                Remove-DirectoryWithRetry $packDistExeLogsStashDir
+                Copy-DirectoryWithRobocopy $distExeLogsDir $packDistExeLogsStashDir
+                $stashPackedExeLogs = $true
+                Write-Host ("build: stashed dist exe logs ({0}) -> .pack_dist_exe_logs_stash" -f $distLogFiles.Count)
+            }
         }
+        if (-not $stashPackedExeLogs -and (Test-Path $packDistExeLogsStashDir)) {
+            Remove-DirectoryWithRetry $packDistExeLogsStashDir
+        }
+
         Remove-DirectoryWithRetry $distDir
         New-Item -ItemType Directory -Path (Join-Path $workspace "dist") -Force | Out-Null
         Copy-DirectoryWithRobocopy $stagedDistDir $distDir
+        # 將上一版 exe logs 放回 dist（與接下來自動啟動的新 .current.log 並存）
+        if ($stashPackedExeLogs -and (Test-Path $packDistExeLogsStashDir)) {
+            $restoredExeLogsDir = Join-Path $distDir "logs"
+            New-Item -ItemType Directory -Path $restoredExeLogsDir -Force | Out-Null
+            Copy-DirectoryWithRobocopy $packDistExeLogsStashDir $restoredExeLogsDir
+            Remove-DirectoryWithRetry $packDistExeLogsStashDir
+            Write-Host "build: restored stashed exe logs -> dist\AI Whisper\logs"
+        }
         if (Test-Path $configBak) {
             Copy-Item $configBak "$distDir\config.json" -Force
             Remove-Item $configBak -Force
@@ -233,16 +256,22 @@ switch ($Role) {
             $zipName = "AI Whisper_$timestamp.zip"
             $zipPath = "$workspace\dist\$zipName"
             $tar = Get-Command tar.exe -ErrorAction SilentlyContinue
+            # exe logs 是本機診斷資料，只保留在 dist 執行目錄，不放進分享用 zip。
             if ($tar) {
                 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
-                & $tar.Source -a -c -f $zipPath -C "$workspace\dist" "AI Whisper"
+                & $tar.Source -a -c -f $zipPath `
+                    --exclude="AI Whisper/logs" `
+                    --exclude="AI Whisper/logs/*" `
+                    -C "$workspace\dist" "AI Whisper"
                 if ($LASTEXITCODE -ne 0 -or -not (Test-Path $zipPath)) {
                     Write-Host "tar zip failed; falling back to Compress-Archive"
                     $stagingParent = Join-Path $env:TEMP "AI_Whisper_Next_zipstaging"
                     $stagingDir = Join-Path $stagingParent "AI Whisper"
                     if (Test-Path $stagingParent) { Remove-Item $stagingParent -Recurse -Force }
                     New-Item -ItemType Directory -Path $stagingDir -Force | Out-Null
-                    Copy-Item "$distDir\*" $stagingDir -Recurse -Force
+                    Get-ChildItem -LiteralPath $distDir -ErrorAction Stop |
+                        Where-Object { $_.Name -ne "logs" } |
+                        Copy-Item -Destination $stagingDir -Recurse -Force
                     Compress-Archive -Path $stagingDir -DestinationPath $zipPath -Force
                     Remove-Item $stagingParent -Recurse -Force -ErrorAction SilentlyContinue
                 }
@@ -251,7 +280,9 @@ switch ($Role) {
                 $stagingDir = Join-Path $stagingParent "AI Whisper"
                 if (Test-Path $stagingParent) { Remove-Item $stagingParent -Recurse -Force }
                 New-Item -ItemType Directory -Path $stagingDir -Force | Out-Null
-                Copy-Item "$distDir\*" $stagingDir -Recurse -Force
+                Get-ChildItem -LiteralPath $distDir -ErrorAction Stop |
+                    Where-Object { $_.Name -ne "logs" } |
+                    Copy-Item -Destination $stagingDir -Recurse -Force
                 Compress-Archive -Path $stagingDir -DestinationPath $zipPath -Force
                 Remove-Item $stagingParent -Recurse -Force -ErrorAction SilentlyContinue
             }

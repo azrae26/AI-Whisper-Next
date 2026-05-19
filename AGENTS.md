@@ -68,6 +68,8 @@ idle → recording → processing → idle
 
 - 一般從原始碼執行 / `restart` Skill 重啟：主程式 log **目錄**為 `paths.log_dir()`（專案根目錄下的 `logs/`）。**執行中**檔名為 `logs/ai_whisper_yyyyMMdd_HHmmss_{hostname}.current.log`，`{hostname}` 為本機電腦名經過 `logging_setup._sanitize_hostname()`（非英數改 `_`）；下次 `install_log_tee` **只會**將與本機相符的 `*_{hostname}.current.log` 改名為去掉 `.current` 的 `*_{hostname}.log`（細節以程式 `glob("*_{hostname}.current.log")` 為準），再開新一輪。**定稿後**即 `logs/ai_whisper_yyyyMMdd_HHmmss_{hostname}.log`。多機共用同步目錄時不會把另一台仍在寫的 `.current` 誤更名。`.gitignore` 忽略 `logs/*.current.log`。
 - 打包後 exe 執行：同上規則，路徑在 exe 同層底下的 `logs/`（例如 `dist/AI Whisper/logs/`）。
+- **`scripts/deploy.ps1`（PyInstaller Role build）** 會在刪除並替換整個 `dist/AI Whisper/` 前，將該目錄內 exe 既有的 `logs/` 複製到專案根的 `.pack_dist_exe_logs_stash/`（刻意不混入專案原始碼用的 `logs/`），新路徑就位後鏡射回 `dist/AI Whisper/logs/`；成功後暫存目錄清空，避免換 dist 洗掉舊紀錄。
+- 分享用 zip 會排除 `dist/AI Whisper/logs/`，不包含任何本機執行 log；log 只保留在本機 dist 執行目錄。
 - 敲麥 / tap 診斷分流：執行中為 `tap_test_logs/yyyyMMdd_HHmmss_{hostname}.current.log`，歸檔後為 `tap_test_logs/yyyyMMdd_HHmmss_{hostname}.log`；退役規則同主程式（僅 `*_{hostname}.current.log`）。`.gitignore` 忽略 `tap_test_logs/*.current.log`。只收主 log 裡含 `[tap]` 的行；打包後 exe 也會寫回專案根目錄的 `tap_test_logs/`。
 - 打包流程 stdout/stderr：`dist/pack_yyyyMMdd_HHmmss.out.log` 與 `dist/pack_yyyyMMdd_HHmmss.err.log`。
 

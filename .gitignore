@@ -23,3 +23,5 @@ tap_test_logs/*.current.log
 config.json
 config.json.*
 *.pack.bak
+# 打包腳本暫存 dist exe 底下 logs（建置過程殘檔）；正常會在結尾清除
+.pack_dist_exe_logs_stash/

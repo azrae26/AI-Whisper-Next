@@ -41,6 +41,8 @@ python -m ai_whisper
 
 產生的打包檔案會被 Git 忽略，不會一起提交。
 
+建置過程會以專案根目錄的 `.pack_dist_exe_logs_stash/` 暫存 **dist exe 底下的** `logs\`（刻意不混入專案根的 `logs/`，見 `scripts/deploy.ps1`），建好後再鏡射回 `dist\AI Whisper\logs\`，避免替換 dist 目錄時洗掉舊紀錄；成功結束後暫存目錄通常會清空。分享用 zip 會排除 `dist\AI Whisper\logs\`，不包含任何本機執行 log。
+
 ## 設定
 
 程式會把本機設定存在 `config.json`（含選用的 `overlay_positions`：以**本機 Windows 電腦名稱**＋**螢幕名稱**為鍵，不同電腦互不覆蓋，同一份設定檔可並存多機的座標）。這個檔案可能包含 OpenAI API Key，所以已經刻意加入 `.gitignore`，不會提交到 GitHub。
@@ -53,4 +55,4 @@ python -m ai_whisper
 
 - 不要提交真實 API Key。
 - 不要提交打包輸出、虛擬環境或產生的 metadata。主程式 **`logs/`** 與敲麥 **`tap_test_logs/`** 可依需求納版本庫，若曾含機密或完整對話請先清理。
-- 目前 `.gitignore` 已排除 `config.json`、多數 `*.log`（**`logs/`、`tap_test_logs/` 例外**）、執行中的 `logs/*.current.log` 與 `tap_test_logs/*.current.log`、`build/`、`dist/`、虛擬環境和 package metadata。
+- 目前 `.gitignore` 已排除 `config.json`、多數 `*.log`（**`logs/`、`tap_test_logs/` 例外**）、執行中的 `logs/*.current.log` 與 `tap_test_logs/*.current.log`、`build/`、`dist/`、`.pack_dist_exe_logs_stash/`、虛擬環境和 package metadata。
