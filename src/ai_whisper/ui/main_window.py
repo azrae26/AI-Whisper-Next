@@ -669,7 +669,7 @@ class MainWindow(QMainWindow):
     def _apply_window_icon(self, icon: QIcon) -> None:
         self.setWindowIcon(icon)
         app = QApplication.instance()
-        if app is not None:
+        if isinstance(app, QApplication):
             app.setWindowIcon(icon)
 
     def set_hotkey_display(self, hotkey: str, hotkey_comma: str) -> None:
@@ -772,6 +772,8 @@ class MainWindow(QMainWindow):
     def _render_history(self) -> None:
         while self.history_layout.count():
             item = self.history_layout.takeAt(0)
+            if item is None:
+                continue
             widget = item.widget()
             if widget:
                 widget.deleteLater()
