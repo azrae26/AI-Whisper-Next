@@ -26,7 +26,10 @@ CLIPBOARD_RESTORE_VERIFY_DELAY_SEC = 0.12
 CLIPBOARD_WATCHDOG_DURATION_SEC = 2.20
 CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
 UNICODE_INPUT_VERIFY_DELAY_SEC = 0.08
+UNICODE_INPUT_VERIFY_MAX_WAIT_SEC = 0.60
+UNICODE_INPUT_VERIFY_POLL_SEC = 0.06
 UNICODE_INPUT_VERIFY_SUFFIX_CHARS = 2
+DIRECT_TEXT_READABLE_MAX_CHARS = 40
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
     "．，；：？！"
@@ -273,16 +276,26 @@ class PasteService:
         final_text: str,
         at_end: bool,
     ) -> tuple[bool, str]:
-        after_readable, after_text = PasteService._focused_text_snapshot()
-        if not before_readable or not after_readable:
-            return (True, "unreadable")
-        if after_text == before_text:
-            return (False, "unchanged")
         suffix_len = min(UNICODE_INPUT_VERIFY_SUFFIX_CHARS, len(final_text))
         suffix = final_text[-suffix_len:] if suffix_len > 0 else ""
-        if at_end and suffix and not after_text.endswith(suffix):
-            return (False, f"changed_suffix_mismatch:{repr(after_text[-suffix_len:])}!={repr(suffix)}")
-        return (True, "changed")
+        deadline = time.perf_counter() + UNICODE_INPUT_VERIFY_MAX_WAIT_SEC
+        while True:
+            after_readable, after_text = PasteService._focused_text_snapshot()
+            if not before_readable or not after_readable:
+                return (True, "unreadable")
+            if after_text != before_text:
+                if not at_end or not suffix or after_text.endswith(suffix):
+                    return (True, "changed")
+                if final_text in after_text:
+                    return (True, "changed_contains")
+                if time.perf_counter() >= deadline:
+                    return (
+                        True,
+                        f"changed_suffix_unverified:{repr(after_text[-suffix_len:])}!={repr(suffix)}",
+                    )
+            elif time.perf_counter() >= deadline:
+                return (False, "unchanged")
+            time.sleep(UNICODE_INPUT_VERIFY_POLL_SEC)
 
     @staticmethod
     def _is_hglobal_format(fmt: int) -> bool:
@@ -670,6 +683,14 @@ class PasteService:
         before_text: str = ""
         if use_direct_text:
             before_readable, before_text = self._focused_text_snapshot()
+            if before_readable and len(final_text) > DIRECT_TEXT_READABLE_MAX_CHARS:
+                _safe_print(
+                    f"[paster][{_now()}] ⌨️ TEXT input skipped: "
+                    f"readable target long text ({len(final_text)}>{DIRECT_TEXT_READABLE_MAX_CHARS})，"
+                    f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}"
+                )
+                use_direct_text = False
+        if use_direct_text:
             _safe_print(
                 f"[paster][{_now()}] ⌨️ TEXT input flow start: "
                 f"target_chars={len(final_text)}，視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
