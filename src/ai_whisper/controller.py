@@ -7,6 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from PySide6.QtCore import QObject, QTimer, Signal
 
+from .diag import active_summary, is_disabled
 from .logging_setup import now_str, safe_print
 from .models import AppConfig
 from .services.audio_service import AudioService
@@ -78,14 +79,20 @@ class AppController(QObject):
 
         self._connect()
         self._apply_initial_state()
-        preload_silero_vad()
-        if self.cfg.apiKey:
+        safe_print(f"[main][{now_str()}] 🔧 DIAG 關閉元件: {active_summary()}")
+        if is_disabled("vad"):
+            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 VAD/torch 預載")
+        else:
+            preload_silero_vad()
+        if self.cfg.apiKey and not is_disabled("netwarm"):
             threading.Thread(
                 target=TranscriptionService.warmup_connection,
                 args=(self.cfg.apiKey,),
                 daemon=True,
                 name="APIWarmup",
             ).start()
+        elif is_disabled("netwarm"):
+            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 OpenAI 連線預熱")
 
     def _connect(self) -> None:
         self.window.toggle_clicked.connect(self.toggle_recording)
@@ -114,10 +121,15 @@ class AppController(QObject):
         self.window.settings_page.set_config(self.cfg)
         self.window.set_hotkey_display(self.cfg.hotkey, self.cfg.hotkey_comma)
         self.window.set_idle_state()
-        self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
+        if is_disabled("hotkey"):
+            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過全域熱鍵註冊")
+        else:
+            self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
         self.tap.set_threshold(self.cfg.tap_sensitivity)
-        if self.cfg.tap_trigger_enabled:
+        if self.cfg.tap_trigger_enabled and not is_disabled("tap"):
             self.tap.set_enabled(True)
+        elif is_disabled("tap"):
+            safe_print(f"[main][{now_str()}] 🔧 DIAG: 強制關閉敲麥偵測")
         if not self.cfg.apiKey:
             QTimer.singleShot(300, self.window.show_settings)
 
