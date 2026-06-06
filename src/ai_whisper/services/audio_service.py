@@ -93,6 +93,7 @@ class AudioService:
                 samplerate=SAMPLE_RATE,
                 channels=CHANNELS,
                 dtype="int16",
+                blocksize=1024,  # ~64ms；不指定時由驅動決定，可能低至 64 samples（250Hz callback）
                 callback=_callback,
             )
             t1 = time.perf_counter()

@@ -16,7 +16,7 @@ def _screen_key(screen_name: str) -> str:
     """Unique key per computer+screen, used for position persistence."""
     return f"{_HOSTNAME}/{screen_name}"
 from PySide6.QtGui import QColor, QCursor, QFont, QFontMetrics, QGuiApplication, QLinearGradient, QPainter, QPainterPath, QPixmap, QPen
-from PySide6.QtWidgets import QApplication, QGraphicsDropShadowEffect, QLabel, QWidget
+from PySide6.QtWidgets import QApplication, QWidget
 
 def _fix_win11_frame(widget) -> None:
     """Remove gray DWM border on Windows 11 for frameless transparent windows."""
@@ -238,18 +238,12 @@ class WaveformOverlay(QWidget):
         self._text_dim_right = -1.0
         self._dim_font = QFont("Microsoft JhengHei UI", STATUS_FONT_SIZE)  # used for QFontMetrics; kept separate from _paint_font
         self._dim_font.setBold(True)
-        self._status_shadow_labels: list[QLabel] = []
-        for blur, alpha in ((20, 204), (12, 153), (6, 128)):
-            label = self._make_status_label(f"rgba(0, 0, 0, {alpha})")
-            shadow = QGraphicsDropShadowEffect(label)
-            shadow.setBlurRadius(blur)
-            shadow.setOffset(0, 0)
-            shadow.setColor(QColor(0, 0, 0, alpha))
-            label.setGraphicsEffect(shadow)
-            label.hide()
-            self._status_shadow_labels.append(label)
-        self._status_label = self._make_status_label(STATUS_PURPLE_MID)
-        self._status_label.hide()
+        # Status text state — rendered directly in paintEvent (no child QLabel/shadow)
+        self._status_label_text = ""
+        self._status_label_color = QColor(STATUS_PURPLE_MID)
+        self._status_label_on_waveform = False
+        self._shadow_cache_key = ""   # text that the cached shadow was built for
+        self._shadow_cache_px: QPixmap | None = None  # blurred shadow pixmap
         self._timer = QTimer(self)
         self._timer.timeout.connect(self._tick_processing)
 
@@ -264,11 +258,9 @@ class WaveformOverlay(QWidget):
         # Pre-allocated QRect list for batched drawRects — avoids per-frame allocation
         self._bar_rects: list[QRect] = [QRect() for _ in range(BAR_COUNT)]
 
-        # Prime window surface, font, and shadow effect before the first real overlay show.
+        # Prime window surface before the first real overlay show.
         self.show()
-        self._set_status_label("預熱", QColor(STATUS_PURPLE_MID), on_waveform=True)
-        self.repaint()  # synchronous paint -> caches font glyphs
-        self._set_status_label("")
+        self.repaint()  # synchronous paint -> caches font glyphs & bg pixmap
         self.hide()
 
         # Hover polling – shows/hides the button panel when cursor enters right-edge zone.
@@ -601,6 +593,46 @@ class WaveformOverlay(QWidget):
                 painter.setBrush(color)
                 painter.drawRect(bar_rect)
 
+        # Layer 3: status text with painted shadow (no QLabel/QGraphicsDropShadowEffect).
+        status_text = self._status_label_text
+        if status_text:
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+            painter.setFont(self._paint_font)
+            text_rect = QRectF(0, 0, WIN_W, WIN_H)
+            align = Qt.AlignmentFlag.AlignCenter
+            if self._status_label_on_waveform:
+                # Soft glow shadow: render text black → downscale/upscale blur → cache.
+                # Regenerate only when text changes (color doesn't affect shadow).
+                if status_text != self._shadow_cache_key:
+                    self._shadow_cache_key = status_text
+                    spx = QPixmap(WIN_W, WIN_H)
+                    spx.fill(Qt.GlobalColor.transparent)
+                    sp = QPainter(spx)
+                    sp.setFont(self._paint_font)
+                    sp.setPen(QColor(0, 0, 0, 210))
+                    sp.drawText(text_rect, align, status_text)
+                    sp.end()
+                    # Two-pass downscale → upscale = Gaussian-like blur (~8px radius)
+                    s1 = spx.scaled(
+                        max(1, WIN_W // 2), max(1, WIN_H // 2),
+                        Qt.AspectRatioMode.IgnoreAspectRatio,
+                        Qt.TransformationMode.SmoothTransformation,
+                    )
+                    s2 = s1.scaled(
+                        max(1, WIN_W // 4), max(1, WIN_H // 4),
+                        Qt.AspectRatioMode.IgnoreAspectRatio,
+                        Qt.TransformationMode.SmoothTransformation,
+                    )
+                    self._shadow_cache_px = s2.scaled(
+                        WIN_W, WIN_H,
+                        Qt.AspectRatioMode.IgnoreAspectRatio,
+                        Qt.TransformationMode.SmoothTransformation,
+                    )
+                painter.drawPixmap(0, 0, self._shadow_cache_px)
+            # Foreground text
+            painter.setPen(self._status_label_color)
+            painter.drawText(text_rect, align, status_text)
+
     def _update_recording_status_metrics(self, text: str, color: str = STATUS_PURPLE_MID) -> None:
         if text:
             text_w = QFontMetrics(self._dim_font).horizontalAdvance(text)
@@ -624,36 +656,11 @@ class WaveformOverlay(QWidget):
         return QColor(r, g, b)
 
     def _set_status_label(self, text: str = "", color: QColor | None = None, *, on_waveform: bool = False) -> None:
-        if not text:
-            for label in self._status_shadow_labels:
-                label.hide()
-                label.setText("")
-            self._status_label.hide()
-            self._status_label.setText("")
-            return
-
-        text_color = (color or QColor(STATUS_PURPLE_MID)).name()
-        for label in self._status_shadow_labels:
-            label.setText(text)
-            if on_waveform:
-                label.raise_()
-                label.show()
-            else:
-                label.hide()
-        self._status_label.setText(text)
-        self._status_label.setStyleSheet(
-            f"background:transparent;color:{text_color};font-size:{STATUS_FONT_SIZE}pt;font-weight:700;"
-        )
-        self._status_label.raise_()
-        self._status_label.show()
-
-    def _make_status_label(self, color: str) -> QLabel:
-        label = QLabel(self)
-        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
-        label.setStyleSheet(f"background:transparent;color:{color};font-size:{STATUS_FONT_SIZE}pt;font-weight:700;")
-        label.setGeometry(0, 0, WIN_W, WIN_H)
-        return label
+        """Store status text state and schedule repaint. Rendered in paintEvent."""
+        self._status_label_text = text
+        self._status_label_color = color or QColor(STATUS_PURPLE_MID)
+        self._status_label_on_waveform = on_waveform
+        self.update()
 
     def _rebuild_bar_dim(self) -> None:
         """Recompute per-bar dim factors; called only when text_dim_left/right changes."""
