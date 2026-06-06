@@ -147,6 +147,7 @@ class AudioService:
             return AudioSegment(None, reason="no_speech", duration=duration)
         if source == "flush":
             safe_print(f"[recorder][flush] ✅ 取出 {duration:.1f}s 音訊段落")
+        audio_data = self._normalize_peak(audio_data)
         return AudioSegment(self._to_wav_bytes(audio_data), reason="ok", duration=duration)
 
     def flush_capture(self) -> list[np.ndarray] | None:
@@ -196,6 +197,29 @@ class AudioService:
     def is_recording(self) -> bool:
         with self._lock:
             return self._recording
+
+    @staticmethod
+    def _normalize_peak(
+        audio_data: np.ndarray,
+        target_peak: int = 16000,
+        max_gain: float = 3.0,
+    ) -> np.ndarray:
+        """溫和的 peak 正規化：將音訊峰值拉到 target_peak，增益上限 max_gain 倍。
+
+        - target_peak=16000 約 -6dB（int16 最大 32767 的一半），不會太大聲
+        - max_gain=3.0 限制放大倍率，避免把純噪音炸到滿音量
+        - 音量已夠大時（gain < 1.1）不做處理，避免無意義的浮點運算
+        """
+        peak = int(np.max(np.abs(audio_data)))
+        if peak == 0:
+            return audio_data
+        gain = target_peak / peak
+        if gain < 1.1:
+            # 音量已經夠大，不需要放大
+            return audio_data
+        gain = min(gain, max_gain)
+        safe_print(f"[recorder] 🔊 正規化：peak={peak} → gain={gain:.2f}x")
+        return np.clip(audio_data * gain, -32768, 32767).astype(np.int16)
 
     @staticmethod
     def _to_wav_bytes(audio_data: np.ndarray) -> bytes:

@@ -40,3 +40,11 @@ py scripts/debug_query.py ping
   此腳本自動驗證：剪貼簿備份還原迴路、修飾鍵狀態、前景視窗偵測、完整貼上端到端流程（含 log 確認）。
   確保 10/10 全部通過。
 
+* **修改了音訊處理管線 (audio_service.py) 或正規化邏輯**：
+  執行完整管線測試，涵蓋 raw frames → process_frames（VAD + 正規化）→ API 辨識：
+  ```powershell
+  py -3.12 .agents/skills/verify/test_audio_pipeline.py
+  ```
+  此腳本驗證：process_frames 完整管線產出 WAV、正規化對小聲音訊有放大效果、正規化後音訊送 API 仍可正確辨識。
+  確保 3/3 全部通過。
+
