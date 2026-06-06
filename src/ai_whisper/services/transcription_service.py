@@ -71,7 +71,7 @@ class TranscriptionService:
         except queue.Empty:
             safe_print(f"[main][{now_str()}] ⚠️ API 超過 {timeout}s 未回應，重試中…")
             threading.Thread(target=_call, args=(2,), daemon=True, name="TranscribeAttempt2").start()
-            status, payload, attempt = result_q.get()
+            status, payload, attempt = result_q.get(timeout=30)
 
         if attempt == 2:
             safe_print(f"[main][{now_str()}] 🔄 使用重試結果")

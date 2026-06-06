@@ -111,7 +111,13 @@ class InputService:
     def __init__(self) -> None:
         self._ctrl_guard_hook_remove = None
         self._ctrl_guard_lock = threading.Lock()
+        self._mod_summary_cache: tuple[str, float] = ("", 0.0)
         self._ctrl_guard_down: set[str] = set()
+        # ⚠️ Timer debounce 引用（H9/H12）：cancel 舊的再建新的，永遠只有一個 Timer 存活
+        self._ctrl_guard_timer: threading.Timer | None = None
+        self._hotkey_cleanup_timer: threading.Timer | None = None
+        self._ctrl_cleanup_timer_1: threading.Timer | None = None
+        self._ctrl_cleanup_timer_2: threading.Timer | None = None
 
     @staticmethod
     def vk_list(vks: list[int]) -> str:
@@ -119,8 +125,11 @@ class InputService:
             return "none"
         return ",".join(VK_NAMES.get(vk, f"0x{vk:02X}") for vk in vks)
 
-    @classmethod
-    def modifier_state_summary(cls) -> str:
+    def modifier_state_summary(self) -> str:
+        now = time.perf_counter()
+        cached_result, cached_time = self._mod_summary_cache
+        if now - cached_time < 0.015:
+            return cached_result
         user32 = ctypes.windll.user32
         async_down: list[int] = []
         logical_down: list[int] = []
@@ -132,7 +141,9 @@ class InputService:
                     logical_down.append(vk)
             except Exception:
                 continue
-        return f"async_down={cls.vk_list(async_down)}; logical_down={cls.vk_list(logical_down)}"
+        result = f"async_down={self.vk_list(async_down)}; logical_down={self.vk_list(logical_down)}"
+        self._mod_summary_cache = (result, now)
+        return result
 
     @staticmethod
     def is_ctrl_vk(vk: int) -> bool:
@@ -244,15 +255,26 @@ class InputService:
                 f"released={self.vk_list(down)}，before={before}，after={self.modifier_state_summary()}"
             )
 
+        if self._hotkey_cleanup_timer is not None:
+            self._hotkey_cleanup_timer.cancel()
         timer = threading.Timer(0.12, _cleanup)
         timer.daemon = True
         timer.start()
+        self._hotkey_cleanup_timer = timer
 
     def schedule_ctrl_cleanup(self, source: str) -> None:
-        for delay in (0.08, 0.35):
-            timer = threading.Timer(delay, self._release_stuck_ctrl_if_needed, args=(source,))
-            timer.daemon = True
-            timer.start()
+        if self._ctrl_cleanup_timer_1 is not None:
+            self._ctrl_cleanup_timer_1.cancel()
+        if self._ctrl_cleanup_timer_2 is not None:
+            self._ctrl_cleanup_timer_2.cancel()
+        t1 = threading.Timer(0.08, self._release_stuck_ctrl_if_needed, args=(source,))
+        t1.daemon = True
+        t1.start()
+        self._ctrl_cleanup_timer_1 = t1
+        t2 = threading.Timer(0.35, self._release_stuck_ctrl_if_needed, args=(source,))
+        t2.daemon = True
+        t2.start()
+        self._ctrl_cleanup_timer_2 = t2
 
     def cleanup_ctrl_now(self, source: str) -> None:
         self._release_stuck_ctrl_if_needed(source)
@@ -316,6 +338,8 @@ class InputService:
             down_snapshot = sorted(self._ctrl_guard_down)
         if event_type != keyboard.KEY_UP:
             return
+        if self._ctrl_guard_timer is not None:
+            self._ctrl_guard_timer.cancel()
         timer = threading.Timer(
             CTRL_STUCK_CHECK_DELAY_SEC,
             self._cleanup_stuck_ctrl_after_user_up,
@@ -323,6 +347,7 @@ class InputService:
         )
         timer.daemon = True
         timer.start()
+        self._ctrl_guard_timer = timer
 
     @staticmethod
     def _is_ctrl_event(name: str, scan_code) -> bool:

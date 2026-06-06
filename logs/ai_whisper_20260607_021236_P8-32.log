@@ -1,0 +1,56 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_021236_P8-32.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][02:12:36.501] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][02:12:36.503] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][02:12:36.503] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [02:12:36.520] 🎙️ 敲麥監聽已啟動
+[main][02:12:36.521] 🔧 DIAG 關閉元件: (none)
+[debug][02:12:36.531] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] Silero VAD 模型載入完成 (ONNX)
+[transcriber][02:12:37.922] 🔌 HTTP 連線預熱完成 (1.40s)
+[transcriber][02:13:36.101] ⏱️ API 耗時: 0.76s
+[tap][dim]   [02:20:41.924] 持續=99ms 峰值=516 ✗弱
+[tap][sample][02:20:42.338] 持續=63ms 峰值=751 ✓ K=0.1 CF=2.8 SC=651Hz Att=6.2ms | fK=0.6 fCF=3.2 fSC=779Hz fFlat=0.185 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [02:20:42.374] 持續=36ms 峰值=404 ✗弱
+[main][02:21:50.730] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:21:50.736] ⌨️ after(0) 執行延遲 5.7ms
+[tap]        [02:21:50.794] 💤 敲麥監聽已停止
+[recorder][02:21:50] ⏱️ InputStream() 13.4ms
+[recorder][02:21:50] ⏱️ stream.start() 0.6ms
+[recorder][02:21:50] 🎙️ 錄音就緒，總初始化 14.0ms
+[main][02:21:50.808] ⏱️ recorder.start() 耗時 14.2ms，ok=True
+[tap]        [02:21:51.340] 🎙️ 敲麥監聽已啟動
+[main][02:21:51.347] 🎙️ 開始錄音
+[recorder][02:21:51] 🎤 第一包音訊到達，麥克風實際開啟延遲 758.3ms
+[tap][sample][02:21:52.106] 持續=27ms 峰值=649 ✓ K=10.7 CF=5.1 SC=5349Hz Att=2.0ms | fK=21.6 fCF=7.0 fSC=5211Hz fFlat=0.497 fHF=0.922 🎯 敲擊 #1
+[tap][dim]   [02:21:52.268] 持續=36ms 峰值=389 ✗弱
+[tap][sample][02:21:52.295] 持續=27ms 峰值=1247 ✓ K=1.5 CF=2.8 SC=1157Hz Att=3.6ms | fK=4.9 fCF=3.7 fSC=830Hz fFlat=0.190 fHF=0.000 🎯 敲擊 #2
+[tap][dim]   [02:21:52.322] 持續=27ms 峰值=390 ✗弱
+[tap][sample][02:21:52.907] 持續=585ms 峰值=12559 ✗長 K=1.4 CF=3.8 SC=2337Hz Att=46.1ms | fK=1.7 fCF=3.9 fSC=2338Hz fFlat=0.514 fHF=0.033
+[tap][sample][02:21:53.222] 持續=261ms 峰值=10083 ✗長 K=3.0 CF=5.3 SC=1616Hz Att=7.8ms | fK=3.7 fCF=5.6 fSC=1617Hz fFlat=0.397 fHF=0.009
+[tap][dim]   [02:21:53.258] 持續=36ms 峰值=537 ✗弱
+[tap][sample][02:21:54.032] 持續=774ms 峰值=11919 ✗長 K=0.8 CF=3.6 SC=1245Hz Att=47.4ms | fK=0.9 fCF=3.6 fSC=1245Hz fFlat=0.258 fHF=0.003
+[tap][dim]   [02:21:54.059] 持續=27ms 峰值=389 ✗弱
+[main][02:21:54.082] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:21:54.083] ⌨️ after(0) 執行延遲 1.0ms[main][02:21:54.083] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 10/79 (29.4%)，有效語音 0.32s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（有效語音太短 0.32s < 0.35s）
+[tap][dim]   [02:21:54.185] 持續=27ms 峰值=459 ✗弱
+[main][02:21:57.436] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:21:57.438] ⌨️ after(0) 執行延遲 2.4ms
+[tap]        [02:21:57.463] 💤 敲麥監聽已停止
+[recorder][02:21:57] 🚀 預熱命中，直接開始錄音
+[main][02:21:57.464] ⏱️ recorder.start() 耗時 0.8ms，ok=True
+[tap]        [02:21:57.469] 🎙️ 敲麥監聽已啟動
+[main][02:21:57.475] 🎙️ 開始錄音
+[tap][sample][02:22:00.062] 持續=1530ms 峰值=13624 ✗長 K=2.0 CF=4.1 SC=2126Hz Att=36.7ms | fK=2.1 fCF=4.1 fSC=2143Hz fFlat=0.525 fHF=0.030
+[tap][dim]   [02:22:00.125] 持續=27ms 峰值=312 ✗弱
+[main][02:22:00.312] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:22:00.313] ⌨️ after(0) 執行延遲 1.7ms[main][02:22:00.314] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 10/89 (22.7%)，有效語音 0.32s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（有效語音太短 0.32s < 0.35s）
+[tap]        [02:23:04.341] 💤 敲麥監聽已停止
+[recorder][02:23:04] 💤 預熱 stream 已關閉

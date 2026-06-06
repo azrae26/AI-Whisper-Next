@@ -18,6 +18,31 @@ GMEM_MOVEABLE = 0x0002
 CLIPBOARD_GDI_FORMATS = {2, 3, 9, 14}
 CLIPBOARD_SET_RETRIES = 4
 CLIPBOARD_BACKUP_RETRIES = 8
+
+# M7: Win32 ctypes argtypes/restype — 只設一次（模組載入時）
+_kernel32 = ctypes.windll.kernel32
+_user32 = ctypes.windll.user32
+_kernel32.GlobalAlloc.argtypes = [ctypes.c_uint, ctypes.c_size_t]
+_kernel32.GlobalAlloc.restype = ctypes.c_void_p
+_kernel32.GlobalLock.argtypes = [ctypes.c_void_p]
+_kernel32.GlobalLock.restype = ctypes.c_void_p
+_kernel32.GlobalUnlock.argtypes = [ctypes.c_void_p]
+_kernel32.GlobalFree.argtypes = [ctypes.c_void_p]
+_kernel32.GlobalSize.argtypes = [ctypes.c_void_p]
+_kernel32.GlobalSize.restype = ctypes.c_size_t
+_kernel32.OpenProcess.argtypes = [ctypes.c_uint, ctypes.c_bool, ctypes.c_uint]
+_kernel32.OpenProcess.restype = ctypes.c_void_p
+_kernel32.QueryFullProcessImageNameW.argtypes = [
+    ctypes.c_void_p, ctypes.c_uint, ctypes.c_wchar_p, ctypes.POINTER(ctypes.c_uint),
+]
+_kernel32.QueryFullProcessImageNameW.restype = ctypes.c_bool
+_kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+_user32.SetClipboardData.argtypes = [ctypes.c_uint, ctypes.c_void_p]
+_user32.SetClipboardData.restype = ctypes.c_void_p
+_user32.GetClipboardData.argtypes = [ctypes.c_uint]
+_user32.GetClipboardData.restype = ctypes.c_void_p
+_user32.EnumClipboardFormats.argtypes = [ctypes.c_uint]
+_user32.EnumClipboardFormats.restype = ctypes.c_uint
 CLIPBOARD_RETRY_DELAY_SEC = 0.06
 CLIPBOARD_SETTLE_DELAY_SEC = 0.08
 CLIPBOARD_RESTORE_DELAY_SEC = 0.30
@@ -26,10 +51,10 @@ CLIPBOARD_RESTORE_VERIFY_DELAY_SEC = 0.12
 CLIPBOARD_WATCHDOG_DURATION_SEC = 2.20
 CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
 UNICODE_INPUT_VERIFY_DELAY_SEC = 0.08
-UNICODE_INPUT_VERIFY_MAX_WAIT_SEC = 0.60
-UNICODE_INPUT_VERIFY_POLL_SEC = 0.06
+UNICODE_INPUT_VERIFY_BACKOFF_SEC = (0.06, 0.12, 0.24)  # H11: exponential backoff, max 3 attempts
 UNICODE_INPUT_VERIFY_SUFFIX_CHARS = 2
 DIRECT_TEXT_READABLE_MAX_CHARS = 40
+UIA_TIMEOUT_SEC = 2.0
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
     "．，；：？！"
@@ -50,6 +75,31 @@ def _safe_print(msg: str) -> None:
             print(msg.encode("utf-8", "replace").decode("utf-8", "replace"), flush=True)
         except Exception:
             pass
+
+
+def _uia_with_timeout(fn, default, timeout=UIA_TIMEOUT_SEC):
+    """Execute a UIA call with timeout. Returns *default* if UIA hangs.
+
+    ⚠️ 避免前景視窗掛起時 UIA COM 呼叫永久阻塞 PasteWorker。
+    超時後被放棄的 daemon thread 不會阻止程式退出。
+    """
+    result_box = [default]
+    def worker():
+        import comtypes
+        comtypes.CoInitialize()
+        try:
+            result_box[0] = fn()
+        finally:
+            comtypes.CoUninitialize()
+    t = threading.Thread(target=worker, daemon=True, name="UIA-timeout")
+    t.start()
+    t.join(timeout=timeout)
+    if t.is_alive():
+        _safe_print(
+            f"[paster][{_now()}] ⚠️ UIA 查詢超時 ({timeout}s)，使用備援值"
+        )
+        return default
+    return result_box[0]
 
 
 def _uia_read_focused_plain_text(control: object) -> tuple[bool, str]:
@@ -78,13 +128,15 @@ class PasteService:
         self._paste_queue: queue.SimpleQueue = queue.SimpleQueue()
         self._prefetch_lock = threading.Lock()
         self._prefetch_result: tuple | None = None
+        self._prefetch_queue: queue.Queue = queue.Queue()
         self._manual_paste_guard_lock = threading.Lock()
         self._manual_paste_guard_handler = None
         self._manual_paste_guard_blocks = 0
         self._manual_paste_guard_pending = False
-        self._init_clipboard_api()
         self._worker = threading.Thread(target=self._paste_worker, daemon=True, name="PasteWorker")
         self._worker.start()
+        self._prefetch_thread = threading.Thread(target=self._prefetch_worker, daemon=True, name="UIA-Prefetch")
+        self._prefetch_thread.start()
 
     def _arm_manual_paste_guard(self, pasted_text: str) -> bool:
         def _blocked_paste() -> None:
@@ -142,22 +194,7 @@ class PasteService:
 
     @staticmethod
     def _init_clipboard_api() -> None:
-        kernel32 = ctypes.windll.kernel32
-        user32 = ctypes.windll.user32
-        kernel32.GlobalAlloc.argtypes = [ctypes.c_uint, ctypes.c_size_t]
-        kernel32.GlobalAlloc.restype = ctypes.c_void_p
-        kernel32.GlobalLock.argtypes = [ctypes.c_void_p]
-        kernel32.GlobalLock.restype = ctypes.c_void_p
-        kernel32.GlobalUnlock.argtypes = [ctypes.c_void_p]
-        kernel32.GlobalFree.argtypes = [ctypes.c_void_p]
-        kernel32.GlobalSize.argtypes = [ctypes.c_void_p]
-        kernel32.GlobalSize.restype = ctypes.c_size_t
-        user32.SetClipboardData.argtypes = [ctypes.c_uint, ctypes.c_void_p]
-        user32.SetClipboardData.restype = ctypes.c_void_p
-        user32.GetClipboardData.argtypes = [ctypes.c_uint]
-        user32.GetClipboardData.restype = ctypes.c_void_p
-        user32.EnumClipboardFormats.argtypes = [ctypes.c_uint]
-        user32.EnumClipboardFormats.restype = ctypes.c_uint
+        pass  # M7: moved to module-level declarations
 
     @staticmethod
     def _foreground_window() -> tuple[int, str, str, str]:
@@ -181,16 +218,7 @@ class PasteService:
     def _process_name_from_pid(pid: int) -> str:
         PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
         kernel32 = ctypes.windll.kernel32
-        kernel32.OpenProcess.argtypes = [ctypes.c_uint, ctypes.c_bool, ctypes.c_uint]
-        kernel32.OpenProcess.restype = ctypes.c_void_p
-        kernel32.QueryFullProcessImageNameW.argtypes = [
-            ctypes.c_void_p,
-            ctypes.c_uint,
-            ctypes.c_wchar_p,
-            ctypes.POINTER(ctypes.c_uint),
-        ]
-        kernel32.QueryFullProcessImageNameW.restype = ctypes.c_bool
-        kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+        # M7: argtypes/restype 已在模組頂層設定
         handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
         if not handle:
             return ""
@@ -205,18 +233,21 @@ class PasteService:
 
     @staticmethod
     def _focused_control_signature() -> tuple[str, str, str, str]:
-        try:
-            focused = auto.GetFocusedControl()
-            if not focused:
+        # ⚠️ UIA timeout 防護：避免前景視窗掛起時永久阻塞 PasteWorker（H6）
+        def _query():
+            try:
+                focused = auto.GetFocusedControl()
+                if not focused:
+                    return ("", "", "", "")
+                return (
+                    getattr(focused, "Name", "") or "",
+                    getattr(focused, "ClassName", "") or "",
+                    getattr(focused, "AutomationId", "") or "",
+                    getattr(focused, "ControlTypeName", "") or "",
+                )
+            except Exception:
                 return ("", "", "", "")
-            return (
-                getattr(focused, "Name", "") or "",
-                getattr(focused, "ClassName", "") or "",
-                getattr(focused, "AutomationId", "") or "",
-                getattr(focused, "ControlTypeName", "") or "",
-            )
-        except Exception:
-            return ("", "", "", "")
+        return _uia_with_timeout(_query, ("", "", "", ""))
 
     @staticmethod
     def _is_chrome_omnibox(process_name: str, focus_sig: tuple[str, str, str, str]) -> bool:
@@ -260,14 +291,17 @@ class PasteService:
 
     @staticmethod
     def _focused_text_snapshot() -> tuple[bool, str]:
-        try:
-            focused = auto.GetFocusedControl()
-            if not focused:
+        # ⚠️ UIA timeout 防護（H6）
+        def _query():
+            try:
+                focused = auto.GetFocusedControl()
+                if not focused:
+                    return (False, "")
+                ok, txt = _uia_read_focused_plain_text(focused)
+                return (True, txt) if ok else (False, "")
+            except Exception:
                 return (False, "")
-            ok, txt = _uia_read_focused_plain_text(focused)
-            return (True, txt) if ok else (False, "")
-        except Exception:
-            return (False, "")
+        return _uia_with_timeout(_query, (False, ""))
 
     @staticmethod
     def _verify_direct_text_input(
@@ -276,10 +310,10 @@ class PasteService:
         final_text: str,
         at_end: bool,
     ) -> tuple[bool, str]:
+        # H11: exponential backoff (60→120→240ms), max 3 attempts
         suffix_len = min(UNICODE_INPUT_VERIFY_SUFFIX_CHARS, len(final_text))
         suffix = final_text[-suffix_len:] if suffix_len > 0 else ""
-        deadline = time.perf_counter() + UNICODE_INPUT_VERIFY_MAX_WAIT_SEC
-        while True:
+        for attempt, delay in enumerate(UNICODE_INPUT_VERIFY_BACKOFF_SEC):
             after_readable, after_text = PasteService._focused_text_snapshot()
             if not before_readable or not after_readable:
                 return (True, "unreadable")
@@ -288,14 +322,19 @@ class PasteService:
                     return (True, "changed")
                 if final_text in after_text:
                     return (True, "changed_contains")
-                if time.perf_counter() >= deadline:
+                # Text changed but suffix doesn't match — last attempt gives up
+                if attempt == len(UNICODE_INPUT_VERIFY_BACKOFF_SEC) - 1:
                     return (
                         True,
                         f"changed_suffix_unverified:{repr(after_text[-suffix_len:])}!={repr(suffix)}",
                     )
-            elif time.perf_counter() >= deadline:
-                return (False, "unchanged")
-            time.sleep(UNICODE_INPUT_VERIFY_POLL_SEC)
+            else:
+                # Text unchanged — if this is already the 2nd+ attempt, give up early
+                if attempt >= 1:
+                    return (False, "unchanged")
+            time.sleep(delay)
+        # Exhausted all attempts with no change detected
+        return (False, "unchanged")
 
     @staticmethod
     def _is_hglobal_format(fmt: int) -> bool:
@@ -562,68 +601,81 @@ class PasteService:
 
     @staticmethod
     def _is_cursor_at_end() -> tuple[bool, bool]:
-        try:
-            focused = auto.GetFocusedControl()
-            if not focused:
-                _safe_print(f"[paster][{_now()}] ⚠️ 無焦點控件")
-                return (False, False)
-            text = ""
-            get_vp = getattr(focused, "GetValuePattern", None)
-            if callable(get_vp):
-                try:
-                    vp = get_vp()
-                    text = getattr(vp, "Value", None) or "" if vp is not None else ""
-                except Exception:
-                    text = ""
-            if not text:
-                _safe_print(f"[paster][{_now()}] 📏 [UIA] 文字為空 → 不加句號")
-                return (False, False)
-            get_tp = getattr(focused, "GetTextPattern", None)
-            if not callable(get_tp):
-                _safe_print(f"[paster][{_now()}] ⚠️ [UIA] 無 TextPattern")
-                return (False, False)
+        # ⚠️ UIA timeout 防護（H6）
+        def _query():
             try:
-                tp: Any = get_tp()
-                doc_range = tp.DocumentRange
-                sel = tp.GetSelection()
-                if not sel:
-                    _safe_print(f"[paster][{_now()}] ⚠️ [UIA] GetSelection 為空")
+                focused = auto.GetFocusedControl()
+                if not focused:
+                    _safe_print(f"[paster][{_now()}] ⚠️ 無焦點控件")
                     return (False, False)
-                caret = sel[0]
-                after_range = doc_range.Clone()
-                after_range.MoveEndpointByRange(0, caret, 1)
-                text_after = after_range.GetText(-1)
-                at_end = len(text_after) == 0
-                stripped = text.rstrip()
-                last_char_is_punctuation = bool(stripped and stripped[-1] in ENDING_PUNCTUATION)
-                _safe_print(f"[paster][{_now()}] 📏 [UIA] text={repr(text[:20])}, text_after={repr(text_after[:20])}, at_end={at_end}, last_punct={last_char_is_punctuation}")
-                return (at_end, last_char_is_punctuation)
+                text = ""
+                get_vp = getattr(focused, "GetValuePattern", None)
+                if callable(get_vp):
+                    try:
+                        vp = get_vp()
+                        text = getattr(vp, "Value", None) or "" if vp is not None else ""
+                    except Exception:
+                        text = ""
+                if not text:
+                    _safe_print(f"[paster][{_now()}] 📏 [UIA] 文字為空 → 不加句號")
+                    return (False, False)
+                get_tp = getattr(focused, "GetTextPattern", None)
+                if not callable(get_tp):
+                    _safe_print(f"[paster][{_now()}] ⚠️ [UIA] 無 TextPattern")
+                    return (False, False)
+                try:
+                    tp: Any = get_tp()
+                    doc_range = tp.DocumentRange
+                    sel = tp.GetSelection()
+                    if not sel:
+                        _safe_print(f"[paster][{_now()}] ⚠️ [UIA] GetSelection 為空")
+                        return (False, False)
+                    caret = sel[0]
+                    after_range = doc_range.Clone()
+                    after_range.MoveEndpointByRange(0, caret, 1)
+                    text_after = after_range.GetText(-1)
+                    at_end = len(text_after) == 0
+                    stripped = text.rstrip()
+                    last_char_is_punctuation = bool(stripped and stripped[-1] in ENDING_PUNCTUATION)
+                    _safe_print(f"[paster][{_now()}] 📏 [UIA] text={repr(text[:20])}, text_after={repr(text_after[:20])}, at_end={at_end}, last_punct={last_char_is_punctuation}")
+                    return (at_end, last_char_is_punctuation)
+                except Exception as e:
+                    _safe_print(f"[paster][{_now()}] ⚠️ [UIA] TextPattern 不支援: {e}")
+                    return (False, False)
             except Exception as e:
-                _safe_print(f"[paster][{_now()}] ⚠️ [UIA] TextPattern 不支援: {e}")
+                _safe_print(f"[paster][{_now()}] ⚠️ [UIA] 錯誤: {e}")
                 return (False, False)
-        except Exception as e:
-            _safe_print(f"[paster][{_now()}] ⚠️ [UIA] 錯誤: {e}")
-            return (False, False)
+        return _uia_with_timeout(_query, (False, False))
+
+    def _prefetch_worker(self) -> None:
+        """Persistent worker thread for UIA prefetch; reuses COM init."""
+        import comtypes
+        comtypes.CoInitialize()
+        try:
+            while True:
+                task = self._prefetch_queue.get()
+                if task is None:
+                    break
+                prefetch_delay, estimated_api = task
+                try:
+                    if prefetch_delay > 0:
+                        time.sleep(prefetch_delay)
+                    at_end, last_char_is_punctuation = self._is_cursor_at_end()
+                    with self._prefetch_lock:
+                        self._prefetch_result = (time.perf_counter(), at_end, last_char_is_punctuation)
+                    _safe_print(f"[paster][{_now()}] 🔮 預取游標位置: at_end={at_end}, last_punct={last_char_is_punctuation} (delay={prefetch_delay:.2f}s, est_api={estimated_api:.2f}s)")
+                except Exception as e:
+                    _safe_print(f"[paster][{_now()}] ⚠️ 預取游標位置失敗: {e}")
+                finally:
+                    self._prefetch_queue.task_done()
+        finally:
+            comtypes.CoUninitialize()
 
     def prefetch_cursor_position(self, wav_bytes_len: int = 0) -> None:
         audio_sec = max(0, (wav_bytes_len - 44)) / 32000 if wav_bytes_len > 44 else 0
         estimated_api = audio_sec * 0.10 + 0.25 if audio_sec <= 15 else audio_sec * 0.03 + 1.30
         prefetch_delay = max(0, estimated_api - 0.45)
-
-        def _do_prefetch() -> None:
-            if prefetch_delay > 0:
-                time.sleep(prefetch_delay)
-            import comtypes
-            comtypes.CoInitialize()
-            try:
-                at_end, last_char_is_punctuation = self._is_cursor_at_end()
-                with self._prefetch_lock:
-                    self._prefetch_result = (time.perf_counter(), at_end, last_char_is_punctuation)
-                _safe_print(f"[paster][{_now()}] 🔮 預取游標位置: at_end={at_end}, last_punct={last_char_is_punctuation} (delay={prefetch_delay:.2f}s, est_api={estimated_api:.2f}s)")
-            finally:
-                comtypes.CoUninitialize()
-
-        threading.Thread(target=_do_prefetch, daemon=True, name="UIA-Prefetch").start()
+        self._prefetch_queue.put((prefetch_delay, estimated_api))
 
     def _consume_prefetch(self, max_age: float = 10.0) -> tuple[bool, bool] | None:
         with self._prefetch_lock:
@@ -827,3 +879,10 @@ class PasteService:
                 self._execute_paste(*job)
         finally:
             comtypes.CoUninitialize()
+
+    def shutdown(self) -> None:
+        """Send sentinel values to worker threads so they exit gracefully."""
+        self._paste_queue.put(None)
+        self._prefetch_queue.put(None)
+        self._worker.join(timeout=5)
+        self._prefetch_thread.join(timeout=5)

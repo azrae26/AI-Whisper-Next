@@ -1,0 +1,241 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_022824_P8-32.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][02:28:24.725] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][02:28:24.727] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][02:28:24.727] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [02:28:24.746] 🎙️ 敲麥監聽已啟動
+[main][02:28:24.746] 🔧 DIAG 關閉元件: (none)
+[debug][02:28:24.754] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] Silero VAD 模型載入完成 (ONNX)
+[transcriber][02:28:26.424] 🔌 HTTP 連線預熱完成 (1.68s)
+[main][02:28:33.546] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:28:33.547] ⌨️ after(0) 執行延遲 1.1ms
+[tap]        [02:28:33.603] 💤 敲麥監聽已停止
+[recorder][02:28:33] ⏱️ InputStream() 10.7ms
+[recorder][02:28:33] ⏱️ stream.start() 0.5ms
+[recorder][02:28:33] 🎙️ 錄音就緒，總初始化 11.2ms
+[main][02:28:33.615] ⏱️ recorder.start() 耗時 11.6ms，ok=True
+[tap]        [02:28:34.151] 🎙️ 敲麥監聽已啟動
+[main][02:28:34.159] 🎙️ 開始錄音
+[recorder][02:28:34] 🎤 第一包音訊到達，麥克風實際開啟延遲 782.9ms
+[tap][dim]   [02:28:34.964] 持續=90ms 峰值=518 ✗弱
+[tap][sample][02:28:35.702] 持續=738ms 峰值=14781 ✗長 K=0.7 CF=3.3 SC=2262Hz Att=228.6ms | fK=0.9 fCF=3.4 fSC=2258Hz fFlat=0.497 fHF=0.054
+[tap][sample][02:28:36.592] 持續=864ms 峰值=10737 ✗長 K=2.9 CF=5.2 SC=3022Hz Att=21.8ms | fK=3.2 fCF=5.3 fSC=3022Hz fFlat=0.630 fHF=0.168
+[tap][sample][02:28:39.797] 持續=3104ms 峰值=11887 ✗長 K=3.9 CF=5.7 SC=2623Hz Att=894.7ms | fK=3.8 fCF=5.8 fSC=3017Hz fFlat=0.642 fHF=0.193
+[tap][dim]   [02:28:39.833] 持續=36ms 峰值=583 ✗弱
+[tap][dim]   [02:28:39.896] 持續=36ms 峰值=451 ✗弱
+[tap][sample][02:28:40.436] 持續=513ms 峰值=6474 ✗長 K=5.4 CF=8.0 SC=1717Hz Att=88.9ms | fK=5.9 fCF=8.2 fSC=1710Hz fFlat=0.248 fHF=0.009
+[tap][dim]   [02:28:40.472] 持續=36ms 峰值=474 ✗弱
+[main][02:28:40.602] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:28:40.604] ⌨️ after(0) 執行延遲 2.9ms[main][02:28:40.605] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 11/195 (35.5%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][02:28:40.614] ✅ 錄音完成，送出辨識
+[paster][02:28:41] 📏 [UIA] 文字為空 → 不加句號
+[paster][02:28:41] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.42s, est_api=0.87s)
+[transcriber][02:28:41.760] ⏱️ API 耗時: 1.14s
+[main][02:28:41.761] ✅ 辨識完成: "為什麼重啟好像弄了好幾次才重啟成功，原因？"
+[paster][02:28:41] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='為什麼重啟好像弄了好幾次才重啟成功，原因？'
+[paster][02:28:41] ⌨️ TEXT input flow start: target_chars=21，視窗="Restarting AI Whisper Next"，hwnd=0x009721f6，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='為什麼重啟好像弄了好幾次才重啟成功，原因？'
+[paster][02:28:41] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][02:28:41] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][02:28:41] ⏱️ 收到→直接輸入完成: 0.07s
+[paster][02:28:41] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample][02:29:22.457] 持續=26ms 峰值=637 ✓ K=11.7 CF=6.3 SC=3076Hz Att=0.4ms | fK=21.0 fCF=8.3 fSC=3276Hz fFlat=0.484 fHF=0.091 🎯 敲擊 #1
+[main][02:29:22.610] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:29:22.611] ⌨️ after(0) 執行延遲 1.3ms
+[tap]        [02:29:22.630] 💤 敲麥監聽已停止
+[recorder][02:29:22] 🚀 預熱命中，直接開始錄音
+[main][02:29:22.630] ⏱️ recorder.start() 耗時 0.4ms，ok=True
+[tap]        [02:29:22.634] 🎙️ 敲麥監聽已啟動
+[main][02:29:22.642] 🎙️ 開始錄音
+[tap][sample][02:29:23.339] 持續=36ms 峰值=1056 ✓ K=4.7 CF=4.5 SC=1093Hz Att=0.2ms | fK=11.6 fCF=6.3 fSC=1088Hz fFlat=0.198 fHF=0.006 🎯 敲擊 #1
+[tap][dim]   [02:29:23.628] 持續=46ms 峰值=445 ✗弱
+[tap][sample][02:29:23.816] 持續=188ms 峰值=7756 ✗長 K=1.3 CF=4.3 SC=1675Hz Att=77.9ms | fK=2.0 fCF=4.7 fSC=1694Hz fFlat=0.287 fHF=0.011
+[tap][sample][02:29:24.140] 持續=261ms 峰值=11131 ✗長 K=2.6 CF=4.3 SC=1243Hz Att=4.6ms | fK=3.3 fCF=4.6 fSC=1239Hz fFlat=0.262 fHF=0.002
+[tap][dim]   [02:29:24.230] 持續=90ms 峰值=526 ✗弱
+[tap][sample][02:29:24.833] 持續=243ms 峰值=8385 ✗長 K=5.4 CF=5.6 SC=2712Hz Att=70.8ms | fK=6.5 fCF=5.9 fSC=2711Hz fFlat=0.592 fHF=0.119
+[tap][dim]   [02:29:24.869] 持續=36ms 峰值=329 ✗弱
+[tap][sample][02:29:25.229] 持續=360ms 峰值=10529 ✗長 K=1.8 CF=4.1 SC=1266Hz Att=14.9ms | fK=2.3 fCF=4.3 fSC=1263Hz fFlat=0.228 fHF=0.007
+[tap][sample][02:29:26.543] 持續=270ms 峰值=10255 ✗長 K=5.7 CF=5.8 SC=1266Hz Att=60.1ms | fK=6.8 fCF=6.1 fSC=1267Hz fFlat=0.222 fHF=0.004
+[tap][sample][02:29:26.723] 持續=153ms 峰值=8234 ✓ K=0.7 CF=3.8 SC=1682Hz Att=10.1ms | fK=1.4 fCF=4.1 fSC=1674Hz fFlat=0.264 fHF=0.009 🎯 敲擊 #1
+[tap][sample][02:29:27.362] 持續=603ms 峰值=8223 ✗長 K=5.0 CF=6.7 SC=1656Hz Att=10.0ms | fK=5.4 fCF=6.9 fSC=1659Hz fFlat=0.384 fHF=0.010
+[tap][sample][02:29:27.983] 持續=586ms 峰值=10236 ✗長 K=1.3 CF=4.4 SC=1213Hz Att=38.2ms | fK=1.6 fCF=4.5 fSC=1212Hz fFlat=0.240 fHF=0.002
+[tap][sample][02:29:29.477] 持續=990ms 峰值=13221 ✗長 K=2.7 CF=4.9 SC=2593Hz Att=39.7ms | fK=2.9 fCF=5.0 fSC=2592Hz fFlat=0.562 fHF=0.083
+[tap][dim]   [02:29:29.513] 持續=36ms 峰值=490 ✗弱
+[tap][sample][02:29:30.691] 持續=1179ms 峰值=12348 ✗長 K=1.7 CF=4.3 SC=2848Hz Att=16.6ms | fK=1.9 fCF=4.4 fSC=2855Hz fFlat=0.589 fHF=0.110
+[tap][dim]   [02:29:30.728] 持續=36ms 峰值=451 ✗弱
+[tap][sample][02:29:31.078] 持續=351ms 峰值=8099 ✗長 K=2.1 CF=4.9 SC=1922Hz Att=109.6ms | fK=2.5 fCF=5.2 fSC=1925Hz fFlat=0.495 fHF=0.021
+[tap][sample][02:29:31.492] 持續=387ms 峰值=9162 ✗長 K=5.0 CF=5.6 SC=1214Hz Att=1.7ms | fK=5.7 fCF=5.8 fSC=1215Hz fFlat=0.227 fHF=0.002
+[tap][sample][02:29:32.169] 持續=189ms 峰值=11899 ✓ K=3.4 CF=4.4 SC=1236Hz Att=2.2ms | fK=4.5 fCF=4.8 fSC=1233Hz fFlat=0.198 fHF=0.003 🎯 敲擊 #1
+[tap][sample][02:29:32.547] 持續=352ms 峰值=8517 ✗長 K=2.8 CF=4.9 SC=1376Hz Att=0.1ms | fK=3.3 fCF=5.1 fSC=1376Hz fFlat=0.229 fHF=0.005
+[tap][dim]   [02:29:32.932] 持續=27ms 峰值=349 ✗弱
+[tap][sample][02:29:33.121] 持續=189ms 峰值=7689 ✗長 K=1.6 CF=4.2 SC=1870Hz Att=47.9ms | fK=2.4 fCF=4.6 fSC=1862Hz fFlat=0.222 fHF=0.006
+[tap][dim]   [02:29:33.157] 持續=36ms 峰值=559 ✗弱
+[tap][sample][02:29:33.769] 持續=612ms 峰值=10861 ✗長 K=2.8 CF=4.8 SC=1245Hz Att=3.5ms | fK=3.1 fCF=5.0 fSC=1245Hz fFlat=0.234 fHF=0.006
+[tap][sample][02:29:34.085] 持續=252ms 峰值=10029 ✗長 K=2.7 CF=3.8 SC=1144Hz Att=47.6ms | fK=3.4 fCF=4.1 fSC=1148Hz fFlat=0.238 fHF=0.005
+[tap][sample][02:29:34.508] 持續=225ms 峰值=11702 ✗長 K=1.5 CF=3.9 SC=3811Hz Att=47.6ms | fK=2.2 fCF=4.2 fSC=3816Hz fFlat=0.618 fHF=0.389
+[tap][sample][02:29:35.363] 持續=765ms 峰值=10850 ✗長 K=3.4 CF=5.0 SC=1453Hz Att=1.0ms | fK=3.7 fCF=5.1 fSC=1451Hz fFlat=0.320 fHF=0.007
+[tap][dim]   [02:29:35.426] 持續=63ms 峰值=581 ✗弱
+[tap][sample][02:29:35.633] 持續=45ms 峰值=1130 ✓ K=8.9 CF=7.1 SC=2157Hz Att=8.4ms | fK=20.2 fCF=9.9 fSC=2164Hz fFlat=0.442 fHF=0.040 🎯 敲擊 #1
+[tap][sample][02:29:36.326] 持續=377ms 峰值=8671 ✗長 K=7.6 CF=6.0 SC=1066Hz Att=78.4ms | fK=8.4 fCF=6.2 fSC=1066Hz fFlat=0.177 fHF=0.001
+[tap][dim]   [02:29:36.452] 持續=27ms 峰值=525 ✗弱
+[tap][sample][02:29:37.253] 持續=630ms 峰值=11124 ✗長 K=3.5 CF=4.9 SC=921Hz Att=169.8ms | fK=3.8 fCF=5.0 fSC=922Hz fFlat=0.177 fHF=0.001
+[tap][sample][02:29:38.784] 持續=630ms 峰值=9329 ✗長 K=2.2 CF=4.4 SC=1744Hz Att=188.4ms | fK=2.4 fCF=4.5 fSC=1740Hz fFlat=0.395 fHF=0.019
+[tap][dim]   [02:29:38.828] 持續=44ms 峰值=417 ✗弱
+[tap][sample][02:29:40.223] 持續=540ms 峰值=12115 ✗長 K=4.7 CF=5.0 SC=1415Hz Att=191.1ms | fK=5.1 fCF=5.2 fSC=1416Hz fFlat=0.304 fHF=0.006
+[tap][sample][02:29:40.745] 持續=477ms 峰值=8686 ✗長 K=4.3 CF=5.2 SC=1362Hz Att=13.2ms | fK=4.8 fCF=5.4 fSC=1362Hz fFlat=0.265 fHF=0.004
+[tap][dim]   [02:29:40.772] 持續=27ms 峰值=515 ✗弱
+[tap][sample][02:29:40.808] 持續=36ms 峰值=913 ✓ K=-0.4 CF=3.1 SC=1304Hz Att=16.9ms | fK=0.6 fCF=4.0 fSC=1383Hz fFlat=0.255 fHF=0.003 🎯 敲擊 #1
+[tap][dim]   [02:29:40.835] 持續=27ms 峰值=428 ✗弱
+[tap][sample][02:29:41.987] 持續=540ms 峰值=7278 ✗長 K=3.9 CF=5.4 SC=1111Hz Att=98.9ms | fK=4.3 fCF=5.6 fSC=1110Hz fFlat=0.176 fHF=0.001
+[tap][dim]   [02:29:42.024] 持續=36ms 峰值=341 ✗弱
+[tap]         ⏱️ 間隔過長重置（1737ms）
+[tap][sample][02:29:42.600] 持續=90ms 峰值=1502 ✓ K=2.1 CF=4.2 SC=443Hz Att=68.8ms | fK=3.2 fCF=4.7 fSC=396Hz fFlat=0.058 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [02:29:42.626] 持續=27ms 峰值=465 ✗弱
+[tap][sample][02:29:43.714] 持續=765ms 峰值=10016 ✗長 K=2.7 CF=5.9 SC=2961Hz Att=21.6ms | fK=2.9 fCF=6.0 fSC=2963Hz fFlat=0.613 fHF=0.142
+[tap][dim]   [02:29:43.787] 持續=72ms 峰值=499 ✗弱
+[tap][sample][02:29:44.300] 持續=423ms 峰值=11256 ✗長 K=4.3 CF=4.8 SC=912Hz Att=88.9ms | fK=4.8 fCF=5.0 fSC=910Hz fFlat=0.162 fHF=0.001
+[tap][dim]   [02:29:44.327] 持續=27ms 峰值=334 ✗弱
+[tap][sample][02:29:45.263] 持續=621ms 峰值=11664 ✗長 K=1.5 CF=3.7 SC=1322Hz Att=124.3ms | fK=1.8 fCF=3.8 fSC=1331Hz fFlat=0.337 fHF=0.004
+[tap][dim]   [02:29:45.290] 持續=27ms 峰值=565 ✗弱
+[tap][sample][02:29:45.506] 持續=216ms 峰值=7893 ✗長 K=4.3 CF=5.6 SC=1438Hz Att=11.8ms | fK=5.3 fCF=6.0 fSC=1438Hz fFlat=0.236 fHF=0.004
+[tap][sample][02:29:45.803] 持續=198ms 峰值=13326 ✓ K=0.4 CF=3.2 SC=1563Hz Att=7.6ms | fK=1.0 fCF=3.4 fSC=1560Hz fFlat=0.281 fHF=0.011 🎯 敲擊 #1
+[tap][sample][02:29:46.280] 持續=450ms 峰值=11074 ✗長 K=1.3 CF=4.3 SC=3114Hz Att=0.1ms | fK=1.6 fCF=4.4 fSC=3119Hz fFlat=0.605 fHF=0.199
+[tap][dim]   [02:29:46.307] 持續=27ms 峰值=344 ✗弱
+[tap][sample][02:29:46.730] 持續=387ms 峰值=9279 ✗長 K=2.4 CF=4.5 SC=1352Hz Att=0.2ms | fK=2.9 fCF=4.7 fSC=1352Hz fFlat=0.297 fHF=0.006
+[tap][dim]   [02:29:46.758] 持續=27ms 峰值=496 ✗弱
+[tap][sample][02:29:47.656] 持續=476ms 峰值=10419 ✗長 K=4.5 CF=5.6 SC=2036Hz Att=5.5ms | fK=5.0 fCF=5.8 fSC=2039Hz fFlat=0.512 fHF=0.031
+[tap][dim]   [02:29:47.693] 持續=36ms 峰值=525 ✗弱
+[tap][sample][02:29:48.710] 持續=990ms 峰值=10226 ✗長 K=3.0 CF=5.9 SC=2979Hz Att=428.2ms | fK=3.2 fCF=6.0 fSC=2986Hz fFlat=0.655 fHF=0.148
+[main][02:29:48.810] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:29:48.811] ⌨️ after(0) 執行延遲 0.9ms[main][02:29:48.811] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 11/818 (26.8%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][02:29:48.820] ✅ 錄音完成，送出辨識
+[tap][dim]   [02:29:48.908] 持續=45ms 峰值=430 ✗弱
+[tap][sample][02:29:49.161] 持續=252ms 峰值=2599 ✗長 K=0.2 CF=3.6 SC=473Hz Att=128.6ms | fK=0.5 fCF=3.8 fSC=457Hz fFlat=0.043 fHF=0.000
+[paster][02:29:50] 📏 [UIA] 文字為空 → 不加句號
+[paster][02:29:50] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.64s, est_api=2.09s)
+[transcriber][02:29:50.938] ⏱️ API 耗時: 2.12s
+[main][02:29:50.942] ✅ 辨識完成: "你把整個MD檔裡面關於重啟要測試驗證的這一part把他移動到一個skill裡面，讓以後只要修改代碼，他重啟後就會來讀這個skill並且開始測試"
+[paster][02:29:50] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='你把整個MD檔裡面關於重啟要測試驗證的這一part把他移動到一個skill裡面，'
+[paster][02:29:51] ⌨️ TEXT input skipped: readable target long text (71>40)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')
+[paster][02:29:51] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=False
+[paster][02:29:51] 📋 CLIP flow start: target_chars=71, restore_delay=0.30s
+[paster][02:29:51] 📋 CLIP backup: count=8, formats=49377:230B, 13:18B, 49991:24B, 49992:324B, 49941:265B, 16:4B, 1:9B, 7:9B, text='H5 10 M1'
+[paster][02:29:51] 📋 CLIP set attempt 1/4: chars=71, bytes=144, preview='你把整個MD檔裡面關於重啟要測試驗證的這一part把他移動到一個skill裡面，'
+[paster][02:29:51] 📋 CLIP verify ok: attempt=1, chars=71, text='你把整個MD檔裡面關於重啟要測試驗證的這'
+[paster][02:29:51] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Optimizing AI Whisper Performance"，hwnd=0x009721f6，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='你把整個MD檔裡面關於重啟要測試驗證的這一part把他移動到一個skill裡面，'
+[paster][02:29:51] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster][02:29:51] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster][02:29:51] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster][02:29:51] ⏱️ 收到→貼上完成: 0.39s
+[paster][02:29:51] 📋 CLIP restore wait: 0.30s
+[paster][02:29:51] 📋 CLIP restore attempt 1/4: text='H5 10 M1'
+[paster][02:29:51] 📋 CLIP restore: restored=8/8, formats=49377:230B, 13:18B, 49991:24B, 49992:324B, 49941:265B, 16:4B, 1:9B, 7:9B, text='H5 10 M1'
+[paster][02:29:51] 📋 CLIP restore verify ok: attempt=1, text='H5 10 M1'
+[paster][02:29:51] 🚫 CLIP guard disarmed: blocked=0
+[paster][02:29:53] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='H5 10 M1'
+[paster][02:29:53] 📋 剪貼簿已還原驗證（8 種格式，restore_ok=True, watch_ok=True）
+[main][02:30:22.436] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:30:22.439] ⌨️ after(0) 執行延遲 2.3ms
+[tap]        [02:30:22.458] 💤 敲麥監聽已停止
+[recorder][02:30:22] 🚀 預熱命中，直接開始錄音
+[main][02:30:22.472] ⏱️ recorder.start() 耗時 9.9ms，ok=True
+[tap]        [02:30:22.483] 🎙️ 敲麥監聽已啟動
+[main][02:30:22.491] 🎙️ 開始錄音
+[tap][sample][02:30:24.089] 持續=711ms 峰值=12070 ✗長 K=1.5 CF=4.1 SC=1030Hz Att=75.7ms | fK=1.7 fCF=4.1 fSC=1029Hz fFlat=0.162 fHF=0.001
+[tap][sample][02:30:24.764] 持續=639ms 峰值=12239 ✗長 K=3.6 CF=5.3 SC=2258Hz Att=7.9ms | fK=3.9 fCF=5.5 fSC=2259Hz fFlat=0.566 fHF=0.046
+[tap][dim]   [02:30:24.791] 持續=27ms 峰值=593 ✗弱
+[tap][sample][02:30:25.628] 持續=837ms 峰值=12193 ✗長 K=1.6 CF=4.2 SC=1076Hz Att=0.2ms | fK=1.8 fCF=4.3 fSC=1073Hz fFlat=0.208 fHF=0.001
+[tap][sample][02:30:27.069] 持續=1351ms 峰值=11284 ✗長 K=2.0 CF=4.2 SC=2796Hz Att=66.7ms | fK=2.2 fCF=4.3 fSC=2792Hz fFlat=0.566 fHF=0.126
+[tap][sample][02:30:27.446] 持續=324ms 峰值=8258 ✗長 K=3.3 CF=4.9 SC=2295Hz Att=50.2ms | fK=3.9 fCF=5.1 fSC=2296Hz fFlat=0.511 fHF=0.047
+[tap][sample][02:30:28.210] 持續=693ms 峰值=10897 ✗長 K=4.7 CF=6.0 SC=1139Hz Att=7.7ms | fK=5.0 fCF=6.1 fSC=1139Hz fFlat=0.226 fHF=0.002
+[tap][sample][02:30:29.048] 持續=765ms 峰值=6430 ✗長 K=4.5 CF=6.5 SC=1431Hz Att=0.1ms | fK=4.9 fCF=6.7 fSC=1431Hz fFlat=0.225 fHF=0.005
+[tap][sample][02:30:30.074] 持續=963ms 峰值=11804 ✗長 K=2.8 CF=4.8 SC=1558Hz Att=0.1ms | fK=3.0 fCF=4.8 fSC=1558Hz fFlat=0.397 fHF=0.009
+[tap][sample][02:30:30.848] 持續=423ms 峰值=10304 ✗長 K=2.4 CF=4.6 SC=1413Hz Att=57.3ms | fK=2.8 fCF=4.8 fSC=1411Hz fFlat=0.303 fHF=0.003
+[tap][dim]   [02:30:30.875] 持續=27ms 峰值=492 ✗弱
+[tap][sample][02:30:32.290] 持續=1415ms 峰值=10642 ✗長 K=2.4 CF=5.0 SC=2384Hz Att=152.7ms | fK=2.5 fCF=5.0 fSC=2385Hz fFlat=0.590 fHF=0.053
+[tap][dim]   [02:30:33.044] 持續=36ms 峰值=563 ✗弱
+[tap][sample][02:30:33.206] 持續=162ms 峰值=11514 ✓ K=1.0 CF=4.1 SC=3111Hz Att=68.9ms | fK=1.8 fCF=4.5 fSC=3111Hz fFlat=0.652 fHF=0.193 🎯 敲擊 #1
+[tap][sample][02:30:34.772] 持續=1530ms 峰值=11589 ✗長 K=2.5 CF=4.8 SC=2045Hz Att=91.1ms | fK=2.5 fCF=4.8 fSC=2043Hz fFlat=0.512 fHF=0.029
+[main][02:30:34.807] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:30:34.809] ⌨️ after(0) 執行延遲 1.8ms[main][02:30:34.810] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] Silero 語音幀 11/387 (26.8%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[main][02:30:34.819] ✅ 錄音完成，送出辨識
+[paster][02:30:35] 📏 [UIA] 文字為空 → 不加句號
+[paster][02:30:35] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.04s, est_api=1.49s)
+[transcriber][02:30:36.023] ⏱️ API 耗時: 1.20s
+[main][02:30:36.025] ✅ 辨識完成: "然後你把相關用來測試驗證的腳本檔案都放到Skill的資料夾裡面去"
+[paster][02:30:36] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='然後你把相關用來測試驗證的腳本檔案都放到Skill的資料夾裡面去'
+[paster][02:30:36] ⌨️ TEXT input flow start: target_chars=32，視窗="Optimizing AI Whisper Performance"，hwnd=0x009721f6，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='然後你把相關用來測試驗證的腳本檔案都放到Skill的資料夾裡面去'
+[paster][02:30:36] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][02:30:36] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][02:30:36] ⏱️ 收到→直接輸入完成: 0.10s
+[paster][02:30:36] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap]         ⏱️ 間隔過長重置（45675ms）
+[tap][sample][02:31:18.773] 持續=54ms 峰值=655 ✓ K=1.1 CF=3.2 SC=522Hz Att=38.7ms | fK=1.9 fCF=3.6 fSC=512Hz fFlat=0.097 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [02:31:18.808] 持續=36ms 峰值=339 ✗弱
+[tap][dim]   [02:31:19.259] 持續=63ms 峰值=568 ✗弱
+[main][02:32:49.982] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:32:49.984] ⌨️ after(0) 執行延遲 1.3ms
+[tap]        [02:32:50.014] 💤 敲麥監聽已停止
+[recorder][02:32:50] 🚀 預熱命中，直接開始錄音
+[main][02:32:50.015] ⏱️ recorder.start() 耗時 0.7ms，ok=True
+[tap]        [02:32:50.019] 🎙️ 敲麥監聽已啟動
+[main][02:32:50.026] 🎙️ 開始錄音
+[tap][sample][02:32:51.167] 持續=603ms 峰值=12949 ✗長 K=1.4 CF=3.5 SC=1451Hz Att=55.2ms | fK=1.6 fCF=3.6 fSC=1449Hz fFlat=0.364 fHF=0.005
+[tap][sample][02:32:52.057] 持續=855ms 峰值=12723 ✗長 K=2.6 CF=4.9 SC=2707Hz Att=29.5ms | fK=2.8 fCF=5.0 fSC=2710Hz fFlat=0.603 fHF=0.099
+[tap][dim]   [02:32:52.093] 持續=36ms 峰值=311 ✗弱
+[tap][sample][02:32:52.831] 持續=377ms 峰值=12473 ✗長 K=3.1 CF=4.1 SC=1383Hz Att=73.9ms | fK=3.6 fCF=4.3 fSC=1381Hz fFlat=0.307 fHF=0.005
+[tap][sample][02:32:54.938] 持續=1980ms 峰值=13016 ✗長 K=1.9 CF=4.3 SC=2429Hz Att=83.0ms | fK=2.6 fCF=4.8 fSC=1818Hz fFlat=0.440 fHF=0.021
+[tap][dim]   [02:32:54.974] 持續=36ms 峰值=566 ✗弱
+[tap][sample][02:32:55.424] 持續=297ms 峰值=10467 ✗長 K=6.2 CF=5.7 SC=1383Hz Att=22.1ms | fK=7.2 fCF=6.0 fSC=1382Hz fFlat=0.305 fHF=0.004
+[tap][dim]   [02:32:55.451] 持續=27ms 峰值=535 ✗弱
+[tap][sample][02:32:55.486] 持續=36ms 峰值=767 ✓ K=0.1 CF=2.5 SC=757Hz Att=3.8ms | fK=1.5 fCF=3.3 fSC=730Hz fFlat=0.151 fHF=0.001 🎯 敲擊 #1
+[tap][dim]   [02:32:55.523] 持續=36ms 峰值=328 ✗弱
+[tap][sample][02:32:55.777] 持續=201ms 峰值=8303 ✗長 K=4.5 CF=4.7 SC=1475Hz Att=31.1ms | fK=5.7 fCF=5.1 fSC=1481Hz fFlat=0.278 fHF=0.012
+[tap][dim]   [02:32:55.811] 持續=33ms 峰值=349 ✗弱
+[tap][sample][02:32:56.198] 持續=270ms 峰值=8323 ✗長 K=2.8 CF=4.7 SC=4051Hz Att=100.9ms | fK=3.6 fCF=5.0 fSC=4050Hz fFlat=0.618 fHF=0.504
+[tap][sample][02:32:56.611] 持續=360ms 峰值=9840 ✗長 K=2.3 CF=4.4 SC=1311Hz Att=75.7ms | fK=2.7 fCF=4.6 fSC=1309Hz fFlat=0.276 fHF=0.004
+[tap][dim]   [02:32:56.649] 持續=37ms 峰值=538 ✗弱
+[recorder][VAD] Silero 語音幀 11/242 (33.3%)，有效語音 0.35s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ✅ 取出 7.7s 音訊段落
+[main][02:32:57.748] ✂️ 自動分段送出（靜音達1s，累積 7.7s，靜音 1.1s）
+[paster][02:32:58] 📏 [UIA] 文字為空 → 不加句號
+[paster][02:32:58] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.57s, est_api=1.02s)
+[transcriber][02:32:58.665] ⏱️ API 耗時: 0.92s
+[main][02:32:58.667] ✅ 分段辨識完成: "我覺得重啟跟測試應該要分成兩個skill"
+[paster][02:32:58] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='我覺得重啟跟測試應該要分成兩個skill'
+[paster][02:32:58] ⌨️ TEXT input flow start: target_chars=20，視窗="Optimizing AI Whisper Performance"，hwnd=0x009721f6，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='我覺得重啟跟測試應該要分成兩個skill'
+[paster][02:32:58] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][02:32:58] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][02:32:58] ⏱️ 收到→直接輸入完成: 0.06s
+[paster][02:32:58] ⌨️ TEXT input verify: ok=True，reason=changed
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/37 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/38 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[recorder][VAD] Silero 語音幀 0/32 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][flush] ❌ VAD 未達有效語音門檻，略過（語音比例不足 0.0% < 16%）
+[main][02:33:08.034] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][02:33:08.036] ⌨️ after(0) 執行延遲 1.4ms[main][02:33:08.036] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop] 錄音太短 (0.32s)，略過
+[tap]        [02:33:44.178] 💤 敲麥監聽已停止
+[recorder][02:33:44] 💤 預熱 stream 已關閉

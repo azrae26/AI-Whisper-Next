@@ -146,6 +146,9 @@ def analyze_speech(
         sr = np.array(SAMPLE_RATE, dtype=np.int64)
         n_frames = n_samples // SILERO_FRAME_SIZE
         speech_frames = 0
+        import math
+        early_exit_frames = math.ceil(min_speech_sec * SAMPLE_RATE / SILERO_FRAME_SIZE)
+        scanned_frames = n_frames  # will be updated if we break early
         for i in range(n_frames):
             frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
             # 拼接 context + frame → [1, 576]
@@ -159,12 +162,17 @@ def analyze_speech(
             conf = float(out[0][0])
             if conf >= confidence_threshold:
                 speech_frames += 1
+                if speech_frames >= early_exit_frames:
+                    # 確保在此處 early exit 後，speech_ratio 仍然符合最低要求，否則不應提早中斷
+                    if (speech_frames / (i + 1)) >= VAD_SPEECH_RATIO:
+                        scanned_frames = i + 1
+                        break
             # 保留當前幀末尾作為下一幀的 context
             context = frame[-SILERO_CONTEXT_SIZE:]
         result = _build_analysis(
             engine="Silero",
             speech_frames=speech_frames,
-            total_frames=n_frames,
+            total_frames=scanned_frames,
             frame_seconds=SILERO_FRAME_SIZE / SAMPLE_RATE,
             min_speech_sec=min_speech_sec,
         )

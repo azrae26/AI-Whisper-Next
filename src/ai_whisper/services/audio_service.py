@@ -5,6 +5,7 @@ import io
 import threading
 import time
 import wave
+from collections import deque
 from dataclasses import dataclass
 
 import numpy as np
@@ -31,7 +32,7 @@ class AudioService:
         self._frames: list[np.ndarray] = []
         self._stream: sd.InputStream | None = None
         self._lock = threading.Lock()
-        self._waveform: list[float] = []
+        self._waveform: deque[float] = deque(maxlen=200)
         self._wf_lock = threading.Lock()
         self._waveform_dirty = False
         self._segment_samples = 0
@@ -46,7 +47,7 @@ class AudioService:
                 return False
             self._frames = []
             with self._wf_lock:
-                self._waveform = []
+                self._waveform.clear()
             self._segment_samples = 0
             self._silence_chunks = 0
             self._chunk_samples = 0
@@ -58,6 +59,8 @@ class AudioService:
 
         perf = time.perf_counter
         self._first_cb_logged = False
+        # Pre-allocate float32 buffer for RMS — avoids per-callback memory allocation
+        _rms_buf = np.empty(2048, dtype=np.float32)
 
         def _callback(indata, frames, time_info, status):
             if not self._first_cb_logged:
@@ -74,7 +77,10 @@ class AudioService:
                 chunk_len = len(indata)
                 if not self._chunk_samples:
                     self._chunk_samples = chunk_len
-                rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
+                # RMS: reuse pre-allocated float32 buffer (zero per-callback allocation)
+                buf = _rms_buf[:chunk_len]
+                np.copyto(buf, indata[:, 0])
+                rms = float(np.sqrt(np.dot(buf, buf) / chunk_len))
                 level = rms / 5000
                 self._segment_samples += chunk_len
                 if level < SILENCE_LEVEL:
@@ -82,9 +88,7 @@ class AudioService:
                 else:
                     self._silence_chunks = 0
             with self._wf_lock:
-                self._waveform.append(level)
-                if len(self._waveform) > 200:
-                    self._waveform = self._waveform[-200:]
+                self._waveform.append(level)  # deque(maxlen=200) auto-evicts
                 self._waveform_dirty = True
 
         try:
@@ -93,7 +97,7 @@ class AudioService:
                 samplerate=SAMPLE_RATE,
                 channels=CHANNELS,
                 dtype="int16",
-                blocksize=1024,  # ~64ms；不指定時由驅動決定，可能低至 64 samples（250Hz callback）
+                blocksize=512,  # ~32ms；不指定時由驅動決定，可能低至 64 samples（250Hz callback）
                 callback=_callback,
             )
             t1 = time.perf_counter()
@@ -175,7 +179,7 @@ class AudioService:
     def get_waveform(self) -> list[float]:
         with self._wf_lock:
             self._waveform_dirty = False
-            return self._waveform[-35:]
+            return list(self._waveform)[-35:]
 
     def get_accumulated_seconds(self) -> float:
         with self._lock:

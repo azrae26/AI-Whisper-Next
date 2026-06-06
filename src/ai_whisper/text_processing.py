@@ -4,6 +4,11 @@ import re
 
 from opencc import OpenCC
 
+try:
+    import cn2an as _cn2an
+except ImportError:
+    _cn2an = None
+
 from .models import TextCorrection
 
 _s2t = OpenCC("s2t")
@@ -78,10 +83,11 @@ def _zh_num_to_arabic(zh: str) -> str:
         mapped = "".join(ZH_DIGIT_MAP.get(c, c) for c in zh)
         if mapped.isdigit():
             return mapped
+    if _cn2an is None:
+        return zh
     try:
-        import cn2an
         normalized = zh.replace("○", "零").replace("〇", "零")
-        return str(cn2an.cn2an(normalized, "smart"))
+        return str(_cn2an.cn2an(normalized, "smart"))
     except Exception:
         return zh
 

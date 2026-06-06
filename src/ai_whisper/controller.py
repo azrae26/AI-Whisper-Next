@@ -48,7 +48,7 @@ class AppController(QObject):
         self.paste = PasteService(self.input)
         self.hotkeys = HotkeyService(self.input)
         self.tap = TapService(on_triple_tap=self.tap_triggered.emit)
-        self.executor = ThreadPoolExecutor(max_workers=6, thread_name_prefix="AIWhisper")
+        self.executor = ThreadPoolExecutor(max_workers=4, thread_name_prefix="AIWhisper")
         self.state = "idle"
         self.paste_prefix = "。"
         self._rec_start_time = 0.0
@@ -63,10 +63,8 @@ class AppController(QObject):
         self._warmup_timer.timeout.connect(self._do_warmup_shutdown)
         self._segment_timer = QTimer(self)
         self._segment_timer.timeout.connect(self._check_segment)
-        self._anim_timer = QTimer(self)
-        self._anim_timer.timeout.connect(self._tick_anim)
-        self._waveform_timer = QTimer(self)
-        self._waveform_timer.timeout.connect(self._tick_waveform)
+        self._recording_timer = QTimer(self)
+        self._recording_timer.timeout.connect(self._tick_recording)
         self._save_timer = QTimer(self)
         self._save_timer.setSingleShot(True)
         self._save_timer.timeout.connect(self._flush_settings)
@@ -223,15 +221,13 @@ class AppController(QObject):
         self.state = "recording"
         self._rec_start_time = time.time()
         self.window.set_recording_state()
-        self._anim_timer.start(50)
-        self._waveform_timer.start(50)
+        self._recording_timer.start(50)
         self._segment_timer.start(200)
         safe_print(f"[main][{now_str()}] 🎙️ 開始錄音")
 
     def _stop_recording(self) -> None:
         self._segment_timer.stop()
-        self._anim_timer.stop()
-        self._waveform_timer.stop()
+        self._recording_timer.stop()
         self.state = "processing"
         self.window.stop_recording_waveform_keep_status()
         frames = self.audio.stop_capture()
@@ -431,9 +427,10 @@ class AppController(QObject):
         self.window.show_overlay_status("未錄到音訊", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
-    def _tick_anim(self) -> None:
+    def _tick_recording(self) -> None:
         if self.state != "recording":
             return
+        # Animation tick
         elapsed = time.time() - self._rec_start_time
         minutes = int(elapsed) // 60
         seconds = int(elapsed) % 60
@@ -442,10 +439,7 @@ class AppController(QObject):
         g = int(60 + (180 - 60) * t)
         b = int(60 + (180 - 60) * t)
         self.window.set_timer(f"{minutes:02d}:{seconds:02d}", f"#{r:02x}{g:02x}{b:02x}")
-
-    def _tick_waveform(self) -> None:
-        if self.state != "recording":
-            return
+        # Waveform tick
         if self.audio.has_new_waveform():
             self.window.set_waveform(self.audio.get_waveform())
 

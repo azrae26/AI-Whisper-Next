@@ -49,6 +49,8 @@ working_directory 指向 workspace 根目錄（不要寫死磁碟代號，家裡
 
 不要額外再執行 `py run_ai_whisper.py`。
 
+重啟成功後，**必須**讀取並呼叫 `verify` Skill 來對修改的模組進行功能測試與驗證。
+
 ## 觸發時機
 
 以下兩種情況都必須執行重啟：

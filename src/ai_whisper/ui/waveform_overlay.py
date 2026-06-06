@@ -52,20 +52,6 @@ STATUS_PROCESSING_DARK = "#d493ff"
 STATUS_FONT_SIZE = 14
 
 
-def _mix_three_stop_color(dark: QColor, mid: QColor, light: QColor, t: float, alpha: int) -> QColor:
-    t = max(0.0, min(1.0, t))
-    if t < 0.5:
-        left = dark
-        right = mid
-        local_t = t * 2
-    else:
-        left = mid
-        right = light
-        local_t = (t - 0.5) * 2
-    r = int(left.red() + (right.red() - left.red()) * local_t)
-    g = int(left.green() + (right.green() - left.green()) * local_t)
-    b = int(left.blue() + (right.blue() - left.blue()) * local_t)
-    return QColor(r, g, b, alpha)
 
 
 def _waveform_color_position(display_level: float) -> float:
@@ -81,6 +67,28 @@ _BAR_EDGE_T: list[float] = [
     1.0 - (1.0 - min(1.0, min(i, BAR_COUNT - 1 - i) / _FADE_BARS)) ** 1.6
     for i in range(BAR_COUNT)
 ]
+
+# L1 perf: Pre-computed 256-entry waveform colour gradient LUT.
+# Maps gradient position (0..255) → (r, g, b) using the same 3-stop ramp
+# as _mix_three_stop_color(dark, mid, light, t).  paintEvent indexes into
+# this table instead of computing per-bar colour blends every frame.
+_LUT_SIZE = 256
+_LUT_DARK = QColor(WAVEFORM_COLOR_DARK)
+_LUT_MID = QColor(WAVEFORM_COLOR_MID)
+_LUT_LIGHT = QColor(WAVEFORM_COLOR_LIGHT)
+_WAVEFORM_GRADIENT_LUT: list[tuple[int, int, int]] = []
+for _i in range(_LUT_SIZE):
+    _t = _i / (_LUT_SIZE - 1)
+    if _t < 0.5:
+        _left, _right, _lt = _LUT_DARK, _LUT_MID, _t * 2
+    else:
+        _left, _right, _lt = _LUT_MID, _LUT_LIGHT, (_t - 0.5) * 2
+    _WAVEFORM_GRADIENT_LUT.append((
+        int(_left.red() + (_right.red() - _left.red()) * _lt),
+        int(_left.green() + (_right.green() - _left.green()) * _lt),
+        int(_left.blue() + (_right.blue() - _left.blue()) * _lt),
+    ))
+del _i, _t, _left, _right, _lt, _LUT_DARK, _LUT_MID, _LUT_LIGHT
 STATUS_TIMER_ARM_DELAY_MS = 120
 
 # --- Drag/reset button panel (separate interactive window on top of transparent overlay) ---
@@ -238,6 +246,8 @@ class WaveformOverlay(QWidget):
         self._text_dim_right = -1.0
         self._dim_font = QFont("Microsoft JhengHei UI", STATUS_FONT_SIZE)  # used for QFontMetrics; kept separate from _paint_font
         self._dim_font.setBold(True)
+        self._color_proc_dark = QColor(STATUS_PROCESSING_DARK)
+        self._color_proc_light = QColor(STATUS_PROCESSING_LIGHT)
         # Status text state — rendered directly in paintEvent (no child QLabel/shadow)
         self._status_label_text = ""
         self._status_label_color = QColor(STATUS_PURPLE_MID)
@@ -252,16 +262,17 @@ class WaveformOverlay(QWidget):
         self._paint_font.setBold(True)
         self._bg_pixmap: QPixmap | None = None  # built on first paint; WIN_W/H are constants
         self._bar_dim: list[float] = [1.0] * BAR_COUNT  # recomputed only when text_dim changes
-        self._waveform_color_light = QColor(WAVEFORM_COLOR_LIGHT)
-        self._waveform_color_mid = QColor(WAVEFORM_COLOR_MID)
-        self._waveform_color_dark = QColor(WAVEFORM_COLOR_DARK)
+
         # Pre-allocated QRect list for batched drawRects — avoids per-frame allocation
         self._bar_rects: list[QRect] = [QRect() for _ in range(BAR_COUNT)]
 
-        # Prime window surface before the first real overlay show.
+        # L2: Prime window surface off-screen to cache font glyphs & bg pixmap
+        # without any visible flash (WA_DontShowOnScreen prevents actual display).
+        self.setAttribute(Qt.WidgetAttribute.WA_DontShowOnScreen, True)
         self.show()
-        self.repaint()  # synchronous paint -> caches font glyphs & bg pixmap
+        self.repaint()
         self.hide()
+        self.setAttribute(Qt.WidgetAttribute.WA_DontShowOnScreen, False)
 
         # Hover polling – shows/hides the button panel when cursor enters right-edge zone.
         self._btn_panel = _OverlayButtons(self)
@@ -577,20 +588,18 @@ class WaveformOverlay(QWidget):
             painter.setPen(Qt.PenStyle.NoPen)
             painter.setRenderHint(QPainter.RenderHint.Antialiasing, False)
 
+            lut = _WAVEFORM_GRADIENT_LUT
+            lut_max = _LUT_SIZE - 1
             for i, lv in enumerate(data):
                 display_lv = min(0.92, lv / scale)
                 h = max(2, int(display_lv * max_half))
                 alpha_t = _BAR_EDGE_T[i] * bar_dim[i]
                 bar_rect = self._bar_rects[i]
                 bar_rect.setRect(_BAR_X0[i], mid - h, BAR_WIDTH, h * 2)
-                color = _mix_three_stop_color(
-                    self._waveform_color_dark,
-                    self._waveform_color_mid,
-                    self._waveform_color_light,
-                    _waveform_color_position(display_lv / 0.92),
-                    int(230 * alpha_t),
-                )
-                painter.setBrush(color)
+                # L1: LUT lookup instead of per-bar _mix_three_stop_color
+                idx = int(_waveform_color_position(display_lv / 0.92) * lut_max)
+                r, g, b = lut[idx]
+                painter.setBrush(QColor(r, g, b, int(230 * alpha_t)))
                 painter.drawRect(bar_rect)
 
         # Layer 3: status text with painted shadow (no QLabel/QGraphicsDropShadowEffect).
@@ -648,8 +657,8 @@ class WaveformOverlay(QWidget):
     def _processing_color(self) -> QColor:
         elapsed = time.time() - self._proc_start
         t = (math.sin(elapsed * 2 * math.pi) + 1) / 2
-        dark = QColor(STATUS_PROCESSING_DARK)
-        light = QColor(STATUS_PROCESSING_LIGHT)
+        dark = self._color_proc_dark
+        light = self._color_proc_light
         r = int(dark.red() + (light.red() - dark.red()) * t)
         g = int(dark.green() + (light.green() - dark.green()) * t)
         b = int(dark.blue() + (light.blue() - dark.blue()) * t)

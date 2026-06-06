@@ -33,6 +33,24 @@ from .waveform_overlay import WaveformOverlay
 HISTORY_MIC_OFFSET_Y = 12
 STATUS_FONT_SIZE = 14
 
+# L3 perf: Pre-built QColor constants for paintEvent methods
+_COLOR_BORDER = QColor("#2A2A2E")
+_COLOR_BG = QColor("#121212")
+# ToggleSwitch
+_COLOR_TRACK_ON = QColor("#2563EB")
+_COLOR_TRACK_ON_HOVER = QColor("#2F6FEB")
+_COLOR_TRACK_OFF = QColor("#27272A")
+_COLOR_TRACK_OFF_HOVER = QColor("#2F3036")
+_COLOR_OUTLINE_OFF = QColor("#3F3F46")
+_COLOR_OUTLINE_OFF_HOVER = QColor("#52525B")
+_COLOR_KNOB_ON = QColor("#FFFFFF")
+_COLOR_KNOB_OFF = QColor("#A1A1AA")
+_COLOR_KNOB_OFF_HOVER = QColor("#D4D4D8")
+# EyeButton
+_COLOR_EYE_VISIBLE = QColor("#F4F4F5")
+_COLOR_EYE_HIDDEN = QColor("#A1A1AA")
+_COLOR_EYE_SLASH = QColor("#8B8B93")
+
 
 def _fix_win11_frame(widget) -> None:
     """Remove gray DWM border on Windows 11 for frameless transparent windows."""
@@ -135,19 +153,19 @@ class ToggleSwitch(QCheckBox):
         track = self.rect().adjusted(1, 2, -1, -2)
         painter.setPen(Qt.PenStyle.NoPen)
         hovered = self.underMouse()
-        if self.isChecked():
-            track_color = "#2F6FEB" if hovered else "#2563EB"
+        checked = self.isChecked()
+        if checked:
+            painter.setBrush(_COLOR_TRACK_ON_HOVER if hovered else _COLOR_TRACK_ON)
         else:
-            track_color = "#2F3036" if hovered else "#27272A"
-        painter.setBrush(QColor(track_color))
+            painter.setBrush(_COLOR_TRACK_OFF_HOVER if hovered else _COLOR_TRACK_OFF)
         painter.drawRoundedRect(track, 10, 10)
-        if not self.isChecked():
-            painter.setPen(QColor("#52525B" if hovered else "#3F3F46"))
+        if not checked:
+            painter.setPen(_COLOR_OUTLINE_OFF_HOVER if hovered else _COLOR_OUTLINE_OFF)
             painter.setBrush(Qt.BrushStyle.NoBrush)
             painter.drawRoundedRect(track, 10, 10)
             painter.setPen(Qt.PenStyle.NoPen)
-        knob_x = track.right() - 18 if self.isChecked() else track.left() + 2
-        painter.setBrush(QColor("#FFFFFF") if self.isChecked() else QColor("#D4D4D8" if hovered else "#A1A1AA"))
+        knob_x = track.right() - 18 if checked else track.left() + 2
+        painter.setBrush(_COLOR_KNOB_ON if checked else (_COLOR_KNOB_OFF_HOVER if hovered else _COLOR_KNOB_OFF))
         painter.drawEllipse(knob_x, track.top() + 2, 16, 16)
 
 
@@ -170,7 +188,7 @@ class EyeButton(QPushButton):
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         cx = self.width() / 2
         cy = self.height() / 2
-        color = QColor("#F4F4F5" if self._visible else "#A1A1AA")
+        color = _COLOR_EYE_VISIBLE if self._visible else _COLOR_EYE_HIDDEN
         pen = QPen(color, 1.6)
         pen.setCapStyle(Qt.PenCapStyle.RoundCap)
         pen.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
@@ -185,7 +203,7 @@ class EyeButton(QPushButton):
         painter.setPen(Qt.PenStyle.NoPen)
         painter.drawEllipse(QRectF(cx - 2.1, cy - 2.1, 4.2, 4.2))
         if not self._visible:
-            painter.setPen(QPen(QColor("#8B8B93"), 1.5))
+            painter.setPen(QPen(_COLOR_EYE_SLASH, 1.5))
             painter.drawLine(int(cx + 7), int(cy - 7), int(cx - 7), int(cy + 7))
 
 
@@ -205,6 +223,11 @@ class SettingsPage(QWidget):
         self._cfg = cfg
         self._loading = False
         self._capture_buttons: dict[str, QPushButton] = {}
+        # M6: debounce textChanged — 打字停 300ms 後才重建 config
+        self._corrections_debounce = QTimer()
+        self._corrections_debounce.setSingleShot(True)
+        self._corrections_debounce.setInterval(300)
+        self._corrections_debounce.timeout.connect(self._emit_changed)
         self._build()
 
     def _build(self) -> None:
@@ -388,7 +411,8 @@ class SettingsPage(QWidget):
     def _on_text_changed(self) -> None:
         line_count = max(4, len(self.text_corrections.toPlainText().strip().splitlines())) if self.text_corrections.toPlainText().strip() else 4
         self.text_corrections.setFixedHeight(min(300, max(90, line_count * 24)))
-        self._emit_changed()
+        # M6: debounce — 不在每次按鍵時重建 config
+        self._corrections_debounce.start()
 
     def _safe_float(self, entry: QLineEdit, fallback: float) -> float:
         try:
@@ -500,6 +524,11 @@ class MainWindow(QMainWindow):
             overlay_positions=cfg.overlay_positions,
             on_pos_changed=self.overlay_pos_changed.emit,
         )
+        # Debounce geometry_changed: collapse rapid move/resize events into one emit
+        self._geometry_timer = QTimer()
+        self._geometry_timer.setSingleShot(True)
+        self._geometry_timer.setInterval(200)
+        self._geometry_timer.timeout.connect(lambda: self.geometry_changed.emit())
         self._build(cfg)
         self._setup_tray()
 
@@ -767,9 +796,74 @@ class MainWindow(QMainWindow):
             self._animate_mic_up()
             self.history_area.show()
             self._layout_main_content()
-        self._render_history()
+        self._append_history_card(text)
+
+    def _create_history_card(self, text: str, index: int) -> QFrame:
+        """Build a single history card (QFrame) for the given text and badge index."""
+        card = QFrame()
+        card.setStyleSheet("background:#27272A;border-radius:12px;")
+        row = QHBoxLayout(card)
+        row.setContentsMargins(10, 8, 10, 8)
+        row.setSpacing(8)
+        badge = QLabel(str(index + 1))
+        badge.setObjectName("historyBadge")
+        badge.setFixedSize(20, 20)
+        badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        badge.setStyleSheet(
+            "background:#3F3F46;border-radius:10px;color:#F4F4F5;"
+            "font-family:\"Segoe UI Semibold\";font-size:12px;font-weight:700;"
+        )
+        row.addWidget(badge)
+        label = QLabel(text)
+        label.setWordWrap(True)
+        label.setStyleSheet("color:#F4F4F5;font-size:14px;")
+        row.addWidget(label, 1)
+        btn = QPushButton("複製")
+        btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        btn.setFixedSize(52, 28)
+        btn.setStyleSheet(
+            "QPushButton{background:#3F3F46;border:0;border-radius:6px;font-size:13px;color:#F4F4F5;}"
+            "QPushButton:hover{background:#52525B;}"
+        )
+        btn.clicked.connect(lambda _=False, idx=index, b=btn: self._copy_clicked(idx, b))
+        row.addWidget(btn)
+        return card
+
+    def _append_history_card(self, text: str) -> None:
+        """Incrementally insert a new card at top; update existing badges; trim overflow."""
+        card = self._create_history_card(text, 0)
+        # Insert before the trailing stretch
+        self.history_layout.insertWidget(0, card)
+        self._history_widgets.insert(0, card)
+        # Update badge numbers and copy-button indices on existing cards
+        for i, w in enumerate(self._history_widgets):
+            badge = w.findChild(QLabel, "historyBadge")
+            if badge:
+                badge.setText(str(i + 1))
+            # Rebind copy button to correct index
+            btns = w.findChildren(QPushButton)
+            for b in btns:
+                if b.text() in ("複製", "✓"):
+                    try:
+                        b.clicked.disconnect()
+                    except RuntimeError:
+                        pass
+                    b.clicked.connect(lambda _=False, idx=i, btn=b: self._copy_clicked(idx, btn))
+        # Trim cards exceeding limit (max 10)
+        max_cards = 10
+        while len(self._history_widgets) > max_cards:
+            old = self._history_widgets.pop()
+            self.history_layout.removeWidget(old)
+            old.deleteLater()
 
     def _render_history(self) -> None:
+        """Full rebuild — used on init or clear. Normal additions use _append_history_card."""
+        # Remove all existing widgets
+        for w in self._history_widgets:
+            self.history_layout.removeWidget(w)
+            w.deleteLater()
+        self._history_widgets.clear()
+        # Remove the trailing stretch if any
         while self.history_layout.count():
             item = self.history_layout.takeAt(0)
             if item is None:
@@ -777,34 +871,11 @@ class MainWindow(QMainWindow):
             widget = item.widget()
             if widget:
                 widget.deleteLater()
+        # Rebuild all cards
         for i, text in enumerate(self._history):
-            card = QFrame()
-            card.setStyleSheet("background:#27272A;border-radius:12px;")
-            row = QHBoxLayout(card)
-            row.setContentsMargins(10, 8, 10, 8)
-            row.setSpacing(8)
-            badge = QLabel(str(i + 1))
-            badge.setFixedSize(20, 20)
-            badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            badge.setStyleSheet(
-                "background:#3F3F46;border-radius:10px;color:#F4F4F5;"
-                "font-family:\"Segoe UI Semibold\";font-size:12px;font-weight:700;"
-            )
-            row.addWidget(badge)
-            label = QLabel(text)
-            label.setWordWrap(True)
-            label.setStyleSheet("color:#F4F4F5;font-size:14px;")
-            row.addWidget(label, 1)
-            btn = QPushButton("複製")
-            btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-            btn.setFixedSize(52, 28)
-            btn.setStyleSheet(
-                "QPushButton{background:#3F3F46;border:0;border-radius:6px;font-size:13px;color:#F4F4F5;}"
-                "QPushButton:hover{background:#52525B;}"
-            )
-            btn.clicked.connect(lambda _=False, idx=i, b=btn: self._copy_clicked(idx, b))
-            row.addWidget(btn)
+            card = self._create_history_card(text, i)
             self.history_layout.addWidget(card)
+            self._history_widgets.append(card)
         self.history_layout.addStretch(1)
 
     def _copy_clicked(self, idx: int, btn: QPushButton) -> None:
@@ -824,18 +895,18 @@ class MainWindow(QMainWindow):
     def paintEvent(self, event) -> None:
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
-        painter.setPen(QPen(QColor("#2A2A2E"), 1))
-        painter.setBrush(QColor("#121212"))
+        painter.setPen(QPen(_COLOR_BORDER, 1))
+        painter.setBrush(_COLOR_BG)
         painter.drawRoundedRect(QRectF(self.rect()).adjusted(0.5, 0.5, -0.5, -0.5), self._CORNER_RADIUS, self._CORNER_RADIUS)
 
     def resizeEvent(self, event) -> None:
         super().resizeEvent(event)
         QTimer.singleShot(0, self._layout_main_content)
-        self.geometry_changed.emit()
+        self._geometry_timer.start()  # debounced; restart() resets the 200ms countdown
 
     def moveEvent(self, event) -> None:
         super().moveEvent(event)
-        self.geometry_changed.emit()
+        self._geometry_timer.start()  # debounced; restart() resets the 200ms countdown
 
     def showEvent(self, event) -> None:
         super().showEvent(event)
