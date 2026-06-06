@@ -81,7 +81,7 @@ class AppController(QObject):
         self._apply_initial_state()
         safe_print(f"[main][{now_str()}] 🔧 DIAG 關閉元件: {active_summary()}")
         if is_disabled("vad"):
-            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 VAD/torch 預載")
+            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 VAD 預載")
         else:
             preload_silero_vad()
         if self.cfg.apiKey and not is_disabled("netwarm"):

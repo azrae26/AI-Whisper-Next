@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import os
+import sys
 import threading
 from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 
@@ -16,9 +19,11 @@ MIN_SPEECH_SEC = 0.35
 SILERO_CONFIDENCE_THRESHOLD = 0.6
 SILERO_FRAME_SIZE = 512
 
-_silero_model = None
+_silero_session = None
 _silero_available: bool | None = None
 _silero_lock = threading.Lock()
+
+_MODEL_FILENAME = "silero_vad.onnx"
 
 
 @dataclass(frozen=True)
@@ -32,26 +37,58 @@ class SpeechAnalysis:
     reason: str = ""
 
 
+def _find_onnx_model() -> str | None:
+    """搜尋 silero_vad.onnx，依序檢查：
+    1. 專案 assets/（開發環境）
+    2. PyInstaller _MEIPASS/assets/（打包後）
+    3. torch hub 快取（向下相容舊安裝）
+    """
+    # 1. 專案 assets/（開發環境：vad_service.py 往上 3 層 = 專案根）
+    project_assets = Path(__file__).resolve().parents[3] / "assets" / _MODEL_FILENAME
+    if project_assets.exists():
+        return str(project_assets)
+
+    # 2. PyInstaller _MEIPASS（打包後）
+    meipass = getattr(sys, "_MEIPASS", None)
+    if meipass:
+        meipass_path = Path(meipass) / "assets" / _MODEL_FILENAME
+        if meipass_path.exists():
+            return str(meipass_path)
+
+    # 3. torch hub 快取（向下相容）
+    hub_cache = Path.home() / ".cache" / "torch" / "hub"
+    if hub_cache.exists():
+        for onnx_file in hub_cache.rglob(_MODEL_FILENAME):
+            return str(onnx_file)
+
+    return None
+
+
 def _load_silero_vad() -> bool:
-    global _silero_model, _silero_available
+    global _silero_session, _silero_available
     if _silero_available is not None:
         return _silero_available
     with _silero_lock:
         if _silero_available is not None:
             return _silero_available
         try:
-            import torch
-            safe_print("[recorder][VAD] 載入 Silero VAD 模型...")
-            model, _ = torch.hub.load(
-                "snakers4/silero-vad",
-                "silero_vad",
-                force_reload=False,
-                trust_repo=True,
+            import onnxruntime as ort
+
+            model_path = _find_onnx_model()
+            if model_path is None:
+                raise FileNotFoundError(
+                    f"找不到 {_MODEL_FILENAME}，請將模型檔放入 assets/ 目錄"
+                )
+            safe_print(f"[recorder][VAD] 載入 Silero VAD 模型 (ONNX): {model_path}")
+            opts = ort.SessionOptions()
+            opts.inter_op_num_threads = 1
+            opts.intra_op_num_threads = 1
+            opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+            _silero_session = ort.InferenceSession(
+                model_path, sess_options=opts, providers=["CPUExecutionProvider"]
             )
-            model.eval()
-            _silero_model = model
             _silero_available = True
-            safe_print("[recorder][VAD] Silero VAD 模型載入完成")
+            safe_print("[recorder][VAD] Silero VAD 模型載入完成 (ONNX)")
         except Exception as e:
             safe_print(f"[recorder][VAD] ⚠️ Silero VAD 載入失敗，使用 RMS 備援: {e}")
             _silero_available = False
@@ -97,18 +134,23 @@ def analyze_speech(
         return SpeechAnalysis(False, engine="none", reason="音訊短於 VAD 最小幀")
 
     if _load_silero_vad():
-        import torch
         audio_f32 = samples.astype(np.float32) / 32768.0
-        _silero_model.reset_states()
+        # ONNX 推論：手動管理 LSTM 隱藏狀態（等同 reset_states()）
+        state = np.zeros((2, 1, 128), dtype=np.float32)
+        sr = np.array(SAMPLE_RATE, dtype=np.int64)
         n_frames = n_samples // SILERO_FRAME_SIZE
         speech_frames = 0
-        with torch.no_grad():
-            for i in range(n_frames):
-                frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
-                tensor = torch.from_numpy(frame).unsqueeze(0)
-                conf = _silero_model(tensor, SAMPLE_RATE).item()
-                if conf >= confidence_threshold:
-                    speech_frames += 1
+        for i in range(n_frames):
+            frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
+            ort_inputs = {
+                "input": frame.reshape(1, SILERO_FRAME_SIZE),
+                "state": state,
+                "sr": sr,
+            }
+            out, state = _silero_session.run(None, ort_inputs)
+            conf = float(out[0][0])
+            if conf >= confidence_threshold:
+                speech_frames += 1
         result = _build_analysis(
             engine="Silero",
             speech_frames=speech_frames,

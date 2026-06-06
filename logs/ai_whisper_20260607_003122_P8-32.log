@@ -1,0 +1,7 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_003122_P8-32.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:31:23.021] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][00:31:23.022] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:31:23.022] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:31:23.040] 🎙️ 敲麥監聽已啟動
+[main][00:31:23.040] 🔧 DIAG 關閉元件: (none)

@@ -18,6 +18,7 @@ dependencies = [
   "keyboard",
   "cn2an",
   "Pillow",
+  "onnxruntime>=1.16.1",
 ]
 
 [project.optional-dependencies]

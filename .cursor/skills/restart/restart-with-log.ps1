@@ -45,8 +45,12 @@ elseif (Test-Path $venvHome) { $env:PYTHONPATH = $venvHome }
 
 $ts = Get-Date -Format "yyyyMMdd_HHmmss"
 Write-Host "[$ts] Restart AI Whisper Next"
-$env:PYTHONUNBUFFERED = "1"
-Start-Process cmd -ArgumentList "/c", "py -3.12 -u run_ai_whisper.py" -WorkingDirectory $workspace -WindowStyle Hidden
+# Build command with inline env vars — Invoke-CimMethod creates a process outside
+# the parent's Job Object, so it survives when the calling terminal/task exits.
+$cmd = "cmd /c cd /d `"$workspace`""
+if ($env:PYTHONPATH) { $cmd += " && set PYTHONPATH=$($env:PYTHONPATH)" }
+$cmd += " && set PYTHONUNBUFFERED=1 && py -3.12 -u run_ai_whisper.py"
+Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = $cmd } | Out-Null
 
 Start-Sleep -Seconds 6
 $logDir = Join-Path $workspace "logs"

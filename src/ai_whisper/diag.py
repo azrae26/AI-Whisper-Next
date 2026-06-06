@@ -14,7 +14,7 @@ from __future__ import annotations
     # 測完關閉環境變數：Remove-Item Env:AIW_DIAG_NO_HOTKEY, Env:AIW_DIAG_NO_VAD
 
 旗標：
-    AIW_DIAG_NO_VAD      跳過 Silero VAD / torch 預載
+    AIW_DIAG_NO_VAD      跳過 Silero VAD 預載
     AIW_DIAG_NO_NETWARM  跳過 OpenAI 連線預熱
     AIW_DIAG_NO_HOTKEY   跳過全域熱鍵註冊（RegisterHotKey + keyboard 低階鉤子）
     AIW_DIAG_NO_TAP      強制關閉敲麥偵測（不論 config 設定）

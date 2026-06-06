@@ -1,0 +1,30 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_003129_P8-32.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][00:31:29.874] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][00:31:29.875] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][00:31:29.875] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [00:31:29.891] 🎙️ 敲麥監聽已啟動
+[main][00:31:29.891] 🔧 DIAG 關閉元件: (none)
+[recorder][VAD] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] Silero VAD 模型載入完成 (ONNX)
+[transcriber][00:31:31.221] 🔌 HTTP 連線預熱完成 (1.33s)
+[main][00:34:40.691] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:34:40.692] ⌨️ after(0) 執行延遲 0.7ms
+[tap]        [00:34:40.759] 💤 敲麥監聽已停止
+[recorder][00:34:40] ⏱️ InputStream() 61.6ms
+[recorder][00:34:40] ⏱️ stream.start() 0.4ms
+[recorder][00:34:40] 🎙️ 錄音就緒，總初始化 62.0ms
+[main][00:34:40.822] ⏱️ recorder.start() 耗時 62.1ms，ok=True
+[tap]        [00:34:41.421] 🎙️ 敲麥監聽已啟動
+[main][00:34:41.441] 🎙️ 開始錄音
+[recorder][00:34:41] 🎤 第一包音訊到達，麥克風實際開啟延遲 713.4ms
+[tap][dim]   [00:34:42.093] 持續=35ms 峰值=432 ✗弱
+[tap][sample][00:34:43.308] 持續=1116ms 峰值=13622 ✗長 K=0.2 CF=3.2 SC=2386Hz Att=40.4ms | fK=0.3 fCF=3.3 fSC=2382Hz fFlat=0.580 fHF=0.061
+[tap][dim]   [00:34:43.365] 持續=57ms 峰值=567 ✗弱
+[tap][sample][00:34:44.390] 持續=1025ms 峰值=12822 ✗長 K=1.3 CF=4.0 SC=2739Hz Att=27.5ms | fK=1.5 fCF=4.0 fSC=2742Hz fFlat=0.635 fHF=0.116
+[main][00:34:45.413] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][00:34:45.414] ⌨️ after(0) 執行延遲 0.5ms
+[main][00:34:45.415] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] Silero 語音幀 0/121 (0.0%)，有效語音 0.00s，信心閾值 0.6，最低比例 16%，最低語音 0.35s
+[recorder][stop] ❌ VAD 未達有效語音門檻，不送出辨識（語音比例不足 0.0% < 16%）
+[tap][sample][00:34:45.522] 持續=539ms 峰值=13917 ✗長 K=2.0 CF=3.9 SC=1910Hz Att=115.6ms | fK=2.3 fCF=4.0 fSC=1913Hz fFlat=0.416 fHF=0.022
