@@ -140,8 +140,10 @@ class AudioService:
             return AudioSegment(None, reason="too_short", duration=duration)
         speech = analyze_speech(audio_data, confidence_threshold=vad_confidence, min_speech_sec=vad_min_speech_sec)
         if not speech.has_speech:
-            msg = "不送出辨識" if source == "stop" else "略過"
-            safe_print(f"[recorder][{source}] ❌ VAD 未達有效語音門檻，{msg}（{speech.reason}）")
+            # 0% speech（純靜音）→ 靜默不印；有 speech 但不達標才印
+            if speech.speech_frames > 0:
+                msg = "不送出辨識" if source == "stop" else "略過"
+                safe_print(f"[recorder][{source}] ❌ VAD {msg}（{speech.reason}）")
             return AudioSegment(None, reason="no_speech", duration=duration)
         if source == "flush":
             safe_print(f"[recorder][flush] ✅ 取出 {duration:.1f}s 音訊段落")

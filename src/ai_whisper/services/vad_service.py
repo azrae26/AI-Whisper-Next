@@ -176,11 +176,14 @@ def analyze_speech(
             frame_seconds=SILERO_FRAME_SIZE / SAMPLE_RATE,
             min_speech_sec=min_speech_sec,
         )
-        safe_print(
-            f"[recorder][VAD] Silero 語音幀 {speech_frames}/{n_frames} ({result.speech_ratio:.1%})，"
-            f"有效語音 {result.speech_seconds:.2f}s，信心閾值 {confidence_threshold}，"
-            f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {min_speech_sec:.2f}s"
-        )
+        # 0% speech → 靜默；有 speech 時印精簡行
+        if speech_frames > 0:
+            mark = "✅" if result.has_speech else "❌"
+            safe_print(
+                f"[recorder][VAD] {mark} Silero {speech_frames}/{n_frames} "
+                f"({result.speech_ratio:.1%}), {result.speech_seconds:.2f}s speech"
+                f"{'' if result.has_speech else f' (need {VAD_SPEECH_RATIO:.0%}/{min_speech_sec}s)'}"  # noqa: E501
+            )
         return result
 
     frame_len = int(SAMPLE_RATE * VAD_FRAME_SEC)
@@ -198,11 +201,14 @@ def analyze_speech(
         frame_seconds=VAD_FRAME_SEC,
         min_speech_sec=min_speech_sec,
     )
-    safe_print(
-        f"[recorder][VAD] RMS 語音幀 {speech_frames}/{n_frames} ({result.speech_ratio:.1%})，"
-        f"有效語音 {result.speech_seconds:.2f}s，閾值 {VAD_FRAME_THRESHOLD}，"
-        f"最低比例 {VAD_SPEECH_RATIO:.0%}，最低語音 {min_speech_sec:.2f}s"
-    )
+    # 0% speech → 靜默；有 speech 時印精簡行
+    if speech_frames > 0:
+        mark = "✅" if result.has_speech else "❌"
+        safe_print(
+            f"[recorder][VAD] {mark} RMS {speech_frames}/{n_frames} "
+            f"({result.speech_ratio:.1%}), {result.speech_seconds:.2f}s speech"
+            f"{'' if result.has_speech else f' (need {VAD_SPEECH_RATIO:.0%}/{min_speech_sec}s)'}"  # noqa: E501
+        )
     return result
 
 
