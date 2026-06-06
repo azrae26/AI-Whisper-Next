@@ -275,7 +275,7 @@ class WaveformOverlay(QWidget):
         self._btn_panel = _OverlayButtons(self)
         self._hover_timer = QTimer(self)
         self._hover_timer.timeout.connect(self._check_button_hover)
-        self._hover_timer.start(50)
+        # Started only when overlay becomes visible; stopped in hide_overlay().
 
     def showEvent(self, event) -> None:
         super().showEvent(event)
@@ -296,6 +296,7 @@ class WaveformOverlay(QWidget):
         self._anchor_to_cursor_screen()
         self._position_at_cursor_screen()
         self.show()
+        self._hover_timer.start(50)
         self.raise_()
         self.update()
 
@@ -312,6 +313,7 @@ class WaveformOverlay(QWidget):
         self._set_status_label("識別中", self._processing_color(), on_waveform=False)
         self._position_at_cursor_screen()
         self.show()
+        self._hover_timer.start(50)
         self.raise_()
         self._timer.start(50)
 
@@ -355,6 +357,7 @@ class WaveformOverlay(QWidget):
         self._status_until = time.time() + duration_ms / 1000
         self._position_at_cursor_screen()
         self.show()
+        self._hover_timer.start(50)
         self.raise_()
         self._timer.start(50)
 
@@ -369,6 +372,7 @@ class WaveformOverlay(QWidget):
         self._update_recording_status_metrics("")
         self._set_status_label("")
         self._timer.stop()
+        self._hover_timer.stop()
         self._btn_panel.hide()
         self.hide()
 
@@ -382,6 +386,7 @@ class WaveformOverlay(QWidget):
             self._set_status_label(self._recording_status_text, self._recording_status_color, on_waveform=False)
             self._position_at_cursor_screen()
             self.show()
+            self._hover_timer.start(50)
             self.raise_()
             if self._recording_status_until and not self._timer.isActive():
                 self._timer.start(50)
@@ -398,6 +403,7 @@ class WaveformOverlay(QWidget):
             if self._recording_status_until and not self._timer.isActive():
                 self._timer.start(50)
             self.show()
+            self._hover_timer.start(50)
             self.raise_()
         else:
             self._processing = True
@@ -407,6 +413,7 @@ class WaveformOverlay(QWidget):
             if not self._timer.isActive():
                 self._timer.start(50)
             self.show()
+            self._hover_timer.start(50)
             self.raise_()
         self.update()
 
