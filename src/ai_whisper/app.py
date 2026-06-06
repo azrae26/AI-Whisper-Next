@@ -307,6 +307,10 @@ def main() -> int:
             window = _load_result['MainWindow'](_load_result['cfg'])
             _apply_geometry(window, _load_result['cfg'].geometry)
             controller = _load_result['AppController'](window, _load_result['settings'])
+            from .services.debug_server import DebugServer
+            _dbg = DebugServer(controller)
+            _dbg.start()
+            app.aboutToQuit.connect(_dbg.shutdown)
             app.aboutToQuit.connect(controller.cleanup)
             app.aboutToQuit.connect(single_instance.close)
             single_instance.activate_requested.connect(window.show_from_tray)
@@ -315,6 +319,7 @@ def main() -> int:
             _refs['controller'] = controller
             _refs['waveform_overlay'] = window.waveform_overlay
             _refs['single_instance'] = single_instance
+            _refs['debug_server'] = _dbg
             splash.finish(window)
             window.show()
             QTimer.singleShot(500, window.prewarm)

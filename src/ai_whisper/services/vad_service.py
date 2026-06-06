@@ -18,6 +18,9 @@ MIN_DURATION_SEC = 0.8
 MIN_SPEECH_SEC = 0.35
 SILERO_CONFIDENCE_THRESHOLD = 0.6
 SILERO_FRAME_SIZE = 512
+# v5 ONNX 需要前一幀末尾 64 sample 作為 context 前綴，
+# 實際送入模型的 input shape = [1, CONTEXT + FRAME] = [1, 576]
+SILERO_CONTEXT_SIZE = 64
 
 _silero_session = None
 _silero_available: bool | None = None
@@ -135,15 +138,20 @@ def analyze_speech(
 
     if _load_silero_vad():
         audio_f32 = samples.astype(np.float32) / 32768.0
-        # ONNX 推論：手動管理 LSTM 隱藏狀態（等同 reset_states()）
+        # ONNX 推論：手動管理 LSTM 隱藏狀態 + context 前綴
+        # ⚠ Silero v5 要求每幀前面拼接前一幀末尾 64 sample 作為 context，
+        #   即實際 input shape = [1, 576]（64 context + 512 frame）
         state = np.zeros((2, 1, 128), dtype=np.float32)
+        context = np.zeros(SILERO_CONTEXT_SIZE, dtype=np.float32)
         sr = np.array(SAMPLE_RATE, dtype=np.int64)
         n_frames = n_samples // SILERO_FRAME_SIZE
         speech_frames = 0
         for i in range(n_frames):
             frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
+            # 拼接 context + frame → [1, 576]
+            input_with_context = np.concatenate([context, frame]).reshape(1, -1)
             ort_inputs = {
-                "input": frame.reshape(1, SILERO_FRAME_SIZE),
+                "input": input_with_context,
                 "state": state,
                 "sr": sr,
             }
@@ -151,6 +159,8 @@ def analyze_speech(
             conf = float(out[0][0])
             if conf >= confidence_threshold:
                 speech_frames += 1
+            # 保留當前幀末尾作為下一幀的 context
+            context = frame[-SILERO_CONTEXT_SIZE:]
         result = _build_analysis(
             engine="Silero",
             speech_frames=speech_frames,
