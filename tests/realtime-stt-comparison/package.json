@@ -1,0 +1,16 @@
+{
+  "name": "realtime-stt-comparison",
+  "version": "1.0.0",
+  "description": "即時語音辨識比較：OpenAI Realtime vs Google Cloud STT",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0",
+    "@google-cloud/speech": "^6.7.0",
+    "dotenv": "^16.4.0"
+  }
+}

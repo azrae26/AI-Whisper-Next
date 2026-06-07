@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>即時語音辨識比較 — OpenAI Realtime vs Google Cloud STT</title>
+  <meta name="description" content="並排即時比較 OpenAI Realtime API 與 Google Cloud Speech-to-Text 的中文語音辨識效果">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="top-bar">
+    <div class="brand">
+      <h1>🎙️ 即時 STT 比較</h1>
+      <span class="subtitle">OpenAI Realtime vs Google Cloud Speech-to-Text</span>
+    </div>
+    <div class="controls" style="display: flex; gap: 12px; align-items: center;">
+      <select id="mic-select" style="padding: 10px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg-secondary); color: var(--text-primary); font-size: 13px; outline: none; transition: border-color 0.2s; cursor: pointer; max-width: 260px;">
+        <option value="">正在偵測麥克風...</option>
+      </select>
+      <button id="btn-toggle" class="btn-record" disabled>
+        <span class="btn-icon">🎤</span>
+        <span class="btn-text">開始錄音</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Config ===== -->
+  <section class="config-panel">
+    <div class="config-row">
+      <div class="config-group">
+        <label class="config-label openai-accent">OpenAI API Key</label>
+        <input type="password" id="openai-key" placeholder="sk-..." autocomplete="off">
+        <select id="openai-model">
+          <option value="gpt-realtime-whisper">gpt-realtime-whisper (即時轉錄)</option>
+          <option value="gpt-realtime-2">gpt-realtime-2 (對話)</option>
+          <option value="gpt-4o-mini-transcribe">gpt-4o-mini-transcribe</option>
+          <option value="gpt-4o-transcribe">gpt-4o-transcribe</option>
+        </select>
+      </div>
+      <div class="config-group">
+        <label class="config-label google-accent">Google API Key</label>
+        <input type="password" id="google-key" placeholder="AIzaSy..." autocomplete="off">
+        <span id="google-status" class="status-tag">檢查中…</span>
+        <select id="google-model">
+          <option value="latest_long">latest_long</option>
+          <option value="latest_short">latest_short</option>
+          <option value="default">default</option>
+        </select>
+      </div>
+    </div>
+    <div class="meter-row">
+      <canvas id="audio-meter" height="4"></canvas>
+    </div>
+  </section>
+
+  <!-- ===== Comparison ===== -->
+  <main class="comparison">
+
+    <!-- OpenAI Panel -->
+    <section class="panel openai-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">🤖</span>
+          <h2>OpenAI Realtime</h2>
+          <span class="panel-hint">delta append-only → completed 修正</span>
+        </div>
+        <div class="panel-meta">
+          <span class="status-badge" id="openai-status">未連線</span>
+          <span class="latency-badge" id="openai-latency">— ms</span>
+        </div>
+      </div>
+
+      <div class="text-area">
+        <div class="streaming-text" id="openai-streaming">
+          <span class="placeholder">等待語音輸入…</span>
+        </div>
+      </div>
+
+      <div class="section-bar">
+        <h3>累積定稿</h3>
+      </div>
+      <div class="accumulated-content" id="openai-accumulated"></div>
+
+      <div class="section-bar">
+        <h3>事件紀錄</h3>
+        <button class="btn-clear" data-target="openai-log">清除</button>
+      </div>
+      <div class="event-log" id="openai-log"></div>
+    </section>
+
+    <!-- Google Panel -->
+    <section class="panel google-panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">☁️</span>
+          <h2>Google Cloud STT</h2>
+          <span class="panel-hint">interim 整段替換 → final 定稿</span>
+        </div>
+        <div class="panel-meta">
+          <span class="status-badge" id="google-status-badge">未連線</span>
+          <span class="latency-badge" id="google-latency">— ms</span>
+        </div>
+      </div>
+
+      <div class="text-area">
+        <div class="streaming-text" id="google-streaming">
+          <span class="placeholder">等待語音輸入…</span>
+        </div>
+      </div>
+
+      <div class="section-bar">
+        <h3>累積定稿</h3>
+      </div>
+      <div class="accumulated-content" id="google-accumulated"></div>
+
+      <div class="section-bar">
+        <h3>事件紀錄</h3>
+        <button class="btn-clear" data-target="google-log">清除</button>
+      </div>
+      <div class="event-log" id="google-log"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
