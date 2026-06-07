@@ -279,6 +279,8 @@ class AppController(QObject):
         safe_print(f"{log_prefix('[main]', now_str())}⏳ 預熱 idle 計時器啟動，{idle_min:.0f} 分鐘後關閉麥克風")
 
     def _do_warmup_shutdown(self) -> None:
+        if self._cleaned_up:
+            return
         self.executor.submit(self.audio.shutdown)
         safe_print(f"{log_prefix('[main]', now_str())}💤 預熱 stream 已關閉（idle 超時）")
 
@@ -407,11 +409,15 @@ class AppController(QObject):
         self.window.set_waveform_status(text, color, duration_ms)
 
     def _on_segments_complete(self) -> None:
+        if self._cleaned_up:
+            return
         self.state = "idle"
         self.window.set_idle_state()
         self.window.finish_recording_overlay_without_replay()
 
     def _on_transcribe_done(self, text: str) -> None:
+        if self._cleaned_up:
+            return
         self.state = "idle"
         self.window.set_idle_state()
         if text:
@@ -424,6 +430,8 @@ class AppController(QObject):
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_transcribe_error(self, err_msg: str) -> None:
+        if self._cleaned_up:
+            return
         self.state = "idle"
         self.window.set_idle_state()
         if "API Key" in err_msg:
@@ -436,6 +444,8 @@ class AppController(QObject):
         QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
     def _on_no_audio(self) -> None:
+        if self._cleaned_up:
+            return
         self.state = "idle"
         self.window.set_idle_state()
         self.window.set_status("⚠ 未錄到音訊", "#FCD34D")
@@ -492,11 +502,18 @@ class AppController(QObject):
         if self._cleaned_up:
             return
         self._cleaned_up = True
+        self._warmup_timer.stop()
         self.save_geometry_now()
-        self.hotkeys.shutdown()
-        self.tap.shutdown()
-        self.audio.shutdown()
-        self.paste.shutdown()
-        self.executor.shutdown(wait=False, cancel_futures=True)
-        self.window.tray.hide()
-        self.window.waveform_overlay.hide_overlay()
+        for name, fn in [
+            ("hotkeys", self.hotkeys.shutdown),
+            ("tap", self.tap.shutdown),
+            ("audio", self.audio.shutdown),
+            ("paste", self.paste.shutdown),
+            ("executor", lambda: self.executor.shutdown(wait=False, cancel_futures=True)),
+            ("tray", self.window.tray.hide),
+            ("overlay", self.window.waveform_overlay.hide_overlay),
+        ]:
+            try:
+                fn()
+            except Exception as e:
+                safe_print(f"{log_prefix('[main]', now_str())}⚠️ cleanup {name} failed: {e}")

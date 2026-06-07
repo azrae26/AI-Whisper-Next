@@ -222,6 +222,12 @@ class TapService:
         return total, detail
 
     def _callback(self, indata: np.ndarray, frames: int, time_info, status) -> None:
+        try:
+            self._callback_inner(indata, frames, time_info, status)
+        except Exception as e:
+            safe_print(f"{log_prefix('[tap]', now_str())}❌ callback 異常（繼續）: {e}")
+
+    def _callback_inner(self, indata: np.ndarray, frames: int, time_info, status) -> None:
         rms = float(np.sqrt(np.mean(indata.astype(np.float32) ** 2)))
         now = time.perf_counter()
         threshold = self._threshold

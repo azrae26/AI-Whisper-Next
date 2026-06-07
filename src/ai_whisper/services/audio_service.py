@@ -61,33 +61,36 @@ class AudioService:
         _rms_buf = np.empty(2048, dtype=np.float32)
 
         def _callback(indata, frames, time_info, status):
-            if not self._first_cb_logged:
-                self._first_cb_logged = True
-                delay_ms = (perf() - self._stream_start_time) * 1000
-                safe_print(
-                    f'{log_prefix("[recorder]", now_str())}'
-                    f'🎤 第一包音訊到達，麥克風實際開啟延遲 {delay_ms:.1f}ms'
-                )
-            with self._lock:
-                if not self._recording:
-                    return
-                self._frames.append(indata.copy())
-                chunk_len = len(indata)
-                if not self._chunk_samples:
-                    self._chunk_samples = chunk_len
-                # RMS: reuse pre-allocated float32 buffer (zero per-callback allocation)
-                buf = _rms_buf[:chunk_len]
-                np.copyto(buf, indata[:, 0])
-                rms = float(np.sqrt(np.dot(buf, buf) / chunk_len))
-                level = rms / 5000
-                self._segment_samples += chunk_len
-                if level < SILENCE_LEVEL:
-                    self._silence_chunks += 1
-                else:
-                    self._silence_chunks = 0
-            with self._wf_lock:
-                self._waveform.append(level)  # deque(maxlen=200) auto-evicts
-                self._waveform_dirty = True
+            try:
+                if not self._first_cb_logged:
+                    self._first_cb_logged = True
+                    delay_ms = (perf() - self._stream_start_time) * 1000
+                    safe_print(
+                        f'{log_prefix("[recorder]", now_str())}'
+                        f'🎤 第一包音訊到達，麥克風實際開啟延遲 {delay_ms:.1f}ms'
+                    )
+                with self._lock:
+                    if not self._recording:
+                        return
+                    self._frames.append(indata.copy())
+                    chunk_len = len(indata)
+                    if not self._chunk_samples:
+                        self._chunk_samples = chunk_len
+                    # RMS: reuse pre-allocated float32 buffer (zero per-callback allocation)
+                    buf = _rms_buf[:chunk_len]
+                    np.copyto(buf, indata[:, 0])
+                    rms = float(np.sqrt(np.dot(buf, buf) / chunk_len))
+                    level = rms / 5000
+                    self._segment_samples += chunk_len
+                    if level < SILENCE_LEVEL:
+                        self._silence_chunks += 1
+                    else:
+                        self._silence_chunks = 0
+                with self._wf_lock:
+                    self._waveform.append(level)  # deque(maxlen=200) auto-evicts
+                    self._waveform_dirty = True
+            except Exception as e:
+                safe_print(f"{log_prefix('[recorder]', now_str())}❌ callback 異常（繼續）: {e}")
 
         try:
             t0 = time.perf_counter()

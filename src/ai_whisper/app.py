@@ -282,19 +282,25 @@ def main() -> int:
     _load_done = threading.Event()
 
     def _background_load():
-        from .logging_setup import install_log_tee
-        from .services.settings_store import SettingsStore
-        from .controller import AppController
-        from .ui.main_window import MainWindow
-        from .paths import tap_log_dir
-        install_log_tee(log_dir(), tap_log_dir())
-        settings = SettingsStore()
-        cfg = settings.get()
-        _load_result['settings'] = settings
-        _load_result['cfg'] = cfg
-        _load_result['AppController'] = AppController
-        _load_result['MainWindow'] = MainWindow
-        _load_done.set()
+        try:
+            from .logging_setup import install_log_tee
+            from .services.settings_store import SettingsStore
+            from .controller import AppController
+            from .ui.main_window import MainWindow
+            from .paths import tap_log_dir
+            install_log_tee(log_dir(), tap_log_dir())
+            settings = SettingsStore()
+            cfg = settings.get()
+            _load_result['settings'] = settings
+            _load_result['cfg'] = cfg
+            _load_result['AppController'] = AppController
+            _load_result['MainWindow'] = MainWindow
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            _load_result['error'] = e
+        finally:
+            _load_done.set()
 
     threading.Thread(target=_background_load, daemon=True).start()
 
@@ -303,6 +309,12 @@ def main() -> int:
 
     def _check_loaded():
         if _load_done.is_set():
+            if 'error' in _load_result:
+                from PySide6.QtWidgets import QMessageBox
+                splash.finish(None)
+                QMessageBox.critical(None, "AI Whisper 啟動失敗", f"初始化時發生錯誤：\n{_load_result['error']}")
+                app.quit()
+                return
             window = _load_result['MainWindow'](_load_result['cfg'])
             _apply_geometry(window, _load_result['cfg'].geometry)
             controller = _load_result['AppController'](window, _load_result['settings'])

@@ -129,18 +129,17 @@ def set_startup(enabled: bool) -> None:
 
     key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
     try:
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_SET_VALUE)
-        if enabled:
-            cmd = f'"{sys.executable}"'
-            if not getattr(sys, "_MEIPASS", None):
-                cmd = f'"{sys.executable}" -m ai_whisper'
-            winreg.SetValueEx(key, "AIWhisper", 0, winreg.REG_SZ, cmd)
-        else:
-            try:
-                winreg.DeleteValue(key, "AIWhisper")
-            except FileNotFoundError:
-                pass
-        winreg.CloseKey(key)
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_SET_VALUE) as key:
+            if enabled:
+                cmd = f'"{sys.executable}"'
+                if not getattr(sys, "_MEIPASS", None):
+                    cmd = f'"{sys.executable}" -m ai_whisper'
+                winreg.SetValueEx(key, "AIWhisper", 0, winreg.REG_SZ, cmd)
+            else:
+                try:
+                    winreg.DeleteValue(key, "AIWhisper")
+                except FileNotFoundError:
+                    pass
     except Exception as e:
         safe_print(f"{log_prefix('[settings][set_startup]', now_str())}❌ 錯誤: {e}")
 
@@ -150,10 +149,9 @@ def is_startup_enabled() -> bool:
 
     key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
     try:
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path)
-        winreg.QueryValueEx(key, "AIWhisper")
-        winreg.CloseKey(key)
-        return True
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path) as key:
+            winreg.QueryValueEx(key, "AIWhisper")
+            return True
     except FileNotFoundError:
         return False
     except Exception:

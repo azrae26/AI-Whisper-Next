@@ -924,7 +924,10 @@ class PasteService:
                 job = self._paste_queue.get()
                 if job is None:
                     break
-                self._execute_paste(*job)
+                try:
+                    self._execute_paste(*job)
+                except Exception as e:
+                    safe_print(f"{log_prefix('[paster]', now_str())}❌ _execute_paste 未預期異常（worker 繼續）: {e}")
         finally:
             comtypes.CoUninitialize()
 
