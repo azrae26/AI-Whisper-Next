@@ -13,24 +13,21 @@ venv 名稱由 `scripts/deploy.ps1` 依電腦判斷：
 
 ## 執行方式
 
-### 只打包（不推 git）—— 說「包」時用這個
+### ⛔ 一律用 `-WaitZip`，一次跑完
 
-```powershell
-powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1"
-```
-
-Bash tool timeout：build 步驟 300000ms，zip 步驟 60000ms。
-
-### 只 build（不 zip）
-
-```powershell
-powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1" -BuildOnly
-```
-
-### build + 等待 zip 完成
+說「包」時**只執行這一行**，build + zip 同步完成後才回傳：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1" -WaitZip
+```
+
+**禁止**先跑不帶參數的 `pack.ps1`，再補跑 `-WaitZip` 或第二次 `pack.ps1`。
+那樣會觸發兩次 PyInstaller build，浪費時間且可能互相衝突。
+
+### 只 build（不 zip）—— 除非使用者明確要求，否則不用
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "scripts/pack.ps1" -BuildOnly
 ```
 
 ## 完成後告知使用者
