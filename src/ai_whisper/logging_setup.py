@@ -4,6 +4,7 @@ import datetime as _dt
 import re
 import socket
 import sys
+import threading
 from pathlib import Path
 
 
@@ -25,6 +26,7 @@ class _Tee:
         self._log = log_file
         self._tap = tap_file
         self._buf = ""
+        self._lock = threading.Lock()
 
     def write(self, s):
         try:
@@ -38,15 +40,16 @@ class _Tee:
         except Exception:
             pass
         if self._tap:
-            try:
-                self._buf += clean
-                while "\n" in self._buf:
-                    line, self._buf = self._buf.split("\n", 1)
-                    if "[tap]" in line:
-                        self._tap.write(line + "\n")
-                        self._tap.flush()
-            except Exception:
-                pass
+            with self._lock:
+                try:
+                    self._buf += clean
+                    while "\n" in self._buf:
+                        line, self._buf = self._buf.split("\n", 1)
+                        if "[tap]" in line:
+                            self._tap.write(line + "\n")
+                            self._tap.flush()
+                except Exception:
+                    pass
 
     def flush(self):
         try:

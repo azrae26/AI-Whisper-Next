@@ -143,12 +143,17 @@ def analyze_speech(
     import math
     early_exit_frames = math.ceil(min_speech_sec * SAMPLE_RATE / SILERO_FRAME_SIZE)
     scanned_frames = n_frames  # will be updated if we break early
+
+    # 預分配 VAD 推論的輸入緩衝區，避免在迴圈中頻繁 concat/reshape 產生垃圾回收開銷
+    input_buf = np.zeros((1, SILERO_CONTEXT_SIZE + SILERO_FRAME_SIZE), dtype=np.float32)
+
     for i in range(n_frames):
         frame = audio_f32[i * SILERO_FRAME_SIZE:(i + 1) * SILERO_FRAME_SIZE]
-        # 拼接 context + frame → [1, 576]
-        input_with_context = np.concatenate([context, frame]).reshape(1, -1)
+        # 原地賦值 context 與 frame
+        input_buf[0, :SILERO_CONTEXT_SIZE] = context
+        input_buf[0, SILERO_CONTEXT_SIZE:] = frame
         ort_inputs = {
-            "input": input_with_context,
+            "input": input_buf,
             "state": state,
             "sr": sr,
         }

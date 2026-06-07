@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import concurrent.futures
 import ctypes
 import os
 import queue
@@ -66,29 +67,74 @@ ENDING_PUNCTUATION = frozenset(
 
 
 
-def _uia_with_timeout(fn, default, timeout=UIA_TIMEOUT_SEC):
-    """Execute a UIA call with timeout. Returns *default* if UIA hangs.
+class _UIATransactionExecutor:
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._worker = None
+        self._queue: queue.Queue = queue.Queue()
 
-    ⚠️ 避免前景視窗掛起時 UIA COM 呼叫永久阻塞 PasteWorker。
-    超時後被放棄的 daemon thread 不會阻止程式退出。
-    """
-    result_box = [default]
-    def worker():
+    def _ensure_worker(self):
+        with self._lock:
+            if self._worker is None or not self._worker.is_alive():
+                self._queue = queue.Queue()
+                self._worker = threading.Thread(
+                    target=self._worker_loop,
+                    daemon=True,
+                    name="UIATransactionWorker"
+                )
+                self._worker.start()
+
+    def _worker_loop(self):
         import comtypes
         comtypes.CoInitialize()
         try:
-            result_box[0] = fn()
+            while True:
+                item = self._queue.get()
+                if item is None:
+                    break
+                fn, result_future = item
+                try:
+                    res = fn()
+                    result_future.set_result(res)
+                except Exception as e:
+                    result_future.set_exception(e)
+                finally:
+                    self._queue.task_done()
         finally:
             comtypes.CoUninitialize()
-    t = threading.Thread(target=worker, daemon=True, name="UIA-timeout")
-    t.start()
-    t.join(timeout=timeout)
-    if t.is_alive():
-        safe_print(
-            f"{log_prefix('[paster]', now_str())}⚠️ UIA 查詢超時 ({timeout}s)，使用備援值"
-        )
-        return default
-    return result_box[0]
+
+    def execute(self, fn, default, timeout=UIA_TIMEOUT_SEC):
+        self._ensure_worker()
+        future = concurrent.futures.Future()
+        self._queue.put((fn, future))
+        try:
+            return future.result(timeout=timeout)
+        except concurrent.futures.TimeoutError:
+            safe_print(
+                f"{log_prefix('[paster]', now_str())}⚠️ UIA 查詢超時 ({timeout}s)，拋棄舊 UIA Worker 並重建。"
+            )
+            with self._lock:
+                try:
+                    self._queue.put_nowait(None)
+                except Exception:
+                    pass
+                self._worker = None
+            return default
+        except Exception as e:
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ UIA 查詢出錯: {e}")
+            return default
+
+
+_uia_executor = _UIATransactionExecutor()
+
+
+def _uia_with_timeout(fn, default, timeout=UIA_TIMEOUT_SEC):
+    """Execute a UIA call with timeout. Returns *default* if UIA hangs.
+
+    使用持久的 UIATransactionWorker 線程，避免每次呼叫都開新 thread 與重複 CoInit。
+    超時時拋棄該 thread 並在下一次呼叫重建。
+    """
+    return _uia_executor.execute(fn, default, timeout)
 
 
 def _uia_read_focused_plain_text(control: object) -> tuple[bool, str]:

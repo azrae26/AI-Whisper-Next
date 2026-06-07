@@ -142,7 +142,10 @@ class AppController(QObject):
             positions.pop(key, None)
         else:
             positions[key] = {"x": x, "y": y}
-        self.settings_store.save({"overlay_positions": positions})
+        # 立即在主執行緒的 cfg.overlay_positions 中更新，確保下次 get() 能拿到最新記憶體狀態
+        self.settings_store.get().overlay_positions = positions
+        # 異步提交到背景執行緒進行寫檔
+        self.executor.submit(self.settings_store.save, {"overlay_positions": positions})
 
     def _flush_settings(self) -> None:
         if self._pending_config is None:
@@ -150,7 +153,8 @@ class AppController(QObject):
         old = self.cfg
         new = self._pending_config
         self._pending_config = None
-        self.cfg = self.settings_store.save(new)
+        self.cfg = new  # 立即在主執行緒更新記憶體，確保後續讀取的是最新 config
+        self.executor.submit(self.settings_store.save, new) # 異步寫檔
         if old.startup != new.startup:
             self.executor.submit(set_startup, new.startup)
         if (
