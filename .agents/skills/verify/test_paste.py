@@ -1065,14 +1065,16 @@ def _test_ctrlc_during_watchdog(total: int, passed: int) -> tuple[int, int]:
     )
     lines_before = get_result(r_lines) if r_lines.get("ok") else 0
 
-    # 觸發一次真實貼上（走 Ctrl+V 路徑）
+    # 觸發一次真實貼上（強制走 Ctrl+V 路徑，才有 watchdog）
     eval_expr(
         "self.paste.paste_text('WATCHDOG_TRIGGER', delay_ms=0, "
-        "end_prefix='', preserve_ctrl_modifier=False)"
+        "end_prefix='', preserve_ctrl_modifier=True)"
     )
 
-    # 等 ~0.6s（Ctrl+V 完成 + restore 完成，watchdog 開始監控）
-    time.sleep(0.6)
+    # 等 ~1.5s：Ctrl+V 完成 + restore 完成 + watchdog 開始監控
+    # （settle=0.08 + restore_delay=0.30 + restore_verify~0.12 + disarm → ~0.6s）
+    # 加保險等到 watchdog 已跑至少一輪 interval=0.20
+    time.sleep(1.5)
 
     # 模擬使用者 Ctrl+C：外部寫入新內容到剪貼簿
     eval_expr(f"self.paste._set_clipboard_verified({user_content!r})")
