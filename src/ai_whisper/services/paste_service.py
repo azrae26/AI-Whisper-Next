@@ -319,8 +319,7 @@ class PasteService:
             return False
         return True
 
-    @staticmethod
-    def _focused_text_snapshot() -> tuple[bool, str]:
+    def _focused_text_snapshot(self) -> tuple[bool, str]:
         # ⚠️ UIA timeout 防護（H6）
         def _query():
             try:
@@ -333,8 +332,8 @@ class PasteService:
                 return (False, "")
         return _uia_with_timeout(_query, (False, ""))
 
-    @staticmethod
     def _verify_direct_text_input(
+        self,
         before_readable: bool,
         before_text: str,
         final_text: str,
@@ -344,7 +343,7 @@ class PasteService:
         suffix_len = min(UNICODE_INPUT_VERIFY_SUFFIX_CHARS, len(final_text))
         suffix = final_text[-suffix_len:] if suffix_len > 0 else ""
         for attempt, delay in enumerate(UNICODE_INPUT_VERIFY_BACKOFF_SEC):
-            after_readable, after_text = PasteService._focused_text_snapshot()
+            after_readable, after_text = self._focused_text_snapshot()
             if not before_readable or not after_readable:
                 return (True, "unreadable")
             if after_text != before_text:

@@ -577,7 +577,7 @@ def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
         rect = ctypes.wintypes.RECT()
         user32.GetWindowRect(hwnd, ctypes.byref(rect))
         cx = (rect.left + rect.right) // 2
-        cy = rect.bottom - 30
+        cy = rect.bottom - 60
         user32.SetCursorPos(cx, cy)
         time.sleep(0.05)
         user32.mouse_event(0x0002, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTDOWN
