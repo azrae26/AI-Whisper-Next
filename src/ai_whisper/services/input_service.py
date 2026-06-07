@@ -6,7 +6,7 @@ import time
 
 import keyboard
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 
 KEYEVENTF_KEYDOWN = 0
 KEYEVENTF_KEYUP = 0x0002
@@ -248,7 +248,7 @@ class InputService:
                     continue
             time.sleep(0.02)
             safe_print(
-                f"[input][{now_str()}] ⌨️ 熱鍵修飾鍵清理({source}): "
+                f"{log_prefix('[input]', now_str())}⌨️ 熱鍵修飾鍵清理({source}): "
                 f"released={self.vk_list(down)}，before={before}，after={self.modifier_state_summary()}"
             )
 
@@ -277,6 +277,6 @@ class InputService:
         self.force_release_ctrl()
         time.sleep(0.02)
         safe_print(
-            f"[input][{now_str()}] ⌨️ Ctrl 延遲清理({source}): "
+            f"{log_prefix('[input]', now_str())}⌨️ Ctrl 延遲清理({source}): "
             f"released={self.vk_list(down)}，before={before}，after={self.modifier_state_summary()}"
         )

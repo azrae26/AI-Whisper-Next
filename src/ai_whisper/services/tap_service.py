@@ -7,7 +7,7 @@ from typing import Callable
 import numpy as np
 import sounddevice as sd
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from .vad_service import SAMPLE_RATE
 
 TAP_COUNT = 3
@@ -27,7 +27,6 @@ def _tap_max_duration(peak: float) -> float:
 
 TAP_MIN_INTERVAL_SEC = 0.18
 TAP_MAX_INTERVAL_SEC = 0.4
-TAP_LOG_TAG_WIDTH = len("[tap][sample]")
 
 # ══════════════════════════════════════════════════════════════
 #  信心評分參數
@@ -70,13 +69,6 @@ def _score_lt(value: float, table: list) -> int:
             return pts
     return table[-1][1]
 
-
-def _tap_log_prefix(kind: str | None = None, ts: str | None = None) -> str:
-    tag = "[tap]" if kind is None else f"[tap][{kind}]"
-    prefix = f"{tag:<{TAP_LOG_TAG_WIDTH}}"
-    if ts is not None:
-        return f"{prefix}[{ts}] "
-    return f"{prefix} "
 
 
 class TapService:
@@ -146,9 +138,9 @@ class TapService:
                 callback=self._callback,
             )
             self._stream.start()
-            safe_print(f"{_tap_log_prefix(ts=now_str())}🎙️ 敲麥監聽已啟動")
+            safe_print(f"{log_prefix('[tap]', now_str())}🎙️ 敲麥監聽已啟動")
         except Exception as e:
-            safe_print(f"{_tap_log_prefix(ts=now_str())}❌ 無法開啟監聽 stream: {e}")
+            safe_print(f"{log_prefix('[tap]', now_str())}❌ 無法開啟監聽 stream: {e}")
             self._stream = None
 
     def _stop_stream(self) -> None:
@@ -168,7 +160,7 @@ class TapService:
         self._zcr_buffer.clear()
         self._audio_buffer.clear()
         self._reset_tap_sequence()
-        safe_print(f"{_tap_log_prefix(ts=now_str())}💤 敲麥監聽已停止")
+        safe_print(f"{log_prefix('[tap]', now_str())}💤 敲麥監聽已停止")
 
     def _reset_tap_sequence(self) -> None:
         self._tap_times.clear()
@@ -263,7 +255,7 @@ class TapService:
         elif not self._dim_above and was_dim:
             dur = now - self._dim_start
             if dur < _tap_max_duration(self._dim_peak):
-                safe_print(f"{_tap_log_prefix('dim', now_str())}持續={dur*1000:.0f}ms 峰值={self._dim_peak:.0f} ✗弱")
+                safe_print(f"{log_prefix('[tap][dim]', now_str())}持續={dur*1000:.0f}ms 峰值={self._dim_peak:.0f} ✗弱")
                 # 加入 rolling dim 緩衝（用於信心評分）
                 self._recent_dims.append((self._dim_start, self._dim_peak))
                 while self._recent_dims and now - self._recent_dims[0][0] > 2.0:
@@ -346,7 +338,7 @@ class TapService:
             fkurt, fcrest, fcentroid, flat, hf_ratio = 0.0, 0.0, 0.0, 0.0, 0.0
 
         sample_line = (
-            f"{_tap_log_prefix('sample', ts)}持續={duration*1000:.0f}ms 峰值={peak:.0f} "
+            f"{log_prefix('[tap][sample]', ts)}持續={duration*1000:.0f}ms 峰值={peak:.0f} "
             f"{'✓' if duration < max_dur else '✗長'}"
             f" K={kurt:.1f} CF={crest:.1f} SC={centroid:.0f}Hz Att={att_ms:.1f}ms"
             f" | fK={fkurt:.1f} fCF={fcrest:.1f} fSC={fcentroid:.0f}Hz"
@@ -371,7 +363,7 @@ class TapService:
                 )
                 return
             if gap > TAP_MAX_INTERVAL_SEC:
-                safe_print(f"{_tap_log_prefix()}⏱️ 間隔過長重置（{gap*1000:.0f}ms）")
+                safe_print(f"{log_prefix('[tap]', ts)}⏱️ 間隔過長重置（{gap*1000:.0f}ms）")
                 self._reset_tap_sequence()
 
         self._tap_times.append(tap_time)
@@ -432,7 +424,7 @@ class TapService:
             if new_pass:
                 self._reset_tap_sequence()
                 safe_print(
-                    f"{_tap_log_prefix(ts=ts)}🔔 三連敲觸發（間隔 {d['ia_ms']}ms / {d['ib_ms']}ms，"
+                    f"{log_prefix('[tap]', ts)}🔔 三連敲觸發（間隔 {d['ia_ms']}ms / {d['ib_ms']}ms，"
                     f"一致性 {d['rhythm']:.2f}）"
                     f" 底噪={f12}/{f23} 基線={baseline:.0f} ZCR={avg_zcr:.3f}"
                     f"{consist_str}"
@@ -445,7 +437,7 @@ class TapService:
                 self._reset_tap_sequence()
                 reason = "信心不足" if old_pass else "節奏+信心不足"
                 safe_print(
-                    f"{_tap_log_prefix(ts=ts)}🚫 三連敲被過濾（{reason}，信心={total}/{CONF_TRIGGER}）"
+                    f"{log_prefix('[tap]', ts)}🚫 三連敲被過濾（{reason}，信心={total}/{CONF_TRIGGER}）"
                     f" 底噪={f12}/{f23} 基線={baseline:.0f} ZCR={avg_zcr:.3f}"
                     f"{consist_str}"
                     f" [峰={d['peak']} 靜={d['silence']} 噪={d['dim']}"

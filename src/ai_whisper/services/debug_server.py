@@ -25,7 +25,7 @@ from PySide6.QtCore import QObject
 from PySide6.QtNetwork import QHostAddress, QTcpServer
 from PySide6.QtWidgets import QWidget
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 
 DEBUG_PORT = 47643
 
@@ -48,9 +48,9 @@ class DebugServer(QObject):
 
     def start(self) -> None:
         if self._server.listen(QHostAddress("127.0.0.1"), DEBUG_PORT):
-            safe_print(f"[debug][{now_str()}] 🔍 Debug server listening on 127.0.0.1:{DEBUG_PORT}")
+            safe_print(f"{log_prefix('[debug]', now_str())}🔍 Debug server listening on 127.0.0.1:{DEBUG_PORT}")
         else:
-            safe_print(f"[debug][{now_str()}] ⚠️ Debug server failed: {self._server.errorString()}")
+            safe_print(f"{log_prefix('[debug]', now_str())}⚠️ Debug server failed: {self._server.errorString()}")
 
     def shutdown(self) -> None:
         if self._server.isListening():

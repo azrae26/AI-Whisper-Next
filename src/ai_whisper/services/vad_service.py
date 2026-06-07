@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ..logging_setup import safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 
 SAMPLE_RATE = 16000
 
@@ -80,7 +80,7 @@ def _load_silero_vad() -> None:
             raise FileNotFoundError(
                 f"找不到 {_MODEL_FILENAME}，請將模型檔放入 assets/ 目錄"
             )
-        safe_print(f"[recorder][VAD] 載入 Silero VAD 模型 (ONNX): {model_path}")
+        safe_print(f"{log_prefix('[recorder][VAD]', now_str())}載入 Silero VAD 模型 (ONNX): {model_path}")
         opts = ort.SessionOptions()
         opts.inter_op_num_threads = 1
         opts.intra_op_num_threads = 1
@@ -89,7 +89,7 @@ def _load_silero_vad() -> None:
             model_path, sess_options=opts, providers=["CPUExecutionProvider"]
         )
         _silero_loaded = True
-        safe_print("[recorder][VAD] Silero VAD 模型載入完成 (ONNX)")
+        safe_print(f"{log_prefix('[recorder][VAD]', now_str())}Silero VAD 模型載入完成 (ONNX)")
 
 
 def preload_silero_vad() -> None:
@@ -174,7 +174,7 @@ def analyze_speech(
     if speech_frames > 0:
         mark = "✅" if result.has_speech else "❌"
         safe_print(
-            f"[recorder][VAD] {mark} Silero {speech_frames}/{n_frames} "
+            f"{log_prefix('[recorder][VAD]', now_str())}{mark} Silero {speech_frames}/{n_frames} "
             f"({result.speech_ratio:.1%}), {result.speech_seconds:.2f}s speech"
             f"{'' if result.has_speech else f' (need {VAD_SPEECH_RATIO:.0%}/{min_speech_sec}s)'}"  # noqa: E501
         )

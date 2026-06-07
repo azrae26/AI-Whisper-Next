@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from PySide6.QtCore import QObject, QTimer, Signal
 
 from .diag import active_summary, is_disabled
-from .logging_setup import now_str, safe_print
+from .logging_setup import log_prefix, now_str, safe_print
 from .models import AppConfig
 from .services.audio_service import AudioService
 from .services.hotkey_service import HotkeyService
@@ -77,9 +77,9 @@ class AppController(QObject):
 
         self._connect()
         self._apply_initial_state()
-        safe_print(f"[main][{now_str()}] 🔧 DIAG 關閉元件: {active_summary()}")
+        safe_print(f"{log_prefix('[main]', now_str())}🔧 DIAG 關閉元件: {active_summary()}")
         if is_disabled("vad"):
-            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 VAD 預載")
+            safe_print(f"{log_prefix('[main]', now_str())}🔧 DIAG: 跳過 VAD 預載")
         else:
             preload_silero_vad()
         if self.cfg.apiKey and not is_disabled("netwarm"):
@@ -90,7 +90,7 @@ class AppController(QObject):
                 name="APIWarmup",
             ).start()
         elif is_disabled("netwarm"):
-            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過 OpenAI 連線預熱")
+            safe_print(f"{log_prefix('[main]', now_str())}🔧 DIAG: 跳過 OpenAI 連線預熱")
 
     def _connect(self) -> None:
         self.window.toggle_clicked.connect(self.toggle_recording)
@@ -120,14 +120,14 @@ class AppController(QObject):
         self.window.set_hotkey_display(self.cfg.hotkey, self.cfg.hotkey_comma)
         self.window.set_idle_state()
         if is_disabled("hotkey"):
-            safe_print(f"[main][{now_str()}] 🔧 DIAG: 跳過全域熱鍵註冊")
+            safe_print(f"{log_prefix('[main]', now_str())}🔧 DIAG: 跳過全域熱鍵註冊")
         else:
             self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
         self.tap.set_threshold(self.cfg.tap_sensitivity)
         if self.cfg.tap_trigger_enabled and not is_disabled("tap"):
             self.tap.set_enabled(True)
         elif is_disabled("tap"):
-            safe_print(f"[main][{now_str()}] 🔧 DIAG: 強制關閉敲麥偵測")
+            safe_print(f"{log_prefix('[main]', now_str())}🔧 DIAG: 強制關閉敲麥偵測")
         if not self.cfg.apiKey:
             QTimer.singleShot(300, self.window.show_settings)
 
@@ -206,7 +206,7 @@ class AppController(QObject):
             self.tap.set_enabled(False)
         t0 = time.perf_counter()
         ok = self.audio.start()
-        safe_print(f"[main][{now_str()}] ⏱️ recorder.start() 耗時 {(time.perf_counter() - t0) * 1000:.1f}ms，ok={ok}")
+        safe_print(f"{log_prefix('[main]', now_str())}⏱️ recorder.start() 耗時 {(time.perf_counter() - t0) * 1000:.1f}ms，ok={ok}")
         if self.cfg.tap_trigger_enabled:
             self.tap.set_enabled(True)
         self._prev_seg_event = threading.Event()
@@ -223,7 +223,7 @@ class AppController(QObject):
         self.window.set_recording_state()
         self._recording_timer.start(50)
         self._segment_timer.start(200)
-        safe_print(f"[main][{now_str()}] 🎙️ 開始錄音")
+        safe_print(f"{log_prefix('[main]', now_str())}🎙️ 開始錄音")
 
     def _stop_recording(self) -> None:
         self._segment_timer.stop()
@@ -238,7 +238,7 @@ class AppController(QObject):
         try:
             segment = self.audio.process_frames(frames, "stop", self.cfg.vad_confidence, self.cfg.vad_min_speech_sec)
         except Exception as e:
-            safe_print(f"[main][{now_str()}] ❌ 音訊處理失敗: {e}")
+            safe_print(f"{log_prefix('[main]', now_str())}❌ 音訊處理失敗: {e}")
             self.no_audio.emit()
             return
         if not segment.wav_bytes:
@@ -251,7 +251,7 @@ class AppController(QObject):
             else:
                 self.no_audio.emit()
             return
-        safe_print(f"[main][{now_str()}] ✅ 錄音完成，送出辨識")
+        safe_print(f"{log_prefix('[main]', now_str())}✅ 錄音完成，送出辨識")
         self.processing_started.emit()
         self.paste.prefetch_cursor_position(len(segment.wav_bytes))
         self._run_transcribe(segment.wav_bytes, prev_event, is_segment=False)
@@ -261,11 +261,11 @@ class AppController(QObject):
             self._warmup_timer.stop()
         idle_min = self.cfg.warmup_idle_minutes
         self._warmup_timer.start(int(idle_min * 60 * 1000))
-        safe_print(f"[main][{now_str()}] ⏳ 預熱 idle 計時器啟動，{idle_min:.0f} 分鐘後關閉麥克風")
+        safe_print(f"{log_prefix('[main]', now_str())}⏳ 預熱 idle 計時器啟動，{idle_min:.0f} 分鐘後關閉麥克風")
 
     def _do_warmup_shutdown(self) -> None:
         self.executor.submit(self.audio.shutdown)
-        safe_print(f"[main][{now_str()}] 💤 預熱 stream 已關閉（idle 超時）")
+        safe_print(f"{log_prefix('[main]', now_str())}💤 預熱 stream 已關閉（idle 超時）")
 
     def _check_segment(self) -> None:
         if self.state != "recording":
@@ -302,13 +302,13 @@ class AppController(QObject):
             if not segment.wav_bytes:
                 my_event.set()
                 return
-            safe_print(f"[main][{now_str()}] ✂️ 自動分段送出（{reason}，累積 {accumulated:.1f}s，靜音 {silence:.1f}s）")
+            safe_print(f"{log_prefix('[main]', now_str())}✂️ 自動分段送出（{reason}，累積 {accumulated:.1f}s，靜音 {silence:.1f}s）")
             self.segment_processing_started.emit()
             self.paste.prefetch_cursor_position(len(segment.wav_bytes))
             self._run_transcribe(segment.wav_bytes, prev_event, is_segment=True, my_event=my_event)
         except Exception as e:
             my_event.set()
-            safe_print(f"[main][{now_str()}] ❌ 分段處理失敗: {e}")
+            safe_print(f"{log_prefix('[main]', now_str())}❌ 分段處理失敗: {e}")
 
     def _run_transcribe(
         self,
@@ -334,7 +334,7 @@ class AppController(QObject):
                 cfg.text_corrections,
             )
             if is_segment:
-                safe_print(f"[main][{now_str()}] ✅ 分段辨識完成: \"{clean}\"")
+                safe_print(f"{log_prefix('[main]', now_str())}✅ 分段辨識完成: \"{clean}\"")
                 if clean:
                     assert prev_event is not None
                     prev_event.wait(timeout=30)
@@ -344,7 +344,7 @@ class AppController(QObject):
                     my_event.set()
                 self.segment_done.emit(clean)
             else:
-                safe_print(f"[main][{now_str()}] ✅ 辨識完成: \"{clean}\"")
+                safe_print(f"{log_prefix('[main]', now_str())}✅ 辨識完成: \"{clean}\"")
                 if clean:
                     if prev_event is not None:
                         prev_event.wait(timeout=30)
@@ -354,10 +354,10 @@ class AppController(QObject):
             if is_segment:
                 if my_event:
                     my_event.set()
-                safe_print(f"[main][{now_str()}] ❌ 分段辨識失敗: {e}")
+                safe_print(f"{log_prefix('[main]', now_str())}❌ 分段辨識失敗: {e}")
                 self.segment_status.emit("辨識失敗", "#F87171", 1800)
             else:
-                safe_print(f"[main][{now_str()}] ❌ 辨識失敗: {e}")
+                safe_print(f"{log_prefix('[main]', now_str())}❌ 辨識失敗: {e}")
                 self.transcribe_error.emit(str(e))
         finally:
             if is_segment:
@@ -446,10 +446,10 @@ class AppController(QObject):
     def paste_history(self, idx: int) -> None:
         text = self.window.history_text(idx)
         if text:
-            safe_print(f"[main][{now_str()}] 📋 貼上記憶 {idx + 1}: \"{text[:20]}\"")
+            safe_print(f"{log_prefix('[main]', now_str())}📋 貼上記憶 {idx + 1}: \"{text[:20]}\"")
             self.paste.paste_text(text, delay_ms=0, preserve_ctrl_modifier=True)
         else:
-            safe_print(f"[main][{now_str()}] ⚠️ 記憶 {idx + 1} 不存在")
+            safe_print(f"{log_prefix('[main]', now_str())}⚠️ 記憶 {idx + 1} 不存在")
 
     def _geometry_string(self) -> str:
         geo = self.window.geometry()

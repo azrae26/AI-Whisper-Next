@@ -67,6 +67,17 @@ def now_str() -> str:
     return _dt.datetime.now().strftime("%H:%M:%S.%f")[:-3]
 
 
+LOG_TAG_WIDTH = 16
+
+
+def log_prefix(tag: str, ts: str | None = None) -> str:
+    """統一 log 前綴：tag 填充到固定寬度 + 可選時間戳。"""
+    padded = f"{tag:<{LOG_TAG_WIDTH}}"
+    if ts is not None:
+        return f"{padded}[{ts}] "
+    return f"{padded} "
+
+
 def safe_print(msg: str) -> None:
     try:
         print(msg, flush=True)
@@ -113,7 +124,7 @@ def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
 
         sys.stdout = _Tee(sys.stdout, log_file, tap_file)
         sys.stderr = _Tee(sys.stderr, log_file)
-        safe_print(f"[main] LOG -> {log_path}")
+        safe_print(f"{log_prefix('[main]', now_str())}LOG -> {log_path}")
         return log_path
     except Exception:
         return None

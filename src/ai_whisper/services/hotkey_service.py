@@ -7,7 +7,7 @@ import time
 import keyboard
 from PySide6.QtCore import QObject, Signal
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from .input_service import InputService
 
 MODIFIERS = {
@@ -66,12 +66,12 @@ class HotkeyService(QObject):
                 def _hk_fired(p="。"):
                     t = time.perf_counter()
                     safe_print(
-                        f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)，"
+                        f"{log_prefix('[main]', now_str())}⌨️ 熱鍵觸發，排入 after(0)，"
                         f"keys={self.input.modifier_state_summary()}"
                     )
                     self.toggle_requested.emit(p)
                     self.input.schedule_hotkey_modifier_cleanup(hk_mods, "main")
-                    safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
+                    safe_print(f"{log_prefix('[main]', now_str())}⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey, _hk_fired)
 
             hc_win32_mods, hc_win32_vk = self.parse_hotkey_win32(hotkey_comma)
@@ -81,18 +81,18 @@ class HotkeyService(QObject):
                 def _hk_comma_fired(p="，"):
                     t = time.perf_counter()
                     safe_print(
-                        f"[main][{now_str()}] ⌨️ 熱鍵觸發，排入 after(0)，"
+                        f"{log_prefix('[main]', now_str())}⌨️ 熱鍵觸發，排入 after(0)，"
                         f"keys={self.input.modifier_state_summary()}"
                     )
                     self.toggle_requested.emit(p)
                     self.input.schedule_hotkey_modifier_cleanup(hc_mods, "comma")
-                    safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
+                    safe_print(f"{log_prefix('[main]', now_str())}⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                 keyboard.add_hotkey(hotkey_comma, _hk_comma_fired)
 
-            safe_print(f"[main][{now_str()}] ✅ 快捷鍵 {hotkey}（句號）、{hotkey_comma}（逗號）已註冊")
+            safe_print(f"{log_prefix('[main]', now_str())}✅ 快捷鍵 {hotkey}（句號）、{hotkey_comma}（逗號）已註冊")
             self.register_win32_hotkeys(win32_main_hotkeys, history_hotkeys)
         except Exception as e:
-            safe_print(f"[main][{now_str()}] ❌ 快捷鍵註冊失敗: {e}")
+            safe_print(f"{log_prefix('[main]', now_str())}❌ 快捷鍵註冊失敗: {e}")
 
     def start_capture(self) -> None:
         try:
@@ -213,7 +213,7 @@ class HotkeyService(QObject):
                     main_id_to_hotkey[hotkey_id] = (source, punct, label)
                     main_ok_count += 1
                 else:
-                    safe_print(f"[main][{now_str()}] ❌ Win32 主快捷鍵註冊失敗: {raw} (mods=0x{mods:X} vk=0x{vk:X})")
+                    safe_print(f"{log_prefix('[main]', now_str())}❌ Win32 主快捷鍵註冊失敗: {raw} (mods=0x{mods:X} vk=0x{vk:X})")
             for i, (mods, vk) in enumerate(parsed):
                 if not vk:
                     continue
@@ -224,10 +224,10 @@ class HotkeyService(QObject):
                     history_id_to_index[hotkey_id] = i
                     history_ok_count += 1
                 else:
-                    safe_print(f"[main][{now_str()}] ❌ Win32 記憶快捷鍵 {i + 1} 註冊失敗 (mods=0x{mods:X} vk=0x{vk:X})")
+                    safe_print(f"{log_prefix('[main]', now_str())}❌ Win32 記憶快捷鍵 {i + 1} 註冊失敗 (mods=0x{mods:X} vk=0x{vk:X})")
             if main_hotkeys:
-                safe_print(f"[main][{now_str()}] ✅ 主快捷鍵 {main_ok_count}/{len(main_hotkeys)} 已註冊 (Win32)")
-            safe_print(f"[main][{now_str()}] ✅ 記憶快捷鍵 {history_ok_count}/5 已註冊 (Win32)")
+                safe_print(f"{log_prefix('[main]', now_str())}✅ 主快捷鍵 {main_ok_count}/{len(main_hotkeys)} 已註冊 (Win32)")
+            safe_print(f"{log_prefix('[main]', now_str())}✅ 記憶快捷鍵 {history_ok_count}/5 已註冊 (Win32)")
             msg = wintypes.MSG()
             while user32.GetMessageW(ctypes.byref(msg), None, 0, 0) > 0:
                 if msg.message == 0x0312:
@@ -236,15 +236,15 @@ class HotkeyService(QObject):
                         _source, punct, label = main_id_to_hotkey[hotkey_id]
                         t = time.perf_counter()
                         safe_print(
-                            f"[main][{now_str()}] ⌨️ 主快捷鍵觸發（Win32/{label}），"
+                            f"{log_prefix('[main]', now_str())}⌨️ 主快捷鍵觸發（Win32/{label}），"
                             f"keys={self.input.modifier_state_summary()}"
                         )
                         self.toggle_requested.emit(punct)
-                        safe_print(f"[main][{now_str()}] ⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
+                        safe_print(f"{log_prefix('[main]', now_str())}⌨️ after(0) 執行延遲 {(time.perf_counter() - t) * 1000:.1f}ms")
                     elif hotkey_id in history_id_to_index:
                         idx = history_id_to_index[hotkey_id]
                         safe_print(
-                            f"[main][{now_str()}] ⌨️ 記憶快捷鍵 {idx + 1} 觸發，"
+                            f"{log_prefix('[main]', now_str())}⌨️ 記憶快捷鍵 {idx + 1} 觸發，"
                             f"keys={self.input.modifier_state_summary()}"
                         )
                         self.history_requested.emit(int(idx))

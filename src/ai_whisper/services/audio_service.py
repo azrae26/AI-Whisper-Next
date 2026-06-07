@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import datetime
 import io
 import threading
 import time
@@ -11,7 +10,7 @@ from dataclasses import dataclass
 import numpy as np
 import sounddevice as sd
 
-from ..logging_setup import safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from .vad_service import MIN_DURATION_SEC, SAMPLE_RATE, analyze_speech
 
 CHANNELS = 1
@@ -53,7 +52,7 @@ class AudioService:
             self._recording = True
 
             if self._stream is not None:
-                safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] 🚀 預熱命中，直接開始錄音')
+                safe_print(f'{log_prefix("[recorder]", now_str())}🚀 預熱命中，直接開始錄音')
                 return True
 
         perf = time.perf_counter
@@ -66,7 +65,7 @@ class AudioService:
                 self._first_cb_logged = True
                 delay_ms = (perf() - self._stream_start_time) * 1000
                 safe_print(
-                    f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] '
+                    f'{log_prefix("[recorder]", now_str())}'
                     f'🎤 第一包音訊到達，麥克風實際開啟延遲 {delay_ms:.1f}ms'
                 )
             with self._lock:
@@ -100,15 +99,15 @@ class AudioService:
                 callback=_callback,
             )
             t1 = time.perf_counter()
-            safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] ⏱️ InputStream() {(t1 - t0) * 1000:.1f}ms')
+            safe_print(f'{log_prefix("[recorder]", now_str())}⏱️ InputStream() {(t1 - t0) * 1000:.1f}ms')
             self._stream_start_time = time.perf_counter()
             self._stream.start()
             t2 = time.perf_counter()
-            safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] ⏱️ stream.start() {(t2 - t1) * 1000:.1f}ms')
-            safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] 🎙️ 錄音就緒，總初始化 {(t2 - t0) * 1000:.1f}ms')
+            safe_print(f'{log_prefix("[recorder]", now_str())}⏱️ stream.start() {(t2 - t1) * 1000:.1f}ms')
+            safe_print(f'{log_prefix("[recorder]", now_str())}🎙️ 錄音就緒，總初始化 {(t2 - t0) * 1000:.1f}ms')
             return True
         except Exception as e:
-            safe_print(f"[recorder][start] ❌ 錄音裝置錯誤: {e}")
+            safe_print(f"{log_prefix('[recorder][start]', now_str())}❌ 錄音裝置錯誤: {e}")
             with self._lock:
                 self._recording = False
             return False
@@ -135,17 +134,17 @@ class AudioService:
         audio_data = np.concatenate(frames, axis=0)
         duration = len(audio_data) / SAMPLE_RATE
         if duration < MIN_DURATION_SEC:
-            safe_print(f"[recorder][{source}] 錄音太短 ({duration:.2f}s)，略過" if source == "stop" else f"[recorder][{source}] 段落太短 ({duration:.2f}s)，略過")
+            safe_print(f"{log_prefix(f'[recorder][{source}]', now_str())}錄音太短 ({duration:.2f}s)，略過" if source == "stop" else f"{log_prefix(f'[recorder][{source}]', now_str())}段落太短 ({duration:.2f}s)，略過")
             return AudioSegment(None, reason="too_short", duration=duration)
         speech = analyze_speech(audio_data, confidence_threshold=vad_confidence, min_speech_sec=vad_min_speech_sec)
         if not speech.has_speech:
             # 0% speech（純靜音）→ 靜默不印；有 speech 但不達標才印
             if speech.speech_frames > 0:
                 msg = "不送出辨識" if source == "stop" else "略過"
-                safe_print(f"[recorder][{source}] ❌ VAD {msg}（{speech.reason}）")
+                safe_print(f"{log_prefix(f'[recorder][{source}]', now_str())}❌ VAD {msg}（{speech.reason}）")
             return AudioSegment(None, reason="no_speech", duration=duration)
         if source == "flush":
-            safe_print(f"[recorder][flush] ✅ 取出 {duration:.1f}s 音訊段落")
+            safe_print(f"{log_prefix('[recorder][flush]', now_str())}✅ 取出 {duration:.1f}s 音訊段落")
         audio_data = self._normalize_peak(audio_data)
         return AudioSegment(self._to_wav_bytes(audio_data), reason="ok", duration=duration)
 
@@ -172,7 +171,7 @@ class AudioService:
             except Exception:
                 pass
             self._stream = None
-        safe_print(f'[recorder][{datetime.datetime.now().strftime("%H:%M:%S")}] 💤 預熱 stream 已關閉')
+        safe_print(f'{log_prefix("[recorder]", now_str())}💤 預熱 stream 已關閉')
 
     def has_new_waveform(self) -> bool:
         with self._wf_lock:
@@ -212,7 +211,7 @@ class AudioService:
             # 音量已經夠大，不需要放大
             return audio_data
         gain = min(gain, max_gain)
-        safe_print(f"[recorder] 🔊 正規化：peak={peak} → gain={gain:.2f}x")
+        safe_print(f"{log_prefix('[recorder]', now_str())}🔊 正規化：peak={peak} → gain={gain:.2f}x")
         return np.clip(audio_data * gain, -32768, 32767).astype(np.int16)
 
     @staticmethod

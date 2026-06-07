@@ -7,7 +7,7 @@ import time
 
 from openai import OpenAI
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from ..models import TextCorrection
 from ..text_processing import normalize_transcription_text
 
@@ -32,9 +32,9 @@ class TranscriptionService:
             t0 = time.perf_counter()
             client = cls._get_client(api_key)
             client.models.retrieve("whisper-1")
-            safe_print(f"[transcriber][{now_str()}] 🔌 HTTP 連線預熱完成 ({time.perf_counter() - t0:.2f}s)")
+            safe_print(f"{log_prefix('[transcriber]', now_str())}🔌 HTTP 連線預熱完成 ({time.perf_counter() - t0:.2f}s)")
         except Exception as e:
-            safe_print(f"[transcriber][{now_str()}] ⚠️ HTTP 連線預熱失敗: {e}")
+            safe_print(f"{log_prefix('[transcriber]', now_str())}⚠️ HTTP 連線預熱失敗: {e}")
 
     @classmethod
     def transcribe_raw(cls, wav_bytes: bytes, api_key: str, model: str) -> str:
@@ -51,7 +51,7 @@ class TranscriptionService:
                 "含糊不可辨識的聲音，請回傳空字串，不要猜測或補字。"
             ),
         )
-        safe_print(f"[transcriber][{now_str()}] ⏱️ API 耗時: {time.perf_counter() - t0:.2f}s")
+        safe_print(f"{log_prefix('[transcriber]', now_str())}⏱️ API 耗時: {time.perf_counter() - t0:.2f}s")
         return response.text.strip()
 
     @classmethod
@@ -69,12 +69,12 @@ class TranscriptionService:
         try:
             status, payload, attempt = result_q.get(timeout=timeout)
         except queue.Empty:
-            safe_print(f"[main][{now_str()}] ⚠️ API 超過 {timeout}s 未回應，重試中…")
+            safe_print(f"{log_prefix('[main]', now_str())}⚠️ API 超過 {timeout}s 未回應，重試中…")
             threading.Thread(target=_call, args=(2,), daemon=True, name="TranscribeAttempt2").start()
             status, payload, attempt = result_q.get(timeout=30)
 
         if attempt == 2:
-            safe_print(f"[main][{now_str()}] 🔄 使用重試結果")
+            safe_print(f"{log_prefix('[main]', now_str())}🔄 使用重試結果")
         if status == "ok":
             return payload
         raise Exception(payload)

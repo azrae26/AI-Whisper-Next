@@ -6,7 +6,7 @@ import math
 import socket
 import time
 
-from ..logging_setup import safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from PySide6.QtCore import QPoint, QPointF, QRect, QRectF, Qt, QTimer
 
 _HOSTNAME = socket.gethostname()
@@ -169,7 +169,7 @@ class _OverlayButtons(QWidget):
                 pos = self._main.pos()
                 self._main._custom_pos = pos
                 self._main._overlay_positions[key] = {"x": pos.x(), "y": pos.y()}
-                safe_print(f"[overlay] 位置儲存 screen={self._main._screen_name} x={pos.x()} y={pos.y()}")
+                safe_print(f"{log_prefix('[overlay]', now_str())}位置儲存 screen={self._main._screen_name} x={pos.x()} y={pos.y()}")
                 if self._main._on_pos_changed:
                     self._main._on_pos_changed(key, pos.x(), pos.y())
         return super().nativeEvent(eventType, message)
@@ -466,7 +466,7 @@ class WaveformOverlay(QWidget):
         self._custom_pos = None
         key = _screen_key(self._screen_name)
         self._overlay_positions.pop(key, None)
-        safe_print(f"[overlay] 位置重置 screen={self._screen_name}")
+        safe_print(f"{log_prefix('[overlay]', now_str())}位置重置 screen={self._screen_name}")
         self._position_at_cursor_screen()
         if self._on_pos_changed:
             self._on_pos_changed(key, -1, -1)

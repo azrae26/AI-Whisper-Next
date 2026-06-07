@@ -6,7 +6,7 @@ import tempfile
 from dataclasses import asdict
 from pathlib import Path
 
-from ..logging_setup import safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 from ..models import AppConfig, TextCorrection
 from ..paths import config_file
 
@@ -34,10 +34,10 @@ class SettingsStore:
             with open(self.path, "r", encoding="utf-8") as f:
                 data = json.load(f)
             cfg = self._from_dict(data)
-            safe_print(f"[settings] config loaded from {self.path}")
+            safe_print(f"{log_prefix('[settings]', now_str())}config loaded from {self.path}")
             return cfg
         except Exception as e:
-            safe_print(f"[settings] ⚠️ 讀取設定失敗 {self.path}: {e}")
+            safe_print(f"{log_prefix('[settings]', now_str())}⚠️ 讀取設定失敗 {self.path}: {e}")
             return AppConfig()
 
     def save(self, updates: dict | AppConfig) -> AppConfig:
@@ -129,7 +129,7 @@ def set_startup(enabled: bool) -> None:
                 pass
         winreg.CloseKey(key)
     except Exception as e:
-        safe_print(f"[settings][set_startup] ❌ 錯誤: {e}")
+        safe_print(f"{log_prefix('[settings][set_startup]', now_str())}❌ 錯誤: {e}")
 
 
 def is_startup_enabled() -> bool:

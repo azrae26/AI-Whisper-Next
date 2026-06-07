@@ -12,7 +12,7 @@ import uiautomation as auto
 
 from .input_service import InputService
 
-from ..logging_setup import now_str, safe_print
+from ..logging_setup import log_prefix, now_str, safe_print
 
 CF_UNICODETEXT = 13
 GMEM_MOVEABLE = 0x0002
@@ -85,7 +85,7 @@ def _uia_with_timeout(fn, default, timeout=UIA_TIMEOUT_SEC):
     t.join(timeout=timeout)
     if t.is_alive():
         safe_print(
-            f"[paster][{now_str()}] ⚠️ UIA 查詢超時 ({timeout}s)，使用備援值"
+            f"{log_prefix('[paster]', now_str())}⚠️ UIA 查詢超時 ({timeout}s)，使用備援值"
         )
         return default
     return result_box[0]
@@ -134,7 +134,7 @@ class PasteService:
                 self._manual_paste_guard_pending = True
                 blocks = self._manual_paste_guard_blocks
             safe_print(
-                f"[paster][{now_str()}] 🚫 CLIP guard: blocked manual Ctrl+V "
+                f"{log_prefix('[paster]', now_str())}🚫 CLIP guard: blocked manual Ctrl+V "
                 f"until restore completes (count={blocks}, replay=queued, temp={repr(pasted_text[:20])})"
             )
 
@@ -151,10 +151,10 @@ class PasteService:
                     suppress=True,
                     trigger_on_release=False,
                 )
-            safe_print(f"[paster][{now_str()}] 🚫 CLIP guard armed: manual Ctrl+V suppressed")
+            safe_print(f"{log_prefix('[paster]', now_str())}🚫 CLIP guard armed: manual Ctrl+V suppressed")
             return True
         except Exception as e:
-            safe_print(f"[paster][{now_str()}] ⚠️ CLIP guard arm failed: {e}")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ CLIP guard arm failed: {e}")
             return False
 
     def _disarm_manual_paste_guard(self) -> bool:
@@ -168,16 +168,16 @@ class PasteService:
                 self._manual_paste_guard_pending = False
             if handler is not None:
                 keyboard.remove_hotkey(handler)
-                safe_print(f"[paster][{now_str()}] 🚫 CLIP guard disarmed: blocked={blocks}")
+                safe_print(f"{log_prefix('[paster]', now_str())}🚫 CLIP guard disarmed: blocked={blocks}")
             return pending
         except Exception as e:
-            safe_print(f"[paster][{now_str()}] ⚠️ CLIP guard disarm failed: {e}")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ CLIP guard disarm failed: {e}")
             return False
 
     def _replay_manual_paste_if_requested(self, pending: bool) -> None:
         if not pending:
             return
-        safe_print(f"[paster][{now_str()}] 🚫 CLIP guard replay: manual Ctrl+V after restore")
+        safe_print(f"{log_prefix('[paster]', now_str())}🚫 CLIP guard replay: manual Ctrl+V after restore")
         self.input.send_ctrl_v()
         time.sleep(0.08)
 
@@ -361,10 +361,10 @@ class PasteService:
             if user32.OpenClipboard(0):
                 opened = True
                 if attempt > 1:
-                    safe_print(f"[paster][{now_str()}] 📋 CLIP backup: OpenClipboard ok attempt={attempt}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP backup: OpenClipboard ok attempt={attempt}")
                 break
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP backup: OpenClipboard failed "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP backup: OpenClipboard failed "
                 f"attempt={attempt}/{CLIPBOARD_BACKUP_RETRIES}"
             )
             time.sleep(CLIPBOARD_RETRY_DELAY_SEC)
@@ -387,13 +387,13 @@ class PasteService:
                                 kernel32.GlobalUnlock(h)
                 fmt = user32.EnumClipboardFormats(fmt)
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP backup: "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP backup: "
                 f"count={len(items)}, formats={self._clipboard_items_summary(items)}, "
                 f"text={self._clipboard_text_preview_from_items(items)}"
             )
             return items
         except Exception as e:
-            safe_print(f"[paster][{now_str()}] ⚠️ 備份剪貼簿失敗: {e}")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 備份剪貼簿失敗: {e}")
             return None
         finally:
             user32.CloseClipboard()
@@ -402,7 +402,7 @@ class PasteService:
         expected_text = self._clipboard_text_from_items(items)
         for attempt in range(1, CLIPBOARD_RESTORE_RETRIES + 1):
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP restore attempt "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP restore attempt "
                 f"{attempt}/{CLIPBOARD_RESTORE_RETRIES}: text={self._clipboard_text_preview_from_items(items)}"
             )
             api_ok = self._restore_clipboard_all(items)
@@ -411,12 +411,12 @@ class PasteService:
             text_ok = current == expected_text
             if api_ok and text_ok:
                 safe_print(
-                    f"[paster][{now_str()}] 📋 CLIP restore verify ok: "
+                    f"{log_prefix('[paster]', now_str())}📋 CLIP restore verify ok: "
                     f"attempt={attempt}, text={repr((current or '')[:20])}"
                 )
                 return True
             safe_print(
-                f"[paster][{now_str()}] ⚠️ CLIP restore verify failed: "
+                f"{log_prefix('[paster]', now_str())}⚠️ CLIP restore verify failed: "
                 f"attempt={attempt}, api_ok={api_ok}, got={repr((current or '')[:20])}, "
                 f"want={repr((expected_text or '')[:20])}"
             )
@@ -431,7 +431,7 @@ class PasteService:
         while time.perf_counter() < deadline:
             if not self._paste_queue.empty():
                 safe_print(
-                    f"[paster][{now_str()}] 📋 CLIP watchdog skip: "
+                    f"{log_prefix('[paster]', now_str())}📋 CLIP watchdog skip: "
                     f"pending paste queued, checks={checks}, repairs={repairs}"
                 )
                 return True
@@ -443,13 +443,13 @@ class PasteService:
             if current == pasted_text:
                 repairs += 1
                 safe_print(
-                    f"[paster][{now_str()}] ⚠️ CLIP watchdog re-restore: "
+                    f"{log_prefix('[paster]', now_str())}⚠️ CLIP watchdog re-restore: "
                     f"check={checks}, got_pasted={repr((current or '')[:20])}"
                 )
                 self._restore_clipboard_verified(items)
                 continue
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP watchdog stop: external clipboard change, "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP watchdog stop: external clipboard change, "
                 f"check={checks}, got={repr((current or '')[:20])}, "
                 f"expected={repr((expected_text or '')[:20])}"
             )
@@ -457,7 +457,7 @@ class PasteService:
         final = self._read_clipboard_text()
         ok = final == expected_text
         safe_print(
-            f"[paster][{now_str()}] 📋 CLIP watchdog done: "
+            f"{log_prefix('[paster]', now_str())}📋 CLIP watchdog done: "
             f"checks={checks}, repairs={repairs}, ok={ok}, final={repr((final or '')[:20])}"
         )
         return ok
@@ -466,7 +466,7 @@ class PasteService:
         user32 = ctypes.windll.user32
         kernel32 = ctypes.windll.kernel32
         if not user32.OpenClipboard(0):
-            safe_print(f"[paster][{now_str()}] 📋 CLIP restore: OpenClipboard failed")
+            safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore: OpenClipboard failed")
             return False
         try:
             user32.EmptyClipboard()
@@ -474,12 +474,12 @@ class PasteService:
             for fmt, data in items:
                 h = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(data))
                 if not h:
-                    safe_print(f"[paster][{now_str()}] 📋 CLIP restore: GlobalAlloc failed fmt={fmt}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore: GlobalAlloc failed fmt={fmt}")
                     continue
                 ptr = kernel32.GlobalLock(h)
                 if not ptr:
                     kernel32.GlobalFree(h)
-                    safe_print(f"[paster][{now_str()}] 📋 CLIP restore: GlobalLock failed fmt={fmt}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore: GlobalLock failed fmt={fmt}")
                     continue
                 ctypes.memmove(ptr, data, len(data))
                 kernel32.GlobalUnlock(h)
@@ -487,15 +487,15 @@ class PasteService:
                     restored += 1
                 else:
                     kernel32.GlobalFree(h)
-                    safe_print(f"[paster][{now_str()}] 📋 CLIP restore: SetClipboardData failed fmt={fmt}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore: SetClipboardData failed fmt={fmt}")
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP restore: "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP restore: "
                 f"restored={restored}/{len(items)}, formats={self._clipboard_items_summary(items)}, "
                 f"text={self._clipboard_text_preview_from_items(items)}"
             )
             return restored == len(items)
         except Exception as e:
-            safe_print(f"[paster][{now_str()}] ⚠️ 還原剪貼簿失敗: {e}")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 還原剪貼簿失敗: {e}")
             return False
         finally:
             user32.CloseClipboard()
@@ -506,24 +506,24 @@ class PasteService:
         user32 = ctypes.windll.user32
         data = (text + "\0").encode("utf-16-le")
         if not user32.OpenClipboard(0):
-            safe_print(f"[paster][{now_str()}] 📋 CLIP set: OpenClipboard failed")
+            safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP set: OpenClipboard failed")
             return False
         try:
             user32.EmptyClipboard()
             h = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(data))
             if not h:
-                safe_print(f"[paster][{now_str()}] 📋 CLIP set: GlobalAlloc failed bytes={len(data)}")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP set: GlobalAlloc failed bytes={len(data)}")
                 return False
             ptr = kernel32.GlobalLock(h)
             if not ptr:
                 kernel32.GlobalFree(h)
-                safe_print(f"[paster][{now_str()}] 📋 CLIP set: GlobalLock failed bytes={len(data)}")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP set: GlobalLock failed bytes={len(data)}")
                 return False
             ctypes.memmove(ptr, data, len(data))
             kernel32.GlobalUnlock(h)
             if not user32.SetClipboardData(CF_UNICODETEXT, h):
                 kernel32.GlobalFree(h)
-                safe_print(f"[paster][{now_str()}] 📋 CLIP set: SetClipboardData failed bytes={len(data)}")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP set: SetClipboardData failed bytes={len(data)}")
                 return False
             return True
         finally:
@@ -534,23 +534,23 @@ class PasteService:
         user32 = ctypes.windll.user32
         kernel32 = ctypes.windll.kernel32
         if not user32.OpenClipboard(0):
-            safe_print(f"[paster][{now_str()}] 📋 CLIP read: OpenClipboard failed")
+            safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP read: OpenClipboard failed")
             return None
         try:
             h = user32.GetClipboardData(CF_UNICODETEXT)
             if not h:
-                safe_print(f"[paster][{now_str()}] 📋 CLIP read: CF_UNICODETEXT missing")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP read: CF_UNICODETEXT missing")
                 return None
             ptr = kernel32.GlobalLock(h)
             if not ptr:
-                safe_print(f"[paster][{now_str()}] 📋 CLIP read: GlobalLock failed")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP read: GlobalLock failed")
                 return None
             try:
                 return ctypes.wstring_at(ptr)
             finally:
                 kernel32.GlobalUnlock(h)
         except Exception as e:
-            safe_print(f"[paster][{now_str()}] ⚠️ 讀取剪貼簿驗證失敗: {e}")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 讀取剪貼簿驗證失敗: {e}")
             return None
         finally:
             user32.CloseClipboard()
@@ -558,7 +558,7 @@ class PasteService:
     def _set_clipboard_verified(self, text: str) -> bool:
         for attempt in range(1, CLIPBOARD_SET_RETRIES + 1):
             safe_print(
-                f"[paster][{now_str()}] 📋 CLIP set attempt {attempt}/{CLIPBOARD_SET_RETRIES}: "
+                f"{log_prefix('[paster]', now_str())}📋 CLIP set attempt {attempt}/{CLIPBOARD_SET_RETRIES}: "
                 f"chars={len(text)}, bytes={(len(text) + 1) * 2}, preview={repr(text[:40])}"
             )
             if self._set_clipboard_ctypes(text):
@@ -566,16 +566,16 @@ class PasteService:
                 current = self._read_clipboard_text()
                 if current == text:
                     safe_print(
-                        f"[paster][{now_str()}] 📋 CLIP verify ok: "
+                        f"{log_prefix('[paster]', now_str())}📋 CLIP verify ok: "
                         f"attempt={attempt}, chars={len(text)}, text={repr(text[:20])}"
                     )
                     return True
                 safe_print(
-                    f"[paster][{now_str()}] ⚠️ 剪貼簿驗證不符 "
+                    f"{log_prefix('[paster]', now_str())}⚠️ 剪貼簿驗證不符 "
                     f"(attempt={attempt}, got={repr((current or '')[:40])}, want={repr(text[:40])})"
                 )
             else:
-                safe_print(f"[paster][{now_str()}] ⚠️ 剪貼簿寫入失敗 (attempt={attempt})")
+                safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 剪貼簿寫入失敗 (attempt={attempt})")
             time.sleep(CLIPBOARD_RETRY_DELAY_SEC)
         return False
 
@@ -586,7 +586,7 @@ class PasteService:
             try:
                 focused = auto.GetFocusedControl()
                 if not focused:
-                    safe_print(f"[paster][{now_str()}] ⚠️ 無焦點控件")
+                    safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 無焦點控件")
                     return (False, False)
                 text = ""
                 get_vp = getattr(focused, "GetValuePattern", None)
@@ -597,18 +597,18 @@ class PasteService:
                     except Exception:
                         text = ""
                 if not text:
-                    safe_print(f"[paster][{now_str()}] 📏 [UIA] 文字為空 → 不加句號")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📏 [UIA] 文字為空 → 不加句號")
                     return (False, False)
                 get_tp = getattr(focused, "GetTextPattern", None)
                 if not callable(get_tp):
-                    safe_print(f"[paster][{now_str()}] ⚠️ [UIA] 無 TextPattern")
+                    safe_print(f"{log_prefix('[paster]', now_str())}⚠️ [UIA] 無 TextPattern")
                     return (False, False)
                 try:
                     tp: Any = get_tp()
                     doc_range = tp.DocumentRange
                     sel = tp.GetSelection()
                     if not sel:
-                        safe_print(f"[paster][{now_str()}] ⚠️ [UIA] GetSelection 為空")
+                        safe_print(f"{log_prefix('[paster]', now_str())}⚠️ [UIA] GetSelection 為空")
                         return (False, False)
                     caret = sel[0]
                     after_range = doc_range.Clone()
@@ -617,13 +617,13 @@ class PasteService:
                     at_end = len(text_after) == 0
                     stripped = text.rstrip()
                     last_char_is_punctuation = bool(stripped and stripped[-1] in ENDING_PUNCTUATION)
-                    safe_print(f"[paster][{now_str()}] 📏 [UIA] text={repr(text[:20])}, text_after={repr(text_after[:20])}, at_end={at_end}, last_punct={last_char_is_punctuation}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}📏 [UIA] text={repr(text[:20])}, text_after={repr(text_after[:20])}, at_end={at_end}, last_punct={last_char_is_punctuation}")
                     return (at_end, last_char_is_punctuation)
                 except Exception as e:
-                    safe_print(f"[paster][{now_str()}] ⚠️ [UIA] TextPattern 不支援: {e}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}⚠️ [UIA] TextPattern 不支援: {e}")
                     return (False, False)
             except Exception as e:
-                safe_print(f"[paster][{now_str()}] ⚠️ [UIA] 錯誤: {e}")
+                safe_print(f"{log_prefix('[paster]', now_str())}⚠️ [UIA] 錯誤: {e}")
                 return (False, False)
         return _uia_with_timeout(_query, (False, False))
 
@@ -643,9 +643,9 @@ class PasteService:
                     at_end, last_char_is_punctuation = self._is_cursor_at_end()
                     with self._prefetch_lock:
                         self._prefetch_result = (time.perf_counter(), at_end, last_char_is_punctuation)
-                    safe_print(f"[paster][{now_str()}] 🔮 預取游標位置: at_end={at_end}, last_punct={last_char_is_punctuation} (delay={prefetch_delay:.2f}s, est_api={estimated_api:.2f}s)")
+                    safe_print(f"{log_prefix('[paster]', now_str())}🔮 預取游標位置: at_end={at_end}, last_punct={last_char_is_punctuation} (delay={prefetch_delay:.2f}s, est_api={estimated_api:.2f}s)")
                 except Exception as e:
-                    safe_print(f"[paster][{now_str()}] ⚠️ 預取游標位置失敗: {e}")
+                    safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 預取游標位置失敗: {e}")
                 finally:
                     self._prefetch_queue.task_done()
         finally:
@@ -691,7 +691,7 @@ class PasteService:
             if delay_ms > 0:
                 time.sleep(delay_ms / 1000)
             add_prefix = at_end and not last_char_is_punctuation
-            safe_print(f"[paster][{now_str()}] 🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix} (prefetched), prefix={repr(end_prefix)}, final={repr(text[:40])}")
+            safe_print(f"{log_prefix('[paster]', now_str())}🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix} (prefetched), prefix={repr(end_prefix)}, final={repr(text[:40])}")
         else:
             t0 = time.perf_counter()
             at_end, last_char_is_punctuation = self._is_cursor_at_end()
@@ -700,7 +700,7 @@ class PasteService:
             if remaining > 0:
                 time.sleep(remaining / 1000)
             add_prefix = at_end and not last_char_is_punctuation
-            safe_print(f"[paster][{now_str()}] 🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix}, prefix={repr(end_prefix)}, uia={elapsed_ms:.0f}ms, final={repr(text[:40])}")
+            safe_print(f"{log_prefix('[paster]', now_str())}🎯 PASTE: at_end={at_end}, last_punct={last_char_is_punctuation}, add_prefix={add_prefix}, prefix={repr(end_prefix)}, uia={elapsed_ms:.0f}ms, final={repr(text[:40])}")
 
         final_text = (end_prefix + text) if add_prefix else text
         hwnd, win_title, process_name, class_name = self._foreground_window()
@@ -717,14 +717,14 @@ class PasteService:
             before_readable, before_text = self._focused_text_snapshot()
             if before_readable and len(final_text) > DIRECT_TEXT_READABLE_MAX_CHARS:
                 safe_print(
-                    f"[paster][{now_str()}] ⌨️ TEXT input skipped: "
+                    f"{log_prefix('[paster]', now_str())}⌨️ TEXT input skipped: "
                     f"readable target long text ({len(final_text)}>{DIRECT_TEXT_READABLE_MAX_CHARS})，"
                     f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}"
                 )
                 use_direct_text = False
         if use_direct_text:
             safe_print(
-                f"[paster][{now_str()}] ⌨️ TEXT input flow start: "
+                f"{log_prefix('[paster]', now_str())}⌨️ TEXT input flow start: "
                 f"target_chars={len(final_text)}，視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
                 f"process={process_name or '?'}，class={class_name or '?'}，"
                 f"focus={focus_sig}，"
@@ -733,14 +733,14 @@ class PasteService:
             )
         else:
             safe_print(
-                f"[paster][{now_str()}] ⌨️ TEXT input skipped: "
+                f"{log_prefix('[paster]', now_str())}⌨️ TEXT input skipped: "
                 f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}，"
                 f"preserve_ctrl={preserve_ctrl_modifier}"
             )
         if use_direct_text:
             released_modifiers = self.input.release_modifiers_for_paste(preserve_ctrl=False)
             safe_print(
-                f"[paster][{now_str()}] ⌨️ 直接輸入前釋放修飾鍵: "
+                f"{log_prefix('[paster]', now_str())}⌨️ 直接輸入前釋放修飾鍵: "
                 f"released={self.input.vk_list(released_modifiers)}，"
                 f"keys_after_release={self.input.modifier_state_summary()}"
             )
@@ -750,11 +750,11 @@ class PasteService:
                 self.input.force_release_ctrl()
                 self.input.restore_modifiers([vk for vk in released_modifiers if not self.input.is_ctrl_vk(vk)])
             safe_print(
-                f"[paster][{now_str()}] ⌨️ TEXT input done: "
+                f"{log_prefix('[paster]', now_str())}⌨️ TEXT input done: "
                 f"ok={ok}，keys_after_send={self.input.modifier_state_summary()}"
             )
             if t_received:
-                safe_print(f"[paster][{now_str()}] ⏱️ 收到→直接輸入完成: {time.perf_counter() - t_received:.2f}s")
+                safe_print(f"{log_prefix('[paster]', now_str())}⏱️ 收到→直接輸入完成: {time.perf_counter() - t_received:.2f}s")
             verified = False
             verify_reason = "send_failed"
             if ok:
@@ -766,35 +766,35 @@ class PasteService:
                     at_end,
                 )
             safe_print(
-                f"[paster][{now_str()}] ⌨️ TEXT input verify: "
+                f"{log_prefix('[paster]', now_str())}⌨️ TEXT input verify: "
                 f"ok={verified}，reason={verify_reason}"
             )
             if ok and verified:
                 return
-            safe_print(f"[paster][{now_str()}] ⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V")
+            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V")
 
         safe_print(
-            f"[paster][{now_str()}] 📋 CLIP flow start: "
+            f"{log_prefix('[paster]', now_str())}📋 CLIP flow start: "
             f"target_chars={len(final_text)}, restore_delay={CLIPBOARD_RESTORE_DELAY_SEC:.2f}s"
         )
         old_clipboard = self._save_clipboard_all()
         if old_clipboard is None:
             safe_print(
-                f"[paster][{now_str()}] ❌ [PASTE-FAIL] 無法備份剪貼簿，取消 Ctrl+V，"
+                f"{log_prefix('[paster]', now_str())}❌ [PASTE-FAIL] 無法備份剪貼簿，取消 Ctrl+V，"
                 f"text={repr(final_text[:40])}"
             )
             return
         cb_ok = self._set_clipboard_verified(final_text)
         if not cb_ok:
-            safe_print(f"[paster][{now_str()}] ❌ [PASTE-FAIL] 剪貼簿未成功切換，取消 Ctrl+V，text={repr(final_text[:40])}")
+            safe_print(f"{log_prefix('[paster]', now_str())}❌ [PASTE-FAIL] 剪貼簿未成功切換，取消 Ctrl+V，text={repr(final_text[:40])}")
             if old_clipboard is not None:
                 restored = self._restore_clipboard_verified(old_clipboard)
-                safe_print(f"[paster][{now_str()}] 📋 CLIP restore after failed set: ok={restored}")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore after failed set: ok={restored}")
             return
         time.sleep(CLIPBOARD_SETTLE_DELAY_SEC)
         hwnd, win_title, process_name, class_name = self._foreground_window()
         safe_print(
-            f"[paster][{now_str()}] ⌨️ Ctrl+V 準備送出，cb_ok={cb_ok}，"
+            f"{log_prefix('[paster]', now_str())}⌨️ Ctrl+V 準備送出，cb_ok={cb_ok}，"
             f"視窗=\"{win_title}\"，hwnd={hwnd:#010x}，"
             f"process={process_name or '?'}，class={class_name or '?'}，"
             f"keys_before={self.input.modifier_state_summary()}，text={repr(final_text[:40])}"
@@ -803,7 +803,7 @@ class PasteService:
         ctrl_preserved = preserve_ctrl_modifier and self.input.ctrl_state_down()
         modifiers_to_restore = [vk for vk in released_modifiers if not self.input.is_ctrl_vk(vk)]
         safe_print(
-            f"[paster][{now_str()}] ⌨️ 貼上前釋放修飾鍵: "
+            f"{log_prefix('[paster]', now_str())}⌨️ 貼上前釋放修飾鍵: "
             f"released={self.input.vk_list(released_modifiers)}，"
             f"restore_later={self.input.vk_list(modifiers_to_restore)}，"
             f"preserve_ctrl={ctrl_preserved}，keys_after_release={self.input.modifier_state_summary()}"
@@ -820,16 +820,16 @@ class PasteService:
                 self.input.force_release_ctrl()
                 self.input.restore_modifiers(modifiers_to_restore)
         safe_print(
-            f"[paster][{now_str()}] ⌨️ Ctrl+V 已送出，"
+            f"{log_prefix('[paster]', now_str())}⌨️ Ctrl+V 已送出，"
             f"keys_after_send={self.input.modifier_state_summary()}"
         )
         if not ctrl_preserved and self.input.ctrl_state_down():
             self.input.cleanup_ctrl_now("post-paste-immediate")
         guard_armed = self._arm_manual_paste_guard(final_text)
         if t_received:
-            safe_print(f"[paster][{now_str()}] ⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
+            safe_print(f"{log_prefix('[paster]', now_str())}⏱️ 收到→貼上完成: {time.perf_counter() - t_received:.2f}s")
         try:
-            safe_print(f"[paster][{now_str()}] 📋 CLIP restore wait: {CLIPBOARD_RESTORE_DELAY_SEC:.2f}s")
+            safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore wait: {CLIPBOARD_RESTORE_DELAY_SEC:.2f}s")
             time.sleep(CLIPBOARD_RESTORE_DELAY_SEC)
             if old_clipboard is not None:
                 restored = self._restore_clipboard_verified(old_clipboard)
@@ -839,11 +839,11 @@ class PasteService:
                     self._replay_manual_paste_if_requested(pending_manual_paste)
                 watched = self._watch_clipboard_restore(old_clipboard, final_text) if restored else False
                 safe_print(
-                    f"[paster][{now_str()}] 📋 剪貼簿已還原驗證"
+                    f"{log_prefix('[paster]', now_str())}📋 剪貼簿已還原驗證"
                     f"（{len(old_clipboard)} 種格式，restore_ok={restored}, watch_ok={watched}）"
                 )
             else:
-                safe_print(f"[paster][{now_str()}] 📋 CLIP restore skipped: no backup")
+                safe_print(f"{log_prefix('[paster]', now_str())}📋 CLIP restore skipped: no backup")
         finally:
             if guard_armed:
                 self._disarm_manual_paste_guard()
