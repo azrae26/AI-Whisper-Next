@@ -54,7 +54,7 @@ CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
 UNICODE_INPUT_VERIFY_DELAY_SEC = 0.08
 UNICODE_INPUT_VERIFY_BACKOFF_SEC = (0.06, 0.12, 0.24)  # H11: exponential backoff, max 3 attempts
 UNICODE_INPUT_VERIFY_SUFFIX_CHARS = 2
-DIRECT_TEXT_READABLE_MAX_CHARS = 40
+DIRECT_TEXT_READABLE_MAX_CHARS = 500
 UIA_TIMEOUT_SEC = 2.0
 ENDING_PUNCTUATION = frozenset(
     "。，、；：？！. , ; : ? ! …"
@@ -252,6 +252,10 @@ class PasteService:
             )
         )
 
+    # 已知 SendInput UNICODE 不適用的程式（黑名單）；
+    # 不在此名單的程式預設用 SendInput，失敗再 fallback 剪貼簿 Ctrl+V。
+    _DIRECT_TEXT_BLACKLIST: frozenset[str] = frozenset()
+
     @staticmethod
     def _should_use_direct_text_input(
         win_title: str,
@@ -261,16 +265,9 @@ class PasteService:
     ) -> bool:
         if preserve_ctrl_modifier:
             return False
-        if process_name in {"codex.exe", "cursor.exe", "antigravity.exe", "line.exe"}:
-            return True
-        title = win_title.lower()
-        if win_title == "Codex" or win_title.startswith("Codex "):
-            return True
-        if " - cursor" in title or title.endswith(" cursor"):
-            return True
-        if "antigravity" in title:
-            return True
-        return False
+        if process_name in PasteService._DIRECT_TEXT_BLACKLIST:
+            return False
+        return True
 
     @staticmethod
     def _focused_text_snapshot() -> tuple[bool, str]:

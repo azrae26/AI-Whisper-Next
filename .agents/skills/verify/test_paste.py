@@ -307,6 +307,61 @@ def main():
          "PasteService has shutdown()"):
         passed += 1
 
+    # ── 10. SendInput UNICODE 直接輸入路徑 ──
+    print("\n-- 10. SendInput UNICODE direct text input --")
+
+    # 10a. send_unicode_text 批次送出基本功能
+    total += 1
+    r = eval_expr("self.input.send_unicode_text('')")
+    v = get_result(r)
+    if p(r.get("ok", False) and v is True,
+         "send_unicode_text('') returns True", str(v)):
+        passed += 1
+
+    # 10b. _should_use_direct_text_input 對一般應用預設 True（黑名單制）
+    total += 1
+    r = eval_expr(
+        "self.paste._should_use_direct_text_input("
+        "'Notepad', 'notepad.exe', False, ('', '', '', ''))"
+    )
+    v = get_result(r)
+    if p(r.get("ok", False) and v is True,
+         "Default direct text input = True (blacklist mode)", str(v)):
+        passed += 1
+
+    # 10c. preserve_ctrl_modifier=True 時仍走剪貼簿
+    total += 1
+    r = eval_expr(
+        "self.paste._should_use_direct_text_input("
+        "'Notepad', 'notepad.exe', True, ('', '', '', ''))"
+    )
+    v = get_result(r)
+    if p(r.get("ok", False) and v is False,
+         "preserve_ctrl_modifier=True → False", str(v)):
+        passed += 1
+
+    # 10d. DIRECT_TEXT_READABLE_MAX_CHARS 已提高到 500
+    total += 1
+    r = eval_expr(
+        "__import__('ai_whisper.services.paste_service', "
+        "fromlist=['DIRECT_TEXT_READABLE_MAX_CHARS'])"
+        ".DIRECT_TEXT_READABLE_MAX_CHARS"
+    )
+    v = get_result(r)
+    if p(r.get("ok", False) and v == 500,
+         "DIRECT_TEXT_READABLE_MAX_CHARS=500", str(v)):
+        passed += 1
+
+    # 10e. 黑名單是 frozenset
+    total += 1
+    r = eval_expr(
+        "type(self.paste._DIRECT_TEXT_BLACKLIST).__name__"
+    )
+    v = get_result(r)
+    if p(r.get("ok", False) and v == "frozenset",
+         "Blacklist is frozenset", str(v)):
+        passed += 1
+
     # ── 結果 ──
     summary = f"Result: {passed}/{total} passed"
     log_to_app(summary)

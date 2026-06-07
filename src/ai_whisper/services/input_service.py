@@ -201,16 +201,22 @@ class InputService:
         normalized = text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r")
         data = normalized.encode("utf-16-le", "surrogatepass")
         units = [data[i] | (data[i + 1] << 8) for i in range(0, len(data), 2)]
-        for unit in units:
-            inputs = (INPUT * 2)()
-            inputs[0].type = INPUT_KEYBOARD
-            inputs[0].ki.wScan = unit
-            inputs[0].ki.dwFlags = KEYEVENTF_UNICODE
-            inputs[1].type = INPUT_KEYBOARD
-            inputs[1].ki.wScan = unit
-            inputs[1].ki.dwFlags = KEYEVENTF_UNICODE | KEYEVENTF_KEYUP
-            sent = user32.SendInput(2, inputs, ctypes.sizeof(INPUT))
-            if sent != 2:
+        # Batch send: 一次 SendInput 送出所有字元，避免逐字送出時
+        # 某些應用（如 Chrome Omnibox）在字元之間觸發自動完成導致吞字。
+        BATCH = 100  # 每批最多 100 個字元（200 個 INPUT 事件）
+        for start in range(0, len(units), BATCH):
+            chunk = units[start : start + BATCH]
+            n = len(chunk) * 2
+            inputs = (INPUT * n)()
+            for idx, unit in enumerate(chunk):
+                inputs[idx * 2].type = INPUT_KEYBOARD
+                inputs[idx * 2].ki.wScan = unit
+                inputs[idx * 2].ki.dwFlags = KEYEVENTF_UNICODE
+                inputs[idx * 2 + 1].type = INPUT_KEYBOARD
+                inputs[idx * 2 + 1].ki.wScan = unit
+                inputs[idx * 2 + 1].ki.dwFlags = KEYEVENTF_UNICODE | KEYEVENTF_KEYUP
+            sent = user32.SendInput(n, inputs, ctypes.sizeof(INPUT))
+            if sent != n:
                 return False
         return True
 

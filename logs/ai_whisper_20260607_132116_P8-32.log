@@ -1,0 +1,63 @@
+[main] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_132116_P8-32.current.log
+[settings] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main][13:21:16.476] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main][13:21:16.477] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main][13:21:16.478] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]        [13:21:16.492] 🎙️ 敲麥監聽已啟動
+[main][13:21:16.492] 🔧 DIAG 關閉元件: (none)
+[debug][13:21:16.502] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] Silero VAD 模型載入完成 (ONNX)
+[transcriber][13:21:18.057] 🔌 HTTP 連線預熱完成 (1.56s)
+[tap][dim]   [13:23:37.792] 持續=99ms 峰值=362 ✗弱
+[tap][dim]   [13:23:38.684] 持續=64ms 峰值=437 ✗弱
+[tap][sample][13:23:38.710] 持續=26ms 峰值=602 ✓ K=-1.3 CF=1.9 SC=899Hz Att=21.8ms | fK=-1.0 fCF=2.2 fSC=1209Hz fFlat=0.355 fHF=0.002 🎯 敲擊 #1
+[tap][dim]   [13:23:38.809] 持續=99ms 峰值=430 ✗弱
+[tap][dim]   [13:29:50.770] 持續=54ms 峰值=347 ✗弱
+[tap][dim]   [13:32:42.238] 持續=90ms 峰值=525 ✗弱
+[tap][dim]   [13:32:43.074] 持續=72ms 峰值=320 ✗弱
+[main][13:33:23.991] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][13:33:23.993] ⌨️ after(0) 執行延遲 1.8ms
+[tap]        [13:33:24.051] 💤 敲麥監聽已停止
+[recorder][13:33:24] ⏱️ InputStream() 33.7ms
+[recorder][13:33:24] ⏱️ stream.start() 1.1ms
+[recorder][13:33:24] 🎙️ 錄音就緒，總初始化 34.7ms
+[main][13:33:24.088] ⏱️ recorder.start() 耗時 35.0ms，ok=True
+[tap]        [13:33:24.639] 🎙️ 敲麥監聽已啟動
+[main][13:33:24.651] 🎙️ 開始錄音
+[recorder][13:33:24] 🎤 第一包音訊到達，麥克風實際開啟延遲 765.6ms
+[tap][dim]   [13:33:25.483] 持續=90ms 峰值=453 ✗弱
+[tap][sample][13:33:26.347] 持續=864ms 峰值=12535 ✗長 K=1.4 CF=3.9 SC=1286Hz Att=93.8ms | fK=1.5 fCF=4.0 fSC=1287Hz fFlat=0.325 fHF=0.005
+[tap][sample][13:33:26.887] 持續=477ms 峰值=7180 ✗長 K=2.5 CF=4.7 SC=2067Hz Att=219.4ms | fK=2.9 fCF=4.8 fSC=2068Hz fFlat=0.452 fHF=0.043
+[tap][sample][13:33:27.148] 持續=177ms 峰值=6967 ✗長 K=6.6 CF=7.1 SC=1443Hz Att=27.8ms | fK=8.2 fCF=7.7 fSC=1443Hz fFlat=0.231 fHF=0.008
+[tap][sample][13:33:27.409] 持續=207ms 峰值=5139 ✗長 K=6.6 CF=6.9 SC=1168Hz Att=0.3ms | fK=8.1 fCF=7.4 fSC=1171Hz fFlat=0.216 fHF=0.004
+[tap][dim]   [13:33:27.436] 持續=27ms 峰值=502 ✗弱
+[tap][sample][13:33:27.950] 持續=513ms 峰值=5630 ✗長 K=5.3 CF=6.3 SC=2010Hz Att=91.8ms | fK=5.8 fCF=6.5 fSC=2010Hz fFlat=0.474 fHF=0.030
+[main][13:33:28.489] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main][13:33:28.490] ⌨️ after(0) 執行延遲 1.0ms[main][13:33:28.490] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][VAD] ✅ Silero 11/115 (28.9%), 0.35s speech
+[main][13:33:28.498] ✅ 錄音完成，送出辨識
+[paster][13:33:28.707] ⚠️ [UIA] 無 TextPattern
+[paster][13:33:28.708] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.17s, est_api=0.62s)
+[transcriber][13:33:29.945] ⏱️ API 耗時: 1.44s
+[main][13:33:29.947] ✅ 辨識完成: "如果要做這個會是大工程嗎？"
+[paster][13:33:29.998] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='如果要做這個會是大工程嗎？'
+[paster][13:33:30.006] ⌨️ TEXT input flow start: target_chars=13，視窗="Streaming Input Implementation Strategy"，hwnd=0x002720fe，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='如果要做這個會是大工程嗎？'
+[paster][13:33:30.007] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster][13:33:30.020] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster][13:33:30.020] ⏱️ 收到→直接輸入完成: 0.07s
+[paster][13:33:30.106] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]   [13:34:43.090] 持續=27ms 峰值=308 ✗弱
+[tap][dim]   [13:34:46.358] 持續=27ms 峰值=311 ✗弱
+[tap][dim]   [13:34:51.840] 持續=64ms 峰值=423 ✗弱
+[tap][dim]   [13:40:41.389] 持續=36ms 峰值=307 ✗弱
+[tap][sample][13:40:46.123] 持續=63ms 峰值=868 ✓ K=-0.2 CF=3.2 SC=916Hz Att=27.6ms | fK=0.1 fCF=3.5 fSC=891Hz fFlat=0.222 fHF=0.000 🎯 敲擊 #1
+[tap][dim]   [13:40:46.150] 持續=27ms 峰值=528 ✗弱
+[tap][dim]   [13:40:46.466] 持續=90ms 峰值=527 ✗弱
+[tap][dim]   [13:40:46.538] 持續=28ms 峰值=383 ✗弱
+[tap][dim]   [13:41:35.902] 持續=27ms 峰值=349 ✗弱
+[main][13:43:28.492] 💤 預熱 stream 已關閉（idle 超時）
+[recorder][13:43:28] 💤 預熱 stream 已關閉
+[tap]        [13:45:18.139] 💤 敲麥監聽已停止
+[recorder][13:45:18] 💤 預熱 stream 已關閉
