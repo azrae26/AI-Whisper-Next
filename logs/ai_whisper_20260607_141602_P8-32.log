@@ -1,0 +1,21 @@
+[main]          [14:16:02.516] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_141602_P8-32.current.log
+[settings]      [14:16:02.517] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [14:16:02.624] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [14:16:02.626] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [14:16:02.626] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [14:16:02.641] 🎙️ 敲麥監聽已啟動
+[main]          [14:16:02.641] 🔧 DIAG 關閉元件: (none)
+[debug]         [14:16:02.656] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [14:16:02.830] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [14:16:02.939] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [14:16:04.137] 🔌 HTTP 連線預熱完成 (1.49s)
+[tap][dim]      [14:16:41.470] 持續=36ms 峰值=365 ✗弱
+[tap][dim]      [14:16:59.956] 持續=36ms 峰值=327 ✗弱
+[tap][dim]      [14:17:01.720] 持續=36ms 峰值=507 ✗弱
+[tap][sample]   [14:17:11.638] 持續=63ms 峰值=646 ✓ K=-0.1 CF=2.9 SC=659Hz Att=12.6ms | fK=0.5 fCF=3.4 fSC=539Hz fFlat=0.092 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [14:17:11.675] 持續=37ms 峰值=309 ✗弱
+[tap][dim]      [14:17:14.104] 持續=27ms 峰值=323 ✗弱
+[tap][dim]      [14:17:15.481] 持續=36ms 峰值=300 ✗弱
+[tap][dim]      [14:17:16.345] 持續=27ms 峰值=320 ✗弱
+[tap]           [14:17:34.448] 💤 敲麥監聽已停止
+[recorder]      [14:17:34.450] 💤 預熱 stream 已關閉

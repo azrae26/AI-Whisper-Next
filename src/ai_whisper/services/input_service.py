@@ -203,6 +203,7 @@ class InputService:
         units = [data[i] | (data[i + 1] << 8) for i in range(0, len(data), 2)]
         # Batch send: 一次 SendInput 送出所有字元，避免逐字送出時
         # 某些應用（如 Chrome Omnibox）在字元之間觸發自動完成導致吞字。
+        # 上限 100：Electron/Chrome 大批次（≥500）反而丟字更嚴重。
         BATCH = 100  # 每批最多 100 個字元（200 個 INPUT 事件）
         for start in range(0, len(units), BATCH):
             chunk = units[start : start + BATCH]

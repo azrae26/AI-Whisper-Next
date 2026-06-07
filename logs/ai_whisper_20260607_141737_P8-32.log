@@ -1,0 +1,136 @@
+[main]          [14:17:37.040] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_141737_P8-32.current.log
+[settings]      [14:17:37.041] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [14:17:37.173] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [14:17:37.175] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [14:17:37.175] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [14:17:37.191] 🎙️ 敲麥監聽已啟動
+[main]          [14:17:37.191] 🔧 DIAG 關閉元件: (none)
+[debug]         [14:17:37.201] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [14:17:37.365] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [14:17:37.463] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [14:17:38.526] 🔌 HTTP 連線預熱完成 (1.33s)
+[test] ========================================
+[test] Paste Test START
+[paster]        [14:17:45.540] 📋 CLIP backup: count=8, formats=49377:410B, 13:166B, 49991:24B, 49992:472B, 49941:265B, 16:4B, 1:136B, 7:136B, text='那這樣子你在測試腳本裡面也加入幾個我常用'
+[paster]        [14:17:45.542] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780813065'
+[paster]        [14:17:45.603] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [14:17:45.605] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:17:45.605] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [14:17:45.666] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [14:17:45.668] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [14:17:45.668] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:17:45.789] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [14:17:45.846] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [14:17:45.863] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=35ms, final='TEST_PASTE'
+[paster]        [14:17:45.873] ⌨️ TEXT input flow start: target_chars=10，視窗="AI Whisper"，hwnd=0x13a50fa4，process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，verify_readable=False，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [14:17:45.874] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [14:17:45.884] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [14:17:45.976] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[paster]        [14:17:51.824] ⚠️ UIA 查詢超時 (2.0s)，使用備援值
+[tap][dim]      [14:17:52.732] 持續=63ms 峰值=340 ✗弱
+[tap][sample]   [14:17:52.795] 持續=63ms 峰值=1093 ✓ K=0.2 CF=3.4 SC=5571Hz Att=16.9ms | fK=0.7 fCF=3.8 fSC=5522Hz fFlat=0.378 fHF=0.989 🎯 敲擊 #1
+[tap][dim]      [14:17:52.858] 持續=63ms 峰值=591 ✗弱
+[tap][dim]      [14:17:53.056] 持續=36ms 峰值=317 ✗弱
+[paster]        [14:17:53.828] ⚠️ UIA 查詢超時 (2.0s)，使用備援值
+[paster]        [14:17:55.833] ⚠️ UIA 查詢超時 (2.0s)，使用備援值
+[paster]        [14:17:57.852] ⚠️ UIA 查詢超時 (2.0s)，使用備援值
+[test] Result: 26/28 passed
+[test] Paste Test END 2 FAILED
+[test] ========================================
+[tap][dim]      [14:18:08.041] 持續=36ms 峰值=475 ✗弱
+[tap][sample]   [14:18:09.345] 持續=135ms 峰值=962 ✗長 K=1.9 CF=5.0 SC=2002Hz Att=21.6ms | fK=2.5 fCF=5.4 fSC=1959Hz fFlat=0.465 fHF=0.024
+[tap][dim]      [14:18:09.381] 持續=36ms 峰值=372 ✗弱
+[tap][dim]      [14:18:22.306] 持續=54ms 峰值=594 ✗弱
+[tap]           [14:18:22.341] ⏱️ 間隔過長重置（29574ms）
+[tap][sample]   [14:18:22.341] 持續=36ms 峰值=683 ✓ K=-1.3 CF=2.0 SC=1324Hz Att=3.6ms | fK=-1.1 fCF=2.2 fSC=1016Hz fFlat=0.281 fHF=0.001 🎯 敲擊 #1
+[tap][dim]      [14:18:30.307] 持續=36ms 峰值=460 ✗弱
+[tap]           [14:18:30.360] ⏱️ 間隔過長重置（8001ms）
+[tap][sample]   [14:18:30.360] 持續=54ms 峰值=887 ✓ K=-1.1 CF=2.1 SC=899Hz Att=4.1ms | fK=-0.8 fCF=2.4 fSC=1035Hz fFlat=0.269 fHF=0.001 🎯 敲擊 #1
+[tap][dim]      [14:18:30.469] 持續=108ms 峰值=472 ✗弱
+[test] ========================================
+[test] Paste Test START
+[paster]        [14:18:53.973] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:53.974] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780813133'
+[paster]        [14:18:54.035] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.047] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.048] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [14:18:54.109] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [14:18:54.110] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.111] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.232] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.766] 📏 [UIA] text='https://127.0.0.1:62', text_after='Worked for 1m\n￼\n測試在跑', at_end=False, last_punct=False
+[paster]        [14:18:54.769] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=511ms, final='TEST_PASTE'
+[paster]        [14:18:54.776] ⌨️ TEXT input flow start: target_chars=10，視窗="Streaming Input Implementation Strategy"，hwnd=0x002720fe，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Streaming Input Implementation Strategy', '', 'RootWebArea', 'DocumentControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [14:18:54.779] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [14:18:54.785] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [14:18:54.947] ⌨️ TEXT input verify: ok=False，reason=unchanged
+[paster]        [14:18:54.951] ⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V
+[paster]        [14:18:54.952] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster]        [14:18:54.954] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:54.955] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='TEST_PASTE'
+[paster]        [14:18:55.018] 📋 CLIP verify ok: attempt=1, chars=10, text='TEST_PASTE'
+[paster]        [14:18:55.100] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Streaming Input Implementation Strategy"，hwnd=0x002720fe，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [14:18:55.102] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [14:18:55.108] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [14:18:55.241] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [14:18:55.241] 📋 CLIP restore wait: 0.30s
+[paster]        [14:18:55.542] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:55.543] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:55.664] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [14:18:55.665] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [14:18:57.872] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [14:18:57.875] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[test] Result: 28/28 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[tap][dim]      [14:19:10.275] 持續=99ms 峰值=529 ✗弱
+[tap][dim]      [14:19:10.500] 持續=90ms 峰值=529 ✗弱
+[tap][dim]      [14:19:10.681] 持續=54ms 峰值=359 ✗弱
+[tap][dim]      [14:19:17.215] 持續=27ms 峰值=376 ✗弱
+[tap][dim]      [14:19:17.287] 持續=36ms 峰值=327 ✗弱
+[tap][sample]   [14:20:21.934] 持續=135ms 峰值=1207 ✗長 K=1.2 CF=3.9 SC=1268Hz Att=23.8ms | fK=1.7 fCF=4.2 fSC=1246Hz fFlat=0.315 fHF=0.003
+[tap][dim]      [14:20:22.033] 持續=99ms 峰值=485 ✗弱
+[tap][dim]      [14:20:24.823] 持續=27ms 峰值=347 ✗弱
+[test] ========================================
+[test] Paste Test START
+[paster]        [14:22:54.094] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.095] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780813374'
+[paster]        [14:22:54.156] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.162] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.163] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [14:22:54.225] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [14:22:54.226] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.226] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.347] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [14:22:54.876] 📏 [UIA] text='只要你看到的東西，會', text_after='', at_end=True, last_punct=False
+[paster]        [14:22:54.878] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=507ms, final='TEST_PASTE'
+[paster]        [14:22:54.887] ⌨️ TEXT input flow start: target_chars=10，視窗="【優分析】專屬產業訓練群組"，hwnd=0x00c51498，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [14:22:54.888] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [14:22:54.899] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [14:22:54.983] ⌨️ TEXT input verify: ok=True，reason=changed
+[test] Result: 28/28 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[test] ========================================
+[test] Paste Test START
+[paster]        [14:24:57.859] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:57.860] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780813497'
+[paster]        [14:24:57.921] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:57.923] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:57.924] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [14:24:57.986] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [14:24:57.987] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:57.987] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:58.109] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [14:24:58.618] 📏 [UIA] text='ani.gamer.com.tw/ani', text_after='', at_end=True, last_punct=False
+[paster]        [14:24:58.621] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=508ms, final='TEST_PASTE'
+[paster]        [14:24:58.632] ⌨️ TEXT input flow start: target_chars=10，視窗="楠木邸的神明庭院 [8] 線上看 - 巴哈姆特動畫瘋 - Google Chrome"，hwnd=0x00052364，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('網址與搜尋列', 'OmniboxViewViews', 'view_1012', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [14:24:58.633] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [14:24:58.642] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [14:24:58.745] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [14:25:03.273] 持續=90ms 峰值=482 ✗弱
+[test] Result: 28/28 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[tap]           [14:27:54.169] 💤 敲麥監聽已停止
+[recorder]      [14:27:54.172] 💤 預熱 stream 已關閉
