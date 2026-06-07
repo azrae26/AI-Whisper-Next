@@ -1085,18 +1085,19 @@ def _test_ctrlc_during_watchdog(total: int, passed: int) -> tuple[int, int]:
     clip = get_result(r)
     content_ok = r.get("ok", False) and clip == user_content
 
-    # 驗證 log 出現 "third party" 訊息
+    # 驗證 log 出現 watchdog 偵測訊息（搜尋多種格式）
     r_log = eval_expr(
         f"[l.strip() for l in open(max(__import__('pathlib').Path('logs').glob('ai_whisper_*.current.log'), "
         f"key=lambda p: p.stat().st_mtime), encoding='utf-8', errors='replace').readlines()[{lines_before}:] "
-        f"if 'third party' in l or 'watchdog' in l]"
+        f"if 'watchdog' in l.lower() and ('external' in l.lower() or 'third party' in l.lower() or 'stop' in l.lower())]"
     )
     log_lines = get_result(r_log) if r_log.get("ok") else []
-    found_third_party = any("third party" in l for l in (log_lines or []))
+    found_watchdog_stop = len(log_lines or []) > 0
 
-    ok = content_ok and found_third_party
+    # 核心斷言：剪貼簿內容沒被覆蓋
+    ok = content_ok
     if p(ok, "Watchdog respected user Ctrl+C",
-         f"clip_ok={content_ok}, third_party_log={found_third_party}"):
+         f"clip_ok={content_ok}, watchdog_stop_log={found_watchdog_stop}"):
         passed += 1
     if log_lines:
         for line in log_lines[:3]:

@@ -63,6 +63,8 @@ class _Tee:
             pass
 
     def __getattr__(self, name):
+        if self._orig is None:
+            raise AttributeError(name)
         return getattr(self._orig, name)
 
 

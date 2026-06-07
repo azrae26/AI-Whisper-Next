@@ -735,6 +735,8 @@ class PasteService:
         end_prefix: str,
         preserve_ctrl_modifier: bool,
     ) -> None:
+        if not text:
+            return
         prefetched = self._consume_prefetch()
         if prefetched is not None:
             at_end, last_char_is_punctuation = prefetched
