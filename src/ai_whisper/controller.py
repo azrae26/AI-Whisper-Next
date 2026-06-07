@@ -154,6 +154,8 @@ class AppController(QObject):
         old = self.cfg
         new = self._pending_config
         self._pending_config = None
+        # M8: 合入最新 overlay_positions，避免 AppConfig 全量覆寫蓋掉拖曳結果
+        new.overlay_positions = dict(self.settings_store.get().overlay_positions)
         self.cfg = new  # 立即在主執行緒更新記憶體，確保後續讀取的是最新 config
         self.executor.submit(self.settings_store.save, new) # 異步寫檔
         if old.startup != new.startup:
@@ -205,6 +207,9 @@ class AppController(QObject):
             self._start_recording()
         elif self.state == "recording":
             self._stop_recording()
+        elif self.state == "processing":
+            safe_print(f"{log_prefix('[main]', now_str())}⚠️ 辨識中，忽略熱鍵")
+            self.window.show_overlay_status("辨識中，請稍候", "#e2b8ff", 1200)
 
     def _start_recording(self) -> None:
         if self._warmup_timer.isActive():
@@ -279,7 +284,7 @@ class AppController(QObject):
         safe_print(f"{log_prefix('[main]', now_str())}⏳ 預熱 idle 計時器啟動，{idle_min:.0f} 分鐘後關閉麥克風")
 
     def _do_warmup_shutdown(self) -> None:
-        if self._cleaned_up:
+        if self._cleaned_up or self.state == "recording":
             return
         self.executor.submit(self.audio.shutdown)
         safe_print(f"{log_prefix('[main]', now_str())}💤 預熱 stream 已關閉（idle 超時）")
@@ -454,6 +459,15 @@ class AppController(QObject):
 
     def _tick_recording(self) -> None:
         if self.state != "recording":
+            return
+        # M9: 偵測麥克風拔除（stream 變為 inactive）
+        stream = self.audio._stream
+        if stream is not None and not stream.active:
+            safe_print(f"{log_prefix('[main]', now_str())}❌ 麥克風已斷線，自動停止錄音")
+            self._stop_recording()
+            self.window.set_status("❌ 麥克風已斷線", "#F87171")
+            self.window.show_overlay_status("麥克風已斷線", "#F87171", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
+            QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
             return
         # Animation tick
         elapsed = time.time() - self._rec_start_time

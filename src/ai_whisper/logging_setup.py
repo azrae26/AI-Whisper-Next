@@ -128,6 +128,18 @@ def install_log_tee(log_dir: Path, tap_dir: Path | None = None) -> Path | None:
         sys.stdout = _Tee(sys.stdout, log_file, tap_file)
         sys.stderr = _Tee(sys.stderr, log_file)
         safe_print(f"{log_prefix('[main]', now_str())}LOG -> {log_path}")
+
+        import atexit
+        def _close_logs():
+            for f in (log_file, tap_file):
+                if f is not None:
+                    try:
+                        f.flush()
+                        f.close()
+                    except Exception:
+                        pass
+        atexit.register(_close_logs)
+
         return log_path
     except Exception:
         return None
