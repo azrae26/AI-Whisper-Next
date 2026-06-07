@@ -1,0 +1,15 @@
+[main]          [22:10:16.341] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_221016_P8-32.current.log
+[settings]      [22:10:16.341] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [22:10:16.466] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [22:10:16.467] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [22:10:16.467] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [22:10:16.523] 🎙️ 敲麥監聽已啟動
+[main]          [22:10:16.524] 🔧 DIAG 關閉元件: (none)
+[debug]         [22:10:16.557] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [22:10:16.725] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [22:10:16.820] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [22:10:18.037] 🔌 HTTP 連線預熱完成 (1.49s)
+[transcriber]   [22:17:05.520] ⏱️ API 耗時: 2.24s
+[transcriber]   [22:18:24.800] ⏱️ API 耗時: 1.82s
+[tap]           [22:24:21.191] 💤 敲麥監聽已停止
+[recorder]      [22:24:21.193] 💤 預熱 stream 已關閉

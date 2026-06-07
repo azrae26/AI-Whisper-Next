@@ -85,11 +85,15 @@ class _UIATransactionExecutor:
                 self._worker.start()
 
     def _worker_loop(self):
+        # ⚠️ 啟動時捕獲 queue 引用為 local variable。
+        # 若超時後 _ensure_worker 用新 Queue 覆寫 self._queue，
+        # 本 worker 仍然只讀舊 Queue，不會與新 worker 爭搶新 Queue。
+        q = self._queue
         import comtypes
         comtypes.CoInitialize()
         try:
             while True:
-                item = self._queue.get()
+                item = q.get()
                 if item is None:
                     break
                 fn, result_future = item
@@ -99,7 +103,7 @@ class _UIATransactionExecutor:
                 except Exception as e:
                     result_future.set_exception(e)
                 finally:
-                    self._queue.task_done()
+                    q.task_done()
         finally:
             comtypes.CoUninitialize()
 
@@ -765,6 +769,16 @@ class PasteService:
                 safe_print(
                     f"{log_prefix('[paster]', now_str())}⌨️ TEXT input skipped: "
                     f"readable target long text ({len(final_text)}>{DIRECT_TEXT_READABLE_MAX_CHARS})，"
+                    f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}"
+                )
+                use_direct_text = False
+            # ⚠️ 修復 4：不可讀的控制項無法驗證 SendInput 是否成功，
+            # 若 SendInput 實際失敗（如目標不接受 WM_INPUT），文字會靜默丟失。
+            # 此時應直接走 Ctrl+V 剪貼簿路徑，確保文字一定送達。
+            elif not before_readable:
+                safe_print(
+                    f"{log_prefix('[paster]', now_str())}⌨️ TEXT input skipped: "
+                    f"target not UIA-readable (cannot verify)，"
                     f"process={process_name or '?'}，class={class_name or '?'}，focus={focus_sig}"
                 )
                 use_direct_text = False

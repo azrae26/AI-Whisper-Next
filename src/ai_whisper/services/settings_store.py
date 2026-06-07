@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import tempfile
+import threading
 from dataclasses import asdict
 from pathlib import Path
 
@@ -22,6 +23,7 @@ def _float_value(value, fallback: float) -> float:
 class SettingsStore:
     def __init__(self, path: Path | None = None):
         self.path = path or config_file()
+        self._lock = threading.Lock()
         self._config = self.load()
 
     def get(self) -> AppConfig:
@@ -41,28 +43,39 @@ class SettingsStore:
             return AppConfig()
 
     def save(self, updates: dict | AppConfig) -> AppConfig:
-        if isinstance(updates, AppConfig):
-            new_config = updates
-        else:
-            merged = self.to_dict(self._config)
-            merged.update(updates)
-            new_config = self._from_dict(merged)
+        # ⚠️ 修復 5：加鎖防止併發寫入互相覆蓋。
+        # 鎖內重新從磁碟讀取最新狀態再 merge，確保不丟失其他 thread 剛寫入的資料。
+        with self._lock:
+            if isinstance(updates, AppConfig):
+                new_config = updates
+            else:
+                # 從磁碟重新讀取最新狀態
+                if self.path.exists():
+                    try:
+                        with open(self.path, "r", encoding="utf-8") as f:
+                            disk_data = json.load(f)
+                        self._config = self._from_dict(disk_data)
+                    except Exception:
+                        pass  # 讀取失敗時用記憶體中的版本
+                merged = self.to_dict(self._config)
+                merged.update(updates)
+                new_config = self._from_dict(merged)
 
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        payload = self.to_dict(new_config)
-        fd, tmp = tempfile.mkstemp(prefix="config.", suffix=".json", dir=str(self.path.parent))
-        try:
-            with os.fdopen(fd, "w", encoding="utf-8") as f:
-                json.dump(payload, f, ensure_ascii=False, indent=2)
-            os.replace(tmp, self.path)
-        finally:
-            if os.path.exists(tmp):
-                try:
-                    os.remove(tmp)
-                except OSError:
-                    pass
-        self._config = new_config
-        return self._config
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            payload = self.to_dict(new_config)
+            fd, tmp = tempfile.mkstemp(prefix="config.", suffix=".json", dir=str(self.path.parent))
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as f:
+                    json.dump(payload, f, ensure_ascii=False, indent=2)
+                os.replace(tmp, self.path)
+            finally:
+                if os.path.exists(tmp):
+                    try:
+                        os.remove(tmp)
+                    except OSError:
+                        pass
+            self._config = new_config
+            return self._config
 
     @staticmethod
     def to_dict(cfg: AppConfig) -> dict:

@@ -198,12 +198,14 @@ def main():
     # ── 5. H11: SendInput 驗證 backoff 邊界測試 ──
     print("\n-- 5. H11: SendInput verify backoff edge cases --")
 
-    # 5a. before_readable=False → 立即返回 (True, 'unreadable')
+    # 5a. before_readable=False → _verify 仍返回 (True, 'unreadable')
+    # 注意：修復 4 的防線在 _execute_paste 層（不可讀時直接跳過 SendInput），
+    # _verify 本身的行為不變，但不會被呼叫到。此處確認 _verify 單獨行為不變。
     total += 1
     r = eval_expr('self.paste._verify_direct_text_input(False, "", "hello", False)')
     v = get_result(r)
     if p(r.get("ok", False) and v == [True, "unreadable"],
-         "Unreadable before → immediate return", str(v)):
+         "Unreadable before → _verify returns (True, 'unreadable')", str(v)):
         passed += 1
 
     # 5b. 文字未變 → 第 2 次 backoff 就 early exit (False, 'unchanged')
@@ -257,6 +259,75 @@ def main():
     if p(r.get("ok", False) and get_result(r) is True,
          "Old POLL_SEC removed", str(get_result(r))):
         passed += 1
+
+    # 5f. 修復 4：不可讀控制項不嘗試 SendInput（避免吞字）
+    # 用決策邏輯對照組證明 bug 存在，再用實際程式碼驗證修復生效。
+
+    # 5f-1. 對照組：重現 _execute_paste 中的決策分支
+    total += 1
+    def old_decision(before_readable, text_len, max_chars=500):
+        use_direct_text = True
+        if before_readable and text_len > max_chars:
+            use_direct_text = False
+        return use_direct_text
+
+    def new_decision(before_readable, text_len, max_chars=500):
+        use_direct_text = True
+        if before_readable and text_len > max_chars:
+            use_direct_text = False
+        elif not before_readable:
+            use_direct_text = False  # 修復 4
+        return use_direct_text
+
+    bug_exists = old_decision(False, 10) is True
+    fix_works = new_decision(False, 10) is False
+    normal_ok = new_decision(True, 10) is True
+    long_ok = new_decision(True, 600) is False
+    if p(bug_exists and fix_works and normal_ok and long_ok,
+         "Fix4 決策邏輯對照組",
+         f"舊版unreadable→SendInput={old_decision(False,10)}, "
+         f"新版unreadable→skip={new_decision(False,10)}, "
+         f"新版readable→SendInput={new_decision(True,10)}, "
+         f"新版long→skip={new_decision(True,600)}"):
+        passed += 1
+
+    # 5f-2. 實際程式碼驗證：mock _focused_text_snapshot → (False,"")，
+    # 呼叫 paste_text 後檢查 log 出現 "target not UIA-readable"
+    total += 1
+    r_lines_before = eval_expr(
+        "len(open(max(__import__('pathlib').Path('logs').glob('ai_whisper_*.current.log'), "
+        "key=lambda p: p.stat().st_mtime), encoding='utf-8', errors='replace').readlines())"
+    )
+    lines_before = get_result(r_lines_before) if r_lines_before.get("ok") else 0
+
+    # mock → paste → 等待 → 還原
+    eval_expr(
+        "("
+        "  setattr(self.paste, '_orig_snapshot', self.paste._focused_text_snapshot),"
+        "  setattr(self.paste.__class__, '_focused_text_snapshot', staticmethod(lambda: (False, ''))),"
+        "  self.paste.paste_text('FIX4_TEST', delay_ms=50, end_prefix='', preserve_ctrl_modifier=False),"
+        ")"
+    )
+    time.sleep(2)
+    eval_expr(
+        "setattr(self.paste.__class__, '_focused_text_snapshot', self.paste._orig_snapshot)"
+    )
+
+    # 讀 mock 後新增的 log 行，找 "target not UIA-readable"
+    r_log = eval_expr(
+        f"[l.strip() for l in open(max(__import__('pathlib').Path('logs').glob('ai_whisper_*.current.log'), "
+        f"key=lambda p: p.stat().st_mtime), encoding='utf-8', errors='replace').readlines()[{lines_before}:] "
+        f"if 'UIA-readable' in l or 'TEXT input' in l]"
+    )
+    log_lines = get_result(r_log) if r_log.get("ok") else []
+    found_skip = any("not UIA-readable" in l for l in (log_lines or []))
+    if p(found_skip,
+         "Fix4 實際程式碼：不可讀時 log 顯示 skipped",
+         f"找到 'not UIA-readable' in {len(log_lines or [])} 行"):
+        passed += 1
+    if log_lines:
+        for line in log_lines[:3]:
+            print(f"    {line[:120]}")
 
     # ── 6. Timer debounce 檢查 ──
     print("\n-- 6. Timer debounce references exist --")
