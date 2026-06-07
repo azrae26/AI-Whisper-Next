@@ -57,6 +57,7 @@ class TranscriptionService:
     @classmethod
     def transcribe_with_retry(cls, wav_bytes: bytes, api_key: str, model: str, timeout: float = 2.5) -> str:
         result_q: queue.Queue = queue.Queue()
+        both_started = False
 
         def _call(attempt: int) -> None:
             try:
@@ -71,12 +72,24 @@ class TranscriptionService:
         except queue.Empty:
             safe_print(f"{log_prefix('[main]', now_str())}⚠️ API 超過 {timeout}s 未回應，重試中…")
             threading.Thread(target=_call, args=(2,), daemon=True, name="TranscribeAttempt2").start()
+            both_started = True
             status, payload, attempt = result_q.get(timeout=30)
 
         if attempt == 2:
             safe_print(f"{log_prefix('[main]', now_str())}🔄 使用重試結果")
         if status == "ok":
             return payload
+        # ⚠️ 如果兩軌都已啟動，第一個回報 error 時不應立刻放棄——
+        # 第二軌可能幾百毫秒後就會成功。只有兩軌都 error 才拋出。
+        if both_started:
+            safe_print(f"{log_prefix('[main]', now_str())}⚠️ Attempt {attempt} 失敗，等待另一軌…")
+            try:
+                status2, payload2, attempt2 = result_q.get(timeout=28)
+                if status2 == "ok":
+                    safe_print(f"{log_prefix('[main]', now_str())}🔄 使用 Attempt {attempt2} 的結果")
+                    return payload2
+            except queue.Empty:
+                pass
         raise Exception(payload)
 
     @classmethod

@@ -236,7 +236,15 @@ class AppController(QObject):
         self.window.stop_recording_waveform_keep_status()
         frames = self.audio.stop_capture()
         self._schedule_warmup_shutdown()
-        self.executor.submit(self._process_final_audio, frames, self._prev_seg_event)
+        # ⚠️ 不使用 executor.submit：若分段 worker 佔滿線程池，
+        # submit 會排隊導致 final_done 永遠不發、狀態永久卡死。
+        # 用獨立 Thread 確保收尾邏輯一定能執行。
+        threading.Thread(
+            target=self._process_final_audio,
+            args=(frames, self._prev_seg_event),
+            daemon=True,
+            name="AIWhisper-Final",
+        ).start()
 
     def _process_final_audio(self, frames, prev_event: threading.Event) -> None:
         try:
