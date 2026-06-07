@@ -481,6 +481,7 @@ class AppController(QObject):
         self.hotkeys.shutdown()
         self.tap.shutdown()
         self.audio.shutdown()
+        self.paste.shutdown()
         self.executor.shutdown(wait=False, cancel_futures=True)
         self.window.tray.hide()
         self.window.waveform_overlay.hide_overlay()

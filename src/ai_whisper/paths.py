@@ -4,10 +4,8 @@ import os
 import sys
 from pathlib import Path
 
-APP_NAME = "AI Whisper"
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = PACKAGE_DIR.parents[1]
-OLD_PROJECT_DIR = Path(r"F:\Cursor\AI Whisper")
 
 
 def base_dir() -> Path:
@@ -36,12 +34,6 @@ def tap_log_dir() -> Path:
         return Path(sys.executable).resolve().parents[2] / "tap_test_logs"
     return PROJECT_DIR / "tap_test_logs"
 
-
-def legacy_config_candidates() -> list[Path]:
-    return [
-        OLD_PROJECT_DIR / "dist" / APP_NAME / "config.json",
-        OLD_PROJECT_DIR / "config.json",
-    ]
 
 
 def ensure_runtime_dirs() -> None:

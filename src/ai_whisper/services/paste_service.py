@@ -270,8 +270,6 @@ class PasteService:
             return True
         if "antigravity" in title:
             return True
-        if PasteService._is_chrome_omnibox(process_name, focus_sig):
-            return False
         return False
 
     @staticmethod

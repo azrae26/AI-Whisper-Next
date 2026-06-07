@@ -8,7 +8,7 @@ from pathlib import Path
 
 from ..logging_setup import safe_print
 from ..models import AppConfig, TextCorrection
-from ..paths import config_file, legacy_config_candidates
+from ..paths import config_file
 
 
 def _float_value(value, fallback: float) -> float:
@@ -28,19 +28,17 @@ class SettingsStore:
         return self._config
 
     def load(self) -> AppConfig:
-        candidates = [self.path, *legacy_config_candidates()]
-        for candidate in candidates:
-            if not candidate.exists():
-                continue
-            try:
-                with open(candidate, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                cfg = self._from_dict(data)
-                safe_print(f"[settings] config loaded from {candidate}")
-                return cfg
-            except Exception as e:
-                safe_print(f"[settings] ⚠️ 讀取設定失敗 {candidate}: {e}")
-        return AppConfig()
+        if not self.path.exists():
+            return AppConfig()
+        try:
+            with open(self.path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            cfg = self._from_dict(data)
+            safe_print(f"[settings] config loaded from {self.path}")
+            return cfg
+        except Exception as e:
+            safe_print(f"[settings] ⚠️ 讀取設定失敗 {self.path}: {e}")
+            return AppConfig()
 
     def save(self, updates: dict | AppConfig) -> AppConfig:
         if isinstance(updates, AppConfig):
