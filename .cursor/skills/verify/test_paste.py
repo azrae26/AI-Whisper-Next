@@ -301,16 +301,22 @@ def main():
     lines_before = get_result(r_lines_before) if r_lines_before.get("ok") else 0
 
     # mock → paste → 等待 → 還原
+    # ⚠️ 備份必須從 __class__.__dict__ 取原始 descriptor（function 物件），
+    # 不能用 self.paste._focused_text_snapshot（那會觸發 descriptor protocol，
+    # 返回 bound method，還原時會破壞方法簽名）。
     eval_expr(
         "("
-        "  setattr(self.paste, '_orig_snapshot', self.paste._focused_text_snapshot),"
-        "  setattr(self.paste.__class__, '_focused_text_snapshot', staticmethod(lambda: (False, ''))),"
+        "  setattr(self.paste.__class__, '_orig_snapshot', self.paste.__class__.__dict__['_focused_text_snapshot']),"
+        "  setattr(self.paste.__class__, '_focused_text_snapshot', lambda self: (False, '')),"
         "  self.paste.paste_text('FIX4_TEST', delay_ms=50, end_prefix='', preserve_ctrl_modifier=False),"
         ")"
     )
     time.sleep(2)
     eval_expr(
-        "setattr(self.paste.__class__, '_focused_text_snapshot', self.paste._orig_snapshot)"
+        "("
+        "  setattr(self.paste.__class__, '_focused_text_snapshot', self.paste.__class__._orig_snapshot),"
+        "  delattr(self.paste.__class__, '_orig_snapshot'),"
+        ")"
     )
 
     # 讀 mock 後新增的 log 行，找 "target not UIA-readable"

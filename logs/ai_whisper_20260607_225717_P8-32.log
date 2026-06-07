@@ -1,0 +1,79 @@
+[main]          [22:57:17.926] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_225717_P8-32.current.log
+[settings]      [22:57:17.928] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [22:57:18.099] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [22:57:18.100] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [22:57:18.101] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [22:57:18.114] 🎙️ 敲麥監聽已啟動
+[main]          [22:57:18.114] 🔧 DIAG 關閉元件: (none)
+[debug]         [22:57:18.125] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [22:57:18.290] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [22:57:18.392] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [22:57:19.432] 🔌 HTTP 連線預熱完成 (1.32s)
+[test] ========================================
+[test] Paste Test START
+[paster]        [22:57:40.758] 📋 CLIP backup: count=8, formats=49377:317B, 13:80B, 49991:24B, 49992:388B, 49941:215B, 16:4B, 1:68B, 7:68B, text='但為什麼我們之前的模擬測試沒測出來這個B'
+[paster]        [22:57:40.759] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780844260'
+[paster]        [22:57:40.820] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:40.832] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:40.833] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [22:57:40.894] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [22:57:40.895] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:40.896] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:41.017] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:41.069] ⚠️ [UIA] 無 TextPattern
+[paster]        [22:57:41.083] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=37ms, final='TEST_PASTE'
+[paster]        [22:57:41.089] ⌨️ TEXT input flow start: target_chars=10，視窗="Troubleshooting Input Focus Issues"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [22:57:41.092] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [22:57:41.105] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [22:57:41.197] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [22:57:45.133] ⚠️ [UIA] 無 TextPattern
+[paster]        [22:57:45.182] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='FIX4_TEST'
+[paster]        [22:57:45.189] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')
+[paster]        [22:57:45.191] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=False
+[paster]        [22:57:45.192] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster]        [22:57:45.193] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:45.198] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='FIX4_TEST'
+[paster]        [22:57:45.259] 📋 CLIP verify ok: attempt=1, chars=9, text='FIX4_TEST'
+[paster]        [22:57:45.341] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Troubleshooting Input Focus Issues"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='FIX4_TEST'
+[paster]        [22:57:45.343] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [22:57:45.350] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [22:57:45.495] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [22:57:45.496] 📋 CLIP restore wait: 0.30s
+[paster]        [22:57:45.797] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:45.798] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:45.920] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [22:57:45.921] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [22:57:48.127] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [22:57:48.128] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[test] Result: 30/30 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[main]          [22:59:17.112] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [22:59:17.113] ⌨️ after(0) 執行延遲 1.7ms
+[tap]           [22:59:17.162] 💤 敲麥監聽已停止
+[recorder]      [22:59:17.174] ⏱️ InputStream() 10.5ms
+[recorder]      [22:59:17.174] ⏱️ stream.start() 0.5ms
+[recorder]      [22:59:17.175] 🎙️ 錄音就緒，總初始化 11.0ms
+[main]          [22:59:17.175] ⏱️ recorder.start() 耗時 11.7ms，ok=True
+[tap]           [22:59:17.711] 🎙️ 敲麥監聽已啟動
+[main]          [22:59:17.734] 🎙️ 開始錄音
+[recorder]      [22:59:17.944] 🎤 第一包音訊到達，麥克風實際開啟延遲 770.1ms
+[tap][dim]      [22:59:18.512] 持續=27ms 峰值=362 ✗弱
+[tap][dim]      [22:59:18.592] 持續=45ms 峰值=487 ✗弱
+[tap][sample]   [22:59:19.546] 持續=900ms 峰值=9083 ✗長 K=2.2 CF=4.6 SC=2865Hz Att=126.2ms | fK=2.4 fCF=4.7 fSC=2858Hz fFlat=0.601 fHF=0.111
+[tap][dim]      [22:59:19.609] 持續=63ms 峰值=428 ✗弱
+[recorder][VAD] [22:59:20.779] ✅ Silero 11/89 (31.4%), 0.35s speech
+[recorder][flush][22:59:20.780] ✅ 取出 2.8s 音訊段落
+[main]          [22:59:20.782] ✂️ 自動分段送出（靜音達1s，累積 2.8s，靜音 1.2s）
+[paster]        [22:59:20.870] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [22:59:20.871] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.08s, est_api=0.53s)
+[transcriber]   [22:59:21.696] ⏱️ API 耗時: 0.91s
+[main]          [22:59:21.697] ✅ 分段辨識完成: "測試一下"
+[paster]        [22:59:22.455] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試一下'
+[paster]        [22:59:22.470] ⌨️ TEXT input flow start: target_chars=4，視窗="Troubleshooting Input Focus Issues"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下'
+[paster]        [22:59:22.471] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [22:59:22.481] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [22:59:22.481] ⏱️ 收到→直接輸入完成: 0.78s
+[paster]        [22:59:22.566] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap]           [23:04:11.012] 💤 敲麥監聽已停止
+[recorder]      [23:04:11.075] 💤 預熱 stream 已關閉
