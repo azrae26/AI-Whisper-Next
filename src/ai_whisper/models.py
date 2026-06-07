@@ -44,11 +44,3 @@ class AppConfig:
     # key: "hostname/screen_name" → {"x": int, "y": int}
 
 
-@dataclass
-class TranscriptionResult:
-    raw_text: str = ""
-    clean_text: str = ""
-    is_segment: bool = False
-    received_at: float = 0.0
-    error: str = ""
-

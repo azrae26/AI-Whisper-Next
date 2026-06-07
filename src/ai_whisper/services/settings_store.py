@@ -22,12 +22,7 @@ def _float_value(value, fallback: float) -> float:
 class SettingsStore:
     def __init__(self, path: Path | None = None):
         self.path = path or config_file()
-        self._loaded_from: Path | None = None
         self._config = self.load()
-
-    @property
-    def loaded_from(self) -> Path | None:
-        return self._loaded_from
 
     def get(self) -> AppConfig:
         return self._config
@@ -40,13 +35,11 @@ class SettingsStore:
             try:
                 with open(candidate, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                self._loaded_from = candidate
                 cfg = self._from_dict(data)
                 safe_print(f"[settings] config loaded from {candidate}")
                 return cfg
             except Exception as e:
                 safe_print(f"[settings] ⚠️ 讀取設定失敗 {candidate}: {e}")
-        self._loaded_from = None
         return AppConfig()
 
     def save(self, updates: dict | AppConfig) -> AppConfig:
@@ -71,7 +64,6 @@ class SettingsStore:
                 except OSError:
                     pass
         self._config = new_config
-        self._loaded_from = self.path
         return self._config
 
     @staticmethod

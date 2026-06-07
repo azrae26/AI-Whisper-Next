@@ -99,7 +99,6 @@ class HotkeyService(QObject):
             keyboard.unhook_all()
         except Exception:
             pass
-        self.input.stop_ctrl_guard(removed_by_external_unhook=True)
         self._capture_keys = set()
         self._capturing = True
         keyboard.hook(self._on_capture_event)
@@ -129,7 +128,6 @@ class HotkeyService(QObject):
             keyboard.unhook_all()
         except Exception:
             pass
-        self.input.stop_ctrl_guard(removed_by_external_unhook=True)
 
     @staticmethod
     def key_to_vk(name: str) -> int:
@@ -261,5 +259,4 @@ class HotkeyService(QObject):
             keyboard.unhook_all_hotkeys()
         except Exception:
             pass
-        self.input.stop_ctrl_guard()
         self._stop_win32_hotkeys()

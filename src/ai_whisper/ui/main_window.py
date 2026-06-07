@@ -498,7 +498,6 @@ class MainWindow(QMainWindow):
     toggle_clicked = Signal(str)
     settings_changed = Signal(object)
     capture_requested = Signal(str)
-    copy_history_requested = Signal(int)
     tray_quit_requested = Signal()
     geometry_changed = Signal()
     overlay_pos_changed = Signal(str, int, int)  # key, x, y; x=-1,y=-1 means reset
@@ -784,9 +783,6 @@ class MainWindow(QMainWindow):
     def stop_recording_waveform_keep_status(self) -> None:
         self.waveform_overlay.stop_waveform_keep_status()
 
-    def prewarm(self) -> None:
-        pass  # disabled — was causing 3s main-thread block via dangling QPropertyAnimation
-
     def add_history(self, text: str) -> None:
         if not text:
             return
@@ -856,27 +852,6 @@ class MainWindow(QMainWindow):
             self.history_layout.removeWidget(old)
             old.deleteLater()
 
-    def _render_history(self) -> None:
-        """Full rebuild — used on init or clear. Normal additions use _append_history_card."""
-        # Remove all existing widgets
-        for w in self._history_widgets:
-            self.history_layout.removeWidget(w)
-            w.deleteLater()
-        self._history_widgets.clear()
-        # Remove the trailing stretch if any
-        while self.history_layout.count():
-            item = self.history_layout.takeAt(0)
-            if item is None:
-                continue
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
-        # Rebuild all cards
-        for i, text in enumerate(self._history):
-            card = self._create_history_card(text, i)
-            self.history_layout.addWidget(card)
-            self._history_widgets.append(card)
-        self.history_layout.addStretch(1)
 
     def _copy_clicked(self, idx: int, btn: QPushButton) -> None:
         QApplication.clipboard().setText(self._history[idx])

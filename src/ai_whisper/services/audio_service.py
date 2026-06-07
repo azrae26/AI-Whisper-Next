@@ -23,7 +23,6 @@ class AudioSegment:
     wav_bytes: bytes | None
     reason: str = ""
     duration: float = 0.0
-    error: str = ""
 
 
 class AudioService:
@@ -192,11 +191,6 @@ class AudioService:
         with self._lock:
             chunk_sec = self._chunk_samples / SAMPLE_RATE if self._chunk_samples else 0.032
             return self._silence_chunks * chunk_sec
-
-    @property
-    def is_recording(self) -> bool:
-        with self._lock:
-            return self._recording
 
     @staticmethod
     def _normalize_peak(

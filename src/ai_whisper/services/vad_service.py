@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import sys
 import threading
 from dataclasses import dataclass
@@ -211,6 +210,3 @@ def analyze_speech(
         )
     return result
 
-
-def has_speech(audio: np.ndarray) -> bool:
-    return analyze_speech(audio).has_speech

@@ -253,16 +253,13 @@ def main():
          "Old POLL_SEC removed", str(get_result(r))):
         passed += 1
 
-    # ── 6. H9/H12: Timer debounce 檢查 ──
-    print("\n-- 6. H9/H12: Timer debounce references exist --")
+    # ── 6. Timer debounce 檢查 ──
+    print("\n-- 6. Timer debounce references exist --")
 
     # 6a. InputService 有 debounce Timer 引用
     total += 1
     r = eval_expr(
-        "hasattr(self.input, '_ctrl_guard_timer') and "
-        "hasattr(self.input, '_hotkey_cleanup_timer') and "
-        "hasattr(self.input, '_ctrl_cleanup_timer_1') and "
-        "hasattr(self.input, '_ctrl_cleanup_timer_2')"
+        "hasattr(self.input, '_hotkey_cleanup_timer')"
     )
     if p(r.get("ok", False) and get_result(r) is True,
          "InputService has Timer debounce attrs"):
@@ -271,11 +268,11 @@ def main():
     # 6b. Timer 引用初始為 None（閒置時沒有殘留 Timer）
     total += 1
     r = eval_expr(
-        "self.input._ctrl_guard_timer is None "
-        "or not self.input._ctrl_guard_timer.is_alive()"
+        "self.input._hotkey_cleanup_timer is None "
+        "or not self.input._hotkey_cleanup_timer.is_alive()"
     )
     if p(r.get("ok", False) and get_result(r) is True,
-         "Ctrl guard timer idle (None or not alive)"):
+         "Hotkey cleanup timer idle (None or not alive)"):
         passed += 1
 
     # ── 7. H6: UIA timeout 保護 ──

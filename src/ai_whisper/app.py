@@ -247,11 +247,10 @@ class CompactPasswordStyle(QProxyStyle):
 
 
 def _apply_geometry(window, geometry: str) -> None:
-    match = re.match(r"(\d+)x(\d+)(?:\+(-?\d+)\+(-?\d+))?", geometry or "")
+    match = re.match(r"(?:\d+x\d+)?\+(-?\d+)\+(-?\d+)", geometry or "")
     if not match:
         return
-    if match.group(3) is not None:
-        window.move(int(match.group(3)), int(match.group(4)))
+    window.move(int(match.group(1)), int(match.group(2)))
 
 
 def main() -> int:
@@ -322,7 +321,6 @@ def main() -> int:
             _refs['debug_server'] = _dbg
             splash.finish(window)
             window.show()
-            QTimer.singleShot(500, window.prewarm)
         else:
             QTimer.singleShot(50, _check_loaded)
 
