@@ -334,6 +334,10 @@ class SettingsPage(QWidget):
         self.model.setStyleSheet("font-size:13px;")
         self.form.addWidget(self.model)
 
+        self._section("文字輸入模式")
+        self._hint("開啟後改用 WM_CHAR 輸入文字（繞過 SendInput）；適用於 LINE 等 Qt 應用吞字時")
+        self.use_wm_char = self._toggle_row("使用 WM_CHAR")
+
         self._section("文字校正")
         self._hint("每行一組，格式：原字,替換字；辨識結果會自動替換")
         self.text_corrections = QTextEdit()
@@ -397,6 +401,7 @@ class SettingsPage(QWidget):
         self.tap_trigger.stateChanged.connect(lambda *_: self._emit_changed())
         for entry in [self.segment_silence, self.segment_max_accum, self.segment_short_silence, self.warmup_idle_minutes, self.vad_confidence, self.vad_min_speech_sec, self.tap_sensitivity, self.api_key]:
             entry.editingFinished.connect(self._emit_changed)
+        self.use_wm_char.stateChanged.connect(lambda *_: self._emit_changed())
         self.model.currentTextChanged.connect(lambda *_: self._emit_changed())
         self.text_corrections.textChanged.connect(self._on_text_changed)
         self.show_key.clicked.connect(self._toggle_key_visibility)
@@ -440,6 +445,7 @@ class SettingsPage(QWidget):
             vad_min_speech_sec=self._safe_float(self.vad_min_speech_sec, cfg.vad_min_speech_sec),
             tap_trigger_enabled=self.tap_trigger.isChecked(),
             tap_sensitivity=self._safe_float(self.tap_sensitivity, cfg.tap_sensitivity),
+            use_wm_char=self.use_wm_char.isChecked(),
         )
 
     def _emit_changed(self) -> None:
@@ -460,6 +466,7 @@ class SettingsPage(QWidget):
             self.vad_min_speech_sec.setText(str(cfg.vad_min_speech_sec))
             self.tap_trigger.setChecked(cfg.tap_trigger_enabled)
             self.tap_sensitivity.setText(str(cfg.tap_sensitivity))
+            self.use_wm_char.setChecked(cfg.use_wm_char)
             self.hotkey_btn.setText(cfg.hotkey.upper())
             self.hotkey_comma_btn.setText(cfg.hotkey_comma.upper())
             for i, btn in enumerate(self.history_btns):

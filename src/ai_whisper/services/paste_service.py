@@ -304,6 +304,7 @@ class PasteService:
 
     # 已知 SendInput UNICODE 不適用的程式（黑名單）；
     # 不在此名單的程式預設用 SendInput，失敗再 fallback 剪貼簿 Ctrl+V。
+    # 若遇到 Qt 等 AutoSuggest 控制項吞字，可在設定中開啟 WM_CHAR 模式。
     _DIRECT_TEXT_BLACKLIST: frozenset[str] = frozenset()
 
     @staticmethod
@@ -814,6 +815,14 @@ class PasteService:
             )
             if t_received:
                 safe_print(f"{log_prefix('[paster]', now_str())}⏱️ 收到→直接輸入完成: {time.perf_counter() - t_received:.2f}s")
+            # WM_CHAR 直接送到 HWND，成功即信任，不需 UIA 驗證
+            # （避免 UIA 來不及更新導致驗證失敗 → fallback Ctrl+V → 貼兩次）
+            if ok and self.input.use_wm_char:
+                safe_print(
+                    f"{log_prefix('[paster]', now_str())}⌨️ TEXT input verify: "
+                    f"ok=True，reason=wm_char_trusted"
+                )
+                return
             verified = False
             verify_reason = "send_failed"
             if ok:

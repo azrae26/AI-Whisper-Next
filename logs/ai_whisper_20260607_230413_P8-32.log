@@ -1,0 +1,564 @@
+[main]          [23:04:13.558] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260607_230413_P8-32.current.log
+[settings]      [23:04:13.559] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [23:04:13.675] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [23:04:13.676] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [23:04:13.676] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [23:04:13.695] 🎙️ 敲麥監聽已啟動
+[main]          [23:04:13.695] 🔧 DIAG 關閉元件: (none)
+[debug]         [23:04:13.706] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [23:04:13.869] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [23:04:13.961] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [23:04:15.151] 🔌 HTTP 連線預熱完成 (1.45s)
+[test] ========================================
+[test] Paste Test START
+[paster]        [23:04:22.356] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.358] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780844662'
+[paster]        [23:04:22.419] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.423] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.423] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [23:04:22.485] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [23:04:22.486] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.486] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.607] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.643] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:04:22.661] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=33ms, final='TEST_PASTE'
+[paster]        [23:04:22.667] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')
+[paster]        [23:04:22.668] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster]        [23:04:22.669] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster]        [23:04:22.670] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:22.671] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='TEST_PASTE'
+[paster]        [23:04:22.732] 📋 CLIP verify ok: attempt=1, chars=10, text='TEST_PASTE'
+[paster]        [23:04:22.813] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x017f0d6c，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [23:04:22.815] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:04:22.822] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:04:22.956] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [23:04:22.957] 📋 CLIP restore wait: 0.30s
+[paster]        [23:04:23.258] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:23.259] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:23.380] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:23.381] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [23:04:25.585] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [23:04:25.586] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [23:04:28.625] ⚠️ UIA 查詢超時 (2.0s)，拋棄舊 UIA Worker 並重建。
+[paster]        [23:04:30.628] ⚠️ UIA 查詢超時 (2.0s)，拋棄舊 UIA Worker 並重建。
+[paster]        [23:04:32.630] ⚠️ UIA 查詢超時 (2.0s)，拋棄舊 UIA Worker 並重建。
+[paster]        [23:04:34.634] ⚠️ UIA 查詢超時 (2.0s)，拋棄舊 UIA Worker 並重建。
+[paster]        [23:04:34.654] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:04:34.698] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=7ms, final='FIX4_TEST'
+[paster]        [23:04:34.702] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')
+[paster]        [23:04:34.703] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster]        [23:04:34.704] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster]        [23:04:34.705] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:34.705] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='FIX4_TEST'
+[paster]        [23:04:34.767] 📋 CLIP verify ok: attempt=1, chars=9, text='FIX4_TEST'
+[paster]        [23:04:34.849] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x017f0d6c，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='FIX4_TEST'
+[paster]        [23:04:34.853] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:04:34.861] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:04:34.863] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [23:04:34.863] 📋 CLIP restore wait: 0.30s
+[paster]        [23:04:35.165] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:35.166] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:35.287] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [23:04:35.288] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [23:04:37.494] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [23:04:37.495] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[test] Result: 30/30 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[paster]        [23:04:55.816] ⚠️ UIA 查詢超時 (2.0s)，拋棄舊 UIA Worker 並重建。
+[main]          [23:05:49.965] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [23:05:49.966] ⌨️ after(0) 執行延遲 1.3ms
+[tap]           [23:05:50.028] 💤 敲麥監聽已停止
+[recorder]      [23:05:50.038] ⏱️ InputStream() 10.1ms
+[recorder]      [23:05:50.039] ⏱️ stream.start() 0.4ms
+[recorder]      [23:05:50.039] 🎙️ 錄音就緒，總初始化 10.5ms
+[main]          [23:05:50.039] ⏱️ recorder.start() 耗時 11.2ms，ok=True
+[tap]           [23:05:50.570] 🎙️ 敲麥監聽已啟動
+[main]          [23:05:50.583] 🎙️ 開始錄音
+[recorder]      [23:05:50.830] 🎤 第一包音訊到達，麥克風實際開啟延遲 791.6ms
+[tap][dim]      [23:05:55.203] 持續=27ms 峰值=406 ✗弱
+[tap][sample]   [23:05:55.816] 持續=549ms 峰值=9758 ✗長 K=1.6 CF=4.0 SC=725Hz Att=119.9ms | fK=1.9 fCF=4.1 fSC=726Hz fFlat=0.131 fHF=0.000
+[tap][sample]   [23:05:56.230] 持續=27ms 峰值=1696 ✓ K=1.1 CF=3.4 SC=1458Hz Att=0.0ms | fK=4.5 fCF=4.7 fSC=1390Hz fFlat=0.446 fHF=0.004 🎯 敲擊 #1
+[tap][dim]      [23:05:56.265] 持續=36ms 峰值=385 ✗弱
+[tap][sample]   [23:05:56.554] 持續=261ms 峰值=5854 ✗長 K=8.5 CF=8.3 SC=1596Hz Att=2.2ms | fK=9.9 fCF=8.8 fSC=1594Hz fFlat=0.315 fHF=0.015
+[tap][dim]      [23:05:56.590] 持續=36ms 峰值=386 ✗弱
+[recorder][VAD] [23:05:57.686] ✅ Silero 11/108 (16.9%), 0.35s speech
+[recorder][flush][23:05:57.686] ✅ 取出 3.5s 音訊段落
+[main]          [23:05:57.687] ✂️ 自動分段送出（靜音達1s，累積 3.5s，靜音 1.1s）
+[paster]        [23:05:57.837] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:05:57.838] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.15s, est_api=0.60s)
+[transcriber]   [23:05:58.638] ⏱️ API 耗時: 0.95s
+[main]          [23:05:58.639] ✅ 分段辨識完成: "有就有"
+[paster]        [23:05:59.341] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='有就有'
+[paster]        [23:05:59.361] ⌨️ TEXT input flow start: target_chars=3，視窗="【優分析】專屬產業訓練群組"，hwnd=0x158d0fea，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='有就有'
+[paster]        [23:05:59.366] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:05:59.377] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:05:59.377] ⏱️ 收到→直接輸入完成: 0.74s
+[paster]        [23:05:59.463] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap]           [23:06:02.592] ⏱️ 間隔過長重置（6318ms）
+[tap][sample]   [23:06:02.592] 持續=72ms 峰值=1064 ✓ K=6.6 CF=4.3 SC=491Hz Att=8.4ms | fK=11.2 fCF=5.2 fSC=730Hz fFlat=0.131 fHF=0.001 🎯 敲擊 #1
+[tap][sample]   [23:06:03.367] 持續=747ms 峰值=9858 ✗長 K=1.7 CF=4.5 SC=836Hz Att=92.8ms | fK=1.9 fCF=4.6 fSC=835Hz fFlat=0.180 fHF=0.000
+[tap][sample]   [23:06:03.935] 持續=415ms 峰值=12281 ✗長 K=1.0 CF=4.1 SC=970Hz Att=0.1ms | fK=1.3 fCF=4.3 fSC=983Hz fFlat=0.194 fHF=0.001
+[tap][dim]      [23:06:03.961] 持續=26ms 峰值=301 ✗弱
+[tap][sample]   [23:06:04.384] 持續=378ms 峰值=5230 ✗長 K=2.4 CF=8.4 SC=1555Hz Att=0.1ms | fK=2.9 fCF=8.7 fSC=1554Hz fFlat=0.321 fHF=0.008
+[tap][dim]      [23:06:04.411] 持續=27ms 峰值=532 ✗弱
+[tap][sample]   [23:06:05.023] 持續=576ms 峰值=7072 ✗長 K=3.4 CF=6.8 SC=1734Hz Att=328.5ms | fK=3.8 fCF=6.9 fSC=1733Hz fFlat=0.429 fHF=0.010
+[recorder][VAD] [23:06:06.215] ✅ Silero 11/120 (40.7%), 0.35s speech
+[recorder][flush][23:06:06.216] ✅ 取出 3.8s 音訊段落
+[main]          [23:06:06.216] ✂️ 自動分段送出（靜音達1s，累積 3.8s，靜音 1.2s）
+[paster]        [23:06:06.904] 📏 [UIA] text='有就有', text_after='', at_end=True, last_punct=False
+[paster]        [23:06:06.905] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.18s, est_api=0.63s)
+[transcriber]   [23:06:07.059] ⏱️ API 耗時: 0.84s
+[main]          [23:06:07.060] ✅ 分段辨識完成: "有都有給意見哦"
+[paster]        [23:06:07.091] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='有都有給意見哦'
+[paster]        [23:06:07.098] ⌨️ TEXT input flow start: target_chars=8，視窗="【優分析】專屬產業訓練群組"，hwnd=0x158d0fea，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，有都有給意見哦'
+[paster]        [23:06:07.099] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:06:07.116] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:06:07.118] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [23:06:07.203] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:06:33.400] 持續=315ms 峰值=6417 ✗長 K=1.2 CF=4.7 SC=1085Hz Att=88.5ms | fK=1.6 fCF=5.0 fSC=1084Hz fFlat=0.186 fHF=0.001
+[tap][dim]      [23:06:33.445] 持續=45ms 峰值=464 ✗弱
+[tap][sample]   [23:06:33.724] 持續=279ms 峰值=11554 ✗長 K=2.7 CF=5.0 SC=1602Hz Att=43.1ms | fK=3.4 fCF=5.3 fSC=1602Hz fFlat=0.406 fHF=0.010
+[tap][dim]      [23:06:33.796] 持續=36ms 峰值=421 ✗弱
+[tap][sample]   [23:06:34.174] 持續=378ms 峰值=10301 ✗長 K=2.8 CF=5.2 SC=1271Hz Att=31.9ms | fK=3.3 fCF=5.4 fSC=1272Hz fFlat=0.286 fHF=0.003
+[tap][sample]   [23:06:34.435] 持續=234ms 峰值=7436 ✗長 K=4.7 CF=6.8 SC=1324Hz Att=4.5ms | fK=5.8 fCF=7.3 fSC=1327Hz fFlat=0.339 fHF=0.004
+[tap][dim]      [23:06:34.470] 持續=36ms 峰值=412 ✗弱
+[tap][sample]   [23:06:35.011] 持續=225ms 峰值=6802 ✗長 K=5.9 CF=6.6 SC=879Hz Att=7.3ms | fK=7.1 fCF=7.0 fSC=876Hz fFlat=0.126 fHF=0.000
+[tap][dim]      [23:06:35.046] 持續=36ms 峰值=342 ✗弱
+[tap][sample]   [23:06:35.290] 持續=189ms 峰值=4192 ✗長 K=4.2 CF=5.7 SC=1051Hz Att=62.8ms | fK=5.3 fCF=6.1 fSC=1046Hz fFlat=0.201 fHF=0.002
+[tap][dim]      [23:06:35.325] 持續=36ms 峰值=403 ✗弱
+[tap][sample]   [23:06:36.253] 持續=639ms 峰值=11194 ✗長 K=3.8 CF=4.9 SC=2573Hz Att=124.1ms | fK=4.2 fCF=5.0 fSC=2575Hz fFlat=0.558 fHF=0.060
+[tap][dim]      [23:06:36.280] 持續=27ms 峰值=541 ✗弱
+[tap][dim]      [23:06:36.991] 持續=28ms 峰值=533 ✗弱
+[tap][sample]   [23:06:37.216] 持續=224ms 峰值=6686 ✗長 K=2.5 CF=4.2 SC=979Hz Att=66.6ms | fK=3.3 fCF=4.5 fSC=972Hz fFlat=0.211 fHF=0.001
+[tap][dim]      [23:06:37.289] 持續=73ms 峰值=565 ✗弱
+[tap][sample]   [23:06:37.477] 持續=36ms 峰值=628 ✓ K=15.9 CF=6.5 SC=1350Hz Att=0.2ms | fK=33.2 fCF=9.1 fSC=1335Hz fFlat=0.264 fHF=0.004 🎯 敲擊 #1
+[tap][sample]   [23:06:38.044] 持續=440ms 峰值=7060 ✗長 K=5.3 CF=8.0 SC=1681Hz Att=153.1ms | fK=5.9 fCF=8.3 fSC=1682Hz fFlat=0.428 fHF=0.017
+[tap][dim]      [23:06:38.080] 持續=36ms 峰值=570 ✗弱
+[tap][dim]      [23:06:38.404] 持續=36ms 峰值=549 ✗弱
+[tap][sample]   [23:06:38.755] 持續=351ms 峰值=6668 ✗長 K=6.0 CF=7.5 SC=1118Hz Att=132.1ms | fK=6.7 fCF=7.8 fSC=1127Hz fFlat=0.214 fHF=0.001
+[tap][dim]      [23:06:38.791] 持續=36ms 峰值=414 ✗弱
+[tap][dim]      [23:06:39.556] 持續=36ms 峰值=306 ✗弱
+[tap][sample]   [23:06:39.907] 持續=351ms 峰值=9677 ✗長 K=2.1 CF=4.4 SC=3236Hz Att=274.6ms | fK=2.6 fCF=4.5 fSC=3238Hz fFlat=0.613 fHF=0.190
+[tap][sample]   [23:06:40.258] 持續=297ms 峰值=11746 ✗長 K=4.8 CF=6.1 SC=1368Hz Att=2.1ms | fK=5.6 fCF=6.4 fSC=1371Hz fFlat=0.357 fHF=0.004
+[tap][dim]      [23:06:40.320] 持續=63ms 峰值=537 ✗弱
+[tap][sample]   [23:06:40.708] 持續=225ms 峰值=6920 ✗長 K=5.8 CF=5.8 SC=716Hz Att=35.2ms | fK=7.0 fCF=6.2 fSC=717Hz fFlat=0.115 fHF=0.000
+[tap][dim]      [23:06:40.735] 持續=27ms 峰值=491 ✗弱
+[tap][sample]   [23:06:41.609] 持續=873ms 峰值=7259 ✗長 K=3.3 CF=7.3 SC=2078Hz Att=0.1ms | fK=3.5 fCF=7.5 fSC=2076Hz fFlat=0.484 fHF=0.032
+[tap][dim]      [23:06:41.636] 持續=27ms 峰值=522 ✗弱
+[tap][dim]      [23:06:41.699] 持續=28ms 峰值=475 ✗弱
+[tap][sample]   [23:06:41.949] 持續=251ms 峰值=3659 ✗長 K=1.2 CF=5.3 SC=1109Hz Att=174.9ms | fK=1.7 fCF=5.7 fSC=1112Hz fFlat=0.216 fHF=0.002
+[tap][sample]   [23:06:42.148] 持續=161ms 峰值=6034 ✗長 K=4.9 CF=8.3 SC=1513Hz Att=0.1ms | fK=6.5 fCF=9.1 fSC=1516Hz fFlat=0.275 fHF=0.005
+[tap][sample]   [23:06:42.751] 持續=540ms 峰值=11331 ✗長 K=3.0 CF=5.0 SC=1661Hz Att=19.0ms | fK=3.3 fCF=5.2 fSC=1666Hz fFlat=0.438 fHF=0.012
+[tap][dim]      [23:06:42.787] 持續=36ms 峰值=514 ✗弱
+[tap][sample]   [23:06:43.425] 持續=639ms 峰值=7015 ✗長 K=4.2 CF=6.5 SC=1908Hz Att=283.1ms | fK=4.5 fCF=6.7 fSC=1912Hz fFlat=0.449 fHF=0.028
+[tap][sample]   [23:06:44.128] 持續=477ms 峰值=8466 ✗長 K=4.2 CF=6.1 SC=1055Hz Att=0.1ms | fK=4.7 fCF=6.3 fSC=1053Hz fFlat=0.214 fHF=0.001
+[tap][sample]   [23:06:44.766] 持續=414ms 峰值=6764 ✗長 K=1.5 CF=5.1 SC=1715Hz Att=226.4ms | fK=1.9 fCF=5.3 fSC=1713Hz fFlat=0.413 fHF=0.009
+[tap][sample]   [23:06:45.154] 持續=324ms 峰值=5948 ✗長 K=4.9 CF=7.7 SC=3336Hz Att=19.0ms | fK=5.6 fCF=8.1 fSC=3337Hz fFlat=0.631 fHF=0.227
+[tap][sample]   [23:06:46.207] 持續=189ms 峰值=2221 ✗長 K=1.0 CF=4.0 SC=1774Hz Att=48.6ms | fK=1.5 fCF=4.3 fSC=1774Hz fFlat=0.320 fHF=0.013
+[tap][dim]      [23:06:46.270] 持續=63ms 峰值=595 ✗弱
+[tap][sample]   [23:06:47.080] 持續=639ms 峰值=8319 ✗長 K=2.8 CF=5.4 SC=1626Hz Att=120.9ms | fK=3.0 fCF=5.5 fSC=1616Hz fFlat=0.386 fHF=0.010
+[tap][dim]      [23:06:47.116] 持續=36ms 峰值=312 ✗弱
+[tap][sample]   [23:06:47.433] 持續=191ms 峰值=3864 ✗長 K=3.0 CF=4.4 SC=3117Hz Att=95.6ms | fK=3.9 fCF=4.8 fSC=3108Hz fFlat=0.594 fHF=0.145
+[tap][sample]   [23:06:47.917] 持續=450ms 峰值=7024 ✗長 K=4.4 CF=6.7 SC=1446Hz Att=293.8ms | fK=4.9 fCF=6.9 fSC=1445Hz fFlat=0.300 fHF=0.006
+[tap][sample]   [23:06:48.520] 持續=288ms 峰值=5411 ✗長 K=5.3 CF=6.0 SC=1589Hz Att=116.4ms | fK=6.2 fCF=6.3 fSC=1593Hz fFlat=0.333 fHF=0.013
+[tap][sample]   [23:06:48.682] 持續=126ms 峰值=10123 ✓ K=3.9 CF=4.8 SC=1715Hz Att=3.4ms | fK=5.6 fCF=5.3 fSC=1717Hz fFlat=0.433 fHF=0.014 🎯 敲擊 #1
+[tap][dim]      [23:06:48.773] 持續=90ms 峰值=458 ✗弱
+[tap][dim]      [23:06:49.221] 持續=36ms 峰值=470 ✗弱
+[tap][sample]   [23:06:49.384] 持續=162ms 峰值=4128 ✗長 K=4.0 CF=7.5 SC=1394Hz Att=56.8ms | fK=5.3 fCF=8.2 fSC=1381Hz fFlat=0.250 fHF=0.003
+[tap][sample]   [23:06:49.725] 持續=270ms 峰值=3990 ✗長 K=1.8 CF=4.8 SC=2947Hz Att=76.6ms | fK=2.3 fCF=5.0 fSC=2948Hz fFlat=0.587 fHF=0.068
+[tap][dim]      [23:06:49.771] 持續=45ms 峰值=523 ✗弱
+[tap][sample]   [23:06:49.861] 持續=90ms 峰值=1555 ✓ K=1.2 CF=3.7 SC=1107Hz Att=15.2ms | fK=1.9 fCF=4.1 fSC=1094Hz fFlat=0.204 fHF=0.002 🎯 敲擊 #1
+[tap][dim]      [23:06:49.960] 持續=99ms 峰值=567 ✗弱
+[tap][sample]   [23:06:50.896] 持續=720ms 峰值=6477 ✗長 K=1.8 CF=5.4 SC=3208Hz Att=0.1ms | fK=2.0 fCF=5.6 fSC=3213Hz fFlat=0.604 fHF=0.264
+[tap][dim]      [23:06:50.923] 持續=27ms 峰值=366 ✗弱
+[tap][dim]      [23:06:51.139] 持續=27ms 峰值=363 ✗弱
+[tap][sample]   [23:06:51.616] 持續=216ms 峰值=8215 ✗長 K=2.9 CF=5.1 SC=1158Hz Att=35.0ms | fK=3.7 fCF=5.4 fSC=1155Hz fFlat=0.215 fHF=0.002
+[tap][sample]   [23:06:51.914] 持續=261ms 峰值=4438 ✗長 K=3.5 CF=7.7 SC=1476Hz Att=0.1ms | fK=4.3 fCF=8.2 fSC=1479Hz fFlat=0.313 fHF=0.006
+[tap][dim]      [23:06:51.940] 持續=26ms 峰值=510 ✗弱
+[tap][dim]      [23:06:52.012] 持續=36ms 峰值=342 ✗弱
+[tap][sample]   [23:06:52.174] 持續=162ms 峰值=10587 ✓ K=0.8 CF=3.2 SC=641Hz Att=43.2ms | fK=1.6 fCF=3.5 fSC=640Hz fFlat=0.117 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [23:06:52.237] 持續=63ms 峰值=593 ✗弱
+[tap][sample]   [23:06:52.579] 持續=341ms 峰值=8574 ✗長 K=6.4 CF=7.5 SC=1324Hz Att=38.2ms | fK=7.2 fCF=7.8 fSC=1327Hz fFlat=0.259 fHF=0.004
+[tap][sample]   [23:06:52.966] 持續=189ms 峰值=8232 ✗長 K=2.0 CF=5.1 SC=1498Hz Att=32.7ms | fK=2.8 fCF=5.5 fSC=1499Hz fFlat=0.342 fHF=0.005
+[tap][dim]      [23:06:53.029] 持續=63ms 峰值=542 ✗弱
+[tap][sample]   [23:06:53.290] 持續=261ms 峰值=2642 ✗長 K=4.7 CF=8.8 SC=1093Hz Att=39.6ms | fK=5.7 fCF=9.3 fSC=1099Hz fFlat=0.172 fHF=0.001
+[tap][sample]   [23:06:53.505] 持續=180ms 峰值=2850 ✗長 K=6.8 CF=8.2 SC=1737Hz Att=0.1ms | fK=8.4 fCF=8.8 fSC=1738Hz fFlat=0.328 fHF=0.008
+[recorder][VAD] [23:06:54.564] ✅ Silero 11/698 (19.0%), 0.35s speech
+[recorder][flush][23:06:54.566] ✅ 取出 22.3s 音訊段落
+[main]          [23:06:54.572] ✂️ 自動分段送出（累積夠長+短靜音，累積 22.3s，靜音 1.1s）
+[paster]        [23:06:56.094] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:06:56.095] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.52s, est_api=1.97s)
+[transcriber]   [23:06:56.245] ⏱️ API 耗時: 1.67s
+[main]          [23:06:56.245] ✅ 分段辨識完成: "現在有一個bug就是我在來識別文字的時候，然後他貼上的時候都會缺字。你現在直接用腳本來進行測試，看看問題在哪裡"
+[paster]        [23:06:56.277] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='現在有一個bug就是我在來識別文字的時候，然後他貼上的時候都會缺字。你現在直接用'
+[paster]        [23:06:56.293] ⌨️ TEXT input flow start: target_chars=55，視窗="Pushing Changes to Git"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='現在有一個bug就是我在來識別文字的時候，然後他貼上的時候都會缺字。你現在直接用'
+[paster]        [23:06:56.293] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:06:56.359] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:06:56.360] ⏱️ 收到→直接輸入完成: 0.12s
+[paster]        [23:06:56.445] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:08:08.016] 持續=45ms 峰值=306 ✗弱
+[tap][dim]      [23:08:09.547] 持續=36ms 峰值=357 ✗弱
+[tap][dim]      [23:08:15.406] 持續=36ms 峰值=337 ✗弱
+[overlay]       [23:09:35.403] 位置儲存 screen=DELL P2314H x=-1085 y=1088
+[tap][dim]      [23:11:25.099] 持續=27ms 峰值=328 ✗弱
+[main]          [23:12:00.743] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [23:12:00.744] ⌨️ after(0) 執行延遲 1.6ms[main]          [23:12:00.746] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[main]          [23:12:01.310] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [23:12:01.312] ⌨️ after(0) 執行延遲 2.0ms
+[tap]           [23:12:01.343] 💤 敲麥監聽已停止
+[recorder]      [23:12:01.343] 🚀 預熱命中，直接開始錄音
+[main]          [23:12:01.344] ⏱️ recorder.start() 耗時 0.5ms，ok=True
+[tap]           [23:12:01.349] 🎙️ 敲麥監聽已啟動
+[main]          [23:12:01.359] 🎙️ 開始錄音
+[tap][sample]   [23:12:03.556] 持續=1125ms 峰值=10966 ✗長 K=2.4 CF=5.0 SC=2748Hz Att=76.0ms | fK=2.6 fCF=5.0 fSC=2746Hz fFlat=0.592 fHF=0.107
+[tap][dim]      [23:12:03.645] 持續=90ms 峰值=545 ✗弱
+[tap][sample]   [23:12:04.159] 持續=450ms 峰值=13456 ✗長 K=0.7 CF=3.4 SC=993Hz Att=47.3ms | fK=0.9 fCF=3.5 fSC=993Hz fFlat=0.172 fHF=0.001
+[tap][sample]   [23:12:04.455] 持續=234ms 峰值=6036 ✗長 K=5.7 CF=7.7 SC=1555Hz Att=0.1ms | fK=6.9 fCF=8.3 fSC=1557Hz fFlat=0.356 fHF=0.015
+[tap][dim]      [23:12:04.483] 持續=27ms 峰值=534 ✗弱
+[tap][sample]   [23:12:04.699] 持續=216ms 峰值=6837 ✗長 K=1.8 CF=4.4 SC=1042Hz Att=61.9ms | fK=2.4 fCF=4.7 fSC=1028Hz fFlat=0.164 fHF=0.001
+[tap][dim]      [23:12:04.771] 持續=72ms 峰值=584 ✗弱
+[tap][sample]   [23:12:04.906] 持續=135ms 峰值=2533 ✗長 K=5.9 CF=5.7 SC=1326Hz Att=91.4ms | fK=8.1 fCF=6.4 fSC=1331Hz fFlat=0.278 fHF=0.003
+[tap][sample]   [23:12:05.446] 持續=512ms 峰值=7934 ✗長 K=7.6 CF=6.6 SC=1279Hz Att=29.1ms | fK=8.2 fCF=6.8 fSC=1278Hz fFlat=0.231 fHF=0.003
+[tap][dim]      [23:12:05.473] 持續=27ms 峰值=499 ✗弱
+[tap][sample]   [23:12:06.139] 持續=666ms 峰值=11716 ✗長 K=1.6 CF=3.9 SC=2370Hz Att=15.3ms | fK=1.8 fCF=4.0 fSC=2372Hz fFlat=0.527 fHF=0.041
+[tap][sample]   [23:12:06.715] 持續=540ms 峰值=5130 ✗長 K=4.2 CF=7.9 SC=2024Hz Att=263.2ms | fK=4.6 fCF=8.2 fSC=2027Hz fFlat=0.484 fHF=0.022
+[tap][sample]   [23:12:07.201] 持續=450ms 峰值=7328 ✗長 K=0.9 CF=3.8 SC=2424Hz Att=28.2ms | fK=1.2 fCF=4.0 fSC=2426Hz fFlat=0.512 fHF=0.030
+[tap][sample]   [23:12:08.263] 持續=1035ms 峰值=8744 ✗長 K=3.8 CF=6.5 SC=2041Hz Att=44.1ms | fK=4.0 fCF=6.6 fSC=2038Hz fFlat=0.483 fHF=0.024
+[tap][dim]      [23:12:08.290] 持續=27ms 峰值=301 ✗弱
+[tap][sample]   [23:12:08.696] 持續=405ms 峰值=11296 ✗長 K=2.2 CF=4.4 SC=881Hz Att=27.3ms | fK=2.6 fCF=4.6 fSC=878Hz fFlat=0.147 fHF=0.001
+[tap][sample]   [23:12:09.118] 持續=378ms 峰值=9897 ✗長 K=2.4 CF=4.8 SC=1365Hz Att=127.1ms | fK=2.9 fCF=5.0 fSC=1369Hz fFlat=0.347 fHF=0.004
+[tap][sample]   [23:12:09.441] 持續=216ms 峰值=3566 ✗長 K=4.9 CF=10.8 SC=3511Hz Att=0.1ms | fK=6.1 fCF=11.6 fSC=3504Hz fFlat=0.669 fHF=0.301
+[tap][sample]   [23:12:09.568] 持續=27ms 峰值=938 ✓ K=7.2 CF=6.1 SC=1356Hz Att=0.1ms | fK=16.2 fCF=8.5 fSC=1374Hz fFlat=0.283 fHF=0.004 🎯 敲擊 #1
+[recorder][VAD] [23:12:10.700] ✅ Silero 11/260 (61.1%), 0.35s speech
+[recorder][flush][23:12:10.701] ✅ 取出 8.3s 音訊段落
+[main]          [23:12:10.702] ✂️ 自動分段送出（靜音達1s，累積 8.3s，靜音 1.2s）
+[paster]        [23:12:11.337] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:12:11.337] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.63s, est_api=1.08s)
+[transcriber]   [23:12:11.946] ⏱️ API 耗時: 1.24s
+[main]          [23:12:11.948] ✅ 分段辨識完成: "我實際上都有看到你把文字輸入進去，只是前面好像都有缺字"
+[paster]        [23:12:11.981] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='我實際上都有看到你把文字輸入進去，只是前面好像都有缺字'
+[paster]        [23:12:11.986] ⌨️ TEXT input flow start: target_chars=27，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='我實際上都有看到你把文字輸入進去，只是前面好像都有缺字'
+[paster]        [23:12:11.987] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:12:12.032] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:12:12.034] ⏱️ 收到→直接輸入完成: 0.09s
+[paster]        [23:12:12.117] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:12:16.425] 持續=1034ms 峰值=9096 ✗長 K=4.4 CF=6.1 SC=1081Hz Att=60.3ms | fK=4.7 fCF=6.2 fSC=1082Hz fFlat=0.219 fHF=0.001
+[tap][dim]      [23:12:16.453] 持續=27ms 峰值=394 ✗弱
+[tap][sample]   [23:12:16.993] 持續=540ms 峰值=10553 ✗長 K=5.1 CF=5.9 SC=2978Hz Att=348.8ms | fK=5.6 fCF=6.1 fSC=2984Hz fFlat=0.588 fHF=0.144
+[tap][dim]      [23:12:17.020] 持續=27ms 峰值=476 ✗弱
+[tap][sample]   [23:12:17.282] 持續=226ms 峰值=8321 ✗長 K=7.7 CF=6.3 SC=1337Hz Att=0.1ms | fK=9.2 fCF=6.8 fSC=1333Hz fFlat=0.249 fHF=0.002
+[recorder][VAD] [23:12:18.433] ✅ Silero 11/95 (78.6%), 0.35s speech
+[recorder][flush][23:12:18.436] ✅ 取出 3.0s 音訊段落
+[main]          [23:12:18.438] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.2s）
+[paster]        [23:12:18.546] ⚠️ [UIA] 無 TextPattern
+[paster]        [23:12:18.548] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.10s, est_api=0.55s)
+[transcriber]   [23:12:19.432] ⏱️ API 耗時: 0.99s
+[main]          [23:12:19.433] ✅ 分段辨識完成: "然後又把文字刪掉"
+[paster]        [23:12:19.464] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='然後又把文字刪掉'
+[paster]        [23:12:19.469] ⌨️ TEXT input flow start: target_chars=8，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='然後又把文字刪掉'
+[paster]        [23:12:19.471] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:12:19.492] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:12:19.497] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [23:12:19.584] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:13:24.105] 持續=45ms 峰值=306 ✗弱
+[recorder][VAD] [23:13:25.254] ❌ Silero 1/63 (1.6%), 0.03s speech (need 16%/0.35s)
+[recorder][flush][23:13:25.255] ❌ VAD 略過（語音比例不足 1.6% < 16%）
+[recorder][VAD] [23:13:37.032] ❌ Silero 3/32 (9.4%), 0.10s speech (need 16%/0.35s)
+[recorder][flush][23:13:37.032] ❌ VAD 略過（語音比例不足 9.4% < 16%）
+[tap][dim]      [23:16:25.618] 持續=27ms 峰值=337 ✗弱
+[tap][dim]      [23:16:25.870] 持續=36ms 峰值=358 ✗弱
+[recorder][VAD] [23:16:27.047] ❌ Silero 1/63 (1.6%), 0.03s speech (need 16%/0.35s)
+[recorder][flush][23:16:27.048] ❌ VAD 略過（語音比例不足 1.6% < 16%）
+[tap][dim]      [23:17:38.959] 持續=63ms 峰值=426 ✗弱
+[tap][sample]   [23:20:11.266] 持續=612ms 峰值=7943 ✗長 K=2.6 CF=5.5 SC=1159Hz Att=369.2ms | fK=2.9 fCF=5.6 fSC=1161Hz fFlat=0.198 fHF=0.001
+[tap][dim]      [23:20:11.302] 持續=36ms 峰值=412 ✗弱
+[tap][sample]   [23:20:12.202] 持續=900ms 峰值=8500 ✗長 K=0.7 CF=6.2 SC=2688Hz Att=0.1ms | fK=0.8 fCF=6.3 fSC=2688Hz fFlat=0.559 fHF=0.080
+[recorder][VAD] [23:20:13.329] ✅ Silero 11/115 (23.4%), 0.35s speech
+[recorder][flush][23:20:13.330] ✅ 取出 3.7s 音訊段落
+[main]          [23:20:13.330] ✂️ 自動分段送出（靜音達1s，累積 3.7s，靜音 1.2s）
+[paster]        [23:20:13.500] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:20:13.501] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.17s, est_api=0.62s)
+[transcriber]   [23:20:14.144] ⏱️ API 耗時: 0.81s
+[main]          [23:20:14.145] ✅ 分段辨識完成: "來我們測試一下"
+[paster]        [23:20:14.176] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='來我們測試一下'
+[paster]        [23:20:14.183] ⌨️ TEXT input flow start: target_chars=7，視窗="林區老朋友-鯊魚貼圖推廣中心"，hwnd=0x0d690f28，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='來我們測試一下'
+[paster]        [23:20:14.184] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:20:14.225] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:20:14.228] ⏱️ 收到→直接輸入完成: 0.08s
+[paster]        [23:20:14.313] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:20:18.637] 持續=865ms 峰值=9461 ✗長 K=0.7 CF=4.0 SC=2404Hz Att=138.3ms | fK=0.8 fCF=4.0 fSC=2398Hz fFlat=0.479 fHF=0.071
+[tap][dim]      [23:20:18.664] 持續=27ms 峰值=391 ✗弱
+[tap][sample]   [23:20:19.411] 持續=675ms 峰值=7993 ✗長 K=2.2 CF=4.6 SC=1116Hz Att=1.4ms | fK=2.5 fCF=4.7 fSC=1111Hz fFlat=0.187 fHF=0.002
+[recorder][VAD] [23:20:20.648] ✅ Silero 11/120 (22.4%), 0.35s speech
+[recorder][flush][23:20:20.649] ✅ 取出 3.8s 音訊段落
+[main]          [23:20:20.650] ✂️ 自動分段送出（靜音達1s，累積 3.8s，靜音 1.2s）
+[paster]        [23:20:21.339] 📏 [UIA] text='來我們測試一下', text_after='', at_end=True, last_punct=False
+[paster]        [23:20:21.341] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.18s, est_api=0.63s)
+[transcriber]   [23:20:21.611] ⏱️ API 耗時: 0.96s
+[main]          [23:20:21.615] ✅ 分段辨識完成: "測試一下可以嗎"
+[paster]        [23:20:21.647] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='測試一下可以嗎'
+[paster]        [23:20:21.652] ⌨️ TEXT input flow start: target_chars=8，視窗="林區老朋友-鯊魚貼圖推廣中心"，hwnd=0x0d690f28，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，測試一下可以嗎'
+[paster]        [23:20:21.653] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:20:21.663] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:20:21.664] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [23:20:21.747] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:20:30.220] 持續=639ms 峰值=7716 ✗長 K=3.2 CF=5.9 SC=1101Hz Att=61.9ms | fK=3.5 fCF=6.1 fSC=1119Hz fFlat=0.201 fHF=0.001
+[tap][dim]      [23:20:30.256] 持續=36ms 峰值=557 ✗弱
+[tap][sample]   [23:20:31.407] 持續=1152ms 峰值=8912 ✗長 K=2.1 CF=5.0 SC=2602Hz Att=153.1ms | fK=2.3 fCF=5.1 fSC=2606Hz fFlat=0.560 fHF=0.058
+[tap][dim]      [23:20:31.434] 持續=27ms 峰值=419 ✗弱
+[recorder][VAD] [23:20:32.627] ✅ Silero 11/128 (17.7%), 0.35s speech
+[recorder][flush][23:20:32.628] ✅ 取出 4.1s 音訊段落
+[main]          [23:20:32.628] ✂️ 自動分段送出（靜音達1s，累積 4.1s，靜音 1.2s）
+[paster]        [23:20:32.871] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:20:32.873] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.21s, est_api=0.66s)
+[transcriber]   [23:20:33.450] ⏱️ API 耗時: 0.82s
+[main]          [23:20:33.451] ✅ 分段辨識完成: "來我們測試一下喔"
+[paster]        [23:20:33.483] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='來我們測試一下喔'
+[paster]        [23:20:33.491] ⌨️ TEXT input flow start: target_chars=8，視窗="林區老朋友-鯊魚貼圖推廣中心"，hwnd=0x0d690f28，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='來我們測試一下喔'
+[paster]        [23:20:33.493] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:20:33.508] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:20:33.509] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [23:20:33.594] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:20:35.827] 持續=936ms 峰值=10413 ✗長 K=1.0 CF=4.6 SC=2145Hz Att=250.7ms | fK=1.1 fCF=4.7 fSC=2147Hz fFlat=0.482 fHF=0.033
+[tap][sample]   [23:20:36.583] 持續=702ms 峰值=6870 ✗長 K=1.9 CF=6.3 SC=1149Hz Att=0.4ms | fK=2.1 fCF=6.4 fSC=1152Hz fFlat=0.230 fHF=0.002
+[tap][dim]      [23:20:36.655] 持續=72ms 峰值=462 ✗弱
+[recorder][VAD] [23:20:37.699] ✅ Silero 11/89 (73.3%), 0.35s speech
+[recorder][flush][23:20:37.700] ✅ 取出 2.8s 音訊段落
+[main]          [23:20:37.700] ✂️ 自動分段送出（靜音達1s，累積 2.8s，靜音 1.1s）
+[paster]        [23:20:38.291] 📏 [UIA] text='來我們測試一下喔', text_after='', at_end=True, last_punct=False
+[paster]        [23:20:38.294] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.08s, est_api=0.53s)
+[transcriber]   [23:20:38.349] ⏱️ API 耗時: 0.65s
+[main]          [23:20:38.350] ✅ 分段辨識完成: "測試一下可以嗎？"
+[paster]        [23:20:38.381] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='測試一下可以嗎？'
+[paster]        [23:20:38.389] ⌨️ TEXT input flow start: target_chars=9，視窗="林區老朋友-鯊魚貼圖推廣中心"，hwnd=0x0d690f28，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，測試一下可以嗎？'
+[paster]        [23:20:38.390] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:20:38.398] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:20:38.398] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [23:20:38.482] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:21:00.235] 持續=27ms 峰值=348 ✗弱
+[tap][sample]   [23:21:00.397] 持續=162ms 峰值=9898 ✓ K=0.8 CF=3.8 SC=973Hz Att=56.6ms | fK=1.6 fCF=4.2 fSC=970Hz fFlat=0.164 fHF=0.003 🎯 敲擊 #1
+[tap][sample]   [23:21:01.108] 持續=648ms 峰值=8657 ✗長 K=3.5 CF=6.5 SC=2877Hz Att=0.1ms | fK=3.8 fCF=6.6 fSC=2880Hz fFlat=0.594 fHF=0.087
+[tap][sample]   [23:21:01.839] 持續=577ms 峰值=11341 ✗長 K=7.1 CF=7.1 SC=1728Hz Att=49.6ms | fK=7.6 fCF=7.3 fSC=1721Hz fFlat=0.330 fHF=0.018
+[tap][dim]      [23:21:01.936] 持續=98ms 峰值=391 ✗弱
+[tap][dim]      [23:21:02.223] 持續=35ms 峰值=408 ✗弱
+[tap][sample]   [23:21:02.314] 持續=90ms 峰值=2690 ✓ K=2.4 CF=4.0 SC=1828Hz Att=23.7ms | fK=4.1 fCF=4.6 fSC=1840Hz fFlat=0.375 fHF=0.007 🎯 敲擊 #1
+[tap][sample]   [23:21:02.611] 持續=225ms 峰值=5668 ✗長 K=3.1 CF=4.8 SC=1786Hz Att=31.2ms | fK=3.9 fCF=5.1 fSC=1788Hz fFlat=0.442 fHF=0.013
+[tap][dim]      [23:21:02.638] 持續=27ms 峰值=364 ✗弱
+[tap][sample]   [23:21:02.983] 持續=345ms 峰值=5222 ✗長 K=3.4 CF=6.6 SC=2036Hz Att=175.1ms | fK=4.0 fCF=6.9 fSC=2039Hz fFlat=0.490 fHF=0.039
+[tap][sample]   [23:21:03.403] 持續=378ms 峰值=7389 ✗長 K=6.8 CF=6.4 SC=949Hz Att=174.6ms | fK=7.6 fCF=6.7 fSC=944Hz fFlat=0.182 fHF=0.001
+[tap][sample]   [23:21:03.565] 持續=135ms 峰值=4757 ✗長 K=13.2 CF=9.1 SC=1599Hz Att=0.2ms | fK=17.1 fCF=10.1 fSC=1595Hz fFlat=0.372 fHF=0.018
+[tap][dim]      [23:21:03.600] 持續=36ms 峰值=448 ✗弱
+[tap][sample]   [23:21:04.303] 持續=423ms 峰值=4968 ✗長 K=2.9 CF=5.7 SC=775Hz Att=281.6ms | fK=3.4 fCF=6.0 fSC=814Hz fFlat=0.134 fHF=0.000
+[tap][dim]      [23:21:04.329] 持續=27ms 峰值=435 ✗弱
+[tap][sample]   [23:21:04.716] 持續=189ms 峰值=6047 ✗長 K=1.6 CF=4.0 SC=1285Hz Att=32.1ms | fK=2.4 fCF=4.3 fSC=1288Hz fFlat=0.248 fHF=0.006
+[tap][dim]      [23:21:04.779] 持續=63ms 峰值=509 ✗弱
+[tap][sample]   [23:21:05.644] 持續=378ms 峰值=7031 ✗長 K=4.8 CF=5.9 SC=2662Hz Att=56.1ms | fK=5.4 fCF=6.2 fSC=2668Hz fFlat=0.536 fHF=0.099
+[tap][dim]      [23:21:05.671] 持續=28ms 峰值=332 ✗弱
+[tap][sample]   [23:21:06.282] 持續=27ms 峰值=644 ✓ K=26.2 CF=7.2 SC=2084Hz Att=0.1ms | fK=49.4 fCF=9.8 fSC=2238Hz fFlat=0.357 fHF=0.010 🎯 敲擊 #1
+[tap][dim]      [23:21:06.508] 持續=27ms 峰值=590 ✗弱
+[tap][sample]   [23:21:07.184] 持續=676ms 峰值=9405 ✗長 K=3.5 CF=6.7 SC=2511Hz Att=479.8ms | fK=3.8 fCF=6.8 fSC=2516Hz fFlat=0.572 fHF=0.091
+[tap][dim]      [23:21:07.210] 持續=26ms 峰值=513 ✗弱
+[tap][sample]   [23:21:08.308] 持續=1062ms 峰值=9989 ✗長 K=8.4 CF=7.9 SC=1712Hz Att=15.4ms | fK=8.7 fCF=8.0 fSC=1711Hz fFlat=0.428 fHF=0.016
+[tap][dim]      [23:21:08.334] 持續=27ms 峰值=559 ✗弱
+[recorder][VAD] [23:21:09.390] ✅ Silero 11/311 (24.4%), 0.35s speech
+[recorder][flush][23:21:09.586] 段落太短 (0.22s)，略過[recorder][flush][23:21:09.587] ✅ 取出 10.0s 音訊段落
+
+[main]          [23:21:09.588] ✂️ 自動分段送出（靜音達1s，累積 10.0s，靜音 1.1s）
+[paster]        [23:21:10.385] ⚠️ [UIA] 無 TextPattern
+[paster]        [23:21:10.386] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.80s, est_api=1.25s)
+[transcriber]   [23:21:10.839] ⏱️ API 耗時: 1.25s
+[main]          [23:21:10.840] ✅ 分段辨識完成: "我第一次講話，你看剛才的log，然後看這是實際上貼上的內容"
+[paster]        [23:21:10.871] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='我第一次講話，你看剛才的log，然後看這是實際上貼上的內容'
+[paster]        [23:21:10.877] ⌨️ TEXT input flow start: target_chars=29，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='我第一次講話，你看剛才的log，然後看這是實際上貼上的內容'
+[paster]        [23:21:10.879] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:21:10.907] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:21:10.909] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [23:21:11.055] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:22:20.056] 持續=900ms 峰值=9448 ✗長 K=3.2 CF=5.5 SC=2464Hz Att=271.9ms | fK=3.5 fCF=5.6 fSC=2463Hz fFlat=0.531 fHF=0.049
+[tap][dim]      [23:22:20.083] 持續=27ms 峰值=576 ✗弱
+[tap][sample]   [23:22:20.343] 持續=261ms 峰值=10843 ✗長 K=2.0 CF=4.7 SC=2025Hz Att=40.1ms | fK=2.6 fCF=5.0 fSC=2028Hz fFlat=0.422 fHF=0.033
+[tap][dim]      [23:22:20.407] 持續=36ms 峰值=580 ✗弱
+[tap][sample]   [23:22:20.982] 持續=576ms 峰值=11223 ✗長 K=2.8 CF=5.0 SC=1768Hz Att=35.8ms | fK=3.1 fCF=5.2 fSC=1767Hz fFlat=0.442 fHF=0.014
+[tap][dim]      [23:22:21.046] 持續=63ms 峰值=458 ✗弱
+[tap][sample]   [23:22:21.172] 持續=126ms 峰值=3778 ✗長 K=2.3 CF=4.0 SC=1985Hz Att=42.6ms | fK=3.6 fCF=4.4 fSC=1988Hz fFlat=0.291 fHF=0.018
+[tap][sample]   [23:22:22.963] 持續=1764ms 峰值=12318 ✗長 K=4.6 CF=6.7 SC=2197Hz Att=513.6ms | fK=4.3 fCF=6.4 fSC=2163Hz fFlat=0.505 fHF=0.046
+[tap][sample]   [23:22:23.539] 持續=549ms 峰值=11020 ✗長 K=3.0 CF=4.7 SC=1763Hz Att=315.7ms | fK=3.3 fCF=4.9 fSC=1772Hz fFlat=0.433 fHF=0.017
+[tap][sample]   [23:22:23.764] 持續=162ms 峰值=12150 ✓ K=4.5 CF=4.9 SC=1386Hz Att=2.7ms | fK=6.0 fCF=5.4 fSC=1384Hz fFlat=0.266 fHF=0.004 🎯 敲擊 #1
+[tap][sample]   [23:22:24.151] 持續=315ms 峰值=12018 ✗長 K=5.1 CF=5.5 SC=1405Hz Att=0.1ms | fK=5.9 fCF=5.8 fSC=1405Hz fFlat=0.307 fHF=0.005
+[tap][sample]   [23:22:24.429] 持續=243ms 峰值=5181 ✗長 K=3.5 CF=6.5 SC=3291Hz Att=0.1ms | fK=4.3 fCF=6.9 fSC=3287Hz fFlat=0.616 fHF=0.255
+[tap][dim]      [23:22:24.529] 持續=27ms 峰值=320 ✗弱
+[tap][sample]   [23:22:24.880] 持續=153ms 峰值=9559 ✓ K=5.3 CF=4.9 SC=837Hz Att=86.1ms | fK=7.0 fCF=5.4 fSC=838Hz fFlat=0.172 fHF=0.000 🎯 敲擊 #1
+[tap][sample]   [23:22:25.141] 持續=189ms 峰值=6962 ✗長 K=2.1 CF=4.4 SC=497Hz Att=10.6ms | fK=3.0 fCF=4.8 fSC=495Hz fFlat=0.051 fHF=0.000
+[tap][dim]      [23:22:25.176] 持續=36ms 峰值=371 ✗弱
+[tap][dim]      [23:22:25.456] 持續=27ms 峰值=339 ✗弱
+[tap][sample]   [23:22:25.717] 持續=261ms 峰值=6478 ✗長 K=1.3 CF=4.0 SC=3161Hz Att=122.8ms | fK=1.9 fCF=4.2 fSC=3161Hz fFlat=0.558 fHF=0.148
+[tap][sample]   [23:22:26.806] 持續=360ms 峰值=10446 ✗長 K=5.7 CF=5.5 SC=1026Hz Att=0.3ms | fK=6.5 fCF=5.8 fSC=1025Hz fFlat=0.171 fHF=0.002
+[tap][sample]   [23:22:27.472] 持續=603ms 峰值=10665 ✗長 K=1.8 CF=4.7 SC=1452Hz Att=0.1ms | fK=2.0 fCF=4.8 fSC=1451Hz fFlat=0.326 fHF=0.006
+[tap][dim]      [23:22:27.518] 持續=45ms 峰值=473 ✗弱
+[tap][sample]   [23:22:27.796] 持續=252ms 峰值=10508 ✗長 K=6.8 CF=5.6 SC=1084Hz Att=42.0ms | fK=8.0 fCF=6.0 fSC=1083Hz fFlat=0.242 fHF=0.003
+[tap][dim]      [23:22:27.832] 持續=36ms 峰值=551 ✗弱
+[tap][sample]   [23:22:28.057] 持續=198ms 峰值=7979 ✗長 K=4.3 CF=4.7 SC=1190Hz Att=0.1ms | fK=5.5 fCF=5.1 fSC=1193Hz fFlat=0.213 fHF=0.002
+[tap][sample]   [23:22:28.534] 持續=423ms 峰值=10653 ✗長 K=2.0 CF=4.1 SC=1076Hz Att=106.1ms | fK=2.4 fCF=4.3 fSC=1076Hz fFlat=0.200 fHF=0.002
+[tap][sample]   [23:22:28.750] 持續=153ms 峰值=11068 ✓ K=1.2 CF=4.1 SC=1339Hz Att=0.1ms | fK=2.1 fCF=4.5 fSC=1337Hz fFlat=0.323 fHF=0.004 🎯 敲擊 #1
+[tap][sample]   [23:22:29.173] 持續=261ms 峰值=5851 ✗長 K=4.5 CF=8.2 SC=3144Hz Att=0.1ms | fK=5.4 fCF=8.7 fSC=3143Hz fFlat=0.621 fHF=0.153
+[tap][dim]      [23:22:29.362] 持續=35ms 峰值=318 ✗弱
+[recorder][VAD] [23:22:30.436] ✅ Silero 11/387 (21.6%), 0.35s speech
+[recorder][flush][23:22:30.437] ✅ 取出 12.4s 音訊段落
+[main]          [23:22:30.437] ✂️ 自動分段送出（靜音達1s，累積 12.4s，靜音 1.1s）
+[paster]        [23:22:31.479] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:22:31.480] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.04s, est_api=1.49s)
+[transcriber]   [23:22:31.979] ⏱️ API 耗時: 1.54s
+[main]          [23:22:31.980] ✅ 分段辨識完成: "所以是在前面已經有字的情況下才會被吞字，如果是空的輸入框就不會被吞字"
+[paster]        [23:22:32.011] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='所以是在前面已經有字的情況下才會被吞字，如果是空的輸入框就不會被吞字'
+[paster]        [23:22:32.017] ⌨️ TEXT input flow start: target_chars=34，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='所以是在前面已經有字的情況下才會被吞字，如果是空的輸入框就不會被吞字'
+[paster]        [23:22:32.018] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:22:32.056] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:22:32.058] ⏱️ 收到→直接輸入完成: 0.08s
+[paster]        [23:22:32.141] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:25:10.939] 持續=27ms 峰值=382 ✗弱
+[tap][sample]   [23:27:00.452] 持續=1180ms 峰值=12578 ✗長 K=1.1 CF=4.2 SC=1921Hz Att=274.7ms | fK=1.2 fCF=4.3 fSC=1923Hz fFlat=0.473 fHF=0.021
+[tap][dim]      [23:27:00.486] 持續=35ms 峰值=549 ✗弱
+[tap][sample]   [23:27:01.162] 持續=675ms 峰值=8912 ✗長 K=4.1 CF=5.8 SC=990Hz Att=369.2ms | fK=4.5 fCF=5.9 fSC=991Hz fFlat=0.200 fHF=0.001
+[tap][dim]      [23:27:01.828] 持續=27ms 峰值=345 ✗弱
+[tap][sample]   [23:27:02.152] 持續=324ms 峰值=7037 ✗長 K=2.0 CF=4.1 SC=1252Hz Att=130.8ms | fK=2.5 fCF=4.3 fSC=1284Hz fFlat=0.244 fHF=0.001
+[tap][dim]      [23:27:02.178] 持續=27ms 峰值=383 ✗弱
+[tap][sample]   [23:27:02.756] 持續=550ms 峰值=9201 ✗長 K=2.3 CF=5.7 SC=1467Hz Att=34.0ms | fK=2.7 fCF=5.9 fSC=1468Hz fFlat=0.337 fHF=0.008
+[tap][sample]   [23:27:03.556] 持續=765ms 峰值=11803 ✗長 K=3.1 CF=5.6 SC=1791Hz Att=0.1ms | fK=3.3 fCF=5.7 fSC=1791Hz fFlat=0.419 fHF=0.016
+[tap][dim]      [23:27:03.618] 持續=63ms 峰值=545 ✗弱
+[tap][sample]   [23:27:03.906] 持續=261ms 峰值=7537 ✗長 K=2.7 CF=5.7 SC=1113Hz Att=0.1ms | fK=3.4 fCF=6.1 fSC=1109Hz fFlat=0.191 fHF=0.001
+[tap][sample]   [23:27:04.167] 持續=207ms 峰值=6568 ✗長 K=14.9 CF=8.2 SC=1315Hz Att=7.9ms | fK=17.8 fCF=8.8 fSC=1308Hz fFlat=0.204 fHF=0.003
+[tap][dim]      [23:27:04.194] 持續=27ms 峰值=354 ✗弱
+[tap][dim]      [23:27:04.258] 持續=27ms 峰值=344 ✗弱
+[tap][sample]   [23:27:04.410] 持續=27ms 峰值=1604 ✓ K=43.9 CF=10.0 SC=2519Hz Att=0.1ms | fK=84.8 fCF=13.8 fSC=2542Hz fFlat=0.468 fHF=0.036 🎯 敲擊 #1
+[tap][dim]      [23:27:04.447] 持續=36ms 峰值=301 ✗弱
+[tap][dim]      [23:27:04.735] 持續=27ms 峰值=370 ✗弱
+[tap][sample]   [23:27:06.148] 持續=1413ms 峰值=8823 ✗長 K=3.3 CF=5.7 SC=1745Hz Att=59.4ms | fK=3.4 fCF=5.7 fSC=1739Hz fFlat=0.436 fHF=0.011
+[tap][dim]      [23:27:06.210] 持續=63ms 峰值=444 ✗弱
+[tap][sample]   [23:27:06.471] 持續=261ms 峰值=6860 ✗長 K=2.6 CF=6.8 SC=1229Hz Att=0.1ms | fK=3.3 fCF=7.2 fSC=1225Hz fFlat=0.266 fHF=0.003
+[tap][dim]      [23:27:06.499] 持續=27ms 峰值=554 ✗弱
+[tap][sample]   [23:27:07.075] 持續=503ms 峰值=6890 ✗長 K=1.5 CF=7.1 SC=2628Hz Att=0.1ms | fK=1.8 fCF=7.3 fSC=2643Hz fFlat=0.596 fHF=0.094
+[tap][dim]      [23:27:07.110] 持續=36ms 峰值=343 ✗弱
+[tap][sample]   [23:27:08.419] 持續=1280ms 峰值=7739 ✗長 K=2.2 CF=5.2 SC=2054Hz Att=235.9ms | fK=2.4 fCF=5.3 fSC=2058Hz fFlat=0.531 fHF=0.024
+[tap][dim]      [23:27:08.452] 持續=34ms 峰值=590 ✗弱
+[tap][sample]   [23:27:08.551] 持續=100ms 峰值=3563 ✓ K=2.4 CF=4.3 SC=1221Hz Att=52.8ms | fK=4.2 fCF=5.0 fSC=1218Hz fFlat=0.289 fHF=0.002 🎯 敲擊 #1
+[tap][dim]      [23:27:08.578] 持續=26ms 峰值=307 ✗弱
+[tap][sample]   [23:27:09.126] 持續=521ms 峰值=5444 ✗長 K=5.9 CF=6.5 SC=1123Hz Att=0.2ms | fK=6.4 fCF=6.7 fSC=1119Hz fFlat=0.200 fHF=0.003
+[tap][dim]      [23:27:09.180] 持續=54ms 峰值=583 ✗弱
+[tap][sample]   [23:27:09.567] 持續=351ms 峰值=3747 ✗長 K=6.0 CF=11.3 SC=2741Hz Att=0.1ms | fK=6.8 fCF=11.8 fSC=2734Hz fFlat=0.583 fHF=0.084
+[tap][sample]   [23:27:10.144] 持續=422ms 峰值=9854 ✗長 K=8.1 CF=8.0 SC=1946Hz Att=2.2ms | fK=8.9 fCF=8.3 fSC=1942Hz fFlat=0.378 fHF=0.025
+[tap][dim]      [23:27:10.172] 持續=27ms 峰值=555 ✗弱
+[tap][sample]   [23:27:10.370] 持續=198ms 峰值=2933 ✗長 K=4.1 CF=6.1 SC=2868Hz Att=30.1ms | fK=5.1 fCF=6.6 fSC=2868Hz fFlat=0.627 fHF=0.107
+[tap][dim]      [23:27:10.405] 持續=35ms 峰值=466 ✗弱
+[tap][sample]   [23:27:10.441] 持續=36ms 峰值=781 ✓ K=0.1 CF=2.6 SC=592Hz Att=4.4ms | fK=2.5 fCF=3.6 fSC=640Hz fFlat=0.158 fHF=0.000 🎯 敲擊 #1
+[tap][sample]   [23:27:10.684] 持續=216ms 峰值=5535 ✗長 K=5.6 CF=5.7 SC=1262Hz Att=41.4ms | fK=6.9 fCF=6.1 fSC=1267Hz fFlat=0.211 fHF=0.003
+[tap][sample]   [23:27:10.918] 持續=162ms 峰值=3665 ✗長 K=9.1 CF=8.1 SC=1700Hz Att=0.1ms | fK=11.4 fCF=8.9 fSC=1700Hz fFlat=0.347 fHF=0.008
+[tap][dim]      [23:27:11.008] 持續=90ms 峰值=401 ✗弱
+[tap][sample]   [23:27:11.134] 持續=126ms 峰值=1714 ✗長 K=1.5 CF=4.4 SC=1044Hz Att=58.4ms | fK=2.4 fCF=4.9 fSC=1053Hz fFlat=0.224 fHF=0.001
+[tap][dim]      [23:27:11.242] 持續=108ms 峰值=396 ✗弱
+[recorder][VAD] [23:27:12.792] ✅ Silero 11/445 (19.6%), 0.35s speech
+[recorder][flush][23:27:12.794] ✅ 取出 14.2s 音訊段落
+[main]          [23:27:12.794] ✂️ 自動分段送出（靜音達1s，累積 14.2s，靜音 1.2s）
+[paster]        [23:27:14.021] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:27:14.022] 🔮 預取游標位置: at_end=False, last_punct=False (delay=1.22s, est_api=1.67s)
+[transcriber]   [23:27:14.025] ⏱️ API 耗時: 1.23s
+[main]          [23:27:14.025] ✅ 分段辨識完成: "會不會是因為，你看喔，他會變成逗點，會不會是因為我們的字數計算錯誤，所以那個文字被換成逗點了"
+[paster]        [23:27:14.057] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='會不會是因為，你看喔，他會變成逗點，會不會是因為我們的字數計算錯誤，所以那個文字'
+[paster]        [23:27:14.063] ⌨️ TEXT input flow start: target_chars=46，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='會不會是因為，你看喔，他會變成逗點，會不會是因為我們的字數計算錯誤，所以那個文字'
+[paster]        [23:27:14.064] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:27:14.121] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:27:14.123] ⏱️ 收到→直接輸入完成: 0.10s
+[paster]        [23:27:14.208] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:27:22.564] 持續=36ms 峰值=901 ✓ K=53.4 CF=10.3 SC=5129Hz Att=5.0ms | fK=106.6 fCF=14.5 fSC=5043Hz fFlat=0.577 fHF=0.909 🎯 敲擊 #1
+[tap][sample]   [23:27:24.004] 持續=738ms 峰值=7400 ✗長 K=2.4 CF=6.3 SC=961Hz Att=478.2ms | fK=2.6 fCF=6.5 fSC=960Hz fFlat=0.187 fHF=0.001
+[tap][sample]   [23:27:24.652] 持續=621ms 峰值=10109 ✗長 K=4.0 CF=6.4 SC=2458Hz Att=63.5ms | fK=4.4 fCF=6.6 fSC=2454Hz fFlat=0.564 fHF=0.071
+[tap][sample]   [23:27:24.868] 持續=189ms 峰值=4962 ✗長 K=3.1 CF=6.0 SC=3267Hz Att=0.1ms | fK=4.0 fCF=6.4 fSC=3270Hz fFlat=0.631 fHF=0.201
+[tap][dim]      [23:27:24.895] 持續=27ms 峰值=583 ✗弱
+[tap][sample]   [23:27:25.129] 持續=234ms 峰值=8591 ✗長 K=4.9 CF=5.5 SC=1007Hz Att=38.8ms | fK=6.0 fCF=5.9 fSC=1008Hz fFlat=0.186 fHF=0.001
+[tap][dim]      [23:27:25.192] 持續=63ms 峰值=441 ✗弱
+[tap][sample]   [23:27:25.561] 持續=343ms 峰值=3818 ✗長 K=1.0 CF=5.8 SC=2350Hz Att=0.1ms | fK=1.3 fCF=6.0 fSC=2348Hz fFlat=0.555 fHF=0.035
+[tap][sample]   [23:27:25.830] 持續=189ms 峰值=9411 ✗長 K=1.3 CF=3.7 SC=1203Hz Att=26.1ms | fK=1.9 fCF=4.0 fSC=1202Hz fFlat=0.188 fHF=0.002
+[tap][dim]      [23:27:25.858] 持續=27ms 峰值=581 ✗弱
+[tap][sample]   [23:27:26.407] 持續=522ms 峰值=4562 ✗長 K=4.8 CF=6.8 SC=1595Hz Att=0.1ms | fK=5.3 fCF=7.0 fSC=1598Hz fFlat=0.272 fHF=0.008
+[tap][sample]   [23:27:26.847] 持續=387ms 峰值=4647 ✗長 K=7.5 CF=9.0 SC=1021Hz Att=0.2ms | fK=8.3 fCF=9.3 fSC=1026Hz fFlat=0.207 fHF=0.001
+[tap][dim]      [23:27:26.884] 持續=36ms 峰值=490 ✗弱
+[tap][sample]   [23:27:27.774] 持續=891ms 峰值=9513 ✗長 K=8.3 CF=7.3 SC=2456Hz Att=539.4ms | fK=8.7 fCF=7.4 fSC=2453Hz fFlat=0.564 fHF=0.068
+[tap][sample]   [23:27:27.937] 持續=126ms 峰值=5587 ✗長 K=4.1 CF=4.7 SC=2814Hz Att=60.3ms | fK=5.8 fCF=5.3 fSC=2814Hz fFlat=0.571 fHF=0.082
+[tap][sample]   [23:27:28.288] 持續=325ms 峰值=5601 ✗長 K=7.2 CF=8.0 SC=1826Hz Att=199.6ms | fK=8.2 fCF=8.4 fSC=1822Hz fFlat=0.454 fHF=0.017
+[tap][sample]   [23:27:28.801] 持續=477ms 峰值=8666 ✗長 K=5.1 CF=5.6 SC=1428Hz Att=107.9ms | fK=5.6 fCF=5.7 fSC=1428Hz fFlat=0.354 fHF=0.006
+[tap][dim]      [23:27:28.891] 持續=54ms 峰值=457 ✗弱
+[recorder][VAD] [23:27:30.046] ✅ Silero 11/247 (18.6%), 0.35s speech
+[recorder][flush][23:27:30.046] ✅ 取出 7.9s 音訊段落
+[main]          [23:27:30.048] ✂️ 自動分段送出（靜音達1s，累積 7.9s，靜音 1.2s）
+[paster]        [23:27:30.644] ⚠️ [UIA] 無 TextPattern
+[paster]        [23:27:30.646] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.59s, est_api=1.04s)
+[transcriber]   [23:27:30.939] ⏱️ API 耗時: 0.89s
+[main]          [23:27:30.940] ✅ 分段辨識完成: "因為我不是有自動加逗點的功能嗎，是不是這個在作亂？"
+[paster]        [23:27:30.971] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='因為我不是有自動加逗點的功能嗎，是不是這個在作亂？'
+[paster]        [23:27:30.977] ⌨️ TEXT input flow start: target_chars=25，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='因為我不是有自動加逗點的功能嗎，是不是這個在作亂？'
+[paster]        [23:27:30.978] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:27:31.004] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:27:31.005] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [23:27:31.089] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:27:44.929] 持續=27ms 峰值=383 ✗弱
+[tap][dim]      [23:28:06.016] 持續=54ms 峰值=420 ✗弱
+[tap][sample]   [23:29:10.734] 持續=45ms 峰值=1130 ✓ K=25.4 CF=9.7 SC=4502Hz Att=2.8ms | fK=51.5 fCF=13.6 fSC=4500Hz fFlat=0.601 fHF=0.731 🎯 敲擊 #1
+[tap][sample]   [23:29:13.066] 持續=1952ms 峰值=9776 ✗長 K=3.7 CF=5.5 SC=2012Hz Att=0.1ms | fK=5.4 fCF=6.6 fSC=1842Hz fFlat=0.435 fHF=0.018
+[tap][dim]      [23:29:13.093] 持續=27ms 峰值=450 ✗弱
+[tap][sample]   [23:29:13.543] 持續=216ms 峰值=5185 ✗長 K=2.5 CF=4.7 SC=1391Hz Att=35.7ms | fK=3.3 fCF=5.0 fSC=1385Hz fFlat=0.284 fHF=0.008
+[tap][dim]      [23:29:13.615] 持續=72ms 峰值=543 ✗弱
+[tap][sample]   [23:29:14.019] 持續=405ms 峰值=7289 ✗長 K=5.5 CF=5.7 SC=1576Hz Att=157.9ms | fK=6.2 fCF=6.0 fSC=1582Hz fFlat=0.398 fHF=0.011
+[tap][dim]      [23:29:14.101] 持續=81ms 峰值=522 ✗弱
+[tap][sample]   [23:29:14.128] 持續=27ms 峰值=792 ✓ K=0.8 CF=3.2 SC=898Hz Att=14.1ms | fK=2.6 fCF=4.2 fSC=845Hz fFlat=0.170 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [23:29:14.156] 持續=27ms 峰值=336 ✗弱
+[tap][sample]   [23:29:14.669] 持續=513ms 峰值=7892 ✗長 K=10.0 CF=8.3 SC=1449Hz Att=120.6ms | fK=10.8 fCF=8.5 fSC=1447Hz fFlat=0.296 fHF=0.006
+[tap]           [23:29:15.011] ⏱️ 間隔過長重置（756ms）
+[tap][sample]   [23:29:15.011] 持續=153ms 峰值=9063 ✓ K=4.0 CF=4.5 SC=1020Hz Att=68.6ms | fK=5.4 fCF=5.0 fSC=1027Hz fFlat=0.198 fHF=0.002 🎯 敲擊 #1
+[tap][dim]      [23:29:15.055] 持續=45ms 峰值=574 ✗弱
+[tap][sample]   [23:29:15.406] 持續=351ms 峰值=5195 ✗長 K=1.1 CF=3.6 SC=1227Hz Att=124.0ms | fK=1.5 fCF=3.8 fSC=1240Hz fFlat=0.265 fHF=0.002
+[tap][sample]   [23:29:15.885] 持續=451ms 峰值=4484 ✗長 K=1.6 CF=5.3 SC=2496Hz Att=286.4ms | fK=1.9 fCF=5.4 fSC=2497Hz fFlat=0.594 fHF=0.058
+[tap][dim]      [23:29:15.910] 持續=26ms 峰值=533 ✗弱
+[tap][sample]   [23:29:16.621] 持續=711ms 峰值=12093 ✗長 K=5.2 CF=5.4 SC=1719Hz Att=80.6ms | fK=5.5 fCF=5.5 fSC=1715Hz fFlat=0.407 fHF=0.013
+[tap][dim]      [23:29:16.657] 持續=36ms 峰值=402 ✗弱
+[recorder][VAD] [23:29:17.700] ✅ Silero 11/228 (28.2%), 0.35s speech
+[recorder][flush][23:29:17.701] ✅ 取出 7.3s 音訊段落
+[main]          [23:29:17.702] ✂️ 自動分段送出（靜音達1s，累積 7.3s，靜音 1.1s）
+[paster]        [23:29:18.234] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [23:29:18.235] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.53s, est_api=0.98s)
+[transcriber]   [23:29:18.784] ⏱️ API 耗時: 1.08s
+[main]          [23:29:18.785] ✅ 分段辨識完成: "可是我不是很想用control v，有沒有其他的方法？"
+[paster]        [23:29:18.816] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='可是我不是很想用control v，有沒有其他的方法？'
+[paster]        [23:29:18.822] ⌨️ TEXT input flow start: target_chars=27，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='可是我不是很想用control v，有沒有其他的方法？'
+[paster]        [23:29:18.823] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:29:18.845] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:29:18.848] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [23:29:18.930] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][sample]   [23:29:19.329] 持續=1530ms 峰值=9513 ✗長 K=4.0 CF=5.4 SC=2323Hz Att=121.0ms | fK=4.1 fCF=5.4 fSC=2326Hz fFlat=0.544 fHF=0.043
+[tap][sample]   [23:29:19.627] 持續=217ms 峰值=7801 ✗長 K=4.0 CF=4.9 SC=1608Hz Att=104.6ms | fK=5.0 fCF=5.3 fSC=1609Hz fFlat=0.232 fHF=0.006
+[tap][dim]      [23:29:19.654] 持續=27ms 峰值=546 ✗弱
+[tap][sample]   [23:29:19.978] 持續=289ms 峰值=13586 ✗長 K=-0.2 CF=2.9 SC=1408Hz Att=5.1ms | fK=0.1 fCF=3.0 fSC=1403Hz fFlat=0.294 fHF=0.005
+[tap][sample]   [23:29:20.401] 持續=36ms 峰值=705 ✓ K=0.1 CF=2.6 SC=477Hz Att=22.8ms | fK=2.1 fCF=3.4 fSC=563Hz fFlat=0.149 fHF=0.000 🎯 敲擊 #1
+[recorder][VAD] [23:29:21.556] ✅ Silero 11/121 (47.8%), 0.35s speech
+[recorder][flush][23:29:21.557] ✅ 取出 3.9s 音訊段落
+[main]          [23:29:21.557] ✂️ 自動分段送出（靜音達1s，累積 3.9s，靜音 1.2s）
+[paster]        [23:29:21.747] ⚠️ [UIA] 無 TextPattern
+[paster]        [23:29:21.748] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.19s, est_api=0.64s)
+[transcriber]   [23:29:22.610] ⏱️ API 耗時: 1.05s
+[main]          [23:29:22.613] ✅ 分段辨識完成: "可以維持用input"
+[paster]        [23:29:22.644] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='可以維持用input'
+[paster]        [23:29:22.650] ⌨️ TEXT input flow start: target_chars=10，視窗="Debugging LINE Text Pasting"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='可以維持用input'
+[paster]        [23:29:22.651] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [23:29:22.681] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [23:29:22.683] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [23:29:22.766] ⌨️ TEXT input verify: ok=True，reason=changed
+[tap][dim]      [23:30:40.186] 持續=36ms 峰值=385 ✗弱
+[tap]           [23:30:40.222] ⏱️ 間隔過長重置（79821ms）
+[tap][sample]   [23:30:40.222] 持續=36ms 峰值=666 ✓ K=0.6 CF=3.0 SC=603Hz Att=22.1ms | fK=1.0 fCF=3.5 fSC=617Hz fFlat=0.155 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [23:30:40.275] 持續=54ms 峰值=427 ✗弱
+[tap][dim]      [23:30:40.978] 持續=27ms 峰值=378 ✗弱
+[tap]           [23:30:41.050] ⏱️ 間隔過長重置（792ms）
+[tap][sample]   [23:30:41.050] 持續=72ms 峰值=734 ✓ K=-0.8 CF=2.2 SC=638Hz Att=7.1ms | fK=-0.7 fCF=2.4 fSC=834Hz fFlat=0.240 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [23:30:41.140] 持續=90ms 峰值=544 ✗弱
+[tap]           [23:32:05.387] 💤 敲麥監聽已停止
+[recorder]      [23:32:05.443] 💤 預熱 stream 已關閉

@@ -109,6 +109,7 @@ class InputService:
     def __init__(self) -> None:
         self._mod_summary_cache: tuple[str, float] = ("", 0.0)
         self._hotkey_cleanup_timer: threading.Timer | None = None
+        self.use_wm_char: bool = False
 
     @staticmethod
     def vk_list(vks: list[int]) -> str:
@@ -197,6 +198,8 @@ class InputService:
     def send_unicode_text(self, text: str) -> bool:
         if not text:
             return True
+        if self.use_wm_char:
+            return self._send_wm_char_text(text)
         user32 = ctypes.windll.user32
         normalized = text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r")
         data = normalized.encode("utf-16-le", "surrogatepass")
@@ -219,6 +222,30 @@ class InputService:
             sent = user32.SendInput(n, inputs, ctypes.sizeof(INPUT))
             if sent != n:
                 return False
+        return True
+
+    def _send_wm_char_text(self, text: str) -> bool:
+        """用 PostMessage WM_CHAR 向前景視窗發送文字。
+
+        繞過 SendInput 的硬體輸入佇列，直接送字元訊息到目標視窗。
+        適用於 Qt AutoSuggestTextArea 等會吞 SendInput UNICODE 事件的控制項。
+        """
+        user32 = ctypes.windll.user32
+        hwnd = user32.GetForegroundWindow()
+        if not hwnd:
+            return False
+        WM_CHAR = 0x0102
+        normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+        for ch in normalized:
+            cp = ord(ch)
+            if cp > 0xFFFF:
+                # BMP 外字元用 surrogate pair
+                hi = 0xD800 + ((cp - 0x10000) >> 10)
+                lo = 0xDC00 + ((cp - 0x10000) & 0x3FF)
+                user32.PostMessageW(hwnd, WM_CHAR, hi, 0)
+                user32.PostMessageW(hwnd, WM_CHAR, lo, 0)
+            else:
+                user32.PostMessageW(hwnd, WM_CHAR, cp, 0)
         return True
 
     def schedule_hotkey_modifier_cleanup(self, mods: list[str], source: str) -> None:

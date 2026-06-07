@@ -124,6 +124,7 @@ class AppController(QObject):
         else:
             self.hotkeys.register(self.cfg.hotkey, self.cfg.hotkey_comma, self.cfg.history_hotkeys)
         self.tap.set_threshold(self.cfg.tap_sensitivity)
+        self.input.use_wm_char = self.cfg.use_wm_char
         if self.cfg.tap_trigger_enabled and not is_disabled("tap"):
             self.tap.set_enabled(True)
         elif is_disabled("tap"):
@@ -168,6 +169,8 @@ class AppController(QObject):
             self.tap.set_threshold(new.tap_sensitivity)
         if old.tap_trigger_enabled != new.tap_trigger_enabled:
             self.tap.set_enabled(new.tap_trigger_enabled)
+        if old.use_wm_char != new.use_wm_char:
+            self.input.use_wm_char = new.use_wm_char
 
     def start_hotkey_capture(self, field: str) -> None:
         self._capture_field = field

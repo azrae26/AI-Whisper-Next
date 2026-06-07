@@ -40,6 +40,7 @@ class AppConfig:
     vad_min_speech_sec: float = 0.35
     tap_trigger_enabled: bool = False
     tap_sensitivity: float = 1500.0
+    use_wm_char: bool = False
     overlay_positions: dict = field(default_factory=dict)
     # key: "hostname/screen_name" → {"x": int, "y": int}
 

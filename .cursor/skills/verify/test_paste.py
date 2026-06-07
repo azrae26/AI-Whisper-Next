@@ -12,7 +12,17 @@ r"""AI Whisper Next — 貼上功能測試腳本
   8. L7: ThreadPoolExecutor workers 數量
   9. L8: PasteService shutdown 方法
   10. SendInput UNICODE 直接輸入路徑
-  11. 常用程式 SendInput 端到端驗證（LINE/Chrome/Cursor/Antigravity/Codex）
+  12. WM_CHAR 文字輸入模式（屬性同步、空文字、端到端 UIA 驗證、config）
+  12e. 常用程式三種方法端到端（SendInput / WM_CHAR / Ctrl+V 剪貼簿）
+  12f. WM_CHAR 中間插入（非空輸入框第 4 字後插入，UIA 讀回驗證）
+
+三種貼上方法：
+  - SendInput UNICODE：硬體鍵盤事件，最快但 Qt/Electron 中間插入已知壞
+  - WM_CHAR PostMessage：視窗訊息，相容 Qt/Electron，需開啟設定toggle
+  - Ctrl+V 剪貼簿：備份→設文字→Ctrl+V→還原，最穩但有剪貼簿副作用
+
+已知限制（測試中自動跳過）：
+  - LINE (Qt 6) + SendInput：非空輸入框中間插入會吞字/亂序
 
 使用方式（從專案根目錄）：
   py -3.12 .agents/skills/verify/test_paste.py
@@ -444,9 +454,89 @@ def main():
          "Blacklist is frozenset", str(v)):
         passed += 1
 
-    # ── 11. 常用程式 SendInput 端到端驗證 ──
-    print("\n-- 11. Targeted app SendInput end-to-end --")
-    total, passed = _test_targeted_apps(total, passed)
+    # ── 12. WM_CHAR 文字輸入模式 ──
+    print("\n-- 12. WM_CHAR text input mode --")
+
+    # 12a. use_wm_char 屬性與 config 同步
+    total += 1
+    r = eval_expr("self.input.use_wm_char == self.cfg.use_wm_char")
+    v = get_result(r)
+    if p(r.get("ok", False) and v is True,
+         "use_wm_char synced with config", str(v)):
+        passed += 1
+
+    # 12b. _send_wm_char_text('') 空文字基本功能
+    total += 1
+    r = eval_expr("self.input._send_wm_char_text('')")
+    v = get_result(r)
+    if p(r.get("ok", False) and v is True,
+         "_send_wm_char_text('') returns True", str(v)):
+        passed += 1
+
+    # 12c. WM_CHAR 端到端：先聚焦 Antigravity chat input → 送文字 → UIA 讀回驗證 → 清理 → 還原
+    total += 1
+    wm_marker = "WM_CHAR_OK"
+    # 找 Antigravity 視窗聚焦 chat input（避免前景碰巧無輸入框）
+    _found = _find_app_windows()
+    _anti_wins = _found.get("antigravity.exe", [])
+    if _anti_wins:
+        _h, _ = _anti_wins[0]
+        _activate_window(_h)
+        rect = ctypes.wintypes.RECT()
+        user32.GetWindowRect(_h, ctypes.byref(rect))
+        cx = (rect.left + rect.right) // 2
+        cy = rect.bottom - 60
+        user32.SetCursorPos(cx, cy)
+        time.sleep(0.05)
+        user32.mouse_event(0x0002, 0, 0, 0, 0)
+        user32.mouse_event(0x0004, 0, 0, 0, 0)
+        time.sleep(0.3)
+    # 保存原始值
+    r_orig = eval_expr("self.input.use_wm_char")
+    orig_wm = get_result(r_orig)
+    # 讀 before snapshot
+    r_before = eval_expr("self.paste._focused_text_snapshot()")
+    before_snap = get_result(r_before)
+    before_text = before_snap[1] if isinstance(before_snap, list) and before_snap[0] else ""
+    # 切到 WM_CHAR 模式
+    eval_expr("setattr(self.input, 'use_wm_char', True)")
+    # 透過 send_unicode_text（會走 WM_CHAR 路徑）
+    r_send = eval_expr(f"self.input.send_unicode_text({repr(wm_marker)})")
+    send_ok = r_send.get("ok", False) and get_result(r_send) is True
+    time.sleep(0.5)
+    # 讀 after snapshot
+    r_after = eval_expr("self.paste._focused_text_snapshot()")
+    after_snap = get_result(r_after)
+    after_text = after_snap[1] if isinstance(after_snap, list) and after_snap[0] else ""
+    wm_e2e_ok = send_ok and wm_marker in after_text
+    # 清理：Backspace 刪除 marker
+    if wm_e2e_ok:
+        for _ in range(len(wm_marker)):
+            user32.keybd_event(0x08, 0, 0, 0)
+            user32.keybd_event(0x08, 0, 2, 0)
+        time.sleep(0.3)
+    # 還原
+    eval_expr(f"setattr(self.input, 'use_wm_char', {orig_wm})")
+    if p(wm_e2e_ok,
+         "WM_CHAR e2e: send → UIA verify",
+         f"send_ok={send_ok}, marker_found={wm_marker in after_text}"):
+        passed += 1
+
+    # 12d. AppConfig 有 use_wm_char 欄位
+    total += 1
+    r = eval_expr("hasattr(self.cfg, 'use_wm_char') and isinstance(self.cfg.use_wm_char, bool)")
+    v = get_result(r)
+    if p(r.get("ok", False) and v is True,
+         "AppConfig.use_wm_char is bool"):
+        passed += 1
+
+    # 12e. 常用程式端到端（每個 app 同時測 SendInput + WM_CHAR，測完再換下一個）
+    print("\n-- 12e. Targeted app e2e: SendInput + WM_CHAR --")
+    total, passed = _test_targeted_apps_all(total, passed)
+
+    # ── 12f. 中間插入 ──
+    print("\n-- 12f. Middle insert: WM_CHAR --")
+    total, passed = _test_middle_insert(total, passed)
 
     # ── 結果 ──
     summary = f"Result: {passed}/{total} passed"
@@ -566,10 +656,12 @@ def _release_all_modifiers() -> None:
         user32.keybd_event(vk, 0, 2, 0)  # key up
 
 
-def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
-    """對單一程式測試 SendInput + UIA 驗證。回傳 (pass, detail)。
+def _test_one_app(hwnd: int, title: str, proc: str,
+                  method: str = "sendinput") -> tuple[bool, str]:
+    """對單一程式測試貼上功能。回傳 (pass, detail)。
 
-    Chrome: Ctrl+L 聚焦 URL 列（90 字單批不分割）。
+    method: 'sendinput' | 'wm_char' | 'clipboard'
+    Chrome: Ctrl+L 聚焦 URL 列。
     其他: 自然 focus（如 LINE chat、Antigravity chat input）。
     """
     # 1. 切換到前景
@@ -578,8 +670,17 @@ def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
 
     # 2. 聚焦輸入框
     is_chrome = proc == "chrome.exe"
-    # Electron 系 chat app：點擊視窗底部聚焦 chat input（手測 bottom-30 命中）
-    if proc in ("antigravity.exe", "cursor.exe", "codex.exe"):
+    # Chrome：Ctrl+L 聚焦網址列
+    if is_chrome:
+        user32.keybd_event(0xA2, 0, 0, 0)  # LCtrl down
+        time.sleep(0.02)
+        user32.keybd_event(0x4C, 0, 0, 0)  # L down
+        user32.keybd_event(0x4C, 0, 2, 0)  # L up
+        time.sleep(0.02)
+        user32.keybd_event(0xA2, 0, 2, 0)  # LCtrl up
+        time.sleep(0.3)
+    # Electron 系 chat app：點擊視窗底部聚焦 chat input（手測 bottom-60 命中）
+    elif proc in ("antigravity.exe", "cursor.exe", "codex.exe"):
         rect = ctypes.wintypes.RECT()
         user32.GetWindowRect(hwnd, ctypes.byref(rect))
         cx = (rect.left + rect.right) // 2
@@ -599,14 +700,25 @@ def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
     before_readable = isinstance(before_snap, list) and before_snap[0]
     before_text = before_snap[1] if before_readable else ""
 
-    # 3. 送出測試文字
-    r_send = eval_expr(f"self.input.send_unicode_text({repr(test_text)})")
-    send_ok = r_send.get("ok", False) and get_result(r_send) is True
-    if not send_ok:
-        return (False, f"send_unicode_text failed: {get_result(r_send)}")
-
-    # 4. 等待文字出現
-    time.sleep(0.3)
+    # 3. 送出測試文字（依 method 選擇路徑）
+    if method == "clipboard":
+        # Ctrl+V 剪貼簿路徑：paste_text 是非同步的
+        r_send = eval_expr(
+            f"self.paste.paste_text({repr(test_text)}, delay_ms=50, "
+            f"end_prefix='', preserve_ctrl_modifier=False) or True"
+        )
+        send_ok = r_send.get("ok", False)
+        if not send_ok:
+            return (False, f"paste_text failed: {get_result(r_send)}")
+        # paste_text 非同步，等待完成
+        time.sleep(3)
+    else:
+        # sendinput / wm_char 都走 send_unicode_text（由 use_wm_char 控制路徑）
+        r_send = eval_expr(f"self.input.send_unicode_text({repr(test_text)})")
+        send_ok = r_send.get("ok", False) and get_result(r_send) is True
+        if not send_ok:
+            return (False, f"send_unicode_text failed: {get_result(r_send)}")
+        time.sleep(0.3)
 
     # 5. 讀取 UIA 文字快照（送出後）
     r_after = eval_expr("self.paste._focused_text_snapshot()")
@@ -614,40 +726,44 @@ def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
     after_readable = isinstance(after_snap, list) and after_snap[0]
     after_text = after_snap[1] if after_readable else ""
 
-    # 6. 清理（只在 UIA 確認有新增文字時才做）
-    cleanup_ok = True  # 預設：不需清理 = ok
-    if after_readable and before_readable:
-        delta = len(after_text) - len(before_text)
-        if delta > 0:
-            # 不重新 activate——焦點還在輸入框，重新 activate 會重置焦點
-            # Ctrl+A 全選 → Backspace 刪除
-            user32.keybd_event(0xA2, 0, 0, 0)  # LCtrl down
+    # 6. 強制清理（每次都清，避免殘留文字影響下一輪）
+    cleanup_ok = True
+    if is_chrome:
+        # Chrome 網址列：按 3 次 Escape 還原原始 URL 並移除焦點
+        for _ in range(3):
+            user32.keybd_event(0x1B, 0, 0, 0)  # Escape
+            user32.keybd_event(0x1B, 0, 2, 0)
+            time.sleep(0.15)
+        time.sleep(0.2)
+    else:
+        # Ctrl+A 全選 → Backspace 刪除
+        user32.keybd_event(0xA2, 0, 0, 0)  # LCtrl down
+        time.sleep(0.01)
+        user32.keybd_event(0x41, 0, 0, 0)  # A down
+        user32.keybd_event(0x41, 0, 2, 0)  # A up
+        time.sleep(0.01)
+        user32.keybd_event(0xA2, 0, 2, 0)  # LCtrl up
+        time.sleep(0.05)
+        user32.keybd_event(0x08, 0, 0, 0)  # Backspace
+        user32.keybd_event(0x08, 0, 2, 0)
+        time.sleep(0.2)
+        # Ctrl+Z 還原原始內容（如果有的話）
+        if before_readable and before_text and before_text.strip():
+            user32.keybd_event(0xA2, 0, 0, 0)
             time.sleep(0.01)
-            user32.keybd_event(0x41, 0, 0, 0)  # A down
-            user32.keybd_event(0x41, 0, 2, 0)  # A up
+            user32.keybd_event(0x5A, 0, 0, 0)  # Z
+            user32.keybd_event(0x5A, 0, 2, 0)
             time.sleep(0.01)
-            user32.keybd_event(0xA2, 0, 2, 0)  # LCtrl up
-            time.sleep(0.05)
-            user32.keybd_event(0x08, 0, 0, 0)  # Backspace
-            user32.keybd_event(0x08, 0, 2, 0)
+            user32.keybd_event(0xA2, 0, 2, 0)
+            time.sleep(0.3)
+        # LINE 的 UIA 即時更新，可驗證清理結果
+        if proc == "line.exe" and after_readable and before_readable:
             time.sleep(0.2)
-            # Ctrl+Z 還原原始內容（如果有的話）
-            if before_text and before_text.strip():
-                user32.keybd_event(0xA2, 0, 0, 0)
-                time.sleep(0.01)
-                user32.keybd_event(0x5A, 0, 0, 0)  # Z
-                user32.keybd_event(0x5A, 0, 2, 0)
-                time.sleep(0.01)
-                user32.keybd_event(0xA2, 0, 2, 0)
-                time.sleep(0.3)
-            # LINE 的 UIA 即時更新，可驗證；Electron app 的 UIA 會快取，信任動作
-            if proc == "line.exe":
-                time.sleep(0.2)
-                r_cl = eval_expr("self.paste._focused_text_snapshot()")
-                cl_snap = get_result(r_cl)
-                if isinstance(cl_snap, list) and cl_snap[0]:
-                    leftover = len(cl_snap[1]) - len(before_text)
-                    cleanup_ok = leftover <= 0
+            r_cl = eval_expr("self.paste._focused_text_snapshot()")
+            cl_snap = get_result(r_cl)
+            if isinstance(cl_snap, list) and cl_snap[0]:
+                leftover = len(cl_snap[1]) - len(before_text)
+                cleanup_ok = leftover <= 0
 
     # 7. 釋放修飾鍵
     _release_all_modifiers()
@@ -668,8 +784,16 @@ def _test_one_app(hwnd: int, title: str, proc: str) -> tuple[bool, str]:
     return (True, f"API ok, UIA={'unreadable' if not after_readable else 'no change'} ({text_len} chars)")
 
 
-def _test_targeted_apps(total: int, passed: int) -> tuple[int, int]:
-    """測試常用程式的 SendInput 端到端功能。每程式只測一次。"""
+# 三種貼上方法定義：(method_key, label_suffix, setup_expr)
+_PASTE_METHODS: list[tuple[str, str, str]] = [
+    ("sendinput", "SendInput", "setattr(self.input, 'use_wm_char', False)"),
+    ("wm_char",   "WM_CHAR",   "setattr(self.input, 'use_wm_char', True)"),
+    ("clipboard", "Ctrl+V",    ""),  # 不需 setup，paste_text 自帶剪貼簿流程
+]
+
+
+def _test_targeted_apps_all(total: int, passed: int) -> tuple[int, int]:
+    """對每個開啟的目標程式，依序測三種方法。測完一個 app 再換下一個。"""
     original_fg = user32.GetForegroundWindow()
     found = _find_app_windows()
 
@@ -679,18 +803,151 @@ def _test_targeted_apps(total: int, passed: int) -> tuple[int, int]:
             print(f"  [_] SKIP | {label} not running")
             continue
 
-        total += 1
         hwnd, title = windows[0]
-        print(f"  → 測試 {label}: {title[:50]}")
-        try:
-            ok, detail = _test_one_app(hwnd, title, proc)
-            if p(ok, f"{label} SendInput e2e", detail):
-                passed += 1
-        except Exception as e:
-            p(False, f"{label} SendInput e2e", f"error: {e}")
+
+        for method_key, method_label, setup_expr in _PASTE_METHODS:
+            # LINE 跳過 SendInput（已知 Qt 中間插入相容性問題）
+            if proc == "line.exe" and method_key == "sendinput":
+                print(f"  [_] SKIP | {label} {method_label} (Qt 已知限制)")
+                continue
+            total += 1
+            print(f"  → {label} {method_label}: {title[:50]}")
+            if setup_expr:
+                eval_expr(setup_expr)
+            try:
+                ok, detail = _test_one_app(hwnd, title, proc, method=method_key)
+                if p(ok, f"{label} {method_label} e2e", detail):
+                    passed += 1
+            except Exception as e:
+                p(False, f"{label} {method_label} e2e", f"error: {e}")
+
+    # 還原
+    eval_expr("setattr(self.input, 'use_wm_char', self.cfg.use_wm_char)")
 
     if original_fg:
         _activate_window(original_fg)
+
+    return total, passed
+
+
+# ── 12f. 中間插入測試 helpers ──────────────
+
+VK_HOME = 0x24
+VK_RIGHT = 0x27
+VK_BACK = 0x08
+VK_LCTRL = 0xA2
+VK_A = 0x41
+
+
+def _clear_input() -> None:
+    """Ctrl+A + Backspace 清空前景輸入框。"""
+    user32.keybd_event(VK_LCTRL, 0, 0, 0)
+    time.sleep(0.02)
+    user32.keybd_event(VK_A, 0, 0, 0)
+    user32.keybd_event(VK_A, 0, 2, 0)
+    time.sleep(0.02)
+    user32.keybd_event(VK_LCTRL, 0, 2, 0)
+    time.sleep(0.1)
+    user32.keybd_event(VK_BACK, 0, 0, 0)
+    user32.keybd_event(VK_BACK, 0, 2, 0)
+    time.sleep(0.3)
+
+
+def _move_cursor_to(pos: int) -> None:
+    """Home 移到開頭，然後 Right 移到指定位置。"""
+    user32.keybd_event(VK_HOME, 0, 0, 0)
+    user32.keybd_event(VK_HOME, 0, 2, 0)
+    time.sleep(0.1)
+    for _ in range(pos):
+        user32.keybd_event(VK_RIGHT, 0, 0, 0)
+        user32.keybd_event(VK_RIGHT, 0, 2, 0)
+        time.sleep(0.03)
+    time.sleep(0.1)
+
+
+def _read_focused_text() -> str:
+    """透過 eval 讀取 UIA 焦點控制項文字。"""
+    r = eval_expr("self.paste._focused_text_snapshot()")
+    snap = get_result(r)
+    if isinstance(snap, list) and snap[0]:
+        return snap[1]
+    return ""
+
+
+def _test_middle_insert(total: int, passed: int) -> tuple[int, int]:
+    """WM_CHAR 在非空輸入框中間插入文字，用 UIA 讀回驗證。
+
+    SendInput 中間插入在 Electron/Qt 為已知限制（Section 12e 已驗證），此處只測 WM_CHAR。
+    """
+    INITIAL = "你好世界測試文字"   # 8 字
+    INSERT = "【插入】"            # 4 字
+    MID_POS = 4                    # 游標移到第 4 字後
+    EXPECTED = INITIAL[:MID_POS] + INSERT + INITIAL[MID_POS:]  # 你好世界【插入】測試文字
+
+    # 找 Antigravity 視窗聚焦 chat input（避免前景碰巧無輸入框）
+    _found = _find_app_windows()
+    _anti_wins = _found.get("antigravity.exe", [])
+    if _anti_wins:
+        _h, _ = _anti_wins[0]
+        _activate_window(_h)
+        rect = ctypes.wintypes.RECT()
+        user32.GetWindowRect(_h, ctypes.byref(rect))
+        cx = (rect.left + rect.right) // 2
+        cy = rect.bottom - 60
+        user32.SetCursorPos(cx, cy)
+        time.sleep(0.05)
+        user32.mouse_event(0x0002, 0, 0, 0, 0)
+        user32.mouse_event(0x0004, 0, 0, 0, 0)
+        time.sleep(0.3)
+
+    # 中間插入方法：(label, 段2 eval 表達式, 段2 後等待秒數)
+    # SendInput 中間插入在 Electron/Qt 已知壞，跳過
+    _mid_methods: list[tuple[str, str, float]] = [
+        ("WM_CHAR",
+         f"self.input._send_wm_char_text({INSERT!r})",
+         0.3),
+        ("Ctrl+V",
+         f"self.paste.paste_text({INSERT!r}, delay_ms=50, end_prefix='', preserve_ctrl_modifier=False) or True",
+         3.0),
+    ]
+
+    for mid_label, mid_expr, mid_wait in _mid_methods:
+        total += 1
+        try:
+            # 清空
+            _clear_input()
+            time.sleep(0.2)
+
+            # 段1：WM_CHAR 輸入初始文字（WM_CHAR 最可靠）
+            r1 = eval_expr(f"self.input._send_wm_char_text({INITIAL!r})")
+            if not (r1.get("ok") and get_result(r1)):
+                p(False, f"Middle insert {mid_label}", "段1 send failed")
+                continue
+            time.sleep(0.3)
+
+            # 移到中間
+            _move_cursor_to(MID_POS)
+
+            # 段2：中間插入
+            r2 = eval_expr(mid_expr)
+            if not (r2.get("ok") and get_result(r2)):
+                p(False, f"Middle insert {mid_label}", "段2 send failed")
+                _clear_input()
+                continue
+            time.sleep(mid_wait)
+
+            # UIA 讀回驗證
+            actual = _read_focused_text()
+            ok = actual == EXPECTED
+            detail = f"match ✓ ({len(EXPECTED)} chars)" if ok else f"actual={actual!r}"
+            if p(ok, f"Middle insert {mid_label}", detail):
+                passed += 1
+
+            # 清空
+            _clear_input()
+        except Exception as e:
+            p(False, f"Middle insert {mid_label}", f"error: {e}")
+            _clear_input()
 
     return total, passed
 

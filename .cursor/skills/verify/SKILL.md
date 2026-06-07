@@ -37,8 +37,19 @@ py scripts/debug_query.py ping
   ```powershell
   py -3.12 .agents/skills/verify/test_paste.py
   ```
-  此腳本自動驗證：剪貼簿備份還原迴路、修飾鍵狀態、前景視窗偵測、完整貼上端到端流程（含 log 確認）。
-  確保 10/10 全部通過。
+  此腳本覆蓋三種貼上方法 × 常用程式的端到端驗證：
+
+  | 方法 | 原理 | 優勢 | 限制 |
+  |------|------|------|------|
+  | **SendInput UNICODE** | 硬體鍵盤事件 | 最快、不動剪貼簿 | Qt/Electron 非空輸入框中間插入會吞字 |
+  | **WM_CHAR PostMessage** | 視窗訊息直送 HWND | 相容 Qt/Electron | 需開啟設定 toggle |
+  | **Ctrl+V 剪貼簿** | 備份→設文字→Ctrl+V→還原 | 最穩、全應用相容 | 剪貼簿副作用、速度較慢 |
+
+  已知限制（測試中自動跳過）：
+  - **LINE (Qt 6) + SendInput**：非空輸入框中間插入會吞字/亂序，改用 WM_CHAR 解決
+
+  每個常用程式（LINE/Chrome/Antigravity/Cursor/Codex）測完三種方法再換下一個，
+  另有 WM_CHAR 中間插入測試（非空輸入框第 4 字後插入，UIA 讀回驗證）。
 
 * **修改了音訊處理管線 (audio_service.py) 或正規化邏輯**：
   執行完整管線測試，涵蓋 raw frames → process_frames（VAD + 正規化）→ API 辨識：
