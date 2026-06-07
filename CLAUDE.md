@@ -50,7 +50,7 @@ src/ai_whisper/
   → AppController.toggle_recording()
   → AudioService 開始錄音（sounddevice InputStream callback 累積 frames）
   → [定時檢查] 若觸發分段條件（靜音時間 / 累積長度）
-      → flush frames → ThreadPoolExecutor（最多 6 個 worker）
+      → flush frames → ThreadPoolExecutor（最多 4 個 worker）
       → VAD analyze_speech()  ← 過濾背景噪音、鍵盤聲
       → TranscriptionService → OpenAI API
       → PasteService →（符合啟發式時先試 SendInput UNICODE 驗證）備份剪貼簿 → Ctrl+V → 還原剪貼簿
@@ -99,8 +99,8 @@ API 回傳後直接使用已備好的結果，幾乎零等待。
 相關：`InputService.release_modifiers_for_paste`、`PasteService.paste_text()`。
 
 ### 句號前綴邏輯
-貼上時若游標在文字末尾，且末尾不是標點，才加句號前綴（避免句句相連）。此判斷依賴 UIA TextPattern，若 UIA 不支援（如記事本某些版本）則不加。
-相關：`PasteService._is_cursor_at_end()`。
+貼上時若為空文字則直接返回 (early return)，不觸發後續剪貼簿與貼上流程。若為非空文字，且游標在文字末尾，且末尾不是標點，才加句號前綴（避免句句相連）。此判斷依賴 UIA TextPattern，若 UIA 不支援（如記事本某些版本）則不加。
+相關：`PasteService._is_cursor_at_end()`、`PasteService._execute_paste()`。
 
 ### UIA 必須在固定 COM thread
 `comtypes.CoInitialize()` 只對當前 thread 有效，UIA 查詢必須在同一個已初始化 COM 的 thread 執行。PasteService 為此有專屬的 `_paste_worker` thread（同時也序列化所有貼上操作）。Prefetch 的 UIA 查詢也各自在 thread 內呼叫 `CoInitialize`。

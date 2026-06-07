@@ -1,0 +1,442 @@
+[main]          [01:55:46.950] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260608_015546_P8-32.current.log
+[settings]      [01:55:46.951] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:55:47.087] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:55:47.089] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:55:47.089] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:55:47.140] 🎙️ 敲麥監聽已啟動
+[main]          [01:55:47.140] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:55:47.150] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:55:47.327] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:55:47.428] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:55:48.534] 🔌 HTTP 連線預熱完成 (1.39s)
+[test] ========================================
+[test] Paste Test START
+[paster]        [01:55:54.631] 📋 CLIP backup: count=4, formats=13:22B, 16:4B, 1:11B, 7:11B, text='TEST_PASTE'
+[paster]        [01:55:54.632] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780854954'
+[paster]        [01:55:54.693] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.695] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.695] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [01:55:54.756] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [01:55:54.756] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.757] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.878] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.916] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:55:54.932] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=36ms, final='TEST_PASTE'
+[paster]        [01:55:54.935] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Verifying Paste Test Coverage', 'select-none cursor-pointer rounded-lg min-h-[32px] py-1.5 flex flex-row gap-1 items-center justify-between px-2 outline-none ml-[22px] bg-sidebar-secondary', '', 'ButtonControl')
+[paster]        [01:55:54.940] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Verifying Paste Test Coverage', 'select-none cursor-pointer rounded-lg min-h-[32px] py-1.5 flex flex-row gap-1 items-center justify-between px-2 outline-none ml-[22px] bg-sidebar-secondary', '', 'ButtonControl')，preserve_ctrl=False
+[paster]        [01:55:54.942] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster]        [01:55:54.943] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:54.944] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='TEST_PASTE'
+[paster]        [01:55:55.005] 📋 CLIP verify ok: attempt=1, chars=10, text='TEST_PASTE'
+[paster]        [01:55:55.087] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [01:55:55.089] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:55:55.094] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:55:55.249] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:55:55.249] 📋 CLIP restore wait: 0.30s
+[paster]        [01:55:55.550] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:55.552] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:55.675] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:55.677] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:55:57.885] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [01:55:57.886] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:55:58.917] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:55:58.965] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='FIX4_TEST'
+[paster]        [01:55:58.969] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Verifying Paste Test Coverage', 'select-none cursor-pointer rounded-lg min-h-[32px] py-1.5 flex flex-row gap-1 items-center justify-between px-2 outline-none ml-[22px] bg-sidebar-secondary', '', 'ButtonControl')
+[paster]        [01:55:58.969] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Verifying Paste Test Coverage', 'select-none cursor-pointer rounded-lg min-h-[32px] py-1.5 flex flex-row gap-1 items-center justify-between px-2 outline-none ml-[22px] bg-sidebar-secondary', '', 'ButtonControl')，preserve_ctrl=False
+[paster]        [01:55:58.972] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster]        [01:55:58.972] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:58.973] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='FIX4_TEST'
+[paster]        [01:55:59.033] 📋 CLIP verify ok: attempt=1, chars=9, text='FIX4_TEST'
+[paster]        [01:55:59.116] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='FIX4_TEST'
+[paster]        [01:55:59.117] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:55:59.129] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:55:59.129] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:55:59.134] 📋 CLIP restore wait: 0.30s
+[paster]        [01:55:59.435] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:59.436] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:59.558] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:55:59.560] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:56:01.767] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [01:56:01.768] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:56:04.527] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:56:04.577] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=2ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:04.582] ⌨️ TEXT input flow start: target_chars=88，視窗="Keep筆記"，hwnd=0x006f10da，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:04.583] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:04.586] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:04.587] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:56:13.125] 📏 [UIA] text='https://www.youtube.', text_after='', at_end=True, last_punct=False
+[paster]        [01:56:13.128] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=507ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:13.149] ⌨️ TEXT input flow start: target_chars=88，視窗="台股史詩大暴跌！給大家看之前多開心！一個月賺50%、股票漲太多都不想工作！【Joeman會員優先】 - YouTube - Google Chrome"，hwnd=0x00052364，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('網址與搜尋列', 'OmniboxViewViews', 'view_1012', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:13.151] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:13.155] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:13.155] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:56:20.830] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:20.879] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:20.884] ⌨️ TEXT input flow start: target_chars=88，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:56:20.885] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:20.890] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:20.890] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:56:29.116] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:29.164] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='【插入】'
+[paster]        [01:56:29.172] ⌨️ TEXT input flow start: target_chars=4，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='【插入】'
+[paster]        [01:56:29.172] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:29.180] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:29.261] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:56:32.563] 📋 CLIP set attempt 1/4: chars=30, bytes=62, preview='EMPTY_TEST_SENTINEL_1780854992'
+[paster]        [01:56:32.625] 📋 CLIP verify ok: attempt=1, chars=30, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:36.158] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:36.159] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='WATCHDOG_TRIGGER'
+[paster]        [01:56:36.165] ⌨️ TEXT input flow start: target_chars=16，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='WATCHDOG_TRIGGER'
+[paster]        [01:56:36.166] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:36.181] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:36.327] ⌨️ TEXT input verify: ok=False，reason=unchanged
+[paster]        [01:56:36.328] ⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V
+[paster]        [01:56:36.329] 📋 CLIP flow start: target_chars=16, restore_delay=0.30s
+[paster]        [01:56:36.329] 📋 CLIP backup: count=4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:36.331] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='WATCHDOG_TRIGGER'
+[paster]        [01:56:36.394] 📋 CLIP verify ok: attempt=1, chars=16, text='WATCHDOG_TRIGGER'
+[paster]        [01:56:36.475] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='WATCHDOG_TRIGGER'
+[paster]        [01:56:36.478] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:36.485] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:36.487] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:56:36.489] 📋 CLIP restore wait: 0.30s
+[paster]        [01:56:36.758] 📋 CLIP set attempt 1/4: chars=21, bytes=44, preview='USER_CTRLC_1780854996'
+[paster]        [01:56:36.790] 📋 CLIP restore attempt 1/4: text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:36.790] 📋 CLIP restore: restored=4/4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:36.821] ⚠️ 剪貼簿驗證不符 (attempt=1, got='EMPTY_TEST_SENTINEL_1780854992', want='USER_CTRLC_1780854996')
+[paster]        [01:56:36.883] 📋 CLIP set attempt 2/4: chars=21, bytes=44, preview='USER_CTRLC_1780854996'
+[paster]        [01:56:36.912] ⚠️ CLIP restore verify failed: attempt=1, api_ok=True, got='USER_CTRLC_178085499', want='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:36.945] 📋 CLIP verify ok: attempt=2, chars=21, text='USER_CTRLC_178085499'
+[paster]        [01:56:37.033] 📋 CLIP restore attempt 2/4: text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:37.034] 📋 CLIP restore: restored=4/4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:37.156] 📋 CLIP restore verify ok: attempt=2, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:37.156] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:56:39.366] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='EMPTY_TEST_SENTINEL_'
+[paster]        [01:56:39.367] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:56:39.954] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='CONSEC_ORIGINAL_1780854999'
+[paster]        [01:56:40.017] 📋 CLIP verify ok: attempt=1, chars=26, text='CONSEC_ORIGINAL_1780'
+[paster]        [01:56:40.325] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:40.326] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=5ms, final='CONSEC_0'
+[paster]        [01:56:40.331] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_0'
+[paster]        [01:56:40.333] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:40.344] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:40.427] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:56:40.429] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:40.429] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=2ms, final='CONSEC_1'
+[paster]        [01:56:40.433] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_1'
+[paster]        [01:56:40.434] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:40.445] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:40.527] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:56:40.530] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:40.531] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='CONSEC_2'
+[paster]        [01:56:40.534] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_2'
+[paster]        [01:56:40.536] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:40.546] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:40.629] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:56:52.359] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:56:52.492] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:56:52.512] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:56:52.618] 🚫 CLIP guard disarmed: blocked=2
+[paster]        [01:56:52.639] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:56:52.711] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:56:52.755] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:56:52.757] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=8ms, final='WINSWITCH_TEST'
+[paster]        [01:56:52.778] ⌨️ TEXT input flow start: target_chars=14，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='WINSWITCH_TEST'
+[paster]        [01:56:52.780] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:56:52.824] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:56:52.951] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[paster]        [01:56:57.832] 📋 CLIP set attempt 1/4: chars=1000000, bytes=2000002, preview='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+[paster]        [01:56:57.905] 📋 CLIP verify ok: attempt=1, chars=1000000, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [01:56:58.216] 📋 CLIP backup: count=4, formats=13:2000002B, 16:4B, 1:1000001B, 7:1000001B, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [01:56:58.221] 📋 CLIP restore: restored=4/4, formats=13:2000002B, 16:4B, 1:1000001B, 7:1000001B, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [01:56:58.244] 📋 CLIP set attempt 1/4: chars=17, bytes=36, preview='clipboard_cleaned'
+[paster]        [01:56:58.306] 📋 CLIP verify ok: attempt=1, chars=17, text='clipboard_cleaned'
+[test] Result: 52/53 passed
+[test] Paste Test END 1 FAILED
+[test] ========================================
+[test] ========================================
+[test] Paste Test START
+[paster]        [01:59:04.638] 📋 CLIP backup: count=4, formats=13:36B, 16:4B, 1:18B, 7:18B, text='clipboard_cleaned'
+[paster]        [01:59:04.654] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780855144'
+[paster]        [01:59:04.716] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.718] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.719] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [01:59:04.780] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [01:59:04.781] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.783] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.905] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.936] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:59:04.984] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=5ms, final='TEST_PASTE'
+[paster]        [01:59:04.989] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Thought for 69s', 'group flex items-center gap-1 w-full text-left text-sm px-2 min-h-8 py-1 rounded-lg tabular-nums select-none text-foreground hover:bg-muted transition-[opacity,background-color]', '', 'ButtonControl')
+[paster]        [01:59:04.990] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Thought for 69s', 'group flex items-center gap-1 w-full text-left text-sm px-2 min-h-8 py-1 rounded-lg tabular-nums select-none text-foreground hover:bg-muted transition-[opacity,background-color]', '', 'ButtonControl')，preserve_ctrl=False
+[paster]        [01:59:04.991] 📋 CLIP flow start: target_chars=10, restore_delay=0.30s
+[paster]        [01:59:04.991] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:04.991] 📋 CLIP set attempt 1/4: chars=10, bytes=22, preview='TEST_PASTE'
+[paster]        [01:59:05.053] 📋 CLIP verify ok: attempt=1, chars=10, text='TEST_PASTE'
+[paster]        [01:59:05.134] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [01:59:05.142] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:05.152] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:05.153] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:59:05.154] 📋 CLIP restore wait: 0.30s
+[paster]        [01:59:05.455] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:05.458] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:05.580] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:05.580] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:59:07.785] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [01:59:07.787] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:59:09.000] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:59:09.049] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='FIX4_TEST'
+[paster]        [01:59:09.055] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Thought for 69s', 'group flex items-center gap-1 w-full text-left text-sm px-2 min-h-8 py-1 rounded-lg tabular-nums select-none text-foreground hover:bg-muted transition-[opacity,background-color]', '', 'ButtonControl')
+[paster]        [01:59:09.057] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Thought for 69s', 'group flex items-center gap-1 w-full text-left text-sm px-2 min-h-8 py-1 rounded-lg tabular-nums select-none text-foreground hover:bg-muted transition-[opacity,background-color]', '', 'ButtonControl')，preserve_ctrl=False
+[paster]        [01:59:09.060] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster]        [01:59:09.061] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:09.061] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='FIX4_TEST'
+[paster]        [01:59:09.123] 📋 CLIP verify ok: attempt=1, chars=9, text='FIX4_TEST'
+[paster]        [01:59:09.204] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='FIX4_TEST'
+[paster]        [01:59:09.206] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:09.212] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:09.212] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:59:09.213] 📋 CLIP restore wait: 0.30s
+[paster]        [01:59:09.515] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:09.517] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:09.638] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [01:59:09.639] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:59:11.845] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [01:59:11.846] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:59:14.597] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:59:14.646] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=2ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:14.651] ⌨️ TEXT input flow start: target_chars=88，視窗="Keep筆記"，hwnd=0x006f10da，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:14.652] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:14.656] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:14.657] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:59:23.308] 📏 [UIA] text='https://www.youtube.', text_after='', at_end=True, last_punct=False
+[paster]        [01:59:23.309] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=510ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:23.316] ⌨️ TEXT input flow start: target_chars=88，視窗="台股史詩大暴跌！給大家看之前多開心！一個月賺50%、股票漲太多都不想工作！【Joeman會員優先】 - YouTube - Google Chrome"，hwnd=0x00052364，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('網址與搜尋列', 'OmniboxViewViews', 'view_1012', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:23.318] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:23.322] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:23.324] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:59:30.353] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:30.402] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:30.407] ⌨️ TEXT input flow start: target_chars=88，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [01:59:30.410] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:30.417] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:30.418] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [01:59:38.327] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:38.374] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=5ms, final='【插入】'
+[paster]        [01:59:38.379] ⌨️ TEXT input flow start: target_chars=4，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='【插入】'
+[paster]        [01:59:38.380] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:38.387] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:38.469] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:59:41.795] 📋 CLIP set attempt 1/4: chars=30, bytes=62, preview='EMPTY_TEST_SENTINEL_1780855181'
+[paster]        [01:59:41.857] 📋 CLIP verify ok: attempt=1, chars=30, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:45.405] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:45.408] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=12ms, final='WATCHDOG_TRIGGER'
+[paster]        [01:59:45.423] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=True
+[paster]        [01:59:45.425] 📋 CLIP flow start: target_chars=16, restore_delay=0.30s
+[paster]        [01:59:45.426] 📋 CLIP backup: count=4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:45.434] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='WATCHDOG_TRIGGER'
+[paster]        [01:59:45.498] 📋 CLIP read: OpenClipboard failed
+[paster]        [01:59:45.519] ⚠️ 剪貼簿驗證不符 (attempt=1, got='', want='WATCHDOG_TRIGGER')
+[paster]        [01:59:45.662] 📋 CLIP set attempt 2/4: chars=16, bytes=34, preview='WATCHDOG_TRIGGER'
+[paster]        [01:59:45.733] 📋 CLIP verify ok: attempt=2, chars=16, text='WATCHDOG_TRIGGER'
+[paster]        [01:59:45.823] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='WATCHDOG_TRIGGER'
+[paster]        [01:59:45.826] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:45.833] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:45.834] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:59:45.835] 📋 CLIP restore wait: 0.30s
+[paster]        [01:59:46.137] 📋 CLIP restore attempt 1/4: text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:46.138] 📋 CLIP restore: restored=4/4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:46.260] 📋 CLIP restore verify ok: attempt=1, text='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:46.261] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:59:46.901] 📋 CLIP set attempt 1/4: chars=21, bytes=44, preview='USER_CTRLC_1780855185'
+[paster]        [01:59:46.967] 📋 CLIP verify ok: attempt=1, chars=21, text='USER_CTRLC_178085518'
+[paster]        [01:59:47.069] 📋 CLIP watchdog stop: external clipboard change, check=4, got='USER_CTRLC_178085518', expected='EMPTY_TEST_SENTINEL_'
+[paster]        [01:59:47.081] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [01:59:49.998] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='CONSEC_ORIGINAL_1780855189'
+[paster]        [01:59:50.061] 📋 CLIP verify ok: attempt=1, chars=26, text='CONSEC_ORIGINAL_1780'
+[paster]        [01:59:50.369] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:50.371] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='CONSEC_0'
+[paster]        [01:59:50.376] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_0'
+[paster]        [01:59:50.378] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:50.387] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:50.472] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:59:50.476] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:50.477] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='CONSEC_1'
+[paster]        [01:59:50.484] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_1'
+[paster]        [01:59:50.485] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:50.500] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:50.584] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [01:59:50.588] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:59:50.588] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='CONSEC_2'
+[paster]        [01:59:50.592] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_2'
+[paster]        [01:59:50.594] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:59:50.610] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:59:50.692] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:00:02.388] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:00:02.490] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:00:02.493] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:00:02.595] 🚫 CLIP guard disarmed: blocked=2
+[paster]        [02:00:02.597] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:00:02.662] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:00:02.669] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:00:02.669] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=2ms, final='WINSWITCH_TEST'
+[paster]        [02:00:02.674] ⌨️ TEXT input flow start: target_chars=14，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='WINSWITCH_TEST'
+[paster]        [02:00:02.675] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:00:02.694] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:00:02.777] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[paster]        [02:00:07.727] 📋 CLIP set attempt 1/4: chars=1000000, bytes=2000002, preview='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:00:07.794] 📋 CLIP verify ok: attempt=1, chars=1000000, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:00:08.104] 📋 CLIP backup: count=4, formats=13:2000002B, 16:4B, 1:1000001B, 7:1000001B, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:00:08.110] 📋 CLIP restore: restored=4/4, formats=13:2000002B, 16:4B, 1:1000001B, 7:1000001B, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:00:08.131] 📋 CLIP set attempt 1/4: chars=17, bytes=36, preview='clipboard_cleaned'
+[paster]        [02:00:08.193] 📋 CLIP verify ok: attempt=1, chars=17, text='clipboard_cleaned'
+[test] Result: 53/53 passed
+[test] Paste Test END ALL PASSED
+[test] ========================================
+[test] ========================================
+[test] Paste Test START
+[paster]        [02:08:00.801] 📋 CLIP backup: count=4, formats=13:36B, 16:4B, 1:18B, 7:18B, text='clipboard_cleaned'
+[paster]        [02:08:00.801] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='AI_WHISPER_TEST_1780855680'
+[paster]        [02:08:00.863] 📋 CLIP verify ok: attempt=1, chars=26, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:00.877] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:00.880] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='__RESTORE_TEST__'
+[paster]        [02:08:00.941] 📋 CLIP verify ok: attempt=1, chars=16, text='__RESTORE_TEST__'
+[paster]        [02:08:00.945] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:00.947] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:01.069] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:01.075] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [02:08:01.124] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='TEST_PASTE'
+[paster]        [02:08:01.133] ⌨️ TEXT input flow start: target_chars=10，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='TEST_PASTE'
+[paster]        [02:08:01.135] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:01.152] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:01.236] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:08:05.200] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:05.248] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='FIX4_TEST'
+[paster]        [02:08:05.254] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')
+[paster]        [02:08:05.254] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=False
+[paster]        [02:08:05.255] 📋 CLIP flow start: target_chars=9, restore_delay=0.30s
+[paster]        [02:08:05.256] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:05.257] 📋 CLIP set attempt 1/4: chars=9, bytes=20, preview='FIX4_TEST'
+[paster]        [02:08:05.318] 📋 CLIP verify ok: attempt=1, chars=9, text='FIX4_TEST'
+[paster]        [02:08:05.399] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='FIX4_TEST'
+[paster]        [02:08:05.401] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:05.411] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:05.412] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:08:05.414] 📋 CLIP restore wait: 0.30s
+[paster]        [02:08:05.718] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:05.719] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:05.841] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [02:08:05.841] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:08:08.048] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [02:08:08.050] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [02:08:10.746] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [02:08:10.795] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:10.802] ⌨️ TEXT input flow start: target_chars=88，視窗="Keep筆記"，hwnd=0x006f10da，process=line.exe，class=Qt663QWindowIcon，focus=('', 'AutoSuggestTextArea', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:10.804] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:10.813] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:10.816] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [02:08:19.369] 📏 [UIA] text='https://www.youtube.', text_after='', at_end=True, last_punct=False
+[paster]        [02:08:19.371] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=506ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:19.379] ⌨️ TEXT input flow start: target_chars=88，視窗="【XBox發佈會】6/8 - YouTube - Google Chrome"，hwnd=0x00052364，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('網址與搜尋列', 'OmniboxViewViews', 'view_1012', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:19.380] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:19.386] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:19.386] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [02:08:27.072] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:27.120] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:27.130] ⌨️ TEXT input flow start: target_chars=88，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='777_驗證test_The quick brown fox jumps ove'
+[paster]        [02:08:27.131] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:27.136] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:27.136] ⌨️ TEXT input verify: ok=True，reason=wm_char_trusted
+[paster]        [02:08:35.393] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:35.442] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='【插入】'
+[paster]        [02:08:35.448] ⌨️ TEXT input flow start: target_chars=4，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='【插入】'
+[paster]        [02:08:35.450] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:35.455] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:35.538] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:08:38.842] 📋 CLIP set attempt 1/4: chars=30, bytes=62, preview='EMPTY_TEST_SENTINEL_1780855718'
+[paster]        [02:08:38.906] 📋 CLIP verify ok: attempt=1, chars=30, text='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:42.427] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:42.429] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='WATCHDOG_TRIGGER'
+[paster]        [02:08:42.432] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=True
+[paster]        [02:08:42.434] 📋 CLIP flow start: target_chars=16, restore_delay=0.30s
+[paster]        [02:08:42.435] 📋 CLIP backup: count=4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:42.436] 📋 CLIP set attempt 1/4: chars=16, bytes=34, preview='WATCHDOG_TRIGGER'
+[paster]        [02:08:42.497] 📋 CLIP verify ok: attempt=1, chars=16, text='WATCHDOG_TRIGGER'
+[paster]        [02:08:42.579] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='WATCHDOG_TRIGGER'
+[paster]        [02:08:42.581] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:42.587] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:42.588] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:08:42.590] 📋 CLIP restore wait: 0.30s
+[paster]        [02:08:42.892] 📋 CLIP restore attempt 1/4: text='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:42.896] 📋 CLIP restore: restored=4/4, formats=13:62B, 16:4B, 1:31B, 7:31B, text='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:43.021] 📋 CLIP restore verify ok: attempt=1, text='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:43.022] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:08:43.926] 📋 CLIP set attempt 1/4: chars=21, bytes=44, preview='USER_CTRLC_1780855722'
+[paster]        [02:08:43.988] 📋 CLIP verify ok: attempt=1, chars=21, text='USER_CTRLC_178085572'
+[paster]        [02:08:44.026] 📋 CLIP watchdog stop: external clipboard change, check=5, got='USER_CTRLC_178085572', expected='EMPTY_TEST_SENTINEL_'
+[paster]        [02:08:44.028] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[paster]        [02:08:46.993] 📋 CLIP set attempt 1/4: chars=26, bytes=54, preview='CONSEC_ORIGINAL_1780855726'
+[paster]        [02:08:47.055] 📋 CLIP verify ok: attempt=1, chars=26, text='CONSEC_ORIGINAL_1780'
+[paster]        [02:08:47.384] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:47.384] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=4ms, final='CONSEC_0'
+[paster]        [02:08:47.390] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_0'
+[paster]        [02:08:47.391] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:47.402] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:47.486] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:08:47.489] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:47.490] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=2ms, final='CONSEC_1'
+[paster]        [02:08:47.494] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_1'
+[paster]        [02:08:47.495] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:47.504] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:47.590] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:08:47.593] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:47.594] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=3ms, final='CONSEC_2'
+[paster]        [02:08:47.600] ⌨️ TEXT input flow start: target_chars=8，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='CONSEC_2'
+[paster]        [02:08:47.601] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:47.612] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:47.696] ⌨️ TEXT input verify: ok=True，reason=changed
+[paster]        [02:08:59.392] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:08:59.498] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:08:59.502] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:08:59.608] 🚫 CLIP guard disarmed: blocked=2
+[paster]        [02:08:59.616] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:08:59.674] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:08:59.707] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:08:59.709] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='', uia=9ms, final='WINSWITCH_TEST'
+[paster]        [02:08:59.726] ⌨️ TEXT input flow start: target_chars=14，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='WINSWITCH_TEST'
+[paster]        [02:08:59.733] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:08:59.763] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:08:59.858] ⌨️ TEXT input verify: ok=True，reason=unreadable
+[paster]        [02:09:27.579] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='CONSEC_ORIGINAL_1780'
+[paster]        [02:09:27.588] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='CONSEC_ORIGINAL_1780'
+[paster]        [02:09:27.591] 📋 CLIP set attempt 1/4: chars=1000000, bytes=2000002, preview='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:09:27.683] 📋 CLIP verify ok: attempt=1, chars=1000000, text='XXXXXXXXXXXXXXXXXXXX'
+[paster]        [02:09:27.695] 📋 CLIP set attempt 1/4: chars=17, bytes=36, preview='clipboard_cleaned'
+[paster]        [02:09:27.760] 📋 CLIP verify ok: attempt=1, chars=17, text='clipboard_cleaned'
+[paster]        [02:09:27.869] 📋 CLIP set attempt 1/4: chars=31, bytes=64, preview='MEMORY_CLIP_SENTINEL_1780855767'
+[paster]        [02:09:27.931] 📋 CLIP verify ok: attempt=1, chars=31, text='MEMORY_CLIP_SENTINEL'
+[main]          [02:09:28.235] 📋 貼上記憶 1: "MEMORY_PASTE_1780855"
+[paster]        [02:09:28.239] ⚠️ [UIA] 無 TextPattern
+[paster]        [02:09:28.240] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=4ms, final='MEMORY_PASTE_1780855767'
+[paster]        [02:09:28.242] ⌨️ TEXT input skipped: process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，preserve_ctrl=True
+[paster]        [02:09:28.243] 📋 CLIP flow start: target_chars=23, restore_delay=0.30s
+[paster]        [02:09:28.245] 📋 CLIP backup: count=4, formats=13:64B, 16:4B, 1:32B, 7:32B, text='MEMORY_CLIP_SENTINEL'
+[paster]        [02:09:28.246] 📋 CLIP set attempt 1/4: chars=23, bytes=48, preview='MEMORY_PASTE_1780855767'
+[paster]        [02:09:28.307] 📋 CLIP verify ok: attempt=1, chars=23, text='MEMORY_PASTE_1780855'
+[paster]        [02:09:28.388] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="Verifying Paste Test Coverage"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='MEMORY_PASTE_1780855767'
+[paster]        [02:09:28.391] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:09:28.403] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:09:28.407] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [02:09:28.409] 📋 CLIP restore wait: 0.30s
+[paster]        [02:09:28.712] 📋 CLIP restore attempt 1/4: text='MEMORY_CLIP_SENTINEL'
+[paster]        [02:09:28.713] 📋 CLIP restore: restored=4/4, formats=13:64B, 16:4B, 1:32B, 7:32B, text='MEMORY_CLIP_SENTINEL'
+[paster]        [02:09:28.836] 📋 CLIP restore verify ok: attempt=1, text='MEMORY_CLIP_SENTINEL'
+[paster]        [02:09:28.836] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [02:09:31.043] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='MEMORY_CLIP_SENTINEL'
+[paster]        [02:09:31.044] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[main]          [02:09:33.240] ⚠️ 記憶 5 不存在
+[test] Result: 56/57 passed
+[test] Paste Test END 1 FAILED
+[test] ========================================
+[tap]           [02:12:56.987] 💤 敲麥監聽已停止
+[recorder]      [02:12:56.988] 💤 預熱 stream 已關閉

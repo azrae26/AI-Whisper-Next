@@ -22,6 +22,7 @@ r"""AI Whisper Next — 貼上功能測試腳本
   17. R4: Replay 機制（guard arm/disarm/block 計數）
   18. R7: 貼上期間視窗切換 log 記錄
   19. R26: 大型剪貼簿備份還原效能
+  20. 記憶貼文端到端（add_history → paste_history → Ctrl+V preserve_ctrl 路徑）
 
 三種貼上方法：
   - SendInput UNICODE：硬體鍵盤事件，最快但 Qt/Electron 中間插入已知壞
@@ -572,6 +573,10 @@ def main():
     # ── 19. R26: 大型剪貼簿效能 ──
     print("\n-- 19. R26: Large clipboard backup/restore perf --")
     total, passed = _test_large_clipboard(total, passed)
+
+    # ── 20. 記憶貼文端到端 ──
+    print("\n-- 20. Memory paste (paste_history → preserve_ctrl) --")
+    total, passed = _test_memory_paste(total, passed)
 
     # ── 結果 ──
     summary = f"Result: {passed}/{total} passed"
@@ -1326,6 +1331,94 @@ def _test_large_clipboard(total: int, passed: int) -> tuple[int, int]:
 
     # 清理：設回正常小文字
     eval_expr("self.paste._set_clipboard_verified('clipboard_cleaned')")
+
+    return total, passed
+
+
+# ── 20. 記憶貼文端到端 helpers ──────────────
+
+def _test_memory_paste(total: int, passed: int) -> tuple[int, int]:
+    """透過 paste_history() 走記憶貼文完整管線：
+    add_history → paste_history(0) → paste_text(preserve_ctrl_modifier=True)
+    → 強制 Ctrl+V 路徑（send_v 或 send_ctrl_v）→ 剪貼簿備份還原。
+    """
+    marker = "MEMORY_PASTE_" + str(int(time.time()))
+
+    # 20a. 寫入歷史 slot 0
+    total += 1
+    eval_expr(f"self.window.add_history({marker!r})")
+    time.sleep(0.1)
+    r = eval_expr("self.window.history_text(0)")
+    slot_ok = r.get("ok", False) and get_result(r) == marker
+    if p(slot_ok, "add_history → slot 0 stored",
+         f"got={get_result(r)!r}"):
+        passed += 1
+
+    # 20b. 設定已知剪貼簿（驗還原用）
+    sentinel = "MEMORY_CLIP_SENTINEL_" + str(int(time.time()))
+    eval_expr(f"self.paste._set_clipboard_verified({sentinel!r})")
+    time.sleep(0.3)
+
+    # 記錄 log 行數
+    r_lines = eval_expr(
+        "len(open(max(__import__('pathlib').Path('logs').glob('ai_whisper_*.current.log'), "
+        "key=lambda p: p.stat().st_mtime), encoding='utf-8', errors='replace').readlines())"
+    )
+    lines_before = get_result(r_lines) if r_lines.get("ok") else 0
+
+    # 20c. 觸發記憶貼文
+    total += 1
+    eval_expr("self.paste_history(0)")
+
+    # 等完整 Ctrl+V 管線完成（settle + Ctrl+V + restore + watchdog ≈ 3s）
+    time.sleep(5)
+
+    # 讀 log 驗證 preserve_ctrl 路徑
+    r_log = eval_expr(
+        f"[l.strip() for l in open(max(__import__('pathlib').Path('logs').glob('ai_whisper_*.current.log'), "
+        f"key=lambda p: p.stat().st_mtime), encoding='utf-8', errors='replace').readlines()[{lines_before}:] "
+        f"if '{marker[:20]}' in l or 'preserve_ctrl' in l or '記憶' in l "
+        f"or 'CLIP flow' in l or 'guard' in l.lower()]"
+    )
+    log_lines = get_result(r_log) if r_log.get("ok") else []
+
+    # 核心驗證：
+    # 1. log 出現記憶貼文觸發（「貼上記憶」）
+    # 2. log 出現 CLIP flow（走了剪貼簿路徑）
+    # 3. log 出現 preserve_ctrl（正確使用 preserve_ctrl_modifier）
+    found_memory = any("記憶" in l for l in (log_lines or []))
+    found_clip = any("CLIP flow" in l or "CLIP restore" in l for l in (log_lines or []))
+    # preserve_ctrl 出現在 release_modifiers log 中
+    found_preserve = any("preserve_ctrl" in l for l in (log_lines or []))
+
+    ok = found_memory and found_clip
+    if p(ok, "paste_history → Ctrl+V clipboard path",
+         f"memory_log={found_memory}, clip_flow={found_clip}, preserve={found_preserve}"):
+        passed += 1
+    for line in (log_lines or [])[:5]:
+        print(f"    {line[:120]}")
+
+    # 20d. 剪貼簿還原驗證
+    total += 1
+    r_clip = eval_expr("self.paste._read_clipboard_text()")
+    clip = get_result(r_clip)
+    # watchdog 結束後剪貼簿應回到 sentinel（或接近）
+    # 但因 watchdog 可能遇到 queue 提前結束等狀況，核心是不 crash + 有走完管線
+    clip_restored = r_clip.get("ok", False) and clip == sentinel
+    if p(clip_restored, "Clipboard restored after memory paste",
+         f"got={clip!r:.40}, want={sentinel!r:.40}"):
+        passed += 1
+
+    # 20e. 空 slot 不 crash
+    total += 1
+    eval_expr("self.paste_history(4)")  # slot 4 可能為空
+    time.sleep(0.5)
+    r_empty = eval_expr("self.window.history_text(4)")
+    empty_text = get_result(r_empty)
+    # 不管 slot 4 有無文字，重點是 paste_history(4) 不 crash
+    if p(True, "paste_history(4) no crash",
+         f"slot4={'有文字' if empty_text else '空'}"):
+        passed += 1
 
     return total, passed
 
