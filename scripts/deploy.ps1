@@ -1,4 +1,4 @@
-﻿# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
+# 功能：建置 exe（Role build）、壓縮 zip（Role zip）、或兩段連跑（Role main）。
 # 職責：依電腦選擇打包用 venv，確保 venv 在本機可執行（跨電腦同步時自動重建）、PyInstaller、dist 產物與備份 config；分享用 zip 不包含 exe 執行 logs。
 # 備註：替換 dist\AI Whisper 前將 exe 側既有 logs（與專案根的 logs 分開）複製到 .pack_dist_exe_logs_stash，建置完成後鏡射回 dist\AI Whisper\logs，避免清空 dist 時遺失紀錄。
 
@@ -114,14 +114,42 @@ function Initialize-PackVenv {
         [Parameter(Mandatory)][string]$PythonExe,
         [Parameter(Mandatory)][string]$VenvRoot
     )
-    if ((Test-Path -LiteralPath $PythonExe) -and (Test-PackVenvPython $PythonExe)) { return }
+    $pyproject = Join-Path $Workspace "pyproject.toml"
+    $marker = Join-Path $VenvRoot "pack_deps_installed.txt"
+    $venvExists = (Test-Path -LiteralPath $PythonExe) -and (Test-PackVenvPython $PythonExe)
+    
+    if ($venvExists) {
+        $needPip = $false
+        if (-not (Test-Path -LiteralPath $marker)) {
+            $needPip = $true
+        } else {
+            $markerTime = (Get-Item -LiteralPath $marker).LastWriteTime
+            $pyprojectTime = (Get-Item -LiteralPath $pyproject).LastWriteTime
+            if ($pyprojectTime -gt $markerTime) {
+                $needPip = $true
+            }
+        }
+        if (-not $needPip) {
+            return
+        }
+        Write-Host "Updating dependencies in pack venv..."
+        $editable = '{0}[dev]' -f $Workspace
+        & $PythonExe -m pip install --upgrade pip
+        & $PythonExe -m pip install -e $editable
+        if ($LASTEXITCODE -eq 0) {
+            Set-Content -Path $marker -Value (Get-Date -Format "o")
+            return
+        } else {
+            throw "Failed to update dependencies in pack venv"
+        }
+    }
 
     Write-Host "Pack venv is missing or incompatible with this PC; recreating: $VenvRoot"
     Remove-DirectoryWithRetry $VenvRoot
 
     $pyLauncher = Get-Command py.exe -ErrorAction SilentlyContinue
     if (-not $pyLauncher) {
-        throw '需要 py.exe 與本機已安裝的 Python 3.12 才能建立打包 venv（避免誤用 PATH 上其他主版本）。請安裝 3.12 並勾選 Python Launcher，然後執行 scripts\setup-dev-venv.ps1 自測：py -3.12 --version'
+        throw 'Pack venv needs py.exe and Python 3.12 installed on this PC.'
     }
     & py.exe -3.12 -m venv $VenvRoot
 
@@ -135,6 +163,11 @@ function Initialize-PackVenv {
     $editable = '{0}[dev]' -f $Workspace
     & $PythonExe -m pip install --upgrade pip
     & $PythonExe -m pip install -e $editable
+    if ($LASTEXITCODE -eq 0) {
+        Set-Content -Path $marker -Value (Get-Date -Format "o")
+    } else {
+        throw "Failed to install dependencies in pack venv"
+    }
 }
 
 switch ($Role) {
@@ -241,8 +274,31 @@ switch ($Role) {
         } catch {
             Write-Host "warning: could not remove dist_build; it can be cleaned up later"
         }
-        Start-Process -FilePath "$distDir\AI Whisper.exe" -WorkingDirectory $distDir
+        # Invoke-CimMethod creates a process outside the parent's Job Object,
+        # so it survives when the calling terminal/agent task exits.
+        $exePath = Join-Path $distDir "AI Whisper.exe"
+        Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{
+            CommandLine = "`"$exePath`""
+            CurrentDirectory = $distDir
+        } | Out-Null
         Write-Host "build: dist\AI Whisper\AI Whisper.exe"
+        
+        # Verify startup
+        Start-Sleep -Seconds 3
+        $alive = Get-Process -Name "AI Whisper" -ErrorAction SilentlyContinue
+        if (-not $alive) {
+            $logsDir = Join-Path $distDir "logs"
+            if (Test-Path $logsDir) {
+                $latestLog = Get-ChildItem -Path $logsDir -Filter "*.log" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+                if ($latestLog) {
+                    Write-Error "=== AI Whisper.exe startup failed! Latest log content: ==="
+                    Get-Content -Path $latestLog.FullName -Tail 20 | Write-Error
+                }
+            }
+            throw "AI Whisper.exe crashed or failed to start immediately!"
+        } else {
+            Write-Host "AI Whisper.exe started successfully and is running."
+        }
         exit 0
     }
 
@@ -289,7 +345,7 @@ switch ($Role) {
             Get-ChildItem "$workspace\dist\AI Whisper_*.zip" | Sort-Object LastWriteTime -Descending | Select-Object -Skip 3 | Remove-Item -Force
             Write-Host "zip: dist\$zipName"
         } else {
-            Write-Host "Build timed out or failed"
+            throw "Build failed: dist\AI Whisper\AI Whisper.exe not found."
         }
     }
 }
