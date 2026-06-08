@@ -53,7 +53,10 @@ CLIPBOARD_RESTORE_VERIFY_DELAY_SEC = 0.12
 CLIPBOARD_WATCHDOG_DURATION_SEC = 2.20
 CLIPBOARD_WATCHDOG_INTERVAL_SEC = 0.20
 UNICODE_INPUT_VERIFY_DELAY_SEC = 0.08
-UNICODE_INPUT_VERIFY_BACKOFF_SEC = (0.06, 0.12, 0.24)  # H11: exponential backoff, max 3 attempts
+UNICODE_INPUT_VERIFY_BACKOFF_SEC = (0.06, 0.12, 0.24, 0.40)  # H11: exponential backoff, max 4 attempts
+# ⚠️ 部分框架（Angular cdk-textarea 等）在 SendInput 後需要 ~700ms 才更新 UIA 值。
+# 若退避不夠長，驗證會誤判為失敗 → fallback Ctrl+V → 文字重複貼上。
+# 讀取時間點：~0.08, 0.14, 0.26, 0.50, 0.90s（含最終讀取）。
 UNICODE_INPUT_VERIFY_SUFFIX_CHARS = 2
 DIRECT_TEXT_READABLE_MAX_CHARS = 500
 UIA_TIMEOUT_SEC = 2.0
@@ -340,10 +343,13 @@ class PasteService:
         final_text: str,
         at_end: bool,
     ) -> tuple[bool, str]:
-        # H11: exponential backoff (60→120→240ms), max 3 attempts
+        # H11: exponential backoff, 4 次 sleep + 1 次最終讀取 = 最多 5 次驗證
+        # 讀取時間點（含 UNICODE_INPUT_VERIFY_DELAY_SEC 0.08s）：
+        #   ~0.08, 0.14, 0.26, 0.50, 0.90s
         suffix_len = min(UNICODE_INPUT_VERIFY_SUFFIX_CHARS, len(final_text))
         suffix = final_text[-suffix_len:] if suffix_len > 0 else ""
-        for attempt, delay in enumerate(UNICODE_INPUT_VERIFY_BACKOFF_SEC):
+        max_attempts = len(UNICODE_INPUT_VERIFY_BACKOFF_SEC) + 1  # +1 for final read
+        for attempt in range(max_attempts):
             after_readable, after_text = self._focused_text_snapshot()
             if not before_readable or not after_readable:
                 return (True, "unreadable")
@@ -353,16 +359,14 @@ class PasteService:
                 if final_text in after_text:
                     return (True, "changed_contains")
                 # Text changed but suffix doesn't match — last attempt gives up
-                if attempt == len(UNICODE_INPUT_VERIFY_BACKOFF_SEC) - 1:
+                if attempt == max_attempts - 1:
                     return (
                         True,
                         f"changed_suffix_unverified:{repr(after_text[-suffix_len:])}!={repr(suffix)}",
                     )
-            else:
-                # Text unchanged — if this is already the 2nd+ attempt, give up early
-                if attempt >= 1:
-                    return (False, "unchanged")
-            time.sleep(delay)
+            # Sleep before next read (skip sleep after final read)
+            if attempt < len(UNICODE_INPUT_VERIFY_BACKOFF_SEC):
+                time.sleep(UNICODE_INPUT_VERIFY_BACKOFF_SEC[attempt])
         # Exhausted all attempts with no change detected
         return (False, "unchanged")
 
@@ -825,23 +829,27 @@ class PasteService:
                     f"ok=True，reason=wm_char_trusted"
                 )
                 return
-            verified = False
-            verify_reason = "send_failed"
+            # SendInput UNICODE 信任策略：
+            # Chrome accessibility tree 更新延遲 ~700ms 是已知架構行為（Chromium Bug Tracker），
+            # 從外部無法加速。UIA 驗證會在這段期間誤判為「unchanged」→ fallback Ctrl+V → 文字貼兩次。
+            # 改為：SendInput 成功 + 前景視窗未變 → 信任結果，不依賴 UIA。
             if ok:
-                time.sleep(UNICODE_INPUT_VERIFY_DELAY_SEC)
-                verified, verify_reason = self._verify_direct_text_input(
-                    before_readable,
-                    before_text,
-                    final_text,
-                    at_end,
-                )
-            safe_print(
-                f"{log_prefix('[paster]', now_str())}⌨️ TEXT input verify: "
-                f"ok={verified}，reason={verify_reason}"
-            )
-            if ok and verified:
-                return
-            safe_print(f"{log_prefix('[paster]', now_str())}⚠️ TEXT input failed/unaccepted，fallback to clipboard Ctrl+V")
+                hwnd_after = ctypes.windll.user32.GetForegroundWindow()
+                if hwnd_after == hwnd:
+                    safe_print(
+                        f"{log_prefix('[paster]', now_str())}⌨️ TEXT input verify: "
+                        f"ok=True，reason=sendinput_trusted (hwnd unchanged)"
+                    )
+                    return
+                else:
+                    _, win_after, proc_after, _ = self._foreground_window()
+                    safe_print(
+                        f"{log_prefix('[paster]', now_str())}⚠️ TEXT input verify: "
+                        f"ok=False，reason=foreground_changed "
+                        f"(before={hwnd:#010x} \"{win_title}\"，"
+                        f"after={hwnd_after:#010x} \"{win_after}\" {proc_after})，"
+                        f"fallback to clipboard Ctrl+V"
+                    )
 
         safe_print(
             f"{log_prefix('[paster]', now_str())}📋 CLIP flow start: "

@@ -22,6 +22,23 @@ MOD_NORMALIZE = {
     "left windows": "windows", "right windows": "windows",
 }
 
+# Physical key names by virtual key code (unaffected by Shift)
+VK_TO_NAME: dict[int, str] = {
+    0x08: 'backspace', 0x09: 'tab', 0x0D: 'enter', 0x13: 'pause',
+    0x1B: 'escape', 0x20: 'space',
+    0x21: 'page up', 0x22: 'page down', 0x23: 'end', 0x24: 'home',
+    0x25: 'left', 0x26: 'up', 0x27: 'right', 0x28: 'down',
+    0x2D: 'insert', 0x2E: 'delete',
+    0xBA: ';', 0xBB: '=', 0xBC: ',', 0xBD: '-', 0xBE: '.',
+    0xBF: '/', 0xC0: '`', 0xDB: '[', 0xDC: '\\', 0xDD: ']', 0xDE: "'",
+}
+for _i in range(10):
+    VK_TO_NAME[0x30 + _i] = str(_i)
+for _i in range(26):
+    VK_TO_NAME[0x41 + _i] = chr(0x61 + _i)
+for _i in range(1, 25):
+    VK_TO_NAME[0x6F + _i] = f'f{_i}'
+
 
 def parse_hotkey(hk_str: str) -> tuple[list[str], str | None]:
     parts = [p.strip().lower() for p in hk_str.split("+") if p.strip()]
@@ -112,7 +129,10 @@ class HotkeyService(QObject):
                 self._capturing = False
                 self.capture_cancelled.emit()
                 return
-            self._capture_keys.add(MOD_NORMALIZE.get(name, name))
+            if name in MODIFIERS:
+                self._capture_keys.add(MOD_NORMALIZE.get(name, name))
+            else:
+                self._capture_keys.add(self._resolve_physical_key(event.scan_code, name))
         elif event.event_type == keyboard.KEY_UP:
             if self._capture_keys:
                 keys = self._capture_keys.copy()
@@ -122,6 +142,15 @@ class HotkeyService(QObject):
                 others = sorted(k for k in keys if k not in mod_order)
                 if others:
                     self.capture_finished.emit("+".join(mods + others))
+
+    @staticmethod
+    def _resolve_physical_key(scan_code: int, fallback: str) -> str:
+        """Map scan_code → VK → key name, bypassing Shift-modified characters."""
+        if scan_code:
+            vk = ctypes.windll.user32.MapVirtualKeyW(scan_code, 1)  # MAPVK_VSC_TO_VK
+            if vk and vk in VK_TO_NAME:
+                return VK_TO_NAME[vk]
+        return fallback
 
     def finish_capture_cleanup(self) -> None:
         try:

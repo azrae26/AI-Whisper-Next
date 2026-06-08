@@ -264,7 +264,7 @@ def main():
         ".UNICODE_INPUT_VERIFY_BACKOFF_SEC)"
     )
     v = get_result(r)
-    if p(r.get("ok", False) and v == [0.06, 0.12, 0.24],
+    if p(r.get("ok", False) and v == [0.06, 0.12, 0.24, 0.40],
          "BACKOFF_SEC constant", str(v)):
         passed += 1
 
