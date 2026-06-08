@@ -293,6 +293,10 @@ class SettingsPage(QWidget):
         self.tap_trigger = self._toggle_row("啟用")
         self.tap_sensitivity = self._number_row("靈敏度閾值")
 
+        self._section("文字輸入模式")
+        self._hint("開啟後改用 WM_CHAR 輸入文字（繞過 SendInput）；適用於 LINE 等 Qt 應用吞字時")
+        self.use_wm_char = self._toggle_row("使用 WM_CHAR")
+
         self._section("識別快捷鍵（自動加句號）")
         self._hint("辨識貼上時，游標在文字最後會加句號；點擊按鈕可自訂（Esc 取消）")
         self.hotkey_btn = self._capture_btn("hotkey")
@@ -333,10 +337,6 @@ class SettingsPage(QWidget):
         self.model.addItems(SUPPORTED_MODELS)
         self.model.setStyleSheet("font-size:13px;")
         self.form.addWidget(self.model)
-
-        self._section("文字輸入模式")
-        self._hint("開啟後改用 WM_CHAR 輸入文字（繞過 SendInput）；適用於 LINE 等 Qt 應用吞字時")
-        self.use_wm_char = self._toggle_row("使用 WM_CHAR")
 
         self._section("文字校正")
         self._hint("每行一組，格式：原字,替換字；辨識結果會自動替換")
