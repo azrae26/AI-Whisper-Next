@@ -37,9 +37,9 @@ git push 與 PyInstaller 打包**同時以背景任務啟動**，兩者輸出皆
 
 ---
 
-## AI 執行流程（3 步完成）
+## AI 執行流程（2 步完成）
 
-### Step 1：取得 diff（1 次工具調用）
+### Step 1：取得 diff
 
 於專案根目錄執行：
 
@@ -50,30 +50,18 @@ git push 與 PyInstaller 打包**同時以背景任務啟動**，兩者輸出皆
 - 一併檢查 untracked，判斷是否要 `git add <檔案>`
 - 根據 diff 撰寫 commit message（不可臆測）
 
-### Step 2：並行啟動推 + 包（2 個背景任務）
+### Step 2：推 + 包合一條命令（1 個背景任務）
 
-同時發出兩個 `run_command`（背景任務），**並行**執行：
+push 只需 ~5 秒，不必拆開並行。**序列合成一條命令**，一個背景任務跑完：
 
-1. **推送**：
+```powershell
+& "$env:USERPROFILE\.cursor\skills\git-push-workflow\push.ps1" "<commit message>"; powershell -ExecutionPolicy Bypass -File "scripts\pack.ps1" -WaitZip
+```
 
-   ```powershell
-   & "$env:USERPROFILE\.cursor\skills\git-push-workflow\push.ps1" "<commit message>"
-   ```
+任務完成時系統自動通知，確認輸出：
 
-2. **打包**（`-WaitZip`，build + zip 一次跑完）：
-
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File "scripts\pack.ps1" -WaitZip
-   ```
-
-兩者都以前景命令透過背景任務執行，輸出完整捕獲、錯誤即時可見。
-
-### Step 3：確認結果
-
-兩個任務各自完成時系統會自動通知。收齊後：
-
-- **推**：確認輸出有「OK push done」與 commit hash
-- **包**：確認輸出有 `zip: dist\AI Whisper_yyyyMMdd_HHmm.zip`
+- **推**：有「OK push done」與 commit hash
+- **包**：有 `zip: dist\AI Whisper_yyyyMMdd_HHmm.zip`
 - 任一失敗則報錯，不靜默吞掉
 
 ---
