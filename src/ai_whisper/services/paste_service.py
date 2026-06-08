@@ -170,6 +170,7 @@ class PasteService:
         self._paste_queue: queue.SimpleQueue = queue.SimpleQueue()
         self._prefetch_lock = threading.Lock()
         self._prefetch_result: tuple | None = None
+        self._prefetch_event = threading.Event()
         self._prefetch_queue: queue.Queue = queue.Queue()
         self._manual_paste_guard_lock = threading.Lock()
         self._manual_paste_guard_handler = None
@@ -692,6 +693,7 @@ class PasteService:
                     break
                 prefetch_delay, estimated_api = task
                 try:
+                    self._prefetch_event.clear()
                     if prefetch_delay > 0:
                         time.sleep(prefetch_delay)
                     at_end, last_char_is_punctuation = self._is_cursor_at_end()
@@ -701,25 +703,39 @@ class PasteService:
                 except Exception as e:
                     safe_print(f"{log_prefix('[paster]', now_str())}⚠️ 預取游標位置失敗: {e}")
                 finally:
+                    self._prefetch_event.set()
                     self._prefetch_queue.task_done()
         finally:
             comtypes.CoUninitialize()
 
     def prefetch_cursor_position(self, wav_bytes_len: int = 0) -> None:
         audio_sec = max(0, (wav_bytes_len - 44)) / 32000 if wav_bytes_len > 44 else 0
-        estimated_api = audio_sec * 0.10 + 0.25 if audio_sec <= 15 else audio_sec * 0.03 + 1.30
-        prefetch_delay = max(0, estimated_api - 0.45)
+        estimated_api = audio_sec * 0.025 + 0.47
+        prefetch_delay = 0 if estimated_api < 0.55 else max(0, estimated_api - 0.42)
         self._prefetch_queue.put((prefetch_delay, estimated_api))
 
-    def _consume_prefetch(self, max_age: float = 10.0) -> tuple[bool, bool] | None:
+    def _consume_prefetch(self, max_age: float = 10.0, wait_timeout: float = 0) -> tuple[bool, bool] | None:
+        """取回 prefetch 結果。
+        wait_timeout > 0 時，若結果尚未就緒會等待 prefetch 完成，
+        避免 miss 時重新查 UIA（~500ms）。
+        """
         with self._prefetch_lock:
-            if self._prefetch_result is None:
-                return None
-            ts, at_end, last_char_is_punctuation = self._prefetch_result
-            self._prefetch_result = None
-            if time.perf_counter() - ts > max_age:
-                return None
-            return (at_end, last_char_is_punctuation)
+            if self._prefetch_result is not None:
+                ts, at_end, last_char_is_punctuation = self._prefetch_result
+                self._prefetch_result = None
+                if time.perf_counter() - ts > max_age:
+                    return None
+                return (at_end, last_char_is_punctuation)
+        # 結果尚未就緒，若有等待預算就等 prefetch 完成
+        if wait_timeout > 0 and self._prefetch_event.wait(timeout=wait_timeout):
+            with self._prefetch_lock:
+                if self._prefetch_result is not None:
+                    ts, at_end, last_char_is_punctuation = self._prefetch_result
+                    self._prefetch_result = None
+                    if time.perf_counter() - ts > max_age:
+                        return None
+                    return (at_end, last_char_is_punctuation)
+        return None
 
     def paste_text(
         self,
@@ -741,8 +757,13 @@ class PasteService:
     ) -> None:
         if not text:
             return
-        prefetched = self._consume_prefetch()
-        if prefetched is not None:
+        if not end_prefix:
+            # 無前綴 → 跳過 UIA 游標查詢，省 ~500ms
+            add_prefix = False
+            if delay_ms > 0:
+                time.sleep(delay_ms / 1000)
+            safe_print(f"{log_prefix('[paster]', now_str())}🎯 PASTE: add_prefix=False (no prefix), final={repr(text[:40])}")
+        elif (prefetched := self._consume_prefetch(wait_timeout=1.0)) is not None:
             at_end, last_char_is_punctuation = prefetched
             if delay_ms > 0:
                 time.sleep(delay_ms / 1000)

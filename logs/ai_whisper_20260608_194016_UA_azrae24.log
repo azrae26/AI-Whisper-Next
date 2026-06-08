@@ -1,0 +1,107 @@
+[main]          [19:40:16.372] LOG -> D:\Cursor\AI Whisper Next\logs\ai_whisper_20260608_194016_UA_azrae24.current.log
+[settings]      [19:40:16.372] config loaded from D:\Cursor\AI Whisper Next\config.json
+[main]          [19:40:16.572] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [19:40:16.575] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [19:40:16.578] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [19:40:16.634] 🎙️ 敲麥監聽已啟動
+[main]          [19:40:16.634] 🔧 DIAG 關閉元件: (none)
+[debug]         [19:40:16.649] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [19:40:17.053] 載入 Silero VAD 模型 (ONNX): D:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [19:40:17.199] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [19:40:18.897] 🔌 HTTP 連線預熱完成 (2.26s)
+[tap][dim]      [19:40:41.452] 持續=100ms 峰值=472 ✗弱
+[tap][sample]   [19:40:41.612] 持續=160ms 峰值=2471 ✗長 K=19.8 CF=10.5 SC=1437Hz Att=109.8ms | fK=24.1 fCF=11.4 fSC=1437Hz fFlat=0.225 fHF=0.001
+[main]          [19:40:41.618] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [19:40:41.618] ⌨️ after(0) 執行延遲 0.6ms
+[tap]           [19:40:41.661] 💤 敲麥監聽已停止
+[recorder]      [19:40:41.704] ⏱️ InputStream() 42.9ms
+[recorder]      [19:40:41.704] ⏱️ stream.start() 0.6ms
+[recorder]      [19:40:41.705] 🎙️ 錄音就緒，總初始化 43.5ms
+[main]          [19:40:41.706] ⏱️ recorder.start() 耗時 44.3ms，ok=True
+[tap]           [19:40:41.718] 🎙️ 敲麥監聽已啟動
+[main]          [19:40:41.750] 🎙️ 開始錄音
+[recorder]      [19:40:41.752] 🎤 第一包音訊到達，麥克風實際開啟延遲 48.8ms
+[tap][dim]      [19:40:42.523] 持續=70ms 峰值=523 ✗弱
+[tap][dim]      [19:40:42.744] 持續=31ms 峰值=322 ✗弱
+[tap][sample]   [19:40:45.043] 持續=2140ms 峰值=10540 ✗長 K=-0.0 CF=4.0 SC=2279Hz Att=0.1ms | fK=-0.1 fCF=3.5 fSC=1958Hz fFlat=0.470 fHF=0.016
+[tap][dim]      [19:40:45.083] 持續=40ms 峰值=444 ✗弱
+[tap][sample]   [19:40:45.522] 持續=440ms 峰值=7883 ✗長 K=3.9 CF=4.8 SC=2458Hz Att=116.0ms | fK=4.3 fCF=5.0 fSC=2456Hz fFlat=0.449 fHF=0.071
+[tap][sample]   [19:40:46.203] 持續=640ms 峰值=8554 ✗長 K=1.1 CF=4.3 SC=2651Hz Att=72.0ms | fK=1.3 fCF=4.5 fSC=2653Hz fFlat=0.489 fHF=0.114
+[tap][dim]      [19:40:46.233] 持續=30ms 峰值=354 ✗弱
+[tap][sample]   [19:40:46.324] 持續=90ms 峰值=3009 ✓ K=-0.1 CF=2.8 SC=686Hz Att=12.9ms | fK=0.7 fCF=3.2 fSC=736Hz fFlat=0.158 fHF=0.001 🎯 敲擊 #1
+[tap][dim]      [19:40:46.393] 持續=70ms 峰值=540 ✗弱
+[tap][sample]   [19:40:46.584] 持續=191ms 峰值=8840 ✗長 K=1.5 CF=3.6 SC=629Hz Att=133.2ms | fK=2.2 fCF=3.8 fSC=637Hz fFlat=0.105 fHF=0.000
+[tap][dim]      [19:40:46.613] 持續=29ms 峰值=344 ✗弱
+[tap][sample]   [19:40:47.353] 持續=740ms 峰值=7739 ✗長 K=2.1 CF=5.6 SC=1764Hz Att=66.5ms | fK=2.3 fCF=5.7 fSC=1760Hz fFlat=0.438 fHF=0.009
+[tap][dim]      [19:40:47.383] 持續=30ms 峰值=339 ✗弱
+[tap][sample]   [19:40:47.993] 持續=610ms 峰值=8434 ✗長 K=2.0 CF=5.0 SC=1262Hz Att=496.5ms | fK=2.3 fCF=5.2 fSC=1259Hz fFlat=0.290 fHF=0.002
+[tap][sample]   [19:40:48.504] 持續=480ms 峰值=7599 ✗長 K=2.0 CF=5.5 SC=1562Hz Att=64.5ms | fK=2.3 fCF=5.6 fSC=1564Hz fFlat=0.401 fHF=0.010
+[tap][dim]      [19:40:48.563] 持續=59ms 峰值=585 ✗弱
+[tap][sample]   [19:40:49.722] 持續=1160ms 峰值=8658 ✗長 K=1.1 CF=4.9 SC=2074Hz Att=12.6ms | fK=1.2 fCF=5.0 fSC=2075Hz fFlat=0.496 fHF=0.027
+[main]          [19:40:49.914] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [19:40:49.914] ⌨️ after(0) 執行延遲 0.6ms
+[main]          [19:40:49.915] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[recorder][VAD] [19:40:49.929] ✅ Silero 11/256 (22.0%), 0.35s speech
+[main]          [19:40:49.929] ✅ 錄音完成，送出辨識
+[paster]        [19:40:50.612] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [19:40:50.612] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.62s, est_api=1.07s)
+[tap][sample]   [19:40:50.843] 持續=40ms 峰值=1550 ✓ K=44.2 CF=9.4 SC=2076Hz Att=0.1ms | fK=90.9 fCF=13.3 fSC=2074Hz fFlat=0.385 fHF=0.017 🎯 敲擊 #1
+[tap][sample]   [19:40:50.963] 持續=30ms 峰值=922 ✓ K=10.2 CF=6.2 SC=1341Hz Att=0.1ms | fK=22.3 fCF=8.6 fSC=1324Hz fFlat=0.217 fHF=0.001 ⏱️ 防抖略過（距上次 130ms < 180ms）
+[tap][dim]      [19:40:51.123] 持續=30ms 峰值=409 ✗弱
+[transcriber]   [19:40:51.437] ⏱️ API 耗時: 1.51s
+[main]          [19:40:51.437] ✅ 辨識完成: "測試一下喔，測試測試，我覺得明天會再來一次，哈哈"
+[paster]        [19:40:51.488] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:51.496] ⌨️ TEXT input flow start: target_chars=24，視窗="Fixing Hotkey Capture Logic"，hwnd=0x000306da，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:51.499] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [19:40:51.529] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [19:40:51.532] ⏱️ 收到→直接輸入完成: 0.09s
+[paster]        [19:40:51.544] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [19:40:54.872] 持續=30ms 峰值=478 ✗弱
+[main]          [19:40:55.424] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main]          [19:40:55.425] 📋 貼上記憶 1: "測試一下喔，測試測試，我覺得明天會再來一"
+[tap][dim]      [19:40:55.672] 持續=30ms 峰值=404 ✗弱
+[paster]        [19:40:55.933] 📏 [UIA] text='以上是我提供的逐字稿跟相對應的音頻，還有', text_after='', at_end=True, last_punct=False
+[paster]        [19:40:55.933] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=509ms, final='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:55.943] ⌨️ TEXT input flow start: target_chars=24，視窗="元芯科技2026年首季法說會 | Google AI Studio - Google Chrome"，hwnd=0x000800fe，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Enter a prompt', 'cdk-textarea-autosize textarea ng-valid ng-touched ng-dirty', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:55.943] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [19:40:55.960] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [19:40:55.960] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [19:40:57.216] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main]          [19:40:57.219] 📋 貼上記憶 1: "測試一下喔，測試測試，我覺得明天會再來一"
+[paster]        [19:40:57.724] 📏 [UIA] text='測試一下喔，測試測試，我覺得明天會再來一', text_after='', at_end=True, last_punct=False
+[paster]        [19:40:57.725] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=506ms, final='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:57.733] ⌨️ TEXT input flow start: target_chars=24，視窗="元芯科技2026年首季法說會 | Google AI Studio - Google Chrome"，hwnd=0x000800fe，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Enter a prompt', 'cdk-textarea-autosize textarea ng-valid ng-touched ng-dirty', '', 'EditControl')，verify_readable=True，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:57.734] ⌨️ 直接輸入前釋放修飾鍵: released=LShift,LAlt，keys_after_release=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:40:57.754] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:40:57.755] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [19:40:58.679] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main]          [19:40:58.679] 📋 貼上記憶 1: "測試一下喔，測試測試，我覺得明天會再來一"
+[paster]        [19:40:59.186] 📏 [UIA] text='測試一下喔，測試測試，我覺得明天會再來一', text_after='', at_end=True, last_punct=False
+[paster]        [19:40:59.186] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=507ms, final='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:59.195] ⌨️ TEXT input flow start: target_chars=24，視窗="元芯科技2026年首季法說會 | Google AI Studio - Google Chrome"，hwnd=0x000800fe，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Enter a prompt', 'cdk-textarea-autosize textarea ng-valid ng-touched ng-dirty', '', 'EditControl')，verify_readable=True，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:40:59.197] ⌨️ 直接輸入前釋放修飾鍵: released=LShift,LAlt，keys_after_release=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:40:59.221] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:40:59.221] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [19:41:00.224] ⌨️ 記憶快捷鍵 1 觸發，keys=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[main]          [19:41:00.225] 📋 貼上記憶 1: "測試一下喔，測試測試，我覺得明天會再來一"
+[paster]        [19:41:00.736] 📏 [UIA] text='測試一下喔，測試測試，我覺得明天會再來一', text_after='', at_end=True, last_punct=False
+[paster]        [19:41:00.736] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True, prefix='', uia=511ms, final='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:41:00.745] ⌨️ TEXT input flow start: target_chars=24，視窗="元芯科技2026年首季法說會 | Google AI Studio - Google Chrome"，hwnd=0x000800fe，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('Enter a prompt', 'cdk-textarea-autosize textarea ng-valid ng-touched ng-dirty', '', 'EditControl')，verify_readable=True，keys_before=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt，text='測試一下喔，測試測試，我覺得明天會再來一次，哈哈'
+[paster]        [19:41:00.746] ⌨️ 直接輸入前釋放修飾鍵: released=LShift,LAlt，keys_after_release=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:41:00.772] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=Shift,Alt,LShift,LAlt; logical_down=Shift,Alt,LShift,LAlt
+[paster]        [19:41:00.774] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [19:41:02.583] 持續=30ms 峰值=418 ✗弱
+[tap][dim]      [19:41:04.633] 持續=30ms 峰值=309 ✗弱
+[tap][dim]      [19:41:05.784] 持續=31ms 峰值=332 ✗弱
+[tap][dim]      [19:41:05.913] 持續=30ms 峰值=392 ✗弱
+[tap][dim]      [19:41:06.263] 持續=31ms 峰值=390 ✗弱
+[tap][dim]      [19:41:06.553] 持續=30ms 峰值=342 ✗弱
+[tap][dim]      [19:41:06.712] 持續=30ms 峰值=428 ✗弱
+[tap][dim]      [19:41:06.802] 持續=30ms 峰值=315 ✗弱
+[tap][dim]      [19:41:06.902] 持續=30ms 峰值=327 ✗弱
+[tap][dim]      [19:41:07.193] 持續=70ms 峰值=400 ✗弱
+[tap][dim]      [19:41:07.353] 持續=30ms 峰值=404 ✗弱
+[tap][dim]      [19:41:08.053] 持續=30ms 峰值=311 ✗弱
+[tap][dim]      [19:41:10.104] 持續=31ms 峰值=445 ✗弱
+[tap]           [19:41:50.465] 💤 敲麥監聽已停止
+[recorder]      [19:41:50.505] 💤 預熱 stream 已關閉

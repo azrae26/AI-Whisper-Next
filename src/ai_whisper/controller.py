@@ -486,7 +486,7 @@ class AppController(QObject):
         text = self.window.history_text(idx)
         if text:
             safe_print(f"{log_prefix('[main]', now_str())}📋 貼上記憶 {idx + 1}: \"{text[:20]}\"")
-            self.paste.paste_text(text, delay_ms=0, preserve_ctrl_modifier=True)
+            self.paste.paste_text(text, delay_ms=0)
         else:
             safe_print(f"{log_prefix('[main]', now_str())}⚠️ 記憶 {idx + 1} 不存在")
 
