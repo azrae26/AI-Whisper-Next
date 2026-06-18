@@ -324,6 +324,23 @@ def main() -> int:
             app.aboutToQuit.connect(_dbg.shutdown)
             app.aboutToQuit.connect(controller.cleanup)
             app.aboutToQuit.connect(single_instance.close)
+
+            def _handle_restart():
+                """快捷鍵連按 4 下觸發：釋放 port → 啟動新進程 → 退出舊進程。"""
+                import subprocess, os
+                single_instance.close()  # 先釋放 port，讓新進程可立即 acquire
+                if getattr(sys, 'frozen', False):
+                    cmd = [sys.executable]  # 打包 exe：自身即可執行檔
+                else:
+                    cmd = [sys.executable, "-u"] + sys.argv  # dev：python -u run_ai_whisper.py
+                subprocess.Popen(
+                    cmd,
+                    cwd=os.path.dirname(os.path.abspath(sys.argv[0])) or None,
+                    creationflags=subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.DETACHED_PROCESS,
+                )
+                controller.quit_app()
+
+            controller.restart_requested.connect(_handle_restart)
             single_instance.activate_requested.connect(window.show_from_tray)
             single_instance.quit_requested.connect(controller.quit_app)
             _refs['window'] = window

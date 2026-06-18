@@ -37,6 +37,7 @@ class AppController(QObject):
     segment_processing_finished = Signal()
     segment_status = Signal(str, str, int)
     tap_triggered = Signal()
+    restart_requested = Signal()
 
     def __init__(self, window: MainWindow, settings: SettingsStore):
         super().__init__()
@@ -74,6 +75,8 @@ class AppController(QObject):
         self._pending_config: AppConfig | None = None
         self._capture_field: str | None = None
         self._cleaned_up = False
+        # 連按 4 下重啟偵測：per-hotkey 時間戳（"。"=快捷鍵1, "，"=快捷鍵2）
+        self._rapid_press_times: dict[str, list[float]] = {}
 
         self._connect()
         self._apply_initial_state()
@@ -98,7 +101,7 @@ class AppController(QObject):
         self.window.geometry_changed.connect(self.queue_geometry_save)
         self.window.capture_requested.connect(self.start_hotkey_capture)
         self.window.tray_quit_requested.connect(self.quit_app)
-        self.hotkeys.toggle_requested.connect(self.toggle_recording)
+        self.hotkeys.toggle_requested.connect(self._on_hotkey_toggle)
         self.hotkeys.history_requested.connect(self.paste_history)
         self.hotkeys.capture_finished.connect(self.finish_hotkey_capture)
         self.hotkeys.capture_cancelled.connect(self.cancel_hotkey_capture)
@@ -200,6 +203,24 @@ class AppController(QObject):
         cfg = self.window.settings_page.current_config()
         self.hotkeys.register(cfg.hotkey, cfg.hotkey_comma, cfg.history_hotkeys)
         self.queue_settings_save(cfg)
+
+    def _on_hotkey_toggle(self, paste_prefix: str = "。") -> None:
+        """攔截鍵盤熱鍵，偵測同一快捷鍵連按 4 下（每下 ≤200ms）觸發重啟。
+        前 3 下正常 toggle，不加延遲；只有第 4 下命中模式時走重啟。
+        UI 按鈕與敲麥直連 toggle_recording，不經此攔截。"""
+        now = time.perf_counter()
+        times = self._rapid_press_times.setdefault(paste_prefix, [])
+        times.append(now)
+        # 只保留近 1 秒內的記錄
+        times[:] = [t for t in times if now - t < 1.0]
+        if len(times) >= 4:
+            last4 = times[-4:]
+            if all(last4[i + 1] - last4[i] <= 0.2 for i in range(3)):
+                times.clear()
+                safe_print(f"{log_prefix('[main]', now_str())}🔄 偵測到連按 4 下，觸發重啟")
+                self.restart_requested.emit()
+                return
+        self.toggle_recording(paste_prefix)
 
     def toggle_recording(self, paste_prefix: str = "。") -> None:
         if self.state == "idle":
