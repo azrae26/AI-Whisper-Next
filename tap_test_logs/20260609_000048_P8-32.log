@@ -1,0 +1,124 @@
+[tap]           [00:00:48.348] 🎙️ 敲麥監聽已啟動
+[tap]           [00:00:49.858] 💤 敲麥監聽已停止
+[tap]           [00:00:50.404] 🎙️ 敲麥監聽已啟動
+[tap][dim]      [00:00:50.847] 持續=36ms 峰值=526 ✗弱
+[tap][sample]   [00:00:52.225] 持續=549ms 峰值=13491 ✗長 K=0.4 CF=3.4 SC=2633Hz Att=54.2ms | fK=0.6 fCF=3.5 fSC=2631Hz fFlat=0.568 fHF=0.091
+[tap][dim]      [00:00:52.252] 持續=27ms 峰值=585 ✗弱
+[tap][sample]   [00:00:53.061] 持續=621ms 峰值=12556 ✗長 K=1.2 CF=4.0 SC=2485Hz Att=46.2ms | fK=1.4 fCF=4.1 fSC=2487Hz fFlat=0.557 fHF=0.071
+[tap][sample]   [00:00:53.664] 持續=414ms 峰值=9741 ✗長 K=6.4 CF=6.7 SC=1670Hz Att=47.9ms | fK=7.1 fCF=7.0 fSC=1666Hz fFlat=0.350 fHF=0.015
+[tap][dim]      [00:00:53.701] 持續=36ms 峰值=622 ✗弱
+[tap][dim]      [00:00:58.453] 持續=36ms 峰值=361 ✗弱
+[tap]           [00:02:11.648] 💤 敲麥監聽已停止
+[tap]           [00:02:11.652] 🎙️ 敲麥監聽已啟動
+[tap][sample]   [00:02:13.449] 持續=1008ms 峰值=13341 ✗長 K=1.4 CF=3.9 SC=1928Hz Att=284.9ms | fK=1.6 fCF=4.0 fSC=1930Hz fFlat=0.423 fHF=0.025
+[tap][dim]      [00:02:13.477] 持續=27ms 峰值=420 ✗弱
+[tap][sample]   [00:02:13.693] 持續=189ms 峰值=12605 ✓ K=1.0 CF=3.3 SC=1216Hz Att=0.3ms | fK=1.7 fCF=3.6 fSC=1214Hz fFlat=0.210 fHF=0.003 🎯 敲擊 #1
+[tap][sample]   [00:02:13.926] 持續=135ms 峰值=11357 ✓ K=5.2 CF=5.0 SC=2107Hz Att=11.7ms | fK=7.3 fCF=5.6 fSC=2110Hz fFlat=0.473 fHF=0.036 🎯 敲擊 #2
+[tap][sample]   [00:02:14.304] 持續=351ms 峰值=10462 ✗長 K=3.0 CF=4.5 SC=1082Hz Att=15.2ms | fK=3.6 fCF=4.7 fSC=1085Hz fFlat=0.183 fHF=0.002
+[tap][sample]   [00:02:14.782] 持續=450ms 峰值=11494 ✗長 K=0.9 CF=4.0 SC=2801Hz Att=4.8ms | fK=1.2 fCF=4.1 fSC=2791Hz fFlat=0.637 fHF=0.157
+[tap][sample]   [00:02:15.394] 持續=585ms 峰值=12477 ✗長 K=2.4 CF=4.4 SC=1559Hz Att=33.1ms | fK=2.7 fCF=4.6 fSC=1561Hz fFlat=0.312 fHF=0.013
+[tap][dim]      [00:11:41.584] 持續=63ms 峰值=489 ✗弱
+[tap]           [00:13:32.191] 💤 敲麥監聽已停止
+[tap]           [00:13:32.743] 🎙️ 敲麥監聽已啟動
+[tap][dim]      [00:13:33.318] 持續=63ms 峰值=497 ✗弱
+[tap][sample]   [00:13:36.820] 持續=873ms 峰值=12835 ✗長 K=2.4 CF=4.5 SC=1558Hz Att=312.5ms | fK=2.6 fCF=4.6 fSC=1557Hz fFlat=0.351 fHF=0.008
+[tap][sample]   [00:13:37.305] 持續=459ms 峰值=6028 ✗長 K=1.7 CF=5.1 SC=1932Hz Att=50.8ms | fK=2.0 fCF=5.3 fSC=1935Hz fFlat=0.267 fHF=0.010
+[tap][sample]   [00:13:37.620] 持續=225ms 峰值=11811 ✗長 K=2.9 CF=4.1 SC=1070Hz Att=67.8ms | fK=3.7 fCF=4.4 fSC=1073Hz fFlat=0.192 fHF=0.002
+[tap][sample]   [00:13:38.196] 持續=540ms 峰值=10604 ✗長 K=3.6 CF=4.8 SC=1304Hz Att=17.9ms | fK=4.0 fCF=4.9 fSC=1309Hz fFlat=0.278 fHF=0.004
+[tap][sample]   [00:13:38.782] 持續=270ms 峰值=8965 ✗長 K=4.2 CF=5.0 SC=1394Hz Att=19.4ms | fK=5.0 fCF=5.3 fSC=1393Hz fFlat=0.196 fHF=0.004
+[tap]           [00:13:53.183] 💤 敲麥監聽已停止
+[tap]           [00:13:53.186] 🎙️ 敲麥監聽已啟動
+[tap][sample]   [00:13:55.567] 持續=135ms 峰值=10014 ✓ K=1.0 CF=3.5 SC=954Hz Att=41.0ms | fK=2.0 fCF=3.9 fSC=953Hz fFlat=0.183 fHF=0.002 🎯 敲擊 #1
+[tap][sample]   [00:13:56.656] 持續=1017ms 峰值=12586 ✗長 K=1.1 CF=3.9 SC=1024Hz Att=51.6ms | fK=1.3 fCF=3.9 fSC=1023Hz fFlat=0.205 fHF=0.003
+[tap][dim]      [00:13:56.818] 持續=35ms 峰值=582 ✗弱
+[tap]           [00:13:56.844] ⏱️ 間隔過長重置（1386ms）
+[tap][sample]   [00:13:56.844] 持續=27ms 峰值=934 ✓ K=11.1 CF=5.1 SC=1182Hz Att=0.2ms | fK=14.9 fCF=6.4 fSC=1169Hz fFlat=0.234 fHF=0.004 🎯 敲擊 #1
+[tap][dim]      [00:13:56.872] 持續=27ms 峰值=503 ✗弱
+[tap][sample]   [00:13:58.384] 持續=1089ms 峰值=9047 ✗長 K=4.2 CF=6.0 SC=2353Hz Att=538.1ms | fK=4.4 fCF=6.1 fSC=2351Hz fFlat=0.529 fHF=0.033
+[tap][dim]      [00:13:58.410] 持續=27ms 峰值=482 ✗弱
+[tap][sample]   [00:13:59.508] 持續=450ms 峰值=12155 ✗長 K=1.0 CF=3.5 SC=3148Hz Att=133.2ms | fK=1.2 fCF=3.6 fSC=3147Hz fFlat=0.563 fHF=0.130
+[tap][sample]   [00:14:00.112] 持續=513ms 峰值=12081 ✗長 K=0.9 CF=4.3 SC=1956Hz Att=3.0ms | fK=1.1 fCF=4.4 fSC=1959Hz fFlat=0.351 fHF=0.018
+[tap][sample]   [00:14:01.560] 持續=261ms 峰值=12222 ✗長 K=0.9 CF=3.4 SC=2907Hz Att=45.8ms | fK=1.3 fCF=3.7 fSC=2895Hz fFlat=0.564 fHF=0.082
+[tap][sample]   [00:14:02.622] 持續=1026ms 峰值=13352 ✗長 K=1.4 CF=3.9 SC=1573Hz Att=68.1ms | fK=1.5 fCF=4.0 fSC=1571Hz fFlat=0.401 fHF=0.009
+[tap][dim]      [00:14:02.649] 持續=27ms 峰值=636 ✗弱
+[tap][sample]   [00:14:03.810] 持續=639ms 峰值=13961 ✗長 K=1.3 CF=4.0 SC=2677Hz Att=101.9ms | fK=1.5 fCF=4.1 fSC=2680Hz fFlat=0.551 fHF=0.079
+[tap][dim]      [00:14:03.847] 持續=36ms 峰值=403 ✗弱
+[tap][sample]   [00:14:05.413] 持續=1566ms 峰值=12295 ✗長 K=0.8 CF=3.8 SC=1411Hz Att=148.9ms | fK=0.9 fCF=3.8 fSC=1411Hz fFlat=0.355 fHF=0.007
+[tap][sample]   [00:14:07.357] 持續=1854ms 峰值=12610 ✗長 K=2.4 CF=4.7 SC=1851Hz Att=241.1ms | fK=3.2 fCF=5.2 fSC=1752Hz fFlat=0.442 fHF=0.010
+[tap][sample]   [00:14:08.256] 持續=738ms 峰值=11155 ✗長 K=2.6 CF=4.6 SC=2596Hz Att=102.5ms | fK=2.8 fCF=4.7 fSC=2599Hz fFlat=0.581 fHF=0.054
+[tap][sample]   [00:14:08.672] 持續=262ms 峰值=10787 ✗長 K=1.7 CF=4.0 SC=2440Hz Att=230.3ms | fK=2.2 fCF=4.2 fSC=2429Hz fFlat=0.533 fHF=0.048
+[tap][dim]      [00:14:08.706] 持續=35ms 峰值=667 ✗弱
+[tap][sample]   [00:14:09.984] 持續=1278ms 峰值=12315 ✗長 K=3.1 CF=5.0 SC=2290Hz Att=1.5ms | fK=3.3 fCF=5.0 fSC=2290Hz fFlat=0.566 fHF=0.055
+[tap][sample]   [00:14:11.335] 持續=1323ms 峰值=11449 ✗長 K=2.6 CF=4.5 SC=1900Hz Att=21.8ms | fK=2.7 fCF=4.5 fSC=1901Hz fFlat=0.449 fHF=0.022
+[tap][dim]      [00:14:11.364] 持續=28ms 峰值=360 ✗弱
+[tap][sample]   [00:14:12.676] 持續=828ms 峰值=10055 ✗長 K=2.6 CF=4.8 SC=1720Hz Att=39.5ms | fK=2.8 fCF=4.9 fSC=1717Hz fFlat=0.421 fHF=0.009
+[tap][sample]   [00:14:13.188] 持續=477ms 峰值=8932 ✗長 K=2.4 CF=4.9 SC=3370Hz Att=55.6ms | fK=2.7 fCF=5.1 fSC=3372Hz fFlat=0.669 fHF=0.207
+[tap][sample]   [00:16:04.743] 持續=63ms 峰值=964 ✓ K=9.5 CF=5.1 SC=354Hz Att=6.1ms | fK=15.7 fCF=6.2 fSC=389Hz fFlat=0.067 fHF=0.000 🎯 敲擊 #1
+[tap][sample]   [00:16:07.246] 持續=2439ms 峰值=12443 ✗長 K=0.8 CF=3.7 SC=1559Hz Att=246.0ms | fK=0.6 fCF=3.5 fSC=1670Hz fFlat=0.415 fHF=0.011
+[tap]           [00:16:07.444] ⏱️ 間隔過長重置（2736ms）
+[tap][sample]   [00:16:07.444] 持續=27ms 峰值=1280 ✓ K=0.6 CF=2.7 SC=491Hz Att=14.6ms | fK=1.6 fCF=3.4 fSC=510Hz fFlat=0.090 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [00:16:07.470] 持續=27ms 峰值=671 ✗弱
+[tap][sample]   [00:16:08.137] 持續=594ms 峰值=12194 ✗長 K=1.0 CF=3.6 SC=1752Hz Att=16.8ms | fK=1.2 fCF=3.7 fSC=1753Hz fFlat=0.418 fHF=0.015
+[tap][sample]   [00:16:08.559] 持續=378ms 峰值=9524 ✗長 K=2.5 CF=4.6 SC=1283Hz Att=4.9ms | fK=2.9 fCF=4.8 fSC=1287Hz fFlat=0.284 fHF=0.004
+[tap][dim]      [00:16:08.622] 持續=63ms 峰值=657 ✗弱
+[tap][sample]   [00:16:09.135] 持續=450ms 峰值=10426 ✗長 K=2.1 CF=4.0 SC=1211Hz Att=0.1ms | fK=2.4 fCF=4.2 fSC=1213Hz fFlat=0.261 fHF=0.003
+[tap][dim]      [00:16:09.172] 持續=36ms 峰值=494 ✗弱
+[tap][sample]   [00:16:16.732] 持續=2277ms 峰值=14168 ✗長 K=2.4 CF=4.6 SC=1511Hz Att=234.4ms | fK=3.0 fCF=4.9 fSC=1482Hz fFlat=0.358 fHF=0.005
+[tap][dim]      [00:16:22.770] 持續=45ms 峰值=493 ✗弱
+[tap][dim]      [00:16:27.927] 持續=36ms 峰值=475 ✗弱
+[tap][sample]   [00:16:29.395] 持續=1467ms 峰值=12280 ✗長 K=1.4 CF=4.0 SC=1474Hz Att=675.9ms | fK=1.5 fCF=4.0 fSC=1474Hz fFlat=0.352 fHF=0.006
+[tap][dim]      [00:16:29.422] 持續=27ms 峰值=523 ✗弱
+[tap][sample]   [00:16:51.651] 持續=765ms 峰值=12906 ✗長 K=0.9 CF=3.8 SC=2225Hz Att=68.1ms | fK=1.1 fCF=3.8 fSC=2229Hz fFlat=0.529 fHF=0.032
+[tap][sample]   [00:16:52.038] 持續=315ms 峰值=9932 ✗長 K=0.8 CF=3.5 SC=1538Hz Att=87.8ms | fK=1.2 fCF=3.6 fSC=1536Hz fFlat=0.322 fHF=0.006
+[tap][sample]   [00:16:52.327] 持續=226ms 峰值=9444 ✗長 K=2.1 CF=4.5 SC=1600Hz Att=70.3ms | fK=2.8 fCF=4.8 fSC=1630Hz fFlat=0.370 fHF=0.014
+[tap][dim]      [00:16:52.363] 持續=36ms 峰值=573 ✗弱
+[tap][sample]   [00:16:52.686] 持續=324ms 峰值=7890 ✗長 K=6.5 CF=6.2 SC=2637Hz Att=36.0ms | fK=7.4 fCF=6.5 fSC=2637Hz fFlat=0.577 fHF=0.103
+[tap][dim]      [00:16:52.723] 持續=36ms 峰值=506 ✗弱
+[tap][sample]   [00:16:54.351] 持續=1575ms 峰值=9677 ✗長 K=2.8 CF=5.3 SC=1962Hz Att=14.4ms | fK=2.7 fCF=5.2 fSC=1998Hz fFlat=0.492 fHF=0.017
+[tap][dim]      [00:16:54.488] 持續=37ms 峰值=503 ✗弱
+[tap][sample]   [00:16:55.774] 持續=1035ms 峰值=9630 ✗長 K=3.6 CF=5.4 SC=2861Hz Att=114.3ms | fK=3.8 fCF=5.5 fSC=2858Hz fFlat=0.580 fHF=0.086
+[tap][sample]   [00:16:56.511] 持續=710ms 峰值=8320 ✗長 K=4.1 CF=6.0 SC=2000Hz Att=5.2ms | fK=4.4 fCF=6.1 fSC=2003Hz fFlat=0.495 fHF=0.029
+[tap][sample]   [00:16:57.384] 持續=387ms 峰值=7063 ✗長 K=4.5 CF=6.0 SC=1866Hz Att=71.4ms | fK=5.1 fCF=6.2 fSC=1860Hz fFlat=0.475 fHF=0.025
+[tap][sample]   [00:16:57.996] 持續=585ms 峰值=10280 ✗長 K=13.5 CF=8.4 SC=1892Hz Att=4.2ms | fK=14.4 fCF=8.6 fSC=1890Hz fFlat=0.487 fHF=0.020
+[tap][dim]      [00:16:58.374] 持續=27ms 峰值=389 ✗弱
+[tap][sample]   [00:16:58.509] 持續=135ms 峰值=3058 ✗長 K=0.8 CF=3.5 SC=339Hz Att=37.7ms | fK=1.8 fCF=3.9 fSC=362Hz fFlat=0.061 fHF=0.000
+[tap][sample]   [00:17:16.402] 持續=990ms 峰值=12664 ✗長 K=1.9 CF=3.9 SC=988Hz Att=52.3ms | fK=2.0 fCF=4.0 fSC=990Hz fFlat=0.184 fHF=0.001
+[tap][sample]   [00:17:17.517] 持續=1053ms 峰值=11535 ✗長 K=1.2 CF=4.4 SC=2231Hz Att=0.1ms | fK=1.3 fCF=4.5 fSC=2233Hz fFlat=0.532 fHF=0.042
+[tap][dim]      [00:17:17.553] 持續=36ms 峰值=496 ✗弱
+[tap][dim]      [00:17:17.715] 持續=45ms 峰值=610 ✗弱
+[tap][sample]   [00:17:17.842] 持續=126ms 峰值=9546 ✓ K=3.1 CF=4.9 SC=1181Hz Att=81.8ms | fK=4.6 fCF=5.4 fSC=1184Hz fFlat=0.272 fHF=0.003 🎯 敲擊 #1
+[tap][sample]   [00:17:18.255] 持續=377ms 峰值=13658 ✗長 K=3.7 CF=5.7 SC=1512Hz Att=5.2ms | fK=4.3 fCF=6.0 fSC=1509Hz fFlat=0.347 fHF=0.006
+[tap][dim]      [00:17:18.318] 持續=63ms 峰值=645 ✗弱
+[tap]           [00:17:18.454] ⏱️ 間隔過長重置（603ms）
+[tap][sample]   [00:17:18.454] 持續=135ms 峰值=9220 ✓ K=4.1 CF=5.3 SC=1117Hz Att=79.6ms | fK=5.8 fCF=6.0 fSC=1121Hz fFlat=0.188 fHF=0.001 🎯 敲擊 #1
+[tap][sample]   [00:17:19.191] 持續=675ms 峰值=11714 ✗長 K=2.2 CF=5.0 SC=2251Hz Att=17.9ms | fK=2.5 fCF=5.1 fSC=2249Hz fFlat=0.556 fHF=0.058
+[tap][dim]      [00:17:19.227] 持續=36ms 峰值=676 ✗弱
+[tap][sample]   [00:17:19.596] 持續=370ms 峰值=5218 ✗長 K=5.1 CF=5.5 SC=1483Hz Att=55.2ms | fK=5.8 fCF=5.7 fSC=1481Hz fFlat=0.271 fHF=0.006
+[tap][dim]      [00:17:19.642] 持續=45ms 峰值=359 ✗弱
+[tap][sample]   [00:17:21.045] 持續=1404ms 峰值=11533 ✗長 K=1.8 CF=4.6 SC=2012Hz Att=279.4ms | fK=1.9 fCF=4.7 fSC=2013Hz fFlat=0.475 fHF=0.022
+[tap][sample]   [00:17:21.604] 持續=513ms 峰值=8814 ✗長 K=2.0 CF=5.4 SC=2659Hz Att=295.0ms | fK=2.3 fCF=5.5 fSC=2666Hz fFlat=0.569 fHF=0.088
+[tap][dim]      [00:17:21.630] 持續=27ms 峰值=452 ✗弱
+[tap][sample]   [00:17:22.773] 持續=1107ms 峰值=12092 ✗長 K=1.9 CF=5.0 SC=1684Hz Att=342.8ms | fK=2.0 fCF=5.1 fSC=1683Hz fFlat=0.441 fHF=0.012
+[tap][dim]      [00:17:22.800] 持續=27ms 峰值=555 ✗弱
+[tap][sample]   [00:17:23.718] 持續=918ms 峰值=8434 ✗長 K=4.1 CF=6.2 SC=2817Hz Att=57.9ms | fK=4.3 fCF=6.3 fSC=2816Hz fFlat=0.620 fHF=0.079
+[tap][sample]   [00:17:24.411] 持續=630ms 峰值=8188 ✗長 K=3.8 CF=5.8 SC=2035Hz Att=4.7ms | fK=4.1 fCF=6.0 fSC=2035Hz fFlat=0.516 fHF=0.031
+[tap][dim]      [00:17:24.520] 持續=108ms 峰值=571 ✗弱
+[tap][sample]   [00:17:24.645] 持續=126ms 峰值=3549 ✗長 K=3.5 CF=4.8 SC=1257Hz Att=50.5ms | fK=5.0 fCF=5.4 fSC=1244Hz fFlat=0.225 fHF=0.004
+[tap][sample]   [00:17:25.086] 持續=378ms 峰值=5053 ✗長 K=2.8 CF=5.3 SC=1528Hz Att=297.2ms | fK=3.3 fCF=5.5 fSC=1535Hz fFlat=0.383 fHF=0.008
+[tap][dim]      [00:17:25.131] 持續=45ms 峰值=465 ✗弱
+[tap][sample]   [00:17:25.698] 持續=540ms 峰值=4518 ✗長 K=3.4 CF=6.8 SC=1307Hz Att=78.0ms | fK=3.8 fCF=7.0 fSC=1310Hz fFlat=0.267 fHF=0.003
+[tap][sample]   [00:17:52.366] 持續=1314ms 峰值=12622 ✗長 K=1.0 CF=3.9 SC=1934Hz Att=87.2ms | fK=1.1 fCF=3.9 fSC=1935Hz fFlat=0.500 fHF=0.023
+[tap][sample]   [00:17:53.779] 持續=1350ms 峰值=12422 ✗長 K=1.5 CF=4.2 SC=2144Hz Att=16.9ms | fK=1.6 fCF=4.3 fSC=2142Hz fFlat=0.539 fHF=0.041
+[tap][sample]   [00:17:55.281] 持續=144ms 峰值=9165 ✓ K=1.5 CF=3.6 SC=1330Hz Att=84.3ms | fK=2.6 fCF=4.0 fSC=1319Hz fFlat=0.178 fHF=0.006 🎯 敲擊 #1
+[tap][sample]   [00:17:56.461] 持續=1125ms 峰值=14283 ✗長 K=1.8 CF=4.7 SC=1902Hz Att=385.3ms | fK=1.9 fCF=4.8 fSC=1901Hz fFlat=0.493 fHF=0.026
+[tap][dim]      [00:17:56.497] 持續=36ms 峰值=558 ✗弱
+[tap][sample]   [00:17:56.677] 持續=153ms 峰值=7438 ✗長 K=9.1 CF=7.2 SC=1682Hz Att=37.9ms | fK=11.4 fCF=7.9 fSC=1688Hz fFlat=0.353 fHF=0.022
+[tap][dim]      [00:17:56.757] 持續=81ms 峰值=619 ✗弱
+[tap][sample]   [00:17:57.234] 持續=27ms 峰值=1062 ✓ K=-1.0 CF=2.0 SC=340Hz Att=4.4ms | fK=0.6 fCF=2.8 fSC=448Hz fFlat=0.111 fHF=0.000 🎯 敲擊 #1
+[tap][sample]   [00:19:17.055] 持續=549ms 峰值=5752 ✗長 K=3.9 CF=6.1 SC=1291Hz Att=263.5ms | fK=4.3 fCF=6.3 fSC=1291Hz fFlat=0.220 fHF=0.004
+[tap][sample]   [00:19:17.352] 持續=225ms 峰值=5208 ✗長 K=1.3 CF=3.8 SC=1639Hz Att=67.1ms | fK=1.9 fCF=4.0 fSC=1684Hz fFlat=0.379 fHF=0.009
+[tap][dim]      [00:19:17.380] 持續=27ms 峰值=493 ✗弱
+[tap][sample]   [00:19:19.117] 持續=1738ms 峰值=5954 ✗長 K=2.4 CF=5.1 SC=2652Hz Att=227.1ms | fK=2.6 fCF=5.1 fSC=2466Hz fFlat=0.583 fHF=0.048
+[tap][sample]   [00:19:21.114] 持續=1962ms 峰值=12820 ✗長 K=5.3 CF=7.0 SC=1989Hz Att=39.0ms | fK=5.0 fCF=7.3 fSC=2029Hz fFlat=0.528 fHF=0.025
+[tap][dim]      [00:19:21.142] 持續=27ms 峰值=544 ✗弱
+[tap]           [00:20:32.223] 💤 敲麥監聽已停止

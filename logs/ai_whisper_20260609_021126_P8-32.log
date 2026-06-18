@@ -1,0 +1,84 @@
+[main]          [02:11:26.307] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_021126_P8-32.current.log
+[settings]      [02:11:26.310] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [02:11:26.472] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [02:11:26.473] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [02:11:26.473] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [02:11:26.487] 🎙️ 敲麥監聽已啟動
+[main]          [02:11:26.487] 🔧 DIAG 關閉元件: (none)
+[debug]         [02:11:26.496] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [02:11:26.659] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [02:11:26.747] Silero VAD 模型載入完成 (ONNX)
+[main]          [02:11:27.536] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [02:11:27.538] ⌨️ after(0) 執行延遲 1.2ms
+[tap]           [02:11:27.600] 💤 敲麥監聽已停止
+[recorder]      [02:11:27.610] ⏱️ InputStream() 8.2ms
+[recorder]      [02:11:27.611] ⏱️ stream.start() 0.4ms
+[recorder]      [02:11:27.611] 🎙️ 錄音就緒，總初始化 8.6ms
+[main]          [02:11:27.611] ⏱️ recorder.start() 耗時 9.0ms，ok=True
+[transcriber]   [02:11:27.697] 🔌 HTTP 連線預熱完成 (1.21s)
+[tap]           [02:11:28.159] 🎙️ 敲麥監聽已啟動
+[main]          [02:11:28.171] 🎙️ 開始錄音
+[recorder]      [02:11:28.403] 🎤 第一包音訊到達，麥克風實際開啟延遲 793.0ms
+[tap][sample]   [02:11:29.708] 持續=638ms 峰值=12243 ✗長 K=0.9 CF=3.5 SC=2469Hz Att=45.2ms | fK=1.1 fCF=3.6 fSC=2468Hz fFlat=0.545 fHF=0.064
+[tap][sample]   [02:11:30.536] 持續=639ms 峰值=11591 ✗長 K=1.4 CF=4.0 SC=2400Hz Att=43.0ms | fK=1.6 fCF=4.1 fSC=2395Hz fFlat=0.507 fHF=0.059
+[tap][sample]   [02:11:31.310] 持續=648ms 峰值=11089 ✗長 K=1.7 CF=3.9 SC=2285Hz Att=42.4ms | fK=1.9 fCF=4.0 fSC=2284Hz fFlat=0.512 fHF=0.046
+[recorder][VAD] [02:11:32.440] ✅ Silero 11/127 (28.9%), 0.35s speech
+[recorder][flush][02:11:32.441] ✅ 取出 4.1s 音訊段落
+[main]          [02:11:32.441] ✂️ 自動分段送出（靜音達1s，累積 4.1s，靜音 1.2s）
+[diag]          [02:11:32.444] ⏱️D9 overlay-painted '識別中' perf=440027.6420
+[paster]        [02:11:33.125] 📏 [UIA] text='測試測試', text_after='', at_end=True, last_punct=False
+[paster]        [02:11:33.126] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.15s, est_api=0.57s)
+[transcriber]   [02:11:33.386] ⏱️ API 耗時: 0.94s
+[main]          [02:11:33.387] ✅ 分段辨識完成: "測試測試測試"
+[diag]          [02:11:33.388] ⏱️Dpaste-start perf=440028.5879
+[diag]          [02:11:34.092] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440029.2897
+[paster]        [02:11:34.120] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='測試測試測試'
+[paster]        [02:11:34.126] ⌨️ TEXT input flow start: target_chars=7，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，測試測試測試'
+[paster]        [02:11:34.127] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:11:34.137] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:11:34.137] ⏱️ 收到→直接輸入完成: 0.75s
+[paster]        [02:11:34.138] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [02:11:35.648] 持續=27ms 峰值=543 ✗弱
+[tap][sample]   [02:11:40.229] 持續=639ms 峰值=13269 ✗長 K=1.2 CF=3.7 SC=2147Hz Att=26.9ms | fK=1.4 fCF=3.8 fSC=2149Hz fFlat=0.447 fHF=0.045
+[tap][sample]   [02:11:40.904] 持續=639ms 峰值=12667 ✗長 K=2.3 CF=4.3 SC=1318Hz Att=11.5ms | fK=2.6 fCF=4.4 fSC=1314Hz fFlat=0.286 fHF=0.006
+[tap][dim]      [02:11:40.993] 持續=90ms 峰值=340 ✗弱
+[tap][sample]   [02:11:41.480] 持續=486ms 峰值=11787 ✗長 K=2.6 CF=4.1 SC=1989Hz Att=54.1ms | fK=2.9 fCF=4.3 fSC=1986Hz fFlat=0.459 fHF=0.033
+[recorder][VAD] [02:11:42.599] ✅ Silero 11/115 (34.4%), 0.35s speech
+[recorder][flush][02:11:42.604] ✅ 取出 3.7s 音訊段落
+[main]          [02:11:42.606] ✂️ 自動分段送出（靜音達1s，累積 3.7s，靜音 1.1s）
+[diag]          [02:11:42.615] ⏱️D9 overlay-painted '識別中' perf=440037.8123
+[paster]        [02:11:43.254] 📏 [UIA] text='ctrl esc to focus or', text_after='', at_end=True, last_punct=False
+[paster]        [02:11:43.256] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.14s, est_api=0.56s)
+[transcriber]   [02:11:43.572] ⏱️ API 耗時: 0.96s
+[main]          [02:11:43.574] ✅ 分段辨識完成: "為什麼可以同步了，為什麼？"
+[diag]          [02:11:43.575] ⏱️Dpaste-start perf=440038.7733
+[diag]          [02:11:43.579] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440038.7768
+[paster]        [02:11:43.607] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='為什麼可以同步了，為什麼？'
+[paster]        [02:11:43.624] ⌨️ TEXT input flow start: target_chars=14，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，為什麼可以同步了，為什麼？'
+[paster]        [02:11:43.626] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:11:43.648] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:11:43.651] ⏱️ 收到→直接輸入完成: 0.08s
+[paster]        [02:11:43.656] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [02:11:51.200] 持續=666ms 峰值=11710 ✗長 K=2.1 CF=4.1 SC=1598Hz Att=201.4ms | fK=2.4 fCF=4.2 fSC=1596Hz fFlat=0.368 fHF=0.009
+[tap][sample]   [02:11:51.397] 持續=153ms 峰值=9493 ✓ K=1.8 CF=3.9 SC=1245Hz Att=0.1ms | fK=2.7 fCF=4.3 fSC=1250Hz fFlat=0.266 fHF=0.004 🎯 敲擊 #1
+[tap][sample]   [02:11:52.099] 持續=666ms 峰值=9683 ✗長 K=0.9 CF=4.7 SC=1930Hz Att=0.1ms | fK=1.1 fCF=4.8 fSC=1927Hz fFlat=0.491 fHF=0.015
+[recorder][VAD] [02:11:53.157] ✅ Silero 11/114 (25.6%), 0.35s speech
+[recorder][flush][02:11:53.157] ✅ 取出 3.6s 音訊段落
+[main]          [02:11:53.158] ✂️ 自動分段送出（靜音達1s，累積 3.6s，靜音 1.1s）
+[diag]          [02:11:53.161] ⏱️D9 overlay-painted '識別中' perf=440048.3582
+[paster]        [02:11:53.804] 📏 [UIA] text='，為什麼可以同步了，為什麼？', text_after='', at_end=True, last_punct=True
+[paster]        [02:11:53.810] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.14s, est_api=0.56s)
+[transcriber]   [02:11:53.952] ⏱️ API 耗時: 0.79s
+[main]          [02:11:53.952] ✅ 分段辨識完成: "你剛才有改東西嗎？"
+[diag]          [02:11:53.953] ⏱️Dpaste-start perf=440049.1509
+[diag]          [02:11:53.955] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440049.1531
+[paster]        [02:11:53.985] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='，', final='你剛才有改東西嗎？'
+[paster]        [02:11:53.989] ⌨️ TEXT input flow start: target_chars=9，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='你剛才有改東西嗎？'
+[paster]        [02:11:53.990] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:11:53.998] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:11:54.000] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [02:11:54.000] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[recorder][VAD] [02:15:37.626] ❌ Silero 5/38 (13.2%), 0.16s speech (need 16%/0.35s)
+[recorder][flush][02:15:37.627] ❌ VAD 略過（語音比例不足 13.2% < 16%）
+[tap]           [02:17:58.491] 💤 敲麥監聽已停止
+[recorder]      [02:17:58.545] 💤 預熱 stream 已關閉

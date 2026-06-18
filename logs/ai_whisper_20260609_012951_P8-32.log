@@ -1,0 +1,27 @@
+[main]          [01:29:51.076] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_012951_P8-32.current.log
+[settings]      [01:29:51.077] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:29:51.204] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:29:51.205] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:29:51.205] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:29:51.220] 🎙️ 敲麥監聽已啟動
+[main]          [01:29:51.221] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:29:51.232] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:29:51.423] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:29:51.528] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:29:52.641] 🔌 HTTP 連線預熱完成 (1.42s)
+[transcriber]   [01:29:59.219] ⏱️ API 耗時: 0.86s
+[main]          [01:29:59.220] ✅ 分段辨識完成: "哈囉哈囉你好你好"
+[paster]        [01:30:00.258] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:30:00.259] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=39ms, final='哈囉哈囉你好你好'
+[paster]        [01:30:00.263] ⌨️ TEXT input flow start: target_chars=8，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='哈囉哈囉你好你好'
+[paster]        [01:30:00.264] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:30:00.271] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:30:00.272] ⏱️ 收到→直接輸入完成: 1.05s
+[paster]        [01:30:00.273] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[paster]        [01:30:00.273] 📢 _notify_text_pasted → calling callback
+[paster]        [01:30:00.273] 📡 emit paste_delivered (before)
+[paster]        [01:30:00.274] 📡 emit paste_delivered returned (0.4ms)[main]          [01:30:01.073] ✅ overlay 顯示「辨識完成 ✓」(recording, waveform) signal_delay=0.5ms
+
+[tap][dim]      [01:30:48.858] 持續=72ms 峰值=365 ✗弱
+[tap]           [01:30:57.104] 💤 敲麥監聽已停止
+[recorder]      [01:30:57.107] 💤 預熱 stream 已關閉

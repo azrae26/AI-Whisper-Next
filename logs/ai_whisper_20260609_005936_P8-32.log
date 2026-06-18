@@ -1,0 +1,41 @@
+[main]          [00:59:36.300] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_005936_P8-32.current.log
+[settings]      [00:59:36.301] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [00:59:36.435] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [00:59:36.437] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [00:59:36.437] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [00:59:36.452] 🎙️ 敲麥監聽已啟動
+[main]          [00:59:36.452] 🔧 DIAG 關閉元件: (none)
+[debug]         [00:59:36.463] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [00:59:36.629] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [00:59:36.732] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [00:59:38.246] 🔌 HTTP 連線預熱完成 (1.79s)
+[main]          [00:59:40.495] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [00:59:40.498] ⌨️ after(0) 執行延遲 3.6ms
+[tap]           [00:59:40.552] 💤 敲麥監聽已停止
+[recorder]      [00:59:40.576] ⏱️ InputStream() 23.5ms
+[recorder]      [00:59:40.577] ⏱️ stream.start() 1.2ms
+[recorder]      [00:59:40.577] 🎙️ 錄音就緒，總初始化 24.7ms
+[main]          [00:59:40.577] ⏱️ recorder.start() 耗時 25.1ms，ok=True
+[tap]           [00:59:41.108] 🎙️ 敲麥監聽已啟動
+[main]          [00:59:41.117] 🎙️ 開始錄音
+[recorder]      [00:59:41.322] 🎤 第一包音訊到達，麥克風實際開啟延遲 745.7ms
+[tap][sample]   [00:59:42.510] 持續=297ms 峰值=8562 ✗長 K=2.9 CF=5.1 SC=1244Hz Att=45.8ms | fK=3.6 fCF=5.4 fSC=1252Hz fFlat=0.201 fHF=0.002
+[tap][sample]   [00:59:44.130] 持續=1566ms 峰值=12299 ✗長 K=1.2 CF=4.3 SC=2778Hz Att=491.1ms | fK=1.2 fCF=4.3 fSC=2773Hz fFlat=0.621 fHF=0.102
+[tap][sample]   [00:59:44.904] 持續=738ms 峰值=9689 ✗長 K=2.4 CF=5.2 SC=3128Hz Att=17.2ms | fK=2.7 fCF=5.3 fSC=3131Hz fFlat=0.664 fHF=0.179
+[tap][dim]      [00:59:44.940] 持續=36ms 峰值=436 ✗弱
+[recorder][VAD] [00:59:45.987] ✅ Silero 11/146 (28.2%), 0.35s speech
+[recorder][flush][00:59:45.987] ✅ 取出 4.7s 音訊段落
+[main]          [00:59:45.988] ✂️ 自動分段送出（靜音達1s，累積 4.7s，靜音 1.1s）
+[paster]        [00:59:46.187] ⚠️ [UIA] TextPattern 不支援: 'NoneType' object has no attribute 'DocumentRange'
+[paster]        [00:59:46.188] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.17s, est_api=0.59s)
+[transcriber]   [00:59:46.997] ⏱️ API 耗時: 1.01s
+[main]          [00:59:46.997] ✅ 分段辨識完成: "來，測試一下測試一下"
+[paster]        [00:59:47.028] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='來，測試一下測試一下'
+[paster]        [00:59:47.034] ⌨️ TEXT input flow start: target_chars=10，視窗="*未命名 - 記事本"，hwnd=0x089a0e44，process=notepad.exe，class=Notepad，focus=('文字編輯器', 'Edit', '15', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='來，測試一下測試一下'
+[paster]        [00:59:47.034] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:59:47.046] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:59:47.047] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:59:47.049] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [00:59:47.050] ✅ overlay 顯示「辨識完成 ✓」(recording, waveform)
+[tap]           [01:00:13.838] 💤 敲麥監聽已停止
+[recorder]      [01:00:13.911] 💤 預熱 stream 已關閉

@@ -109,6 +109,10 @@ API 回傳後直接使用已備好的結果，幾乎零等待。
 Silero VAD 從 `torch.hub` 載入（首次需下載，之後快取），在背景 thread 預載以避免第一次錄音卡頓。若 torch 不可用則 fallback 到 RMS 能量閾值。Silero 準確率顯著優於 RMS（更能過濾遠端人聲、環境音）。
 相關：`vad_service.preload_silero_vad()`、`analyze_speech()`。
 
+### 狀態文字避免缺字符號（免 font fallback 卡頓）
+狀態文字（「辨識完成」「未辨識到內容」「麥克風已斷線」等）與複製鈕回饋（「完成」）**刻意只用純中文**，不放 `✓`／`⚠`／`❌` 等 `Microsoft JhengHei UI` 缺字的符號。原因：Qt **首次**繪製缺字符號會掃描整個系統字型庫做 font fallback（實測 ~700ms），發生在 C++ 層、卡死主 thread event loop——曾導致「重啟後第一次辨識，狀態文字比貼上慢約 700ms」。狀態語意改由顏色區分（成功綠／警告黃／錯誤紅）。⚠️ 新增狀態文字時只用中文與標點，勿引入缺字符號。
+相關：`AppController._on_transcribe_done` 等狀態設定處、`MainWindow._copy_clicked`。
+
 ### API Retry 機制
 第一次請求超過閾值秒未回應，立刻**並行**發出第二次請求（不取消第一次），兩個 thread 競速，先回傳者獲勝。避免 OpenAI 偶發慢速時卡住用戶。
 相關：`TranscriptionService.transcribe_with_retry()`。

@@ -1,0 +1,60 @@
+[main]          [01:06:48.810] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_010648_P8-32.current.log
+[settings]      [01:06:48.811] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:06:48.958] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:06:48.959] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:06:48.959] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:06:48.974] 🎙️ 敲麥監聽已啟動
+[main]          [01:06:48.975] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:06:48.986] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:06:49.165] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:06:49.278] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:06:50.464] 🔌 HTTP 連線預熱完成 (1.49s)
+[main]          [01:06:55.629] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:06:55.631] ⌨️ after(0) 執行延遲 1.4ms
+[tap]           [01:06:55.700] 💤 敲麥監聽已停止
+[recorder]      [01:06:55.726] ⏱️ InputStream() 25.0ms
+[recorder]      [01:06:55.727] ⏱️ stream.start() 0.9ms
+[recorder]      [01:06:55.728] 🎙️ 錄音就緒，總初始化 26.0ms
+[main]          [01:06:55.728] ⏱️ recorder.start() 耗時 26.6ms，ok=True
+[tap]           [01:06:56.260] 🎙️ 敲麥監聽已啟動
+[main]          [01:06:56.269] 🎙️ 開始錄音
+[recorder]      [01:06:56.481] 🎤 第一包音訊到達，麥克風實際開啟延遲 753.2ms
+[tap][sample]   [01:06:58.200] 持續=954ms 峰值=12797 ✗長 K=1.1 CF=4.0 SC=2595Hz Att=682.4ms | fK=1.2 fCF=4.1 fSC=2597Hz fFlat=0.603 fHF=0.079
+[tap][dim]      [01:06:58.272] 持續=72ms 峰值=403 ✗弱
+[tap][sample]   [01:06:59.100] 持續=828ms 峰值=10070 ✗長 K=2.1 CF=4.8 SC=2634Hz Att=638.4ms | fK=2.3 fCF=4.9 fSC=2630Hz fFlat=0.606 fHF=0.090
+[tap][dim]      [01:06:59.163] 持續=63ms 峰值=546 ✗弱
+[recorder][VAD] [01:07:00.332] ✅ Silero 11/121 (28.9%), 0.35s speech
+[recorder][flush][01:07:00.333] ✅ 取出 3.9s 音訊段落
+[main]          [01:07:00.333] ✂️ 自動分段送出（靜音達1s，累積 3.9s，靜音 1.2s）
+[paster]        [01:07:00.508] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:07:00.509] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.15s, est_api=0.57s)
+[transcriber]   [01:07:01.501] ⏱️ API 耗時: 1.17s
+[main]          [01:07:01.504] ✅ 分段辨識完成: "測試一下，測試一下"
+[paster]        [01:07:01.559] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試一下，測試一下'
+[paster]        [01:07:01.570] ⌨️ TEXT input flow start: target_chars=9，視窗="未命名 - 記事本"，hwnd=0x089a0e44，process=notepad.exe，class=Notepad，focus=('文字編輯器', 'Edit', '15', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下，測試一下'
+[paster]        [01:07:01.571] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:07:01.583] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:07:01.583] ⏱️ 收到→直接輸入完成: 0.08s
+[paster]        [01:07:01.585] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [01:07:02.276] ✅ overlay 顯示「辨識完成 ✓」(recording, waveform)
+[tap][sample]   [01:07:07.867] 持續=1153ms 峰值=13971 ✗長 K=-0.0 CF=3.1 SC=1911Hz Att=58.1ms | fK=0.0 fCF=3.2 fSC=1910Hz fFlat=0.480 fHF=0.017
+[tap][dim]      [01:07:07.902] 持續=35ms 峰值=536 ✗弱
+[tap][dim]      [01:07:08.037] 持續=36ms 峰值=427 ✗弱
+[tap][sample]   [01:07:08.640] 持續=603ms 峰值=13628 ✗長 K=0.7 CF=3.5 SC=1785Hz Att=143.2ms | fK=0.9 fCF=3.6 fSC=1782Hz fFlat=0.429 fHF=0.016
+[tap][dim]      [01:07:08.676] 持續=36ms 峰值=552 ✗弱
+[recorder][VAD] [01:07:09.875] ✅ Silero 11/114 (36.7%), 0.35s speech
+[recorder][flush][01:07:09.875] ✅ 取出 3.6s 音訊段落
+[main]          [01:07:09.876] ✂️ 自動分段送出（靜音達1s，累積 3.6s，靜音 1.2s）
+[paster]        [01:07:10.021] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:07:10.022] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.14s, est_api=0.56s)
+[transcriber]   [01:07:10.777] ⏱️ API 耗時: 0.90s
+[main]          [01:07:10.780] ✅ 分段辨識完成: "還是一樣啊，為什麼？"
+[paster]        [01:07:10.812] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='還是一樣啊，為什麼？'
+[paster]        [01:07:10.823] ⌨️ TEXT input flow start: target_chars=10，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='還是一樣啊，為什麼？'
+[paster]        [01:07:10.824] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:07:10.845] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:07:10.847] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [01:07:10.850] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [01:07:10.855] ✅ overlay 顯示「辨識完成 ✓」(recording, waveform)
+[tap]           [01:08:25.868] 💤 敲麥監聽已停止
+[recorder]      [01:08:25.930] 💤 預熱 stream 已關閉

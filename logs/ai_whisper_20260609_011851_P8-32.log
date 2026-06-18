@@ -1,0 +1,30 @@
+[main]          [01:18:51.655] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_011851_P8-32.current.log
+[settings]      [01:18:51.655] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:18:51.770] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:18:51.772] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:18:51.772] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:18:51.786] 🎙️ 敲麥監聽已啟動
+[main]          [01:18:51.786] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:18:51.797] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:18:51.969] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:18:52.074] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:18:53.085] 🔌 HTTP 連線預熱完成 (1.30s)
+[main]          [01:19:08.734] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+[main]          [01:19:08.736] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+[main]          [01:19:11.752] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+[tap]           [01:20:58.581] 💤 敲麥監聽已停止
+[recorder]      [01:20:58.641] ⏱️ InputStream() 50.8ms
+[recorder]      [01:20:58.658] ⏱️ stream.start() 17.4ms
+[recorder]      [01:20:58.665] 🎙️ 錄音就緒，總初始化 68.2ms
+[main]          [01:20:58.667] ⏱️ recorder.start() 耗時 76.5ms，ok=True
+[tap]           [01:20:59.321] 🎙️ 敲麥監聽已啟動
+[recorder]      [01:20:59.405] 🎤 第一包音訊到達，麥克風實際開啟延遲 747.2ms
+[main]          [01:20:59.409] 🎙️ 開始錄音
+[main]          [01:21:09.076] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[main]          [01:21:09.588] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+[main]          [01:21:09.591] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+<string>:18: RuntimeWarning: libpyside: Failed to disconnect (<function make_handler.<locals>.handler at 0x0000028624216520>) from signal "paste_delivered(QString)".
+[main]          [01:21:09.592] ✅ overlay 顯示「辨識完成 ✓」(idle, status)
+<string>:18: RuntimeWarning: libpyside: Failed to disconnect (<function make_handler.<locals>.handler at 0x0000028624216160>) from signal "paste_delivered(QString)".
+[tap]           [01:21:47.508] 💤 敲麥監聽已停止
+[recorder]      [01:21:47.581] 💤 預熱 stream 已關閉

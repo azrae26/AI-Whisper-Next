@@ -1,0 +1,64 @@
+[main]          [02:28:48.407] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_022848_P8-32.current.log
+[settings]      [02:28:48.409] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [02:28:48.540] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [02:28:48.542] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [02:28:48.542] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [02:28:48.556] 🎙️ 敲麥監聽已啟動
+[main]          [02:28:48.556] 🔧 DIAG 關閉元件: (none)
+[debug]         [02:28:48.565] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [02:28:48.719] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [02:28:48.803] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [02:28:49.797] 🔌 HTTP 連線預熱完成 (1.24s)
+[diag]          [02:29:30.605] 🧪 SIM start perf=441105.8031 bytes=256044 skip_paste=True mic_centered=True
+[diag]          [02:29:30.614] ⏱️D9 overlay-painted '識別中' perf=441105.8125
+[diag]          [02:29:30.686] 🔬 MAIN perf=441105.884 *CHG* top=main:340 <- <module>:9
+[diag]          [02:29:30.768] 🔬 MAIN perf=441105.966 top=main:340 <- <module>:9
+[diag]          [02:29:30.857] 🔬 MAIN perf=441106.055 top=main:340 <- <module>:9
+[diag]          [02:29:30.938] 🔬 MAIN perf=441106.136 top=main:340 <- <module>:9
+[diag]          [02:29:31.020] 🔬 MAIN perf=441106.217 top=main:340 <- <module>:9
+[diag]          [02:29:31.103] 🔬 MAIN perf=441106.300 top=main:340 <- <module>:9
+[diag]          [02:29:31.186] 🔬 MAIN perf=441106.383 top=main:340 <- <module>:9
+[diag]          [02:29:31.267] 🔬 MAIN perf=441106.465 top=main:340 <- <module>:9
+[diag]          [02:29:31.349] 🔬 MAIN perf=441106.547 top=main:340 <- <module>:9
+[paster]        [02:29:31.394] 📏 [UIA] text='哈囉哈囉你好你好', text_after='', at_end=True, last_punct=False
+[paster]        [02:29:31.396] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.25s, est_api=0.67s)
+[diag]          [02:29:31.430] 🔬 MAIN perf=441106.628 top=main:340 <- <module>:9
+[diag]          [02:29:31.512] 🔬 MAIN perf=441106.710 top=main:340 <- <module>:9
+[transcriber]   [02:29:31.572] ⏱️ API 耗時: 0.96s
+[diag]          [02:29:31.573] ✅ 辨識完成(sim): '哈囉哈囉你好你好'
+[diag]          [02:29:31.573] ⏱️D3 pre-emit perf=441106.7711
+[diag]          [02:29:31.573] ⏱️D4 slot-enter perf=441106.7713
+[diag]          [02:29:31.582] ⏱️D5 overlay-status-set perf=441106.7797
+[diag]          [02:29:31.594] 🔬 MAIN perf=441106.792 top=main:340 <- <module>:9
+[diag]          [02:29:31.681] 🔬 MAIN perf=441106.878 top=main:340 <- <module>:9
+[diag]          [02:29:31.762] 🔬 MAIN perf=441106.960 top=main:340 <- <module>:9
+[diag]          [02:29:31.844] 🔬 MAIN perf=441107.042 top=main:340 <- <module>:9
+[diag]          [02:29:31.925] 🔬 MAIN perf=441107.123 top=main:340 <- <module>:9
+[diag]          [02:29:32.007] 🔬 MAIN perf=441107.205 top=main:340 <- <module>:9
+[diag]          [02:29:32.088] 🔬 MAIN perf=441107.286 top=main:340 <- <module>:9
+[diag]          [02:29:32.169] 🔬 MAIN perf=441107.367 top=main:340 <- <module>:9
+[diag]          [02:29:32.248] ⏱️D7 add_history dur=1ms exit_perf=441107.4460
+[diag]          [02:29:32.251] ⏱️D9 overlay-painted '辨識完成 ✓' perf=441107.4494
+[diag]          [02:29:32.252] 🔬 MAIN perf=441107.450 *CHG* top=write:34 <- safe_print:88 <- paintEvent:645 <- main:340 <- <module>:9
+[diag]          [02:29:32.334] 🔬 MAIN perf=441107.532 *CHG* top=main:340 <- <module>:9
+[diag]          [02:29:32.417] 🔬 MAIN perf=441107.615 top=main:340 <- <module>:9
+[diag]          [02:29:32.500] 🔬 MAIN perf=441107.698 top=main:340 <- <module>:9
+[diag]          [02:29:32.581] 🔬 MAIN perf=441107.779 top=main:340 <- <module>:9
+[diag]          [02:29:32.663] 🔬 MAIN perf=441107.860 top=main:340 <- <module>:9
+[diag]          [02:29:32.747] 🔬 MAIN perf=441107.945 top=main:340 <- <module>:9
+[diag]          [02:29:32.829] 🔬 MAIN perf=441108.027 top=main:340 <- <module>:9
+[diag]          [02:29:32.911] 🔬 MAIN perf=441108.108 top=main:340 <- <module>:9
+[diag]          [02:29:32.992] 🔬 MAIN perf=441108.190 top=main:340 <- <module>:9
+[diag]          [02:29:33.076] 🔬 MAIN perf=441108.273 top=main:340 <- <module>:9
+[diag]          [02:29:33.157] 🔬 MAIN perf=441108.354 top=main:340 <- <module>:9
+[diag]          [02:29:33.238] 🔬 MAIN perf=441108.435 top=main:340 <- <module>:9
+[diag]          [02:29:33.319] 🔬 MAIN perf=441108.517 top=main:340 <- <module>:9
+[diag]          [02:29:33.400] 🔬 MAIN perf=441108.598 top=main:340 <- <module>:9
+[diag]          [02:29:33.483] 🔬 MAIN perf=441108.681 top=main:340 <- <module>:9
+[diag]          [02:29:33.566] 🔬 MAIN perf=441108.763 top=main:340 <- <module>:9
+[diag]          [02:29:33.647] 🔬 MAIN perf=441108.844 top=main:340 <- <module>:9
+[diag]          [02:29:33.728] 🔬 MAIN perf=441108.926 top=main:340 <- <module>:9
+[diag]          [02:29:33.810] 🔬 MAIN perf=441109.008 top=main:340 <- <module>:9
+[diag]          [02:29:33.892] 🔬 MAIN perf=441109.089 top=main:340 <- <module>:9
+[tap]           [02:31:48.004] 💤 敲麥監聽已停止
+[recorder]      [02:31:48.023] 💤 預熱 stream 已關閉

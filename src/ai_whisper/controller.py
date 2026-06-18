@@ -228,7 +228,7 @@ class AppController(QObject):
         self._segment_processing_count = 0
         self._segment_waveform_status = ""
         if not ok:
-            self.window.set_status("❌ 無法存取麥克風", "#EF4444")
+            self.window.set_status("無法存取麥克風", "#EF4444")
             return
         self.state = "recording"
         self._rec_start_time = time.time()
@@ -389,7 +389,7 @@ class AppController(QObject):
         # Update overlay status immediately (this frame)
         if self._segment_processing_count <= 1:
             if text:
-                self._set_segment_waveform_status("辨識完成 ✓", "#6EE7B7", 1200)
+                self._set_segment_waveform_status("辨識完成", "#6EE7B7", 1200)
             else:
                 self._set_segment_waveform_status("未辨識到內容", "#FCD34D", 1200)
         # Defer heavy UI work (history widget creation, first-time animation)
@@ -426,11 +426,11 @@ class AppController(QObject):
         self.state = "idle"
         self.window.set_idle_state()
         if text:
-            self.window.set_status("辨識完成 ✓", "#6EE7B7")
-            self.window.show_overlay_status("辨識完成 ✓", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
+            self.window.set_status("辨識完成", "#6EE7B7")
+            self.window.show_overlay_status("辨識完成", "#6EE7B7", OVERLAY_STATUS_CLEAR_DELAY_MS)
             QTimer.singleShot(0, lambda: self.window.add_history(text))
         else:
-            self.window.set_status("⚠ 未辨識到內容", "#FCD34D")
+            self.window.set_status("未辨識到內容", "#FCD34D")
             self.window.show_overlay_status("未辨識到內容", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
@@ -440,11 +440,11 @@ class AppController(QObject):
         self.state = "idle"
         self.window.set_idle_state()
         if "API Key" in err_msg:
-            self.window.set_status("❌ 請先設定 API Key", "#F87171")
+            self.window.set_status("請先設定 API Key", "#F87171")
             self.window.show_settings()
         else:
             short = err_msg[:60] + "…" if len(err_msg) > 60 else err_msg
-            self.window.set_status(f"❌ {short}", "#F87171")
+            self.window.set_status(short, "#F87171")
         self.window.show_overlay_status("辨識失敗", "#F87171", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
@@ -453,7 +453,7 @@ class AppController(QObject):
             return
         self.state = "idle"
         self.window.set_idle_state()
-        self.window.set_status("⚠ 未錄到音訊", "#FCD34D")
+        self.window.set_status("未錄到音訊", "#FCD34D")
         self.window.show_overlay_status("未錄到音訊", "#FCD34D", OVERLAY_STATUS_CLEAR_DELAY_MS)
         QTimer.singleShot(STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
 
@@ -465,7 +465,7 @@ class AppController(QObject):
         if stream is not None and not stream.active:
             safe_print(f"{log_prefix('[main]', now_str())}❌ 麥克風已斷線，自動停止錄音")
             self._stop_recording()
-            self.window.set_status("❌ 麥克風已斷線", "#F87171")
+            self.window.set_status("麥克風已斷線", "#F87171")
             self.window.show_overlay_status("麥克風已斷線", "#F87171", ERROR_OVERLAY_STATUS_CLEAR_DELAY_MS)
             QTimer.singleShot(ERROR_STATUS_CLEAR_DELAY_MS, lambda: self.window.set_status("等待中", "#A1A1AA"))
             return

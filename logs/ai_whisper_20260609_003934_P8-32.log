@@ -1,0 +1,274 @@
+[main]          [00:39:34.079] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_003934_P8-32.current.log
+[settings]      [00:39:34.080] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [00:39:34.217] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [00:39:34.218] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [00:39:34.220] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [00:39:34.236] 🎙️ 敲麥監聽已啟動
+[main]          [00:39:34.237] 🔧 DIAG 關閉元件: (none)
+[debug]         [00:39:34.899] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [00:39:35.084] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [00:39:35.208] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [00:39:36.470] 🔌 HTTP 連線預熱完成 (1.58s)
+[paster]        [00:40:08.322] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [00:40:08.323] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=35ms, final='verify_test'
+[paster]        [00:40:08.327] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=chrome.exe，class=Chrome_WidgetWin_1，focus=('YouTube 影片播放器', 'html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-exp-ppp-update ytp-livebadge-color ytp-grid-scrollable ytp-delhi-modern-compact-controls ytp-delhi-modern ytp-delhi-modern-icons ytp-delhi-horizontal-volume-controls ytp-cards-teaser-dismissible ytp-hide-info-bar ytp-large-width-mode ytp-disable-bottom-gradient ytp-autonav-endscreen-cancelled-state ytp-fit-cover-video ytp-hide-fullscreen-title ytp-fullscreen-metadata-top ytp-branding-shown playing-mode', 'movie_player', 'GroupControl')
+[paster]        [00:40:08.327] ⌨️ TEXT input skipped: process=chrome.exe，class=Chrome_WidgetWin_1，focus=('YouTube 影片播放器', 'html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-exp-ppp-update ytp-livebadge-color ytp-grid-scrollable ytp-delhi-modern-compact-controls ytp-delhi-modern ytp-delhi-modern-icons ytp-delhi-horizontal-volume-controls ytp-cards-teaser-dismissible ytp-hide-info-bar ytp-large-width-mode ytp-disable-bottom-gradient ytp-autonav-endscreen-cancelled-state ytp-fit-cover-video ytp-hide-fullscreen-title ytp-fullscreen-metadata-top ytp-branding-shown playing-mode', 'movie_player', 'GroupControl')，preserve_ctrl=False
+[paster]        [00:40:08.328] 📋 CLIP flow start: target_chars=11, restore_delay=0.30s
+[paster]        [00:40:08.328] 📋 CLIP backup: count=4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [00:40:08.329] 📋 CLIP set attempt 1/4: chars=11, bytes=24, preview='verify_test'
+[paster]        [00:40:08.390] 📋 CLIP verify ok: attempt=1, chars=11, text='verify_test'
+[paster]        [00:40:08.471] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="WWDC 2026 蘋果系統發表會中文翻譯直播：Siri 整合 Gemini 重磅登場？iOS 27 Liquid Glass 將帶來重大改變？全新系統即將到來，你準備好了嗎？ - YouTube - Google Chrome"，hwnd=0x00052364，process=chrome.exe，class=Chrome_WidgetWin_1，keys_before=async_down=none; logical_down=none，text='verify_test'
+[paster]        [00:40:08.473] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:40:08.479] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:40:08.612] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [00:40:08.613] 📋 CLIP restore wait: 0.30s
+[paster]        [00:40:08.913] 📋 CLIP restore attempt 1/4: text='AI_WHISPER_TEST_1780'
+[paster]        [00:40:08.914] 📋 CLIP restore: restored=4/4, formats=13:54B, 16:4B, 1:27B, 7:27B, text='AI_WHISPER_TEST_1780'
+[paster]        [00:40:09.037] 📋 CLIP restore verify ok: attempt=1, text='AI_WHISPER_TEST_1780'
+[paster]        [00:40:09.037] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [00:40:11.247] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final='AI_WHISPER_TEST_1780'
+[paster]        [00:40:11.249] 📋 剪貼簿已還原驗證（4 種格式，restore_ok=True, watch_ok=True）
+[main]          [00:40:34.763] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [00:40:34.764] ⌨️ after(0) 執行延遲 1.4ms
+[tap]           [00:40:34.812] 💤 敲麥監聽已停止
+[recorder]      [00:40:34.828] ⏱️ InputStream() 14.6ms
+[recorder]      [00:40:34.828] ⏱️ stream.start() 1.0ms
+[recorder]      [00:40:34.828] 🎙️ 錄音就緒，總初始化 15.6ms
+[main]          [00:40:34.829] ⏱️ recorder.start() 耗時 16.5ms，ok=True
+[tap]           [00:40:35.366] 🎙️ 敲麥監聽已啟動
+[main]          [00:40:35.377] 🎙️ 開始錄音
+[recorder]      [00:40:35.595] 🎤 第一包音訊到達，麥克風實際開啟延遲 767.1ms
+[tap][sample]   [00:40:36.397] 持續=261ms 峰值=8210 ✗長 K=2.4 CF=4.7 SC=1040Hz Att=89.4ms | fK=3.0 fCF=5.0 fSC=1041Hz fFlat=0.155 fHF=0.002
+[tap][dim]      [00:40:36.486] 持續=27ms 峰值=340 ✗弱
+[tap][sample]   [00:40:37.575] 持續=1017ms 峰值=12432 ✗長 K=1.3 CF=4.2 SC=2468Hz Att=56.5ms | fK=1.5 fCF=4.3 fSC=2466Hz fFlat=0.563 fHF=0.078
+[recorder][VAD] [00:40:38.626] ✅ Silero 11/95 (32.4%), 0.35s speech
+[recorder][flush][00:40:38.626] ✅ 取出 3.0s 音訊段落
+[main]          [00:40:38.626] ✂️ 自動分段送出（靜音達1s，累積 3.0s，靜音 1.1s）
+[paster]        [00:40:38.630] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [00:40:38.630] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.55s)
+[transcriber]   [00:40:39.677] ⏱️ API 耗時: 1.05s
+[main]          [00:40:39.677] ✅ 分段辨識完成: "好，測試看看喔"
+[paster]        [00:40:39.709] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='好，測試看看喔'
+[paster]        [00:40:39.714] ⌨️ TEXT input flow start: target_chars=7，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='好，測試看看喔'
+[paster]        [00:40:39.716] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:40:39.723] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:40:39.724] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:40:39.725] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:40:44.775] 持續=1026ms 峰值=14778 ✗長 K=0.1 CF=3.0 SC=2761Hz Att=47.9ms | fK=0.1 fCF=3.1 fSC=2765Hz fFlat=0.586 fHF=0.099
+[recorder][VAD] [00:40:45.939] ✅ Silero 11/82 (40.7%), 0.35s speech
+[recorder][flush][00:40:45.939] ✅ 取出 2.6s 音訊段落
+[main]          [00:40:45.940] ✂️ 自動分段送出（靜音達1s，累積 2.6s，靜音 1.2s）
+[paster]        [00:40:45.942] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:40:45.944] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.54s)
+[transcriber]   [00:40:46.975] ⏱️ API 耗時: 1.03s
+[main]          [00:40:46.976] ✅ 分段辨識完成: "測試測試"
+[paster]        [00:40:47.008] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試測試'
+[paster]        [00:40:47.014] ⌨️ TEXT input flow start: target_chars=4，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster]        [00:40:47.015] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:40:47.021] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:40:47.022] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:40:47.023] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [00:40:48.879] 持續=36ms 峰值=505 ✗弱
+[tap][sample]   [00:40:49.716] 持續=837ms 峰值=13433 ✗長 K=0.0 CF=3.2 SC=1986Hz Att=82.2ms | fK=0.2 fCF=3.2 fSC=1987Hz fFlat=0.488 fHF=0.022
+[recorder][VAD] [00:40:50.812] ✅ Silero 11/76 (37.9%), 0.35s speech
+[recorder][flush][00:40:50.813] ✅ 取出 2.4s 音訊段落
+[main]          [00:40:50.813] ✂️ 自動分段送出（靜音達1s，累積 2.4s，靜音 1.1s）
+[paster]        [00:40:50.816] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:40:50.816] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.00s, est_api=0.53s)
+[transcriber]   [00:40:51.932] ⏱️ API 耗時: 1.12s
+[main]          [00:40:51.933] ✅ 分段辨識完成: "測試一下"
+[paster]        [00:40:51.964] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試一下'
+[paster]        [00:40:51.969] ⌨️ TEXT input flow start: target_chars=4，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下'
+[paster]        [00:40:51.970] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:40:51.975] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:40:51.976] ⏱️ 收到→直接輸入完成: 0.04s
+[paster]        [00:40:51.977] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [00:40:57.601] 持續=27ms 峰值=302 ✗弱
+[tap][sample]   [00:40:58.887] 持續=585ms 峰值=13617 ✗長 K=0.7 CF=3.3 SC=1914Hz Att=13.2ms | fK=0.9 fCF=3.4 fSC=1912Hz fFlat=0.433 fHF=0.022
+[tap][sample]   [00:40:59.552] 持續=603ms 峰值=10873 ✗長 K=3.6 CF=5.4 SC=1962Hz Att=42.1ms | fK=3.9 fCF=5.6 fSC=1962Hz fFlat=0.467 fHF=0.036
+[tap][sample]   [00:41:00.327] 持續=585ms 峰值=11978 ✗長 K=1.2 CF=4.0 SC=1532Hz Att=37.6ms | fK=1.4 fCF=4.1 fSC=1545Hz fFlat=0.277 fHF=0.006
+[tap][dim]      [00:41:00.363] 持續=36ms 峰值=366 ✗弱
+[tap][sample]   [00:41:00.732] 持續=369ms 峰值=11717 ✗長 K=1.5 CF=3.7 SC=3169Hz Att=201.2ms | fK=1.9 fCF=3.8 fSC=3166Hz fFlat=0.562 fHF=0.153
+[tap][sample]   [00:41:02.118] 持續=1305ms 峰值=14126 ✗長 K=1.6 CF=4.0 SC=1800Hz Att=0.1ms | fK=1.7 fCF=4.1 fSC=1804Hz fFlat=0.458 fHF=0.022
+[recorder][VAD] [00:41:03.205] ✅ Silero 11/177 (30.6%), 0.35s speech
+[recorder][flush][00:41:03.206] ✅ 取出 5.7s 音訊段落
+[main]          [00:41:03.207] ✂️ 自動分段送出（靜音達1s，累積 5.7s，靜音 1.1s）
+[paster]        [00:41:03.402] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:41:03.403] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.19s, est_api=0.61s)
+[transcriber]   [00:41:04.068] ⏱️ API 耗時: 0.86s
+[main]          [00:41:04.068] ✅ 分段辨識完成: "為什麼剛才第一次貼上的時候"
+[paster]        [00:41:04.100] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='為什麼剛才第一次貼上的時候'
+[paster]        [00:41:04.106] ⌨️ TEXT input flow start: target_chars=13，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='為什麼剛才第一次貼上的時候'
+[paster]        [00:41:04.107] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:41:04.122] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:41:04.124] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [00:41:04.125] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:41:04.153] 持續=360ms 峰值=13839 ✗長 K=0.8 CF=3.5 SC=3126Hz Att=113.4ms | fK=1.1 fCF=3.6 fSC=3126Hz fFlat=0.570 fHF=0.133
+[tap][dim]      [00:41:04.188] 持續=36ms 峰值=358 ✗弱
+[tap][sample]   [00:41:05.430] 持續=1215ms 峰值=12111 ✗長 K=1.2 CF=3.9 SC=2281Hz Att=3.8ms | fK=1.3 fCF=4.0 fSC=2279Hz fFlat=0.564 fHF=0.038
+[tap][dim]      [00:41:05.457] 持續=27ms 峰值=516 ✗弱
+[tap][sample]   [00:41:05.628] 持續=171ms 峰值=9184 ✓ K=2.0 CF=3.8 SC=1182Hz Att=14.8ms | fK=3.0 fCF=4.1 fSC=1184Hz fFlat=0.205 fHF=0.003 🎯 敲擊 #1
+[tap][sample]   [00:41:06.105] 持續=423ms 峰值=13770 ✗長 K=1.4 CF=3.9 SC=2407Hz Att=186.6ms | fK=1.8 fCF=4.0 fSC=2412Hz fFlat=0.563 fHF=0.057
+[tap][sample]   [00:41:06.744] 持續=612ms 峰值=7709 ✗長 K=6.4 CF=6.7 SC=2763Hz Att=371.1ms | fK=6.9 fCF=6.8 fSC=2761Hz fFlat=0.647 fHF=0.112
+[recorder][VAD] [00:41:07.876] ✅ Silero 11/145 (31.4%), 0.35s speech
+[recorder][flush][00:41:07.876] ✅ 取出 4.6s 音訊段落
+[main]          [00:41:07.877] ✂️ 自動分段送出（靜音達1s，累積 4.6s，靜音 1.1s）
+[paster]        [00:41:08.045] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:41:08.046] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.17s, est_api=0.59s)
+[tap][sample]   [00:41:08.562] 持續=135ms 峰值=12342 ✓ K=0.7 CF=3.4 SC=1045Hz Att=21.9ms | fK=1.6 fCF=3.7 fSC=1115Hz fFlat=0.248 fHF=0.001 🎯 敲擊 #1
+[tap][dim]      [00:41:08.598] 持續=36ms 峰值=341 ✗弱
+[transcriber]   [00:41:08.831] ⏱️ API 耗時: 0.95s
+[main]          [00:41:08.832] ✅ 分段辨識完成: "識別完成出現的超級慢"
+[paster]        [00:41:08.863] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='識別完成出現的超級慢'
+[paster]        [00:41:08.867] ⌨️ TEXT input flow start: target_chars=10，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='識別完成出現的超級慢'
+[paster]        [00:41:08.868] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:41:08.880] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:41:08.880] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:41:08.882] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:41:09.975] 持續=1377ms 峰值=12595 ✗長 K=1.7 CF=4.2 SC=1489Hz Att=191.8ms | fK=1.8 fCF=4.2 fSC=1489Hz fFlat=0.367 fHF=0.006
+[recorder][VAD] [00:41:11.127] ✅ Silero 11/102 (36.7%), 0.35s speech
+[recorder][flush][00:41:11.128] ✅ 取出 3.3s 音訊段落
+[main]          [00:41:11.129] ✂️ 自動分段送出（靜音達1s，累積 3.3s，靜音 1.2s）
+[paster]        [00:41:11.263] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:41:11.263] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.13s, est_api=0.55s)
+[transcriber]   [00:41:11.927] ⏱️ API 耗時: 0.80s
+[main]          [00:41:11.927] ✅ 分段辨識完成: "大概半的疫苗左右"
+[paster]        [00:41:11.958] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='大概半的疫苗左右'
+[paster]        [00:41:11.963] ⌨️ TEXT input flow start: target_chars=8，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='大概半的疫苗左右'
+[paster]        [00:41:11.964] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:41:11.972] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:41:11.973] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:41:11.974] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [00:43:54.810] 持續=72ms 峰值=386 ✗弱
+[tap][sample]   [00:43:56.511] 持續=1701ms 峰值=12849 ✗長 K=2.2 CF=4.3 SC=2181Hz Att=361.1ms | fK=2.8 fCF=4.5 fSC=2289Hz fFlat=0.564 fHF=0.064
+[tap][dim]      [00:43:56.548] 持續=36ms 峰值=313 ✗弱
+[tap][sample]   [00:43:56.934] 持續=387ms 峰值=11505 ✗長 K=2.4 CF=4.2 SC=2340Hz Att=187.3ms | fK=2.8 fCF=4.4 fSC=2341Hz fFlat=0.510 fHF=0.050
+[tap][sample]   [00:43:57.474] 持續=513ms 峰值=9631 ✗長 K=1.3 CF=5.1 SC=3066Hz Att=0.1ms | fK=1.6 fCF=5.2 fSC=3069Hz fFlat=0.564 fHF=0.140
+[tap][sample]   [00:43:57.987] 持續=477ms 峰值=13733 ✗長 K=0.8 CF=3.6 SC=1506Hz Att=25.8ms | fK=1.0 fCF=3.7 fSC=1506Hz fFlat=0.356 fHF=0.009
+[tap][dim]      [00:43:58.023] 持續=36ms 峰值=363 ✗弱
+[tap][sample]   [00:43:58.338] 持續=315ms 峰值=8256 ✗長 K=5.8 CF=5.9 SC=1671Hz Att=6.6ms | fK=6.7 fCF=6.2 fSC=1669Hz fFlat=0.375 fHF=0.015
+[tap][dim]      [00:43:58.374] 持續=36ms 峰值=440 ✗弱
+[recorder][VAD] [00:43:59.518] ✅ Silero 11/183 (23.4%), 0.35s speech
+[recorder][flush][00:43:59.518] ✅ 取出 5.9s 音訊段落
+[main]          [00:43:59.519] ✂️ 自動分段送出（靜音達1s，累積 5.9s，靜音 1.2s）
+[paster]        [00:43:59.718] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [00:43:59.719] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.20s, est_api=0.62s)
+[transcriber]   [00:44:00.416] ⏱️ API 耗時: 0.90s
+[main]          [00:44:00.417] ✅ 分段辨識完成: "後面兩次就不慢了，只有第一次特別的慢"
+[paster]        [00:44:00.449] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='後面兩次就不慢了，只有第一次特別的慢'
+[paster]        [00:44:00.453] ⌨️ TEXT input flow start: target_chars=18，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='後面兩次就不慢了，只有第一次特別的慢'
+[paster]        [00:44:00.454] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:44:00.473] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:44:00.474] ⏱️ 收到→直接輸入完成: 0.06s
+[paster]        [00:44:00.476] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:44:06.097] 持續=154ms 峰值=13066 ✓ K=1.0 CF=3.5 SC=1391Hz Att=0.1ms | fK=1.8 fCF=3.8 fSC=1391Hz fFlat=0.324 fHF=0.007 🎯 敲擊 #1
+[tap][sample]   [00:44:06.763] 持續=639ms 峰值=13179 ✗長 K=0.7 CF=3.4 SC=1770Hz Att=44.8ms | fK=0.9 fCF=3.5 fSC=1773Hz fFlat=0.407 fHF=0.015
+[tap][sample]   [00:44:07.347] 持續=540ms 峰值=10160 ✗長 K=2.3 CF=4.6 SC=2212Hz Att=0.5ms | fK=2.6 fCF=4.7 fSC=2206Hz fFlat=0.545 fHF=0.036
+[tap][dim]      [00:44:07.383] 持續=36ms 峰值=386 ✗弱
+[recorder][VAD] [00:44:08.466] ✅ Silero 11/108 (25.0%), 0.35s speech
+[recorder][flush][00:44:08.467] ✅ 取出 3.5s 音訊段落
+[main]          [00:44:08.469] ✂️ 自動分段送出（靜音達1s，累積 3.5s，靜音 1.1s）
+[paster]        [00:44:08.608] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [00:44:08.609] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.14s, est_api=0.56s)
+[transcriber]   [00:44:09.887] ⏱️ API 耗時: 1.41s
+[main]          [00:44:09.888] ✅ 分段辨識完成: "再看一下再看一下"
+[paster]        [00:44:09.918] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='再看一下再看一下'
+[paster]        [00:44:09.923] ⌨️ TEXT input flow start: target_chars=8，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='再看一下再看一下'
+[paster]        [00:44:09.924] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:44:09.936] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:44:09.936] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:44:09.938] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:44:15.510] 持續=540ms 峰值=11759 ✗長 K=1.1 CF=3.6 SC=1070Hz Att=47.8ms | fK=1.3 fCF=3.7 fSC=1073Hz fFlat=0.184 fHF=0.002
+[tap][dim]      [00:44:15.537] 持續=27ms 峰值=425 ✗弱
+[tap][sample]   [00:44:16.527] 持續=954ms 峰值=13895 ✗長 K=1.0 CF=3.7 SC=2161Hz Att=596.1ms | fK=1.2 fCF=3.7 fSC=2158Hz fFlat=0.540 fHF=0.045
+[recorder][VAD] [00:44:17.604] ✅ Silero 11/107 (28.2%), 0.35s speech
+[recorder][flush][00:44:17.605] ✅ 取出 3.4s 音訊段落
+[main]          [00:44:17.606] ✂️ 自動分段送出（靜音達1s，累積 3.4s，靜音 1.1s）
+[paster]        [00:44:17.744] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:44:17.744] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.14s, est_api=0.56s)
+[transcriber]   [00:44:19.133] ⏱️ API 耗時: 1.53s
+[main]          [00:44:19.134] ✅ 分段辨識完成: "有嗎，測試一下喔"
+[paster]        [00:44:19.167] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='有嗎，測試一下喔'
+[paster]        [00:44:19.172] ⌨️ TEXT input flow start: target_chars=8，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='有嗎，測試一下喔'
+[paster]        [00:44:19.172] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:44:19.181] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:44:19.182] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:44:19.183] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:44:25.581] 持續=27ms 峰值=953 ✓ K=8.7 CF=6.1 SC=1131Hz Att=1.5ms | fK=19.8 fCF=8.6 fSC=1146Hz fFlat=0.292 fHF=0.001 🎯 敲擊 #1
+[tap][dim]      [00:44:43.032] 持續=27ms 峰值=325 ✗弱
+[tap][sample]   [00:44:47.874] 持續=639ms 峰值=14398 ✗長 K=1.1 CF=3.5 SC=1108Hz Att=108.6ms | fK=1.3 fCF=3.5 fSC=1110Hz fFlat=0.215 fHF=0.002
+[tap][dim]      [00:44:48.477] 持續=27ms 峰值=584 ✗弱
+[tap][sample]   [00:44:48.801] 持續=324ms 峰值=9418 ✗長 K=3.3 CF=4.7 SC=1492Hz Att=80.1ms | fK=3.9 fCF=4.9 fSC=1490Hz fFlat=0.262 fHF=0.007
+[tap][dim]      [00:44:48.837] 持續=36ms 峰值=343 ✗弱
+[recorder][VAD] [00:44:49.890] ✅ Silero 11/101 (37.9%), 0.35s speech
+[recorder][flush][00:44:49.891] ✅ 取出 3.2s 音訊段落
+[main]          [00:44:49.891] ✂️ 自動分段送出（靜音達1s，累積 3.2s，靜音 1.1s）
+[paster]        [00:44:50.024] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:44:50.025] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.13s, est_api=0.55s)
+[transcriber]   [00:44:50.647] ⏱️ API 耗時: 0.75s
+[main]          [00:44:50.648] ✅ 分段辨識完成: "優化他"
+[paster]        [00:44:50.679] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='優化他'
+[paster]        [00:44:50.685] ⌨️ TEXT input flow start: target_chars=3，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='優化他'
+[paster]        [00:44:50.686] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:44:50.692] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:44:50.692] ⏱️ 收到→直接輸入完成: 0.04s
+[paster]        [00:44:50.693] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [00:44:53.445] 持續=567ms 峰值=11415 ✗長 K=1.0 CF=3.9 SC=1405Hz Att=269.1ms | fK=1.2 fCF=4.0 fSC=1406Hz fFlat=0.270 fHF=0.008
+[tap][sample]   [00:44:54.957] 持續=1314ms 峰值=11508 ✗長 K=1.1 CF=3.7 SC=1187Hz Att=52.8ms | fK=1.2 fCF=3.8 fSC=1187Hz fFlat=0.237 fHF=0.003
+[tap][dim]      [00:44:55.335] 持續=27ms 峰值=321 ✗弱
+[tap][sample]   [00:44:56.396] 持續=1062ms 峰值=12585 ✗長 K=1.4 CF=4.0 SC=2567Hz Att=374.2ms | fK=1.6 fCF=4.1 fSC=2573Hz fFlat=0.564 fHF=0.072
+[tap][sample]   [00:44:56.649] 持續=89ms 峰值=12600 ✓ K=0.1 CF=3.2 SC=1750Hz Att=5.0ms | fK=1.1 fCF=3.6 fSC=1751Hz fFlat=0.316 fHF=0.011 🎯 敲擊 #1
+[tap][sample]   [00:44:56.973] 持續=288ms 峰值=12961 ✗長 K=1.9 CF=4.0 SC=2513Hz Att=0.1ms | fK=2.5 fCF=4.2 fSC=2508Hz fFlat=0.549 fHF=0.072
+[tap][dim]      [00:44:57.009] 持續=36ms 峰值=462 ✗弱
+[tap]           [00:44:57.099] ⏱️ 間隔過長重置（503ms）
+[tap][sample]   [00:44:57.099] 持續=36ms 峰值=612 ✓ K=3.9 CF=3.3 SC=968Hz Att=19.1ms | fK=4.8 fCF=3.9 fSC=665Hz fFlat=0.171 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [00:44:57.126] 持續=27ms 峰值=405 ✗弱
+[tap][sample]   [00:44:57.837] 持續=549ms 峰值=12526 ✗長 K=1.9 CF=4.2 SC=1266Hz Att=3.3ms | fK=2.2 fCF=4.3 fSC=1262Hz fFlat=0.240 fHF=0.004
+[tap][dim]      [00:44:57.874] 持續=36ms 峰值=355 ✗弱
+[tap][sample]   [00:44:58.603] 持續=279ms 峰值=13664 ✗長 K=2.2 CF=3.9 SC=1199Hz Att=44.9ms | fK=2.7 fCF=4.1 fSC=1196Hz fFlat=0.255 fHF=0.003
+[tap][sample]   [00:44:59.143] 持續=370ms 峰值=12031 ✗長 K=0.6 CF=3.4 SC=2421Hz Att=143.1ms | fK=0.9 fCF=3.6 fSC=2423Hz fFlat=0.589 fHF=0.049
+[tap][sample]   [00:44:59.943] 持續=765ms 峰值=12241 ✗長 K=1.6 CF=3.7 SC=1454Hz Att=9.4ms | fK=1.8 fCF=3.8 fSC=1453Hz fFlat=0.385 fHF=0.007
+[tap][sample]   [00:45:00.465] 持續=423ms 峰值=12673 ✗長 K=0.2 CF=3.2 SC=1853Hz Att=1.2ms | fK=0.4 fCF=3.3 fSC=1855Hz fFlat=0.470 fHF=0.017
+[tap][sample]   [00:45:01.293] 持續=801ms 峰值=12293 ✗長 K=1.8 CF=4.3 SC=2321Hz Att=1.4ms | fK=2.0 fCF=4.4 fSC=2322Hz fFlat=0.572 fHF=0.059
+[tap][sample]   [00:45:02.517] 持續=1179ms 峰值=12340 ✗長 K=3.0 CF=4.9 SC=1790Hz Att=1.6ms | fK=3.2 fCF=5.0 fSC=1789Hz fFlat=0.468 fHF=0.021
+[tap][sample]   [00:45:05.342] 持續=2025ms 峰值=12899 ✗長 K=0.9 CF=3.7 SC=1684Hz Att=723.8ms | fK=1.0 fCF=3.8 fSC=1640Hz fFlat=0.422 fHF=0.013
+[tap][sample]   [00:45:06.900] 持續=1503ms 峰值=12419 ✗長 K=1.8 CF=4.3 SC=1239Hz Att=1.9ms | fK=1.9 fCF=4.3 fSC=1233Hz fFlat=0.303 fHF=0.004
+[tap][dim]      [00:45:06.945] 持續=45ms 峰值=390 ✗弱
+[tap][sample]   [00:45:07.998] 持續=1026ms 峰值=12173 ✗長 K=0.6 CF=3.7 SC=2177Hz Att=14.0ms | fK=0.7 fCF=3.8 fSC=2175Hz fFlat=0.544 fHF=0.033
+[tap][dim]      [00:45:08.025] 持續=27ms 峰值=571 ✗弱
+[tap][sample]   [00:45:08.762] 持續=738ms 峰值=12077 ✗長 K=2.3 CF=4.6 SC=2157Hz Att=87.6ms | fK=2.5 fCF=4.7 fSC=2154Hz fFlat=0.553 fHF=0.033
+[tap][sample]   [00:45:10.923] 持續=1863ms 峰值=9495 ✗長 K=2.3 CF=5.3 SC=2425Hz Att=244.3ms | fK=3.4 fCF=5.9 fSC=2677Hz fFlat=0.639 fHF=0.100
+[tap][dim]      [00:45:10.959] 持續=36ms 峰值=350 ✗弱
+[recorder][VAD] [00:45:12.032] ✅ Silero 11/621 (32.4%), 0.35s speech
+[recorder][flush][00:45:12.032] ✅ 取出 19.9s 音訊段落
+[main]          [00:45:12.034] ✂️ 自動分段送出（累積夠長+短靜音，累積 19.9s，靜音 1.1s）
+[paster]        [00:45:12.582] ⚠️ [UIA] 無 TextPattern
+[paster]        [00:45:12.583] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.55s, est_api=0.97s)
+[main]          [00:45:14.536] ⚠️ API 超過 2.5s 未回應，重試中…
+[transcriber]   [00:45:15.246] ⏱️ API 耗時: 3.21s
+[main]          [00:45:15.251] ✅ 分段辨識完成: "另外還有一個要優化，就是從識別中變換到下一個文字，比如說變換到識別完成的時候，所以意思就是說那個文是有變換的時候能不能不要消失再出現，因為我感覺他閃了一下"
+[paster]        [00:45:15.289] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='另外還有一個要優化，就是從識別中變換到下一個文字，比如說變換到識別完成的時候，所'
+[paster]        [00:45:15.294] ⌨️ TEXT input flow start: target_chars=77，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='另外還有一個要優化，就是從識別中變換到下一個文字，比如說變換到識別完成的時候，所'
+[paster]        [00:45:15.294] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:45:15.363] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:45:15.364] ⏱️ 收到→直接輸入完成: 0.11s
+[paster]        [00:45:15.365] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[transcriber]   [00:45:16.150] ⏱️ API 耗時: 1.61s
+[tap][sample]   [00:46:18.036] 持續=1278ms 峰值=14045 ✗長 K=1.4 CF=4.4 SC=1964Hz Att=814.7ms | fK=1.5 fCF=4.5 fSC=1967Hz fFlat=0.482 fHF=0.020
+[tap][sample]   [00:46:18.873] 持續=810ms 峰值=8575 ✗長 K=4.9 CF=5.4 SC=1679Hz Att=344.2ms | fK=5.2 fCF=5.5 fSC=1677Hz fFlat=0.427 fHF=0.016
+[tap][dim]      [00:46:18.909] 持續=36ms 峰值=422 ✗弱
+[recorder][VAD] [00:46:20.076] ✅ Silero 11/114 (47.8%), 0.35s speech
+[recorder][flush][00:46:20.181] ✅ 取出 3.6s 音訊段落
+[main]          [00:46:20.182] ✂️ 自動分段送出（靜音達1s，累積 3.6s，靜音 1.2s）
+[paster]        [00:46:20.326] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [00:46:20.327] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.14s, est_api=0.56s)
+[transcriber]   [00:46:21.310] ⏱️ API 耗時: 1.13s
+[main]          [00:46:21.311] ✅ 分段辨識完成: "先說明一下你要怎麼優化"
+[paster]        [00:46:21.342] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='先說明一下你要怎麼優化'
+[paster]        [00:46:21.347] ⌨️ TEXT input flow start: target_chars=11，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='先說明一下你要怎麼優化'
+[paster]        [00:46:21.348] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [00:46:21.362] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [00:46:21.364] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [00:46:21.367] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap]           [00:50:19.243] 💤 敲麥監聽已停止
+[recorder]      [00:50:19.340] 💤 預熱 stream 已關閉

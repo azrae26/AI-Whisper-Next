@@ -1,0 +1,22 @@
+[main]          [02:39:12.127] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_023912_P8-32.current.log
+[settings]      [02:39:12.128] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [02:39:12.249] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [02:39:12.251] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [02:39:12.251] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [02:39:12.267] 🎙️ 敲麥監聽已啟動
+[main]          [02:39:12.267] 🔧 DIAG 關閉元件: (none)
+[main]          [02:39:12.978] 🔤 font fallback 預熱完成 (709ms, 2 fonts)
+[debug]         [02:39:12.988] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [02:39:13.133] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [02:39:13.220] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [02:39:14.404] 🔌 HTTP 連線預熱完成 (2.14s)
+[tap][dim]      [02:42:22.791] 持續=27ms 峰值=463 ✗弱
+[tap][dim]      [02:42:32.933] 持續=63ms 峰值=449 ✗弱
+[tap][sample]   [02:42:34.122] 持續=45ms 峰值=625 ✓ K=19.5 CF=8.1 SC=3874Hz Att=1.4ms | fK=40.3 fCF=11.4 fSC=3862Hz fFlat=0.737 fHF=0.576 🎯 敲擊 #1
+[tap][dim]      [02:42:34.823] 持續=27ms 峰值=353 ✗弱
+[tap]           [02:42:35.966] ⏱️ 間隔過長重置（1836ms）
+[tap][sample]   [02:42:35.966] 持續=54ms 峰值=2204 ✓ K=24.8 CF=8.7 SC=1191Hz Att=0.1ms | fK=38.4 fCF=10.7 fSC=1195Hz fFlat=0.173 fHF=0.001 🎯 敲擊 #1
+[tap][sample]   [02:42:36.129] 持續=64ms 峰值=1203 ✓ K=20.1 CF=9.8 SC=2050Hz Att=22.2ms | fK=31.2 fCF=12.0 fSC=2046Hz fFlat=0.404 fHF=0.044 ⏱️ 防抖略過（距上次 153ms < 180ms）
+[tap][sample]   [02:42:36.262] 持續=63ms 峰值=4520 ✓ K=49.2 CF=10.0 SC=2589Hz Att=2.3ms | fK=73.1 fCF=12.2 fSC=2589Hz fFlat=0.711 fHF=0.072 🎯 敲擊 #2
+[tap]           [12:34:44.098] 💤 敲麥監聽已停止
+[recorder]      [12:34:44.098] 💤 預熱 stream 已關閉

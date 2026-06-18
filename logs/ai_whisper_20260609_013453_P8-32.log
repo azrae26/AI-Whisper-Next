@@ -1,0 +1,52 @@
+[main]          [01:34:53.564] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_013453_P8-32.current.log
+[settings]      [01:34:53.565] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:34:53.702] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:34:53.704] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:34:53.704] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:34:53.717] 🎙️ 敲麥監聽已啟動
+[main]          [01:34:53.717] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:34:53.727] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:34:53.879] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:34:53.967] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:34:55.165] 🔌 HTTP 連線預熱完成 (1.45s)
+[main]          [01:34:55.272] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:34:55.273] ⌨️ after(0) 執行延遲 1.1ms
+[tap]           [01:34:55.342] 💤 敲麥監聽已停止
+[recorder]      [01:34:55.351] ⏱️ InputStream() 8.9ms
+[recorder]      [01:34:55.351] ⏱️ stream.start() 0.5ms
+[recorder]      [01:34:55.351] 🎙️ 錄音就緒，總初始化 9.3ms
+[main]          [01:34:55.351] ⏱️ recorder.start() 耗時 9.7ms，ok=True
+[tap]           [01:34:55.881] 🎙️ 敲麥監聽已啟動
+[main]          [01:34:55.894] 🎙️ 開始錄音
+[recorder]      [01:34:56.115] 🎤 第一包音訊到達，麥克風實際開啟延遲 763.7ms
+[tap][dim]      [01:34:56.232] 持續=90ms 峰值=519 ✗弱
+[tap][sample]   [01:34:56.277] 持續=45ms 峰值=1027 ✓ K=-0.4 CF=2.4 SC=352Hz Att=9.9ms | fK=0.4 fCF=3.0 fSC=378Hz fFlat=0.086 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [01:34:56.304] 持續=27ms 峰值=543 ✗弱
+[tap][sample]   [01:34:56.330] 持續=27ms 峰值=810 ✓ K=1.9 CF=3.2 SC=573Hz Att=13.4ms | fK=2.2 fCF=3.8 fSC=732Hz fFlat=0.223 fHF=0.000 ⏱️ 防抖略過（距上次 72ms < 180ms）
+[tap][dim]      [01:34:56.431] 持續=99ms 峰值=529 ✗弱
+[tap][dim]      [01:34:56.546] 持續=27ms 峰值=328 ✗弱
+[tap]           [01:34:56.997] ⏱️ 間隔過長重置（738ms）
+[tap][sample]   [01:34:56.997] 持續=27ms 峰值=675 ✓ K=25.0 CF=9.1 SC=2131Hz Att=0.1ms | fK=51.6 fCF=12.7 fSC=2127Hz fFlat=0.449 fHF=0.036 🎯 敲擊 #1
+[tap][sample]   [01:34:57.986] 持續=666ms 峰值=13250 ✗長 K=1.0 CF=3.6 SC=3094Hz Att=135.3ms | fK=1.2 fCF=3.7 fSC=3092Hz fFlat=0.585 fHF=0.179
+[tap][sample]   [01:34:58.799] 持續=640ms 峰值=11759 ✗長 K=1.3 CF=3.9 SC=3061Hz Att=94.2ms | fK=1.5 fCF=4.0 fSC=3061Hz fFlat=0.585 fHF=0.176
+[tap][dim]      [01:34:58.833] 持續=35ms 峰值=537 ✗弱
+[tap][dim]      [01:34:59.058] 持續=36ms 峰值=305 ✗弱
+[tap][sample]   [01:34:59.112] 持續=54ms 峰值=746 ✓ K=0.1 CF=3.0 SC=846Hz Att=42.6ms | fK=0.6 fCF=3.3 fSC=725Hz fFlat=0.197 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [01:34:59.159] 持續=46ms 峰值=455 ✗弱
+[recorder][VAD] [01:35:00.160] ✅ Silero 11/127 (20.8%), 0.35s speech
+[recorder][flush][01:35:00.161] ✅ 取出 4.1s 音訊段落
+[main]          [01:35:00.162] ✂️ 自動分段送出（靜音達1s，累積 4.1s，靜音 1.0s）
+[paster]        [01:35:00.347] ⚠️ [UIA] 無 TextPattern
+[paster]        [01:35:00.348] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.15s, est_api=0.57s)
+[transcriber]   [01:35:00.864] ⏱️ API 耗時: 0.70s
+[main]          [01:35:00.865] ✅ 分段辨識完成: "測試測試"
+[paster]        [01:35:00.896] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試測試'
+[paster]        [01:35:00.901] ⌨️ TEXT input flow start: target_chars=4，視窗="Analyzing Paste-Transcription Timing Sequence"，hwnd=0x015c200c，process=antigravity.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'max-h-[300px] rounded-md cursor-text overflow-y-auto text-md p-2 outline-none transition-all duration-100 text-sm', '', 'ComboBoxControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster]        [01:35:00.903] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:35:00.908] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:35:00.909] ⏱️ 收到→直接輸入完成: 0.04s
+[paster]        [01:35:00.910] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[paster]        [01:35:00.912] 📢 _notify_text_pasted → calling callback
+[main]          [01:35:01.716] ✅ overlay 顯示「辨識完成 ✓」(recording, polled)
+[tap]           [01:35:17.014] 💤 敲麥監聽已停止
+[recorder]      [01:35:17.094] 💤 預熱 stream 已關閉

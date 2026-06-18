@@ -1,0 +1,139 @@
+[main]          [02:18:00.775] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_021800_P8-32.current.log
+[settings]      [02:18:00.776] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [02:18:00.896] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [02:18:00.897] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [02:18:00.897] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [02:18:00.911] 🎙️ 敲麥監聽已啟動
+[main]          [02:18:00.912] 🔧 DIAG 關閉元件: (none)
+[debug]         [02:18:00.921] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [02:18:01.078] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [02:18:01.162] Silero VAD 模型載入完成 (ONNX)
+[main]          [02:18:01.926] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [02:18:01.929] ⌨️ after(0) 執行延遲 3.2ms
+[tap]           [02:18:02.006] 💤 敲麥監聽已停止
+[recorder]      [02:18:02.013] ⏱️ InputStream() 6.7ms
+[recorder]      [02:18:02.013] ⏱️ stream.start() 0.4ms
+[recorder]      [02:18:02.013] 🎙️ 錄音就緒，總初始化 7.1ms
+[main]          [02:18:02.014] ⏱️ recorder.start() 耗時 7.3ms，ok=True
+[transcriber]   [02:18:02.202] 🔌 HTTP 連線預熱完成 (1.29s)
+[tap]           [02:18:02.546] 🎙️ 敲麥監聽已啟動
+[main]          [02:18:02.553] 🎙️ 開始錄音
+[recorder]      [02:18:02.793] 🎤 第一包音訊到達，麥克風實際開啟延遲 779.6ms
+[tap][sample]   [02:18:03.998] 持續=612ms 峰值=11402 ✗長 K=1.0 CF=3.6 SC=2709Hz Att=83.9ms | fK=1.2 fCF=3.7 fSC=2699Hz fFlat=0.540 fHF=0.120
+[tap][dim]      [02:18:04.025] 持續=27ms 峰值=382 ✗弱
+[tap][dim]      [02:18:04.124] 持續=27ms 峰值=479 ✗弱
+[tap][sample]   [02:18:04.772] 持續=648ms 峰值=12006 ✗長 K=1.0 CF=3.9 SC=3165Hz Att=111.9ms | fK=1.2 fCF=4.0 fSC=3159Hz fFlat=0.605 fHF=0.197
+[tap][dim]      [02:18:04.799] 持續=27ms 峰值=325 ✗弱
+[tap][sample]   [02:18:05.250] 持續=225ms 峰值=1917 ✗長 K=0.2 CF=3.0 SC=367Hz Att=101.2ms | fK=0.4 fCF=3.2 fSC=318Hz fFlat=0.026 fHF=0.000
+[tap][dim]      [02:18:05.276] 持續=27ms 峰值=571 ✗弱
+[tap][sample]   [02:18:05.312] 持續=36ms 峰值=1127 ✓ K=-0.7 CF=2.1 SC=451Hz Att=15.1ms | fK=0.2 fCF=2.7 fSC=452Hz fFlat=0.115 fHF=0.000 🎯 敲擊 #1
+[tap][dim]      [02:18:05.348] 持續=36ms 峰值=548 ✗弱
+[tap][dim]      [02:18:05.465] 持續=90ms 峰值=487 ✗弱
+[recorder][VAD] [02:18:06.612] ✅ Silero 11/120 (33.3%), 0.35s speech
+[recorder][flush][02:18:06.614] ✅ 取出 3.8s 音訊段落
+[main]          [02:18:06.615] ✂️ 自動分段送出（靜音達1s，累積 3.8s，靜音 1.2s）
+[diag]          [02:18:06.617] ⏱️D9 overlay-painted '識別中' perf=440421.8146
+[paster]        [02:18:07.292] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster]        [02:18:07.293] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.15s, est_api=0.57s)
+[tap][dim]      [02:18:07.481] 持續=27ms 峰值=505 ✗弱
+[tap][dim]      [02:18:07.589] 持續=45ms 峰值=453 ✗弱
+[transcriber]   [02:18:07.975] ⏱️ API 耗時: 1.36s
+[main]          [02:18:07.976] ✅ 分段辨識完成: "測試測試"
+[diag]          [02:18:07.976] ⏱️Dpaste-start perf=440423.1742[diag]          [02:18:07.976] ⏱️S4 seg-slot-enter perf=440423.1743
+
+[paster]        [02:18:08.632] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='，', final='測試測試'
+[diag]          [02:18:08.632] ⏱️S5 seg-status-set perf=440423.8305
+[diag]          [02:18:08.637] ⏱️S7 add_history dur=1ms exit_perf=440423.8347
+[diag]          [02:18:08.638] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440423.8357
+[paster]        [02:18:08.640] ⌨️ TEXT input flow start: target_chars=4，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試測試'
+[paster]        [02:18:08.642] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:18:08.648] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:18:08.651] ⏱️ 收到→直接輸入完成: 0.68s
+[paster]        [02:18:08.653] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][dim]      [02:18:15.157] 持續=27ms 峰值=324 ✗弱
+[tap][sample]   [02:18:15.284] 持續=126ms 峰值=7941 ✗長 K=1.0 CF=3.4 SC=651Hz Att=74.1ms | fK=2.1 fCF=3.8 fSC=646Hz fFlat=0.096 fHF=0.000
+[tap][sample]   [02:18:15.608] 持續=288ms 峰值=11052 ✗長 K=2.6 CF=4.1 SC=1306Hz Att=22.1ms | fK=3.2 fCF=4.4 fSC=1310Hz fFlat=0.301 fHF=0.003
+[tap][dim]      [02:18:15.770] 持續=63ms 峰值=532 ✗弱
+[tap][sample]   [02:18:16.248] 持續=477ms 峰值=10465 ✗長 K=2.3 CF=4.9 SC=2249Hz Att=306.3ms | fK=2.7 fCF=5.0 fSC=2250Hz fFlat=0.542 fHF=0.036
+[tap][sample]   [02:18:16.670] 持續=396ms 峰值=12407 ✗長 K=2.5 CF=4.1 SC=2426Hz Att=27.4ms | fK=2.9 fCF=4.2 fSC=2412Hz fFlat=0.534 fHF=0.072
+[tap][sample]   [02:18:16.950] 持續=253ms 峰值=9592 ✗長 K=3.8 CF=5.2 SC=1669Hz Att=0.1ms | fK=4.6 fCF=5.5 fSC=1671Hz fFlat=0.339 fHF=0.015
+[tap][sample]   [02:18:17.372] 持續=387ms 峰值=13584 ✗長 K=0.7 CF=3.3 SC=1721Hz Att=3.9ms | fK=1.0 fCF=3.5 fSC=1723Hz fFlat=0.442 fHF=0.019
+[tap][dim]      [02:18:17.399] 持續=27ms 峰值=563 ✗弱
+[tap][dim]      [02:18:17.498] 持續=26ms 峰值=469 ✗弱
+[tap][sample]   [02:18:17.796] 持續=298ms 峰值=10500 ✗長 K=6.9 CF=5.5 SC=2301Hz Att=92.0ms | fK=8.0 fCF=5.8 fSC=2303Hz fFlat=0.517 fHF=0.041
+[tap][dim]      [02:18:17.822] 持續=27ms 峰值=593 ✗弱
+[tap][sample]   [02:18:18.011] 持續=189ms 峰值=10310 ✓ K=2.6 CF=4.6 SC=1511Hz Att=0.2ms | fK=3.6 fCF=5.0 fSC=1519Hz fFlat=0.300 fHF=0.008 🎯 敲擊 #1
+[recorder][VAD] [02:18:19.206] ✅ Silero 11/152 (23.4%), 0.35s speech
+[recorder][flush][02:18:19.208] ✅ 取出 4.9s 音訊段落
+[main]          [02:18:19.208] ✂️ 自動分段送出（靜音達1s，累積 4.9s，靜音 1.2s）
+[diag]          [02:18:19.210] ⏱️D9 overlay-painted '識別中' perf=440434.4079
+[tap]           [02:18:19.829] ⏱️ 間隔過長重置（1818ms）
+[tap][sample]   [02:18:19.829] 持續=189ms 峰值=15092 ✓ K=0.8 CF=3.3 SC=1032Hz Att=16.8ms | fK=1.5 fCF=3.6 fSC=1037Hz fFlat=0.233 fHF=0.001 🎯 敲擊 #1
+[paster]        [02:18:19.883] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster]        [02:18:19.884] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.17s, est_api=0.59s)
+[transcriber]   [02:18:20.108] ⏱️ API 耗時: 0.90s
+[main]          [02:18:20.109] ✅ 分段辨識完成: "不對，現在真的同步了，真的"
+[diag]          [02:18:20.109] ⏱️Dpaste-start perf=440435.3068[diag]          [02:18:20.109] ⏱️S4 seg-slot-enter perf=440435.3069
+
+[diag]          [02:18:20.110] ⏱️S5 seg-status-set perf=440435.3078
+[diag]          [02:18:20.112] ⏱️S7 add_history dur=1ms exit_perf=440435.3091
+[diag]          [02:18:20.112] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440435.3097
+[paster]        [02:18:20.141] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='，', final='不對，現在真的同步了，真的'
+[paster]        [02:18:20.150] ⌨️ TEXT input flow start: target_chars=13，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='不對，現在真的同步了，真的'
+[paster]        [02:18:20.152] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:18:20.182] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:18:20.183] ⏱️ 收到→直接輸入完成: 0.08s
+[paster]        [02:18:20.185] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [02:18:20.768] 持續=903ms 峰值=12704 ✗長 K=1.6 CF=4.4 SC=2497Hz Att=272.2ms | fK=1.7 fCF=4.5 fSC=2498Hz fFlat=0.566 fHF=0.070
+[recorder][VAD] [02:18:21.845] ✅ Silero 11/82 (44.0%), 0.35s speech
+[recorder][flush][02:18:21.846] ✅ 取出 2.6s 音訊段落
+[main]          [02:18:21.846] ✂️ 自動分段送出（靜音達1s，累積 2.6s，靜音 1.1s）
+[diag]          [02:18:21.849] ⏱️D9 overlay-painted '識別中' perf=440437.0461
+[paster]        [02:18:22.350] 📏 [UIA] text='不對，現在真的同步了，真的', text_after='', at_end=True, last_punct=False
+[paster]        [02:18:22.351] 🔮 預取游標位置: at_end=True, last_punct=False (delay=0.00s, est_api=0.54s)
+[transcriber]   [02:18:22.498] ⏱️ API 耗時: 0.65s
+[main]          [02:18:22.499] ✅ 分段辨識完成: "到底是為什麼？"
+[diag]          [02:18:22.501] ⏱️Dpaste-start perf=440437.6987[diag]          [02:18:22.501] ⏱️S4 seg-slot-enter perf=440437.6988
+
+[diag]          [02:18:22.503] ⏱️S5 seg-status-set perf=440437.7003
+[diag]          [02:18:22.504] ⏱️S7 add_history dur=1ms exit_perf=440437.7020
+[diag]          [02:18:22.505] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440437.7027
+[paster]        [02:18:22.533] 🎯 PASTE: at_end=True, last_punct=False, add_prefix=True (prefetched), prefix='，', final='到底是為什麼？'
+[paster]        [02:18:22.538] ⌨️ TEXT input flow start: target_chars=8，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='，到底是為什麼？'
+[paster]        [02:18:22.539] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:18:22.564] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:18:22.567] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [02:18:22.571] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap][sample]   [02:18:29.531] 持續=639ms 峰值=11163 ✗長 K=2.1 CF=4.5 SC=2491Hz Att=386.8ms | fK=2.4 fCF=4.6 fSC=2495Hz fFlat=0.570 fHF=0.071
+[tap][sample]   [02:18:29.909] 持續=351ms 峰值=10082 ✗長 K=2.2 CF=4.3 SC=3049Hz Att=242.8ms | fK=2.6 fCF=4.5 fSC=3055Hz fFlat=0.544 fHF=0.114
+[tap][sample]   [02:18:30.007] 持續=27ms 峰值=777 ✓ K=97.9 CF=14.4 SC=2275Hz Att=0.1ms | fK=198.1 fCF=20.3 fSC=2273Hz fFlat=0.390 fHF=0.074 🎯 敲擊 #1
+[tap][sample]   [02:18:31.025] 持續=918ms 峰值=11615 ✗長 K=1.0 CF=4.2 SC=2425Hz Att=57.4ms | fK=1.2 fCF=4.3 fSC=2433Hz fFlat=0.561 fHF=0.046
+[tap][dim]      [02:18:31.070] 持續=45ms 峰值=506 ✗弱
+[tap][sample]   [02:18:31.871] 持續=324ms 峰值=12985 ✗長 K=0.9 CF=3.4 SC=884Hz Att=81.1ms | fK=1.3 fCF=3.6 fSC=881Hz fFlat=0.120 fHF=0.000
+[tap][sample]   [02:18:32.411] 持續=216ms 峰值=11184 ✗長 K=1.6 CF=4.1 SC=995Hz Att=8.8ms | fK=2.2 fCF=4.4 fSC=1000Hz fFlat=0.228 fHF=0.002
+[tap][sample]   [02:18:33.014] 持續=315ms 峰值=12644 ✗長 K=2.3 CF=3.9 SC=1687Hz Att=74.9ms | fK=2.8 fCF=4.1 fSC=1686Hz fFlat=0.411 fHF=0.010
+[tap][dim]      [02:18:33.050] 持續=36ms 峰值=328 ✗弱
+[tap][sample]   [02:18:33.365] 持續=216ms 峰值=11399 ✗長 K=2.1 CF=4.5 SC=1145Hz Att=0.1ms | fK=2.8 fCF=4.9 fSC=1145Hz fFlat=0.223 fHF=0.003
+[tap][dim]      [02:18:33.401] 持續=36ms 峰值=499 ✗弱
+[tap][sample]   [02:18:33.788] 持續=360ms 峰值=11888 ✗長 K=1.6 CF=3.8 SC=1086Hz Att=36.1ms | fK=2.0 fCF=4.0 fSC=1085Hz fFlat=0.250 fHF=0.002
+[recorder][VAD] [02:18:34.842] ✅ Silero 11/190 (73.3%), 0.35s speech
+[recorder][flush][02:18:34.843] ✅ 取出 6.1s 音訊段落
+[main]          [02:18:34.843] ✂️ 自動分段送出（靜音達1s，累積 6.1s，靜音 1.1s）
+[diag]          [02:18:34.845] ⏱️D9 overlay-painted '識別中' perf=440450.0437
+[paster]        [02:18:35.557] 📏 [UIA] text='Queue another messag', text_after='', at_end=True, last_punct=True
+[paster]        [02:18:35.559] 🔮 預取游標位置: at_end=True, last_punct=True (delay=0.20s, est_api=0.62s)
+[transcriber]   [02:18:35.977] ⏱️ API 耗時: 1.13s
+[main]          [02:18:35.979] ✅ 分段辨識完成: "為什麼你只是加一些log就同步了"
+[diag]          [02:18:35.979] ⏱️Dpaste-start perf=440451.1772
+[diag]          [02:18:35.981] ⏱️S4 seg-slot-enter perf=440451.1782
+[diag]          [02:18:35.981] ⏱️S5 seg-status-set perf=440451.1788
+[diag]          [02:18:35.982] ⏱️D9 overlay-painted '辨識完成 ✓' perf=440451.1803
+[diag]          [02:18:35.984] ⏱️S7 add_history dur=1ms exit_perf=440451.1817
+[paster]        [02:18:36.011] 🎯 PASTE: at_end=True, last_punct=True, add_prefix=False (prefetched), prefix='，', final='為什麼你只是加一些log就同步了'
+[paster]        [02:18:36.016] ⌨️ TEXT input flow start: target_chars=16，視窗="Fix delayed recognition … - AI Whisper Next - Cursor [系統管理員]"，hwnd=0x09e122bc，process=cursor.exe，class=Chrome_WidgetWin_1，focus=('Message input', 'messageInput_cKsPxg', '', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='為什麼你只是加一些log就同步了'
+[paster]        [02:18:36.017] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [02:18:36.050] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [02:18:36.052] ⏱️ 收到→直接輸入完成: 0.07s
+[paster]        [02:18:36.053] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[tap]           [02:19:37.851] 💤 敲麥監聽已停止
+[recorder]      [02:19:37.905] 💤 預熱 stream 已關閉

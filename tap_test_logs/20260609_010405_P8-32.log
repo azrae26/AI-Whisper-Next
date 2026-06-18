@@ -1,0 +1,27 @@
+[tap]           [01:04:05.668] 🎙️ 敲麥監聽已啟動
+[tap]           [01:04:08.864] 💤 敲麥監聽已停止
+[tap]           [01:04:09.424] 🎙️ 敲麥監聽已啟動
+[tap][sample]   [01:04:11.241] 持續=900ms 峰值=12714 ✗長 K=0.3 CF=3.4 SC=2722Hz Att=0.2ms | fK=0.4 fCF=3.5 fSC=2716Hz fFlat=0.613 fHF=0.093
+[tap][sample]   [01:04:12.205] 持續=937ms 峰值=11566 ✗長 K=1.1 CF=3.8 SC=3106Hz Att=16.4ms | fK=1.2 fCF=3.9 fSC=3109Hz fFlat=0.677 fHF=0.197
+[tap][sample]   [01:04:44.343] 持續=1026ms 峰值=13985 ✗長 K=2.5 CF=4.5 SC=1339Hz Att=290.8ms | fK=2.7 fCF=4.6 fSC=1340Hz fFlat=0.296 fHF=0.003
+[tap][sample]   [01:04:44.857] 持續=360ms 峰值=10832 ✗長 K=3.5 CF=4.8 SC=1168Hz Att=3.3ms | fK=4.1 fCF=5.0 fSC=1167Hz fFlat=0.178 fHF=0.002
+[tap]           [01:04:51.901] 💤 敲麥監聽已停止
+[tap]           [01:04:51.905] 🎙️ 敲麥監聽已啟動
+[tap]           [01:04:53.675] 💤 敲麥監聽已停止
+[tap]           [01:04:53.679] 🎙️ 敲麥監聽已啟動
+[tap][sample]   [01:04:55.998] 持續=1062ms 峰值=13399 ✗長 K=1.9 CF=4.0 SC=1305Hz Att=67.4ms | fK=2.0 fCF=4.0 fSC=1303Hz fFlat=0.227 fHF=0.004
+[tap][dim]      [01:04:56.025] 持續=27ms 峰值=536 ✗弱
+[tap][sample]   [01:04:56.835] 持續=378ms 峰值=13202 ✗長 K=4.0 CF=4.6 SC=1385Hz Att=2.9ms | fK=4.5 fCF=4.8 fSC=1387Hz fFlat=0.300 fHF=0.005
+[tap][sample]   [01:04:57.573] 持續=162ms 峰值=11908 ✓ K=0.9 CF=3.5 SC=1209Hz Att=46.6ms | fK=1.7 fCF=3.8 fSC=1205Hz fFlat=0.170 fHF=0.007 🎯 敲擊 #1
+[tap][dim]      [01:04:57.601] 持續=27ms 峰值=370 ✗弱
+[tap][sample]   [01:04:57.924] 持續=260ms 峰值=11646 ✗長 K=2.6 CF=4.7 SC=1322Hz Att=0.9ms | fK=3.3 fCF=4.9 fSC=1327Hz fFlat=0.232 fHF=0.008
+[tap][sample]   [01:04:58.923] 持續=612ms 峰值=13311 ✗長 K=0.7 CF=3.6 SC=2550Hz Att=282.8ms | fK=0.9 fCF=3.7 fSC=2562Hz fFlat=0.513 fHF=0.049
+[tap][sample]   [01:04:59.301] 持續=225ms 峰值=9850 ✗長 K=1.7 CF=4.0 SC=1823Hz Att=161.6ms | fK=2.3 fCF=4.3 fSC=1820Hz fFlat=0.310 fHF=0.012
+[tap][sample]   [01:05:01.596] 持續=162ms 峰值=8223 ✓ K=10.2 CF=7.2 SC=1749Hz Att=94.2ms | fK=12.9 fCF=7.8 fSC=1744Hz fFlat=0.344 fHF=0.012 🎯 敲擊 #1
+[tap][sample]   [01:05:02.739] 持續=1116ms 峰值=14240 ✗長 K=0.8 CF=3.5 SC=2249Hz Att=2.4ms | fK=0.9 fCF=3.5 fSC=2246Hz fFlat=0.556 fHF=0.041
+[tap][dim]      [01:05:03.036] 持續=36ms 峰值=514 ✗弱
+[tap][sample]   [01:05:04.341] 持續=1305ms 峰值=12135 ✗長 K=1.1 CF=3.8 SC=2147Hz Att=121.5ms | fK=1.2 fCF=3.9 fSC=2148Hz fFlat=0.532 fHF=0.038
+[tap][dim]      [01:05:05.016] 持續=36ms 峰值=548 ✗弱
+[tap][sample]   [01:05:05.430] 持續=414ms 峰值=8913 ✗長 K=2.5 CF=4.6 SC=1630Hz Att=107.5ms | fK=2.9 fCF=4.8 fSC=1634Hz fFlat=0.386 fHF=0.010
+[tap][sample]   [01:05:08.346] 持續=1143ms 峰值=12722 ✗長 K=1.4 CF=4.1 SC=2554Hz Att=96.2ms | fK=1.6 fCF=4.1 fSC=2549Hz fFlat=0.603 fHF=0.059
+[tap]           [01:05:34.501] 💤 敲麥監聽已停止

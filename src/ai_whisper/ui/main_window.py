@@ -846,7 +846,7 @@ class MainWindow(QMainWindow):
             # Rebind copy button to correct index
             btns = w.findChildren(QPushButton)
             for b in btns:
-                if b.text() in ("複製", "✓"):
+                if b.text() in ("複製", "完成"):
                     try:
                         b.clicked.disconnect()
                     except RuntimeError:
@@ -862,7 +862,7 @@ class MainWindow(QMainWindow):
 
     def _copy_clicked(self, idx: int, btn: QPushButton) -> None:
         QApplication.clipboard().setText(self._history[idx])
-        btn.setText("✓")
+        btn.setText("完成")
         QTimer.singleShot(1200, lambda: btn.setText("複製"))
 
     def history_text(self, idx: int) -> str | None:

@@ -1,0 +1,42 @@
+[main]          [01:32:32.532] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_013232_P8-32.current.log
+[settings]      [01:32:32.534] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:32:32.676] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:32:32.677] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:32:32.677] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:32:32.692] 🎙️ 敲麥監聽已啟動
+[main]          [01:32:32.693] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:32:32.702] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:32:32.866] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:32:32.975] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:32:34.142] 🔌 HTTP 連線預熱完成 (1.45s)
+[transcriber]   [01:32:40.809] ⏱️ API 耗時: 1.01s
+[main]          [01:32:40.810] ✅ 分段辨識完成: "哈囉哈囉你好你好"
+[paster]        [01:32:41.841] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:32:41.841] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False, prefix='。', uia=31ms, final='哈囉哈囉你好你好'
+[paster]        [01:32:41.845] ⌨️ TEXT input skipped: target not UIA-readable (cannot verify)，process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')
+[paster]        [01:32:41.845] ⌨️ TEXT input skipped: process=python.exe，class=Qt6111QWindowIcon，focus=('AI Whisper', 'MainWindow', 'QApplication.MainWindow', 'WindowControl')，preserve_ctrl=False
+[paster]        [01:32:41.845] 📋 CLIP flow start: target_chars=8, restore_delay=0.30s
+[paster]        [01:32:41.846] 📋 CLIP backup: count=7, formats=49377:3957B, 13:24B, 49991:24B, 49941:265B, 16:4B, 1:16B, 7:16B, text=' 沒有 exec 命令'
+[paster]        [01:32:41.847] 📋 CLIP set attempt 1/4: chars=8, bytes=18, preview='哈囉哈囉你好你好'
+[paster]        [01:32:41.907] 📋 CLIP verify ok: attempt=1, chars=8, text='哈囉哈囉你好你好'
+[paster]        [01:32:41.988] ⌨️ Ctrl+V 準備送出，cb_ok=True，視窗="AI Whisper"，hwnd=0x15f82048，process=python.exe，class=Qt6111QWindowIcon，keys_before=async_down=none; logical_down=none，text='哈囉哈囉你好你好'
+[paster]        [01:32:41.989] ⌨️ 貼上前釋放修飾鍵: released=none，restore_later=none，preserve_ctrl=False，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:32:41.994] ⌨️ Ctrl+V 已送出，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:32:42.130] 🚫 CLIP guard armed: manual Ctrl+V suppressed
+[paster]        [01:32:42.131] ⏱️ 收到→貼上完成: 1.32s
+[paster]        [01:32:42.131] 📢 _notify_text_pasted → calling callback
+[paster]        [01:32:42.132] 📋 CLIP restore wait: 0.30s
+[paster]        [01:32:42.988] 📋 CLIP restore attempt 1/4: text=' 沒有 exec 命令'[main]          [01:32:42.988] ✅ overlay 顯示「辨識完成 ✓」(recording, polled)
+
+[paster]        [01:32:42.991] 📋 CLIP restore: restored=7/7, formats=49377:3957B, 13:24B, 49991:24B, 49941:265B, 16:4B, 1:16B, 7:16B, text=' 沒有 exec 命令'
+[paster]        [01:32:43.116] 📋 CLIP restore verify ok: attempt=1, text=' 沒有 exec 命令'
+[paster]        [01:32:43.117] 🚫 CLIP guard disarmed: blocked=0
+[paster]        [01:32:45.324] 📋 CLIP watchdog done: checks=11, repairs=0, ok=True, final=' 沒有 exec 命令'
+[paster]        [01:32:45.325] 📋 剪貼簿已還原驗證（7 種格式，restore_ok=True, watch_ok=True）
+[tap][sample]   [01:33:19.355] 持續=27ms 峰值=680 ✓ K=2.4 CF=3.6 SC=1121Hz Att=3.1ms | fK=2.2 fCF=4.1 fSC=1155Hz fFlat=0.286 fHF=0.003 🎯 敲擊 #1
+[tap][dim]      [01:33:19.391] 持續=36ms 峰值=510 ✗弱
+[tap][dim]      [01:33:27.042] 持續=27ms 峰值=333 ✗弱
+[tap][dim]      [01:33:27.358] 持續=28ms 峰值=365 ✗弱
+[tap][dim]      [01:33:37.482] 持續=45ms 峰值=399 ✗弱
+[tap]           [01:33:51.810] 💤 敲麥監聽已停止
+[recorder]      [01:33:51.811] 💤 預熱 stream 已關閉

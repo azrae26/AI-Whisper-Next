@@ -1,0 +1,82 @@
+[main]          [01:02:56.227] LOG -> F:\Cursor\AI Whisper Next\logs\ai_whisper_20260609_010256_P8-32.current.log
+[settings]      [01:02:56.228] config loaded from F:\Cursor\AI Whisper Next\config.json
+[main]          [01:02:56.354] ✅ 快捷鍵 ctrl+f11（句號）、ctrl+f12（逗號）已註冊
+[main]          [01:02:56.356] ✅ 主快捷鍵 2/2 已註冊 (Win32)
+[main]          [01:02:56.356] ✅ 記憶快捷鍵 5/5 已註冊 (Win32)
+[tap]           [01:02:56.373] 🎙️ 敲麥監聽已啟動
+[main]          [01:02:56.373] 🔧 DIAG 關閉元件: (none)
+[debug]         [01:02:56.384] 🔍 Debug server listening on 127.0.0.1:47643
+[recorder][VAD] [01:02:56.569] 載入 Silero VAD 模型 (ONNX): F:\Cursor\AI Whisper Next\assets\silero_vad.onnx
+[recorder][VAD] [01:02:56.684] Silero VAD 模型載入完成 (ONNX)
+[transcriber]   [01:02:57.824] 🔌 HTTP 連線預熱完成 (1.45s)
+[tap][dim]      [01:03:18.627] 持續=36ms 峰值=348 ✗弱
+[main]          [01:03:19.104] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:19.105] ⌨️ after(0) 執行延遲 1.3ms
+[tap]           [01:03:19.191] 💤 敲麥監聽已停止
+[recorder]      [01:03:19.202] ⏱️ InputStream() 10.8ms
+[recorder]      [01:03:19.202] ⏱️ stream.start() 0.4ms
+[recorder]      [01:03:19.202] 🎙️ 錄音就緒，總初始化 11.2ms
+[main]          [01:03:19.203] ⏱️ recorder.start() 耗時 11.8ms，ok=True
+[main]          [01:03:23.982] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:23.983] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:24.788] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:24.789] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:25.883] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:25.884] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:28.584] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:28.586] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:29.078] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:29.079] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:32.259] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:32.260] ⌨️ after(0) 執行延遲 1.3ms
+[main]          [01:03:33.071] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:33.072] ⌨️ after(0) 執行延遲 1.2ms
+[main]          [01:03:36.553] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:36.555] ⌨️ after(0) 執行延遲 1.6ms
+[tap]           [01:03:36.702] 🎙️ 敲麥監聽已啟動
+[main]          [01:03:36.742] 🎙️ 開始錄音
+[main]          [01:03:36.754] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+[main]          [01:03:36.756] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.761] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.765] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.765] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.766] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.767] ⚠️ 辨識中，忽略熱鍵
+[main]          [01:03:36.767] ⚠️ 辨識中，忽略熱鍵
+[recorder]      [01:03:36.879] 🎤 第一包音訊到達，麥克風實際開啟延遲 17676.7ms
+[main]          [01:03:39.069] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:39.073] ⌨️ after(0) 執行延遲 3.7ms
+[tap]           [01:03:39.095] 💤 敲麥監聽已停止
+[recorder]      [01:03:39.095] 🚀 預熱命中，直接開始錄音
+[main]          [01:03:39.096] ⏱️ recorder.start() 耗時 0.5ms，ok=True
+[tap]           [01:03:39.100] 🎙️ 敲麥監聽已啟動
+[main]          [01:03:39.107] 🎙️ 開始錄音
+[main]          [01:03:39.757] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:39.759] ⌨️ after(0) 執行延遲 1.5ms[main]          [01:03:39.760] ⏳ 預熱 idle 計時器啟動，10 分鐘後關閉麥克風
+
+[recorder][stop][01:03:39.761] 錄音太短 (0.67s)，略過
+[main]          [01:03:42.209] ⌨️ 主快捷鍵觸發（Win32/逗號），keys=async_down=Ctrl,RCtrl; logical_down=Ctrl,RCtrl
+[main]          [01:03:42.211] ⌨️ after(0) 執行延遲 1.4ms
+[tap]           [01:03:42.242] 💤 敲麥監聽已停止
+[recorder]      [01:03:42.242] 🚀 預熱命中，直接開始錄音
+[main]          [01:03:42.242] ⏱️ recorder.start() 耗時 0.6ms，ok=True
+[tap]           [01:03:42.247] 🎙️ 敲麥監聽已啟動
+[main]          [01:03:42.256] 🎙️ 開始錄音
+[tap][sample]   [01:03:44.934] 持續=1719ms 峰值=13813 ✗長 K=0.5 CF=3.4 SC=2456Hz Att=67.1ms | fK=0.6 fCF=3.4 fSC=2533Hz fFlat=0.613 fHF=0.084
+[tap][dim]      [01:03:44.971] 持續=37ms 峰值=369 ✗弱
+[recorder][VAD] [01:03:46.117] ✅ Silero 11/121 (23.4%), 0.35s speech
+[recorder][flush][01:03:46.118] ✅ 取出 3.9s 音訊段落
+[main]          [01:03:46.119] ✂️ 自動分段送出（靜音達1s，累積 3.9s，靜音 1.2s）
+[paster]        [01:03:46.298] 📏 [UIA] 文字為空 → 不加句號
+[paster]        [01:03:46.299] 🔮 預取游標位置: at_end=False, last_punct=False (delay=0.15s, est_api=0.57s)
+[transcriber]   [01:03:47.095] ⏱️ API 耗時: 0.97s
+[main]          [01:03:47.095] ✅ 分段辨識完成: "測試一下測試一下"
+[paster]        [01:03:47.127] 🎯 PASTE: at_end=False, last_punct=False, add_prefix=False (prefetched), prefix='，', final='測試一下測試一下'
+[paster]        [01:03:47.133] ⌨️ TEXT input flow start: target_chars=8，視窗="未命名 - 記事本"，hwnd=0x089a0e44，process=notepad.exe，class=Notepad，focus=('文字編輯器', 'Edit', '15', 'EditControl')，verify_readable=True，keys_before=async_down=none; logical_down=none，text='測試一下測試一下'
+[paster]        [01:03:47.134] ⌨️ 直接輸入前釋放修飾鍵: released=none，keys_after_release=async_down=none; logical_down=none
+[paster]        [01:03:47.144] ⌨️ TEXT input done: ok=True，keys_after_send=async_down=none; logical_down=none
+[paster]        [01:03:47.145] ⏱️ 收到→直接輸入完成: 0.05s
+[paster]        [01:03:47.146] ⌨️ TEXT input verify: ok=True，reason=sendinput_trusted (hwnd unchanged)
+[main]          [01:03:47.148] ✅ overlay 顯示「辨識完成 ✓」(recording, waveform)
+[tap]           [01:04:02.899] 💤 敲麥監聽已停止
+[recorder]      [01:04:02.963] 💤 預熱 stream 已關閉
